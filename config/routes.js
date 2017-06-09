@@ -42,7 +42,9 @@ module.exports.routes = {
   '/getShopInfo': 'ShopController.getShopInfo',
   '/setShopInfo': 'ShopController.setShopInfo',
   '/getShopRecord': 'ShopController.getShopRecord',
-  '/getPhoneRecord': 'ShopController.getPhoneRecord'
+  '/getPhoneRecord': 'ShopController.getPhoneRecord',
+  '/getInviteList': 'ActController.getInviteList',
+  '/getInviteInfo': 'ActController.getInviteInfo'
 
   /***************************************************************************
   *                                                                          *
