@@ -44,7 +44,8 @@ module.exports.routes = {
   '/getShopRecord': 'ShopController.getShopRecord',
   '/getPhoneRecord': 'ShopController.getPhoneRecord',
   '/getInviteList': 'ActController.getInviteList',
-  '/getInviteInfo': 'ActController.getInviteInfo'
+  '/getInviteInfo': 'ActController.getInviteInfo',
+  '/getoldInviteList': 'ActController.getoldInviteList'
 
   /***************************************************************************
   *                                                                          *
