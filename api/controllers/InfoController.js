@@ -12,9 +12,15 @@ module.exports = {
     var data = querystring.stringify({
       token: request.body.token
     });
+    if (request.body.versionName) {
+        var data = querystring.stringify({
+          token: request.body.token,
+          versionName: request.body.versionName,
+        });
+    }
 
     var options = {
-      hostname: 'api.ppmiao.com',
+      hostname: 'api.test.ppmiao.com',
       path: '/ppmiao-coin/getVipHomepageBean',
       method: 'POST',
       agent: false,
