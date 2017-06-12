@@ -15,7 +15,7 @@ module.exports = {
       });
 
       var options = {
-        hostname: 'api.ppmiao.com',
+        hostname: 'api.test.ppmiao.com',
         path: '/ppmiao-coin/getStorePageInfo',
         method: 'POST',
         agent: false,
