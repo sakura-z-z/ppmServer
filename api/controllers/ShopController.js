@@ -140,7 +140,7 @@ getPhoneRecord: function(request, response, callback) {
   });
 
   var options = {
-    hostname: 'api.ppmiao.com',
+    hostname: 'api.test.ppmiao.com',
     path: '/ppmiao-coin/getLatestExchangeLog',
     method: 'POST',
     agent: false,
