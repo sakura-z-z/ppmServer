@@ -14,7 +14,7 @@ module.exports = {
     });
 
     var options = {
-      hostname: 'api.ppmiao.com',
+      hostname: 'api.test.ppmiao.com',
       path: '/ppmiao-coin/getUserMonthlyGift',
       method: 'POST',
       agent: false,
@@ -57,7 +57,7 @@ module.exports = {
     });
 
     var options = {
-      hostname: 'api.ppmiao.com',
+      hostname: 'api.test.ppmiao.com',
       path: '/ppmiao-coin/claimUserMonthlyGift',
       method: 'POST',
       agent: false,
@@ -98,7 +98,7 @@ module.exports = {
     });
 
     var options = {
-      hostname: 'api.ppmiao.com',
+      hostname: 'api.test.ppmiao.com',
       path: '/ppmiao-coin/getUserMonthlyClaimLog',
       method: 'POST',
       agent: false,
@@ -140,7 +140,7 @@ module.exports = {
     });
 
     var options = {
-      hostname: 'api.ppmiao.com',
+      hostname: 'api.test.ppmiao.com',
       path: '/ppmiao-coin/getUserGrowRecord',
       method: 'POST',
       agent: false,

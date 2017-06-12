@@ -57,7 +57,7 @@ module.exports = {
       });
 
       var options = {
-        hostname: 'api.ppmiao.com',
+        hostname: 'api.test.ppmiao.com',
         path: '/ppmiao-coin/exchangeCommodity',
         method: 'POST',
         agent: false,
@@ -99,7 +99,7 @@ module.exports = {
     });
 
     var options = {
-      hostname: 'api.ppmiao.com',
+      hostname: 'api.test.ppmiao.com',
       path: '/ppmiao-coin/getUserExchangeLog',
       method: 'POST',
       agent: false,
