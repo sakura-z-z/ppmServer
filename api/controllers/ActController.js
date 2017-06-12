@@ -91,44 +91,16 @@ module.exports = {
     req.end();
   },
   getoldInviteList: function(request, response, callback) {
-    var data = querystring.stringify({
-      mobile: request.body.mobile
-    });
-
-    var options = {
-      hostname: 'testing.ppmiao.com',
-      path: '/hd/getInviteData.html',
-      method: 'POST',
-      agent: false,
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Content-Length': data.length,
-      }
-    };
+    var mobile = request.url.substring(request.url.length - 11, request.url.length)
     let body = '';
-    var req = http.request(options, (res) => {
-      var responseTimer = setTimeout(function() {
-        res.destroy();
-        debug('......Response Timeout......');
-      }, 5000);
-      res.setEncoding('utf8');
-      res.on('data', (chunk) => {
-        body += chunk;
-      }).on('end', (chunk) => {
-        clearTimeout(responseTimer);
-        if (res.statusCode == 200) {
-          let resp = JSON.parse(body);
-          response.send(JSON.parse(resp.resText));
-        }
-      });
-    });
-    req.on('error', function(e) {
-      if (callback) {
-        callback(e, null);
-      }
-      console.log('problem with request: ' + e.message);
-    });
-    req.write(data);
-    req.end();
+       http.get('http://testing.ppmiao.com/hd/getInviteData.html?mobile=' + mobile, (res) => {
+         res.on('data', (data) => {
+           body += data;
+       }).on('end', (chunk) =>{
+           if (res.statusCode == 200) {
+               response.send(body);
+           }
+        });
+       });
   }
 };
