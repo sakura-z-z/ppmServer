@@ -10,7 +10,7 @@ var querystring = require('querystring');
 module.exports = {
   getInviteInfo: function(request, response, callback) {
     var data = querystring.stringify({
-      mobile: '13588016645'
+      mobile: request.body.mobile
     });
 
     var options = {
