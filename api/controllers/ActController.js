@@ -16,7 +16,7 @@ module.exports = {
     var options = {
       hostname: '114.55.85.42',
       port: 10504,
-      path: '/stone-rest/payment/activity/inviteFriend/getInviteInfo',
+      path: '/stone-rest/payment/activity/inviteFriend/getInviteInfo.htm',
       method: 'POST',
       agent: false,
       headers: {
@@ -36,7 +36,7 @@ module.exports = {
       }).on('end', (chunk) => {
         clearTimeout(responseTimer);
         if (res.statusCode == 200) {
-            console.log(body);
+            response.send(body);
         }
       });
     });
@@ -57,7 +57,7 @@ module.exports = {
     var options = {
       hostname: '114.55.85.42',
       port: 10504,
-      path: '/stone-rest/payment/activity/inviteFriend/getInviteList',
+      path: '/stone-rest/payment/activity/inviteFriend/getInviteList.htm',
       method: 'POST',
       agent: false,
       headers: {
@@ -77,8 +77,7 @@ module.exports = {
       }).on('end', (chunk) => {
         clearTimeout(responseTimer);
         if (res.statusCode == 200) {
-          let resp = JSON.parse(body);
-          response.send(JSON.parse(resp.resText));
+          response.send(body);
         }
       });
     });
