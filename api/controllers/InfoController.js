@@ -20,7 +20,7 @@ module.exports = {
     }
 
     var options = {
-      hostname: 'api.test.ppmiao.com',
+      hostname: 'https://api.test.ppmiao.com',
       path: '/ppmiao-coin/getVipHomepageBean',
       method: 'POST',
       agent: false,
