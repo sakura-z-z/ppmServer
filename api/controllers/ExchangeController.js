@@ -35,8 +35,8 @@ module.exports = {
       }).on('end', (chunk) => {
         clearTimeout(responseTimer);
         if (res.statusCode == 200) {
-            response.send(body);
-            console.log(body);
+            let resp = JSON.parse(body);
+            response.send(JSON.parse(resp));
         }
       });
     });
@@ -76,7 +76,8 @@ module.exports = {
       }).on('end', (chunk) => {
         clearTimeout(responseTimer);
         if (res.statusCode == 200) {
-          response.send(body);
+            let resp = JSON.parse(body);
+            response.send(JSON.parse(resp));
         }
       });
     });
@@ -116,7 +117,8 @@ module.exports = {
       }).on('end', (chunk) => {
         clearTimeout(responseTimer);
         if (res.statusCode == 200) {
-          response.send(body);
+            let resp = JSON.parse(body);
+            response.send(JSON.parse(resp));
         }
       });
     });
