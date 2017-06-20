@@ -36,7 +36,7 @@ module.exports = {
         clearTimeout(responseTimer);
         if (res.statusCode == 200) {
             let resp = JSON.parse(body);
-            response.send(JSON.parse(resp));
+            response.send(JSON.parse(resp.resText));
         }
       });
     });
@@ -77,7 +77,7 @@ module.exports = {
         clearTimeout(responseTimer);
         if (res.statusCode == 200) {
             let resp = JSON.parse(body);
-            response.send(JSON.parse(resp));
+            response.send(JSON.parse(resp.resText));
         }
       });
     });
@@ -118,7 +118,7 @@ module.exports = {
         clearTimeout(responseTimer);
         if (res.statusCode == 200) {
             let resp = JSON.parse(body);
-            response.send(JSON.parse(resp));
+            response.send(JSON.parse(resp.resText));
         }
       });
     });
