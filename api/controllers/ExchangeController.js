@@ -9,15 +9,13 @@ var http = require('http');
 var CryptoJS = require("crypto-js");
 var querystring = require('querystring');
 module.exports = {
-  getInviteInfo: function(request, response, callback) {
+  getUserVipInfo: function(request, response, callback) {
     var data = querystring.stringify({
-      mobile: request.body.mobile
+      token: request.body.token
     });
-
     var options = {
-      hostname: '114.55.85.42',
-      port: 10504,
-      path: '/stone-rest/payment/activity/inviteFriend/getInviteInfo.htm',
+      hostname: 'api.test.ppmiao.com',
+      path: '/user/getUserVipInfo.json',
       method: 'POST',
       agent: false,
       headers: {
@@ -38,6 +36,7 @@ module.exports = {
         clearTimeout(responseTimer);
         if (res.statusCode == 200) {
             response.send(body);
+            console.log(body);
         }
       });
     });
@@ -50,15 +49,54 @@ module.exports = {
     req.write(data);
     req.end();
   },
-  getInviteList: function(request, response, callback) {
+  getExchangeList: function(request, response, callback) {
     var data = querystring.stringify({
-      mobile: request.body.mobile
+      token: request.body.token
     });
 
     var options = {
-      hostname: '114.55.85.42',
-      port: 10504,
-      path: '/stone-rest/payment/activity/inviteFriend/getInviteList.htm',
+      hostname: 'api.test.ppmiao.com',
+      path: '/user/getExchangeList.json',
+      method: 'POST',
+      agent: false,
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Length': data.length,
+      }
+    };
+    let body = '';
+    var req = http.request(options, (res) => {
+      var responseTimer = setTimeout(function() {
+        res.destroy();
+        debug('......Response Timeout......');
+      }, 5000);
+      res.setEncoding('utf8');
+      res.on('data', (chunk) => {
+        body += chunk;
+      }).on('end', (chunk) => {
+        clearTimeout(responseTimer);
+        if (res.statusCode == 200) {
+          response.send(body);
+        }
+      });
+    });
+    req.on('error', function(e) {
+      if (callback) {
+        callback(e, null);
+      }
+      console.log('problem with request: ' + e.message);
+    });
+    req.write(data);
+    req.end();
+  },
+  claimExchange: function(request, response, callback) {
+    var data = querystring.stringify({
+      token: request.body.token
+    });
+
+    var options = {
+      hostname: 'api.test.ppmiao.com',
+      path: '/user/claimExchange.json',
       method: 'POST',
       agent: false,
       headers: {

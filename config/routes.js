@@ -45,8 +45,10 @@ module.exports.routes = {
   '/getPhoneRecord': 'ShopController.getPhoneRecord',
   '/getInviteList': 'ActController.getInviteList',
   '/getInviteInfo': 'ActController.getInviteInfo',
-  '/getoldInviteList': 'ActController.getoldInviteList'
-
+  '/getoldInviteList': 'ActController.getoldInviteList',
+  '/getUserVipInfo': 'ExchangeController.getUserVipInfo',
+  '/getExchangeList': 'ExchangeController.getExchangeList',
+  '/claimExchange': 'ExchangeController.claimExchange'
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
