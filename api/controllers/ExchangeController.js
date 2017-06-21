@@ -14,7 +14,7 @@ module.exports = {
       token: request.body.token
     });
     var options = {
-      hostname: 'api.test.ppmiao.com',
+      hostname: 'api.ppmiao.com',
       path: '/user/getUserVipInfo.json',
       method: 'POST',
       agent: false,
@@ -55,7 +55,7 @@ module.exports = {
     });
 
     var options = {
-      hostname: 'api.test.ppmiao.com',
+      hostname: 'api.ppmiao.com',
       path: '/user/getExchangeList.json',
       method: 'POST',
       agent: false,
@@ -97,7 +97,7 @@ module.exports = {
     });
 
     var options = {
-      hostname: 'api.test.ppmiao.com',
+      hostname: 'api.ppmiao.com',
       path: '/user/claimExchange.json',
       method: 'POST',
       agent: false,
@@ -138,7 +138,7 @@ getWeeklyAward: function(request, response, callback) {
   });
 
   var options = {
-    hostname: 'api.test.ppmiao.com',
+    hostname: 'api.ppmiao.com',
     path: '/user/getWeeklyAward.json',
     method: 'POST',
     agent: false,
@@ -180,7 +180,7 @@ claimWeeklyAward: function(request, response, callback) {
   });
 
   var options = {
-    hostname: 'api.test.ppmiao.com',
+    hostname: 'api.ppmiao.com',
     path: '/user/claimWeeklyAward.json',
     method: 'POST',
     agent: false,
