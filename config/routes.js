@@ -48,7 +48,9 @@ module.exports.routes = {
   '/getoldInviteList': 'ActController.getoldInviteList',
   '/getUserVipInfo': 'ExchangeController.getUserVipInfo',
   '/getExchangeList': 'ExchangeController.getExchangeList',
-  '/claimExchange': 'ExchangeController.claimExchange'
+  '/claimExchange': 'ExchangeController.claimExchange',
+  '/getWeeklyAward': 'ExchangeController.getWeeklyAward',
+  '/claimWeeklyAward': 'ExchangeController.claimWeeklyAward'
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
