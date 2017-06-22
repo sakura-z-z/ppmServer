@@ -8,6 +8,9 @@
 var http = require('http');
 var CryptoJS = require("crypto-js");
 var querystring = require('querystring');
+var key = '5Df8$&@S';
+var iv = CryptoJS.enc.Utf8.parse(key);
+var key = CryptoJS.enc.Utf8.parse(key);
 module.exports = {
   getUserVipInfo: function(request, response, callback) {
     var data = querystring.stringify({
@@ -36,7 +39,7 @@ module.exports = {
         clearTimeout(responseTimer);
         if (res.statusCode == 200) {
             let resp = JSON.parse(body);
-            response.send(JSON.parse(resp.resText));
+            response.send(resp);
         }
       });
     });
@@ -77,7 +80,7 @@ module.exports = {
         clearTimeout(responseTimer);
         if (res.statusCode == 200) {
             let resp = JSON.parse(body);
-            response.send(JSON.parse(resp.resText));
+            response.send(resp);
         }
       });
     });
@@ -119,7 +122,7 @@ module.exports = {
         clearTimeout(responseTimer);
         if (res.statusCode == 200) {
             let resp = JSON.parse(body);
-            response.send(JSON.parse(resp.resText));
+            response.send(resp);
         }
       });
     });
@@ -160,7 +163,7 @@ getWeeklyAward: function(request, response, callback) {
       clearTimeout(responseTimer);
       if (res.statusCode == 200) {
           let resp = JSON.parse(body);
-          response.send(JSON.parse(resp.resText));
+          response.send(resp);
       }
     });
   });
@@ -202,7 +205,7 @@ claimWeeklyAward: function(request, response, callback) {
       clearTimeout(responseTimer);
       if (res.statusCode == 200) {
           let resp = JSON.parse(body);
-          response.send(JSON.parse(resp.resText));
+          response.send(resp);
       }
     });
   });

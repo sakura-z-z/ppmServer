@@ -73,6 +73,6 @@ module.exports.cors = {
   *                                                                          *
   ***************************************************************************/
 
-  headers: 'Content-Type': 'application/x-www-form-urlencoded'
+  headers: 'Content-Type'
 
 };
