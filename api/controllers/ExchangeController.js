@@ -39,7 +39,7 @@ module.exports = {
         clearTimeout(responseTimer);
         if (res.statusCode == 200) {
             let resp = JSON.parse(body);
-            response.send(resp);
+            response.send(JSON.parse(resp.resText));
         }
       });
     });
@@ -80,7 +80,7 @@ module.exports = {
         clearTimeout(responseTimer);
         if (res.statusCode == 200) {
             let resp = JSON.parse(body);
-            response.send(resp);
+            response.send(JSON.parse(resp.resText));
         }
       });
     });
@@ -122,7 +122,7 @@ module.exports = {
         clearTimeout(responseTimer);
         if (res.statusCode == 200) {
             let resp = JSON.parse(body);
-            response.send(resp);
+            response.send(JSON.parse(resp.resText));
         }
       });
     });
@@ -163,7 +163,7 @@ getWeeklyAward: function(request, response, callback) {
       clearTimeout(responseTimer);
       if (res.statusCode == 200) {
           let resp = JSON.parse(body);
-          response.send(resp);
+          response.send(JSON.parse(resp.resText));
       }
     });
   });
@@ -205,7 +205,7 @@ claimWeeklyAward: function(request, response, callback) {
       clearTimeout(responseTimer);
       if (res.statusCode == 200) {
           let resp = JSON.parse(body);
-          response.send(resp);
+          response.send(JSON.parse(resp.resText));
       }
     });
   });
