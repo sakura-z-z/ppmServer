@@ -47,7 +47,7 @@ module.exports.cors = {
   *                                                                          *
   ***************************************************************************/
 
-  origin: 'http://image.ppmiao.com/',
+  origin: '*',
 
   /***************************************************************************
   *                                                                          *
@@ -73,6 +73,6 @@ module.exports.cors = {
   *                                                                          *
   ***************************************************************************/
 
-  headers: 'content-type,if-modified-since,Authorization'
+  headers: 'Content-Type': 'application/x-www-form-urlencoded'
 
 };
