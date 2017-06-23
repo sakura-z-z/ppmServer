@@ -9,7 +9,6 @@ var CryptoJS = require("crypto-js");
 var querystring = require('querystring');
 module.exports = {
   getInviteInfo: function(request, response, callback) {
-      console.log(request.body);
       if(request.body.mobile !=undefined) {
           var data = querystring.stringify({
             mobile: request.body.mobile
@@ -18,7 +17,6 @@ module.exports = {
           var data = querystring.stringify({
             mobile: request.body.mobile
           });
-          console.log(1);
       }
 
     var options = {
@@ -59,11 +57,15 @@ module.exports = {
     req.end();
   },
   getInviteList: function(request, response, callback) {
-      if(request.body.mobile != undefined) {
-            var data = querystring.stringify({
-              mobile: request.body.mobile
-            });
-        }
+      if(request.body.mobile !=undefined) {
+          var data = querystring.stringify({
+            mobile: request.body.mobile
+          });
+      } else {
+          var data = querystring.stringify({
+            mobile: request.body.mobile
+          });
+      }
     var options = {
       hostname: '114.55.85.42',
       port: 10504,
