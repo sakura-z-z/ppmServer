@@ -78,6 +78,7 @@ module.exports = {
         clearTimeout(responseTimer);
         if (res.statusCode == 200) {
           response.send(body);
+          console.log(body);
         }
       });
     });
