@@ -181,7 +181,7 @@ module.exports = {
   },
   claimWeeklyAward: function(request, response, callback) {
     var data = querystring.stringify({
-      token: request.body.token,
+      token: this.des(request.body.token),
       id: request.body.id
     });
     var options = {
