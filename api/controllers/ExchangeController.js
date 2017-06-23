@@ -8,13 +8,16 @@
 var http = require('http');
 var CryptoJS = require("crypto-js");
 var querystring = require('querystring');
+var key = '5Df8$&@S';
+var iv = CryptoJS.enc.Utf8.parse(key);
+var key = CryptoJS.enc.Utf8.parse(key);
 module.exports = {
   getUserVipInfo: function(request, response, callback) {
     var data = querystring.stringify({
       token: this.des(request.body.token)
     });
     var options = {
-      hostname: 'api.test.ppmiao.com',
+      hostname: 'api.ppmiao.com',
       path: '/user/getUserVipInfo.json',
       method: 'POST',
       agent: false,
@@ -55,7 +58,7 @@ module.exports = {
     });
 
     var options = {
-      hostname: 'api.test.ppmiao.com',
+      hostname: 'api.ppmiao.com',
       path: '/user/getExchangeList.json',
       method: 'POST',
       agent: false,
@@ -97,7 +100,7 @@ module.exports = {
     });
 
     var options = {
-      hostname: 'api.test.ppmiao.com',
+      hostname: 'api.ppmiao.com',
       path: '/user/claimExchange.json',
       method: 'POST',
       agent: false,
@@ -138,7 +141,7 @@ getWeeklyAward: function(request, response, callback) {
   });
 
   var options = {
-    hostname: 'api.test.ppmiao.com',
+    hostname: 'api.ppmiao.com',
     path: '/user/getWeeklyAward.json',
     method: 'POST',
     agent: false,
@@ -180,7 +183,7 @@ claimWeeklyAward: function(request, response, callback) {
   });
 
   var options = {
-    hostname: 'api.test.ppmiao.com',
+    hostname: 'api.ppmiao.com',
     path: '/user/claimWeeklyAward.json',
     method: 'POST',
     agent: false,
