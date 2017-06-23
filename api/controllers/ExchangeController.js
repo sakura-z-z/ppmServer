@@ -16,7 +16,6 @@ module.exports = {
     var data = querystring.stringify({
       token: this.des(request.body.token)
     });
-    console.log(this.des(request.body.token));
     var options = {
       hostname: '121.40.211.34',
       port: 8089,
@@ -38,7 +37,6 @@ module.exports = {
       res.on('data', (chunk) => {
         body += chunk;
       }).on('end', (chunk) => {
-        console.log(body);
         clearTimeout(responseTimer);
         if (res.statusCode == 200) {
           let resp = JSON.parse(body);
@@ -102,7 +100,6 @@ module.exports = {
       token: this.des(request.body.token),
       id: request.body.id
     });
-
     var options = {
       hostname: '121.40.211.34',
       port: 8089,
@@ -187,7 +184,7 @@ module.exports = {
       token: this.des(request.body.token),
       id: request.body.id
     });
-
+    console.log(request.body.id);
     var options = {
       hostname: '121.40.211.34',
       port: 8089,
