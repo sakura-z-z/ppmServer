@@ -8,13 +8,13 @@
 var http = require('http');
 var CryptoJS = require("crypto-js");
 var querystring = require('querystring');
-var key = '5Df8$&@S';
-var iv = CryptoJS.enc.Utf8.parse(key);
-var key = CryptoJS.enc.Utf8.parse(key);
+// var key = '5Df8$&@S';
+// var iv = CryptoJS.enc.Utf8.parse(key);
+// var key = CryptoJS.enc.Utf8.parse(key);
 module.exports = {
   getUserVipInfo: function(request, response, callback) {
     var data = querystring.stringify({
-      token: this.des(request.body.token)
+      token: request.body.token
     });
     var options = {
       hostname: '121.40.211.34',
@@ -55,7 +55,7 @@ module.exports = {
   },
   getExchangeList: function(request, response, callback) {
     var data = querystring.stringify({
-      token: this.des(request.body.token)
+      token: request.body.token
     });
 
     var options = {
@@ -97,7 +97,7 @@ module.exports = {
   },
   claimExchange: function(request, response, callback) {
     var data = querystring.stringify({
-      token: this.des(request.body.token),
+      token: request.body.token,
       id: request.body.id
     });
     var options = {
@@ -139,7 +139,7 @@ module.exports = {
   },
   getWeeklyAward: function(request, response, callback) {
     var data = querystring.stringify({
-      token: this.des(request.body.token)
+      token: request.body.token
     });
 
     var options = {
@@ -181,10 +181,9 @@ module.exports = {
   },
   claimWeeklyAward: function(request, response, callback) {
     var data = querystring.stringify({
-      token: this.des(request.body.token),
+      token: request.body.token,
       id: request.body.id
     });
-    console.log(request.body.id);
     var options = {
       hostname: '121.40.211.34',
       port: 8089,
