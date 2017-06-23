@@ -16,6 +16,7 @@ module.exports = {
     var data = querystring.stringify({
       token: this.des(request.body.token)
     });
+    console.log(this.des(request.body.token));
     var options = {
       hostname: '121.40.211.34',
       port: 8089,
@@ -235,5 +236,6 @@ module.exports = {
     });
     // 转换为 utf8 字符串
     decrypted = CryptoJS.enc.Utf8.stringify(decrypted);
+    return decrypted;
   }
 };
