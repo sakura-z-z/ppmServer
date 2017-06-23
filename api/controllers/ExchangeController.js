@@ -11,7 +11,7 @@ var querystring = require('querystring');
 module.exports = {
   getUserVipInfo: function(request, response, callback) {
     var data = querystring.stringify({
-      token: request.body.token
+      token: this.des(request.body.token)
     });
     var options = {
       hostname: 'api.test.ppmiao.com',
@@ -51,7 +51,7 @@ module.exports = {
   },
   getExchangeList: function(request, response, callback) {
     var data = querystring.stringify({
-      token: request.body.token
+      token: this.des(request.body.token)
     });
 
     var options = {
@@ -92,7 +92,7 @@ module.exports = {
   },
   claimExchange: function(request, response, callback) {
     var data = querystring.stringify({
-      token: request.body.token,
+      token: this.des(request.body.token),
       id: request.body.id
     });
 
@@ -134,7 +134,7 @@ module.exports = {
 },
 getWeeklyAward: function(request, response, callback) {
   var data = querystring.stringify({
-    token: request.body.token
+    token: this.des(request.body.token)
   });
 
   var options = {
@@ -175,7 +175,7 @@ getWeeklyAward: function(request, response, callback) {
 },
 claimWeeklyAward: function(request, response, callback) {
   var data = querystring.stringify({
-    token: request.body.token,
+    token: this.des(request.body.token),
     id: request.body.id
   });
 
@@ -215,4 +215,16 @@ claimWeeklyAward: function(request, response, callback) {
   req.write(data);
   req.end();
 },
+des: function(token) {
+  var key = '5Df8$&@S';
+  var iv = CryptoJS.enc.Utf8.parse(key);
+  var key = CryptoJS.enc.Utf8.parse(key);
+  var decrypted = CryptoJS.TripleDES.decrypt(token, key, {
+    iv: iv,
+    mode: CryptoJS.mode.CBC,
+    padding: CryptoJS.pad.Pkcs7
+  });
+  // 转换为 utf8 字符串
+  decrypted = CryptoJS.enc.Utf8.stringify(decrypted);
+}
 };
