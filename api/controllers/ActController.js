@@ -7,11 +7,17 @@
 var http = require('http');
 var CryptoJS = require("crypto-js");
 var querystring = require('querystring');
+var Moment = require('moment');
 module.exports = {
   getInviteInfo: function(request, response, callback) {
-    var data = querystring.stringify({
-      mobile: request.body.mobile
-    });
+      if (request.body.mobile != undefined) {
+          var data = querystring.stringify({
+            mobile: request.body.mobile
+          });
+      } else{
+          var data = querystring.stringify({
+          });
+      }
 
     var options = {
       hostname: '114.55.85.42',
@@ -25,6 +31,12 @@ module.exports = {
       }
     };
     let body = '';
+    let resp = JSON.parse(mock);
+    // response.send(JSON.parse(resp.resText));
+    console.log(JSON.parse(resp.resText));
+    // resp.map(item =>({
+    //
+    // }));
     var req = http.request(options, (res) => {
       var responseTimer = setTimeout(function() {
         res.destroy();
@@ -36,7 +48,7 @@ module.exports = {
       }).on('end', (chunk) => {
         clearTimeout(responseTimer);
         if (res.statusCode == 200) {
-            response.send(body);
+          response.send(body);
         }
       });
     });
@@ -50,14 +62,21 @@ module.exports = {
     req.end();
   },
   getInviteList: function(request, response, callback) {
-    var data = querystring.stringify({
-      mobile: request.body.mobile
-    });
+      if (request.body.mobile != undefined) {
+          var data = querystring.stringify({
+            mobile: request.body.mobile
+          });
+      } else{
+          var data = querystring.stringify({
+          });
+      }
 
     var options = {
-      hostname: '114.55.85.42',
-      port: 10504,
-      path: '/stone-rest/payment/activity/inviteFriend/getInviteList.htm',
+      //   hostname: '114.55.85.42',
+      //   port: 10504,
+      //   path: '/stone-rest/payment/activity/inviteFriend/getInviteList.htm',
+      hostname: 'www.easy-mock.com',
+      path: '/mock/594e1ef79adc231f356988b4/invite/getInviteList',
       method: 'POST',
       agent: false,
       headers: {
@@ -77,8 +96,44 @@ module.exports = {
       }).on('end', (chunk) => {
         clearTimeout(responseTimer);
         if (res.statusCode == 200) {
-          response.send(body);
-          console.log(body);
+          let arr = [];
+          let recordarr = [];
+          let resp = JSON.parse(body);
+          let month = 0;
+          let time = 0;
+          resp.result.map(function(item, index) {
+            if (month == 0) {
+              month = item.time.month;
+              time = item.time.time;
+            }
+            if (item.time.month == month) {
+              recordarr.push({
+                index: index + 1,
+                award: item.award,
+                source: item.source
+              });
+            } else {
+              arr.push({
+                time: Moment.unix(time/1000).format('YYYY/MM'),
+                record: recordarr
+              });
+              month = item.time.month;
+              time = item.time.time;
+              recordarr = [];
+              recordarr.push({
+                index: index + 1,
+                award: item.award,
+                source: item.source
+              });
+            }
+            if(index == resp.result.length - 1) {
+                arr.push({
+                  time: Moment.unix(time/1000).format('YYYY/MM'),
+                  record: recordarr
+                });
+            }
+          });
+          response.send(arr);
         }
       });
     });

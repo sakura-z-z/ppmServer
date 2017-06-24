@@ -35,6 +35,7 @@
   "author": "chauncey",
   "license": "",
   "devDependencies": {
-    "crypto-js": "^3.1.9-1"
+    "crypto-js": "^3.1.9-1",
+    "moment": "^2.18.1"
   }
 }
