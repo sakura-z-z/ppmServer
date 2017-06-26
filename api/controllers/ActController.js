@@ -31,12 +31,6 @@ module.exports = {
       }
     };
     let body = '';
-    let resp = JSON.parse(mock);
-    // response.send(JSON.parse(resp.resText));
-    console.log(JSON.parse(resp.resText));
-    // resp.map(item =>({
-    //
-    // }));
     var req = http.request(options, (res) => {
       var responseTimer = setTimeout(function() {
         res.destroy();
@@ -72,11 +66,11 @@ module.exports = {
       }
 
     var options = {
-      //   hostname: '114.55.85.42',
-      //   port: 10504,
-      //   path: '/stone-rest/payment/activity/inviteFriend/getInviteList.htm',
-      hostname: 'www.easy-mock.com',
-      path: '/mock/594e1ef79adc231f356988b4/invite/getInviteList',
+        hostname: '114.55.85.42',
+        port: 10504,
+        path: '/stone-rest/payment/activity/inviteFriend/getInviteList.htm',
+    //   hostname: 'www.easy-mock.com',
+    //   path: '/mock/594e1ef79adc231f356988b4/invite/getInviteList',
       method: 'POST',
       agent: false,
       headers: {
@@ -96,6 +90,7 @@ module.exports = {
       }).on('end', (chunk) => {
         clearTimeout(responseTimer);
         if (res.statusCode == 200) {
+            console.log(body);
           let arr = [];
           let recordarr = [];
           let resp = JSON.parse(body);
