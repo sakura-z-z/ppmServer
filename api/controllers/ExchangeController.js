@@ -220,7 +220,7 @@ module.exports = {
       if (callback) {
         callback(e, null);
       }
-      console.log('problem with request: ' + e.message);
+      console.log('problem with request ' + e.message);
     });
     req.write(data);
     req.end();
