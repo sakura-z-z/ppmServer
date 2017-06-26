@@ -34,44 +34,26 @@ module.exports = {
         debug('......Response Timeout......');
       }, 5000);
       res.setEncoding('utf8');
-    //   loda.replace()
+      //   loda.replace()
       res.on('data', (chunk) => {
         body += chunk;
       }).on('end', (chunk) => {
         clearTimeout(responseTimer);
         if (res.statusCode == 200) {
-          let resp = JSON.parse(body);
-          console.log(resp.resText);
-          var data1 = '{"code":"0","result":"1kp0P/DuJGAdgc9jl0QoGDjHH9/azHSPcXUTkXZ8CacdkoKC4WHzt312jVihC7HL","errorType":null,"errorMsg":"正常","success":true}';
-          var data2 = 'eyqHDoeDrIra8sRTOHhugsPus7Yb6N7FKpi5uiKKE1Wy8lesZPflSqsf/YP2e8XWxQrZ/T5cbyV4\n0FlETnrJLp3Y0snHyEzYknri7qSmoXVQanPfupNyYP5Zp5WfuJ79bpdQqwI8lXtRUpIRfPp8aoaL\ndSmDAtRKOTrCnjPG6FwgmAAQ3L9E6/jUV6t2Ar6S\n';
-          var data3 = 'eyqHDoeDrIra8sRTOHhugsPus7Yb6N7FKpi5uiKKE1Wy8lesZPflSqsf/YP2e8XWxQrZ/T5cbyV40FlETnrJLp3Y0snHyEzYknri7qSmoXVQanPfupNyYP5Zp5WfuJ79bpdQqwI8lXtRUpIRfPp8aoaLdSmDAtRKOTrCnjPG6FwgmAAQ3L9E6/jUV6t2Ar6S'
-        //   if(data2.replace(/[\r\n]/g, "")){
-        //       console.log(data2);
-        //   }
-          data2 = data2.replace(/[\r\n]/g, "")
-          console.log(data2);
-          console.log(data3);
-          // Encrypt
-          //   var ciphertext = CryptoJS.DES.encrypt(JSON.stringify(data1), '5Df8$&@S').toString();
-          var ciphertext = CryptoJS.DES.encrypt(resp.resText, key, {
-            iv: iv,
-            mode: CryptoJS.mode.CBC,
-            padding: CryptoJS.pad.Pkcs7,
-            blockSize: 8
-          });
-        //   console.log('ciphertext');
-        //   console.log(ciphertext.toString());
-
-          // Decrypt
-          var ciphertext = CryptoJS.DES.decrypt(data2, key, {
-            iv: iv,
-            mode: CryptoJS.mode.CBC,
-            padding: CryptoJS.pad.Pkcs7
-          });
-          ciphertext = CryptoJS.enc.Utf8.stringify(ciphertext);
-          //   var decryptedData = ciphertext.toString(CryptoJS.enc.Utf8);
-          console.log(ciphertext);
-          //   response.send(decrypt);
+          let resp = JSON.parse(body); 
+          if (resp.isEnc == 'Y') {
+            let data = resp.resText;
+            data = data.replace(/[\r\n]/g, "");
+            var ciphertext = CryptoJS.DES.decrypt(data, key, {
+              iv: iv,
+              mode: CryptoJS.mode.CBC,
+              padding: CryptoJS.pad.Pkcs7
+            });
+            ciphertext = CryptoJS.enc.Utf8.stringify(ciphertext);
+            response.send(ciphertext);
+          } else {
+            response.send(resp.resText);
+          }
         }
       });
     });
@@ -90,9 +72,8 @@ module.exports = {
     });
 
     var options = {
-      hostname: '121.40.211.34',
-      port: 8089,
-      path: '/stone-rest/rest/user/getExchangeList.json',
+      hostname: 'api.ppmiao.com',
+      path: '/user/getExchangeList.json',
       method: 'POST',
       agent: false,
       headers: {
@@ -112,8 +93,20 @@ module.exports = {
       }).on('end', (chunk) => {
         clearTimeout(responseTimer);
         if (res.statusCode == 200) {
-          let resp = JSON.parse(body);
-          response.send(JSON.parse(resp.resText));
+          let resp = JSON.parse(body); 
+          if (resp.isEnc == 'Y') {
+            let data = resp.resText;
+            data = data.replace(/[\r\n]/g, "");
+            var ciphertext = CryptoJS.DES.decrypt(data, key, {
+              iv: iv,
+              mode: CryptoJS.mode.CBC,
+              padding: CryptoJS.pad.Pkcs7
+            });
+            ciphertext = CryptoJS.enc.Utf8.stringify(ciphertext);
+            response.send(ciphertext);
+          } else {
+            response.send(resp.resText);
+          }
         }
       });
     });
@@ -132,9 +125,8 @@ module.exports = {
       id: request.body.id
     });
     var options = {
-      hostname: '121.40.211.34',
-      port: 8089,
-      path: '/stone-rest/rest/user/claimExchange.json',
+      hostname: 'api.ppmiao.com',
+      path: '/user/claimExchange.json',
       method: 'POST',
       agent: false,
       headers: {
@@ -154,8 +146,20 @@ module.exports = {
       }).on('end', (chunk) => {
         clearTimeout(responseTimer);
         if (res.statusCode == 200) {
-          let resp = JSON.parse(body);
-          response.send(JSON.parse(resp.resText));
+          let resp = JSON.parse(body); 
+          if (resp.isEnc == 'Y') {
+            let data = resp.resText;
+            data = data.replace(/[\r\n]/g, "");
+            var ciphertext = CryptoJS.DES.decrypt(data, key, {
+              iv: iv,
+              mode: CryptoJS.mode.CBC,
+              padding: CryptoJS.pad.Pkcs7
+            });
+            ciphertext = CryptoJS.enc.Utf8.stringify(ciphertext);
+            response.send(ciphertext);
+          } else {
+            response.send(resp.resText);
+          }
         }
       });
     });
@@ -174,9 +178,8 @@ module.exports = {
     });
 
     var options = {
-      hostname: '121.40.211.34',
-      port: 8089,
-      path: '/stone-rest/rest/user/getWeeklyAward.json',
+      hostname: 'api.ppmiao.com',
+      path: '/user/getWeeklyAward.json',
       method: 'POST',
       agent: false,
       headers: {
@@ -196,8 +199,20 @@ module.exports = {
       }).on('end', (chunk) => {
         clearTimeout(responseTimer);
         if (res.statusCode == 200) {
-          let resp = JSON.parse(body);
-          response.send(JSON.parse(resp.resText));
+          let resp = JSON.parse(body); 
+          if (resp.isEnc == 'Y') {
+            let data = resp.resText;
+            data = data.replace(/[\r\n]/g, "");
+            var ciphertext = CryptoJS.DES.decrypt(data, key, {
+              iv: iv,
+              mode: CryptoJS.mode.CBC,
+              padding: CryptoJS.pad.Pkcs7
+            });
+            ciphertext = CryptoJS.enc.Utf8.stringify(ciphertext);
+            response.send(ciphertext);
+          } else {
+            response.send(resp.resText);
+          }
         }
       });
     });
@@ -216,9 +231,8 @@ module.exports = {
       id: request.body.id
     });
     var options = {
-      hostname: '121.40.211.34',
-      port: 8089,
-      path: '/stone-rest/rest/user/claimWeeklyAward.json',
+      hostname: 'api.ppmiao.com',
+      path: '/user/claimWeeklyAward.json',
       method: 'POST',
       agent: false,
       headers: {
@@ -238,8 +252,20 @@ module.exports = {
       }).on('end', (chunk) => {
         clearTimeout(responseTimer);
         if (res.statusCode == 200) {
-          let resp = JSON.parse(body);
-          response.send(JSON.parse(resp.resText));
+          let resp = JSON.parse(body); 
+          if (resp.isEnc == 'Y') {
+            let data = resp.resText;
+            data = data.replace(/[\r\n]/g, "");
+            var ciphertext = CryptoJS.DES.decrypt(data, key, {
+              iv: iv,
+              mode: CryptoJS.mode.CBC,
+              padding: CryptoJS.pad.Pkcs7
+            });
+            ciphertext = CryptoJS.enc.Utf8.stringify(ciphertext);
+            response.send(ciphertext);
+          } else {
+            response.send(resp.resText);
+          }
         }
       });
     });
