@@ -15,7 +15,7 @@ module.exports = {
       });
 
       var options = {
-        hostname: 'api.test.ppmiao.com',
+        hostname: 'api.ppmiao.com',
         path: '/ppmiao-coin/getStorePageInfo',
         method: 'POST',
         agent: false,
@@ -36,8 +36,20 @@ module.exports = {
         }).on('end', (chunk) => {
           clearTimeout(responseTimer);
           if (res.statusCode == 200) {
-            let resp = JSON.parse(body);
-            response.send(JSON.parse(resp.resText));
+            let resp = JSON.parse(body); 
+            if (resp.isEnc == 'Y') {
+              let data = resp.resText;
+              data = data.replace(/[\r\n]/g, "");
+              var ciphertext = CryptoJS.DES.decrypt(data, key, {
+                iv: iv,
+                mode: CryptoJS.mode.CBC,
+                padding: CryptoJS.pad.Pkcs7
+              });
+              ciphertext = CryptoJS.enc.Utf8.stringify(ciphertext);
+              response.send(ciphertext);
+            } else {
+              response.send(resp.resText);
+            }
           }
         });
       });
@@ -57,7 +69,7 @@ module.exports = {
       });
 
       var options = {
-        hostname: 'api.test.ppmiao.com',
+        hostname: 'api.ppmiao.com',
         path: '/ppmiao-coin/exchangeCommodity',
         method: 'POST',
         agent: false,
@@ -78,8 +90,20 @@ module.exports = {
         }).on('end', (chunk) => {
           clearTimeout(responseTimer);
           if (res.statusCode == 200) {
-            let resp = JSON.parse(body);
-            response.send(JSON.parse(resp.resText));
+            let resp = JSON.parse(body); 
+            if (resp.isEnc == 'Y') {
+              let data = resp.resText;
+              data = data.replace(/[\r\n]/g, "");
+              var ciphertext = CryptoJS.DES.decrypt(data, key, {
+                iv: iv,
+                mode: CryptoJS.mode.CBC,
+                padding: CryptoJS.pad.Pkcs7
+              });
+              ciphertext = CryptoJS.enc.Utf8.stringify(ciphertext);
+              response.send(ciphertext);
+            } else {
+              response.send(resp.resText);
+            }
           }
         });
       });
@@ -99,7 +123,7 @@ module.exports = {
     });
 
     var options = {
-      hostname: 'api.test.ppmiao.com',
+      hostname: 'api.ppmiao.com',
       path: '/ppmiao-coin/getUserExchangeLog',
       method: 'POST',
       agent: false,
@@ -120,8 +144,20 @@ module.exports = {
       }).on('end', (chunk) => {
         clearTimeout(responseTimer);
         if (res.statusCode == 200) {
-          let resp = JSON.parse(body);
-          response.send(JSON.parse(resp.resText));
+          let resp = JSON.parse(body); 
+          if (resp.isEnc == 'Y') {
+            let data = resp.resText;
+            data = data.replace(/[\r\n]/g, "");
+            var ciphertext = CryptoJS.DES.decrypt(data, key, {
+              iv: iv,
+              mode: CryptoJS.mode.CBC,
+              padding: CryptoJS.pad.Pkcs7
+            });
+            ciphertext = CryptoJS.enc.Utf8.stringify(ciphertext);
+            response.send(ciphertext);
+          } else {
+            response.send(resp.resText);
+          }
         }
       });
     });
@@ -140,7 +176,7 @@ getPhoneRecord: function(request, response, callback) {
   });
 
   var options = {
-    hostname: 'api.test.ppmiao.com',
+    hostname: 'api.ppmiao.com',
     path: '/ppmiao-coin/getLatestExchangeLog',
     method: 'POST',
     agent: false,
@@ -161,8 +197,20 @@ getPhoneRecord: function(request, response, callback) {
     }).on('end', (chunk) => {
       clearTimeout(responseTimer);
       if (res.statusCode == 200) {
-        let resp = JSON.parse(body);
-        response.send(JSON.parse(resp.resText));
+        let resp = JSON.parse(body); 
+        if (resp.isEnc == 'Y') {
+          let data = resp.resText;
+          data = data.replace(/[\r\n]/g, "");
+          var ciphertext = CryptoJS.DES.decrypt(data, key, {
+            iv: iv,
+            mode: CryptoJS.mode.CBC,
+            padding: CryptoJS.pad.Pkcs7
+          });
+          ciphertext = CryptoJS.enc.Utf8.stringify(ciphertext);
+          response.send(ciphertext);
+        } else {
+          response.send(resp.resText);
+        }
       }
     });
   });

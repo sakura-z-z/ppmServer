@@ -8,13 +8,17 @@
 var http = require('http');
 var CryptoJS = require("crypto-js");
 var querystring = require('querystring');
+var loda = require('lodash');
+var key = '5Df8$&@S';
+var iv = CryptoJS.enc.Utf8.parse(key);
+var key = CryptoJS.enc.Utf8.parse(key);
 module.exports = {
   getUserVipInfo: function(request, response, callback) {
     var data = querystring.stringify({
       token: this.des(request.body.token)
     });
     var options = {
-      hostname: 'api.test.ppmiao.com',
+      hostname: 'api.ppmiao.com',
       path: '/user/getUserVipInfo.json',
       method: 'POST',
       agent: false,
@@ -30,13 +34,26 @@ module.exports = {
         debug('......Response Timeout......');
       }, 5000);
       res.setEncoding('utf8');
+      //   loda.replace()
       res.on('data', (chunk) => {
         body += chunk;
       }).on('end', (chunk) => {
         clearTimeout(responseTimer);
         if (res.statusCode == 200) {
-          let resp = JSON.parse(body);
-          response.send(JSON.parse(resp.resText));
+          let resp = JSON.parse(body); 
+          if (resp.isEnc == 'Y') {
+            let data = resp.resText;
+            data = data.replace(/[\r\n]/g, "");
+            var ciphertext = CryptoJS.DES.decrypt(data, key, {
+              iv: iv,
+              mode: CryptoJS.mode.CBC,
+              padding: CryptoJS.pad.Pkcs7
+            });
+            ciphertext = CryptoJS.enc.Utf8.stringify(ciphertext);
+            response.send(ciphertext);
+          } else {
+            response.send(resp.resText);
+          }
         }
       });
     });
@@ -51,11 +68,11 @@ module.exports = {
   },
   getExchangeList: function(request, response, callback) {
     var data = querystring.stringify({
-       token: this.des(request.body.token)
+      token: this.des(request.body.token)
     });
 
     var options = {
-      hostname: 'api.test.ppmiao.com',
+      hostname: 'api.ppmiao.com',
       path: '/user/getExchangeList.json',
       method: 'POST',
       agent: false,
@@ -76,8 +93,20 @@ module.exports = {
       }).on('end', (chunk) => {
         clearTimeout(responseTimer);
         if (res.statusCode == 200) {
-          let resp = JSON.parse(body);
-          response.send(JSON.parse(resp.resText));
+          let resp = JSON.parse(body); 
+          if (resp.isEnc == 'Y') {
+            let data = resp.resText;
+            data = data.replace(/[\r\n]/g, "");
+            var ciphertext = CryptoJS.DES.decrypt(data, key, {
+              iv: iv,
+              mode: CryptoJS.mode.CBC,
+              padding: CryptoJS.pad.Pkcs7
+            });
+            ciphertext = CryptoJS.enc.Utf8.stringify(ciphertext);
+            response.send(ciphertext);
+          } else {
+            response.send(resp.resText);
+          }
         }
       });
     });
@@ -92,12 +121,11 @@ module.exports = {
   },
   claimExchange: function(request, response, callback) {
     var data = querystring.stringify({
-       token: this.des(request.body.token),
+      token: this.des(request.body.token),
       id: request.body.id
     });
-
     var options = {
-      hostname: 'api.test.ppmiao.com',
+      hostname: 'api.ppmiao.com',
       path: '/user/claimExchange.json',
       method: 'POST',
       agent: false,
@@ -118,8 +146,20 @@ module.exports = {
       }).on('end', (chunk) => {
         clearTimeout(responseTimer);
         if (res.statusCode == 200) {
-          let resp = JSON.parse(body);
-          response.send(JSON.parse(resp.resText));
+          let resp = JSON.parse(body); 
+          if (resp.isEnc == 'Y') {
+            let data = resp.resText;
+            data = data.replace(/[\r\n]/g, "");
+            var ciphertext = CryptoJS.DES.decrypt(data, key, {
+              iv: iv,
+              mode: CryptoJS.mode.CBC,
+              padding: CryptoJS.pad.Pkcs7
+            });
+            ciphertext = CryptoJS.enc.Utf8.stringify(ciphertext);
+            response.send(ciphertext);
+          } else {
+            response.send(resp.resText);
+          }
         }
       });
     });
@@ -134,11 +174,11 @@ module.exports = {
   },
   getWeeklyAward: function(request, response, callback) {
     var data = querystring.stringify({
-       token: this.des(request.body.token)
+      token: this.des(request.body.token)
     });
 
     var options = {
-      hostname: 'api.test.ppmiao.com',
+      hostname: 'api.ppmiao.com',
       path: '/user/getWeeklyAward.json',
       method: 'POST',
       agent: false,
@@ -159,8 +199,20 @@ module.exports = {
       }).on('end', (chunk) => {
         clearTimeout(responseTimer);
         if (res.statusCode == 200) {
-          let resp = JSON.parse(body);
-          response.send(JSON.parse(resp.resText));
+          let resp = JSON.parse(body); 
+          if (resp.isEnc == 'Y') {
+            let data = resp.resText;
+            data = data.replace(/[\r\n]/g, "");
+            var ciphertext = CryptoJS.DES.decrypt(data, key, {
+              iv: iv,
+              mode: CryptoJS.mode.CBC,
+              padding: CryptoJS.pad.Pkcs7
+            });
+            ciphertext = CryptoJS.enc.Utf8.stringify(ciphertext);
+            response.send(ciphertext);
+          } else {
+            response.send(resp.resText);
+          }
         }
       });
     });
@@ -168,19 +220,18 @@ module.exports = {
       if (callback) {
         callback(e, null);
       }
-      console.log('problem with request: ' + e.message);
+      console.log('problem with request ' + e.message);
     });
     req.write(data);
     req.end();
   },
   claimWeeklyAward: function(request, response, callback) {
     var data = querystring.stringify({
-       token: this.des(request.body.token),
+      token: this.des(request.body.token),
       id: request.body.id
     });
-
     var options = {
-      hostname: 'api.test.ppmiao.com',
+      hostname: 'api.ppmiao.com',
       path: '/user/claimWeeklyAward.json',
       method: 'POST',
       agent: false,
@@ -201,8 +252,20 @@ module.exports = {
       }).on('end', (chunk) => {
         clearTimeout(responseTimer);
         if (res.statusCode == 200) {
-          let resp = JSON.parse(body);
-          response.send(JSON.parse(resp.resText));
+          let resp = JSON.parse(body); 
+          if (resp.isEnc == 'Y') {
+            let data = resp.resText;
+            data = data.replace(/[\r\n]/g, "");
+            var ciphertext = CryptoJS.DES.decrypt(data, key, {
+              iv: iv,
+              mode: CryptoJS.mode.CBC,
+              padding: CryptoJS.pad.Pkcs7
+            });
+            ciphertext = CryptoJS.enc.Utf8.stringify(ciphertext);
+            response.send(ciphertext);
+          } else {
+            response.send(resp.resText);
+          }
         }
       });
     });
@@ -226,5 +289,6 @@ module.exports = {
     });
     // 转换为 utf8 字符串
     decrypted = CryptoJS.enc.Utf8.stringify(decrypted);
+    return decrypted;
   }
 };
