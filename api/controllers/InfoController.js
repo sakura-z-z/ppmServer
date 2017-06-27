@@ -20,7 +20,7 @@ module.exports = {
     }
 
     var options = {
-      hostname: 'api.test.ppmiao.com',
+      hostname: 'api.ppmiao.com',
       path: '/ppmiao-coin/getVipHomepageBean',
       method: 'POST',
       agent: false,
@@ -41,8 +41,20 @@ module.exports = {
       }).on('end', (chunk) => {
         clearTimeout(responseTimer);
         if (res.statusCode == 200) {
-          let resp = JSON.parse(body);
-          response.send(JSON.parse(resp.resText));
+          let resp = JSON.parse(body); 
+          if (resp.isEnc == 'Y') {
+            let data = resp.resText;
+            data = data.replace(/[\r\n]/g, "");
+            var ciphertext = CryptoJS.DES.decrypt(data, key, {
+              iv: iv,
+              mode: CryptoJS.mode.CBC,
+              padding: CryptoJS.pad.Pkcs7
+            });
+            ciphertext = CryptoJS.enc.Utf8.stringify(ciphertext);
+            response.send(ciphertext);
+          } else {
+            response.send(resp.resText);
+          }
         }
       });
     });
@@ -66,7 +78,7 @@ module.exports = {
         });
     }
     var options = {
-      hostname: 'api.test.ppmiao.com',
+      hostname: 'api.ppmiao.com',
       path: '/ppmiao-coin/getUserMissionLog',
       method: 'POST',
       agent: false,
@@ -81,10 +93,22 @@ module.exports = {
       res.on('data', (chunk) => {
         body += chunk;
       }).on('end', (chunk) => {
-        if (res.statusCode == 200) {
-          let resp = JSON.parse(body);
-          response.send(JSON.parse(resp.resText));
-        }
+          if (res.statusCode == 200) {
+            let resp = JSON.parse(body); 
+            if (resp.isEnc == 'Y') {
+              let data = resp.resText;
+              data = data.replace(/[\r\n]/g, "");
+              var ciphertext = CryptoJS.DES.decrypt(data, key, {
+                iv: iv,
+                mode: CryptoJS.mode.CBC,
+                padding: CryptoJS.pad.Pkcs7
+              });
+              ciphertext = CryptoJS.enc.Utf8.stringify(ciphertext);
+              response.send(ciphertext);
+            } else {
+              response.send(resp.resText);
+            }
+          }
       }).on('error', function(e) {
         console.log('problem with request: ' + e.message);
         console.log('statusCode' + res.statusCode);
@@ -104,7 +128,7 @@ module.exports = {
         });
     }
     var options = {
-      hostname: 'api.test.ppmiao.com',
+      hostname: 'api.ppmiao.com',
       path: '/ppmiao-coin/getAllJfTasks',
       method: 'POST',
       agent: false,
@@ -125,8 +149,20 @@ module.exports = {
       }).on('end', (chunk) => {
         clearTimeout(responseTimer);
         if (res.statusCode == 200) {
-          let resp = JSON.parse(body);
-          response.send(JSON.parse(resp.resText));
+          let resp = JSON.parse(body); 
+          if (resp.isEnc == 'Y') {
+            let data = resp.resText;
+            data = data.replace(/[\r\n]/g, "");
+            var ciphertext = CryptoJS.DES.decrypt(data, key, {
+              iv: iv,
+              mode: CryptoJS.mode.CBC,
+              padding: CryptoJS.pad.Pkcs7
+            });
+            ciphertext = CryptoJS.enc.Utf8.stringify(ciphertext);
+            response.send(ciphertext);
+          } else {
+            response.send(resp.resText);
+          }
         }
       });
     });
