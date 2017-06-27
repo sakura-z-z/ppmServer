@@ -10,14 +10,13 @@ var querystring = require('querystring');
 var Moment = require('moment');
 module.exports = {
   getInviteInfo: function(request, response, callback) {
-      if (request.body.mobile != undefined) {
-          var data = querystring.stringify({
-            mobile: request.body.mobile
-          });
-      } else{
-          var data = querystring.stringify({
-          });
-      }
+    if (request.body.mobile != undefined) {
+      var data = querystring.stringify({
+        mobile: request.body.mobile
+      });
+    } else {
+      var data = querystring.stringify({});
+    }
 
     var options = {
       hostname: '114.55.85.42',
@@ -56,21 +55,18 @@ module.exports = {
     req.end();
   },
   getInviteList: function(request, response, callback) {
-      if (request.body.mobile != undefined) {
-          var data = querystring.stringify({
-            mobile: request.body.mobile
-          });
-      } else{
-          var data = querystring.stringify({
-          });
-      }
+    if (request.body.mobile != undefined) {
+      var data = querystring.stringify({
+        mobile: request.body.mobile
+      });
+    } else {
+      var data = querystring.stringify({});
+    }
 
     var options = {
-        hostname: '114.55.85.42',
-        port: 10504,
-        path: '/stone-rest/payment/activity/inviteFriend/getInviteList.htm',
-    //   hostname: 'www.easy-mock.com',
-    //   path: '/mock/594e1ef79adc231f356988b4/invite/getInviteList',
+      hostname: '114.55.85.42',
+      port: 10504,
+      path: '/stone-rest/payment/activity/inviteFriend/getInviteList.htm',
       method: 'POST',
       agent: false,
       headers: {
@@ -90,7 +86,7 @@ module.exports = {
       }).on('end', (chunk) => {
         clearTimeout(responseTimer);
         if (res.statusCode == 200) {
-            console.log(body);
+          console.log(body);
           let arr = [];
           let recordarr = [];
           let resp = JSON.parse(body);
@@ -109,7 +105,7 @@ module.exports = {
               });
             } else {
               arr.push({
-                time: Moment.unix(time/1000).format('YYYY/MM'),
+                time: Moment.unix(time / 1000).format('YYYY/MM'),
                 record: recordarr
               });
               month = item.time.month;
@@ -121,11 +117,11 @@ module.exports = {
                 source: item.source
               });
             }
-            if(index == resp.result.length - 1) {
-                arr.push({
-                  time: Moment.unix(time/1000).format('YYYY/MM'),
-                  record: recordarr
-                });
+            if (index == resp.result.length - 1) {
+              arr.push({
+                time: Moment.unix(time / 1000).format('YYYY/MM'),
+                record: recordarr
+              });
             }
           });
           response.send(arr);
