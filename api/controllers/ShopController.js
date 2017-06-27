@@ -7,6 +7,9 @@
  var http = require('http');
  var CryptoJS = require("crypto-js");
  var querystring = require('querystring');
+ var key = '5Df8$&@S';
+ var iv = CryptoJS.enc.Utf8.parse(key);
+ var key = CryptoJS.enc.Utf8.parse(key);
 module.exports = {
     getShopInfo: function(request, response, callback) {
       var data = querystring.stringify({
@@ -222,5 +225,18 @@ getPhoneRecord: function(request, response, callback) {
   });
   req.write(data);
   req.end();
+},
+des: function(token) {
+  var key = '5Df8$&@S';
+  var iv = CryptoJS.enc.Utf8.parse(key);
+  var key = CryptoJS.enc.Utf8.parse(key);
+  var decrypted = CryptoJS.TripleDES.decrypt(token, key, {
+    iv: iv,
+    mode: CryptoJS.mode.CBC,
+    padding: CryptoJS.pad.Pkcs7
+  });
+  // 转换为 utf8 字符串
+  decrypted = CryptoJS.enc.Utf8.stringify(decrypted);
+  return decrypted;
 }
 };
