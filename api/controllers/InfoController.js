@@ -23,7 +23,7 @@ module.exports = {
     }
 
     var options = {
-      hostname: 'api.ppmiao.com',
+      hostname: 'api.test.ppmiao.com',
       path: '/ppmiao-coin/getVipHomepageBean',
       method: 'POST',
       agent: false,
@@ -81,7 +81,7 @@ module.exports = {
         });
     }
     var options = {
-      hostname: 'api.ppmiao.com',
+      hostname: 'api.test.ppmiao.com',
       path: '/ppmiao-coin/getUserMissionLog',
       method: 'POST',
       agent: false,
@@ -131,7 +131,7 @@ module.exports = {
         });
     }
     var options = {
-      hostname: 'api.ppmiao.com',
+      hostname: 'api.test.ppmiao.com',
       path: '/ppmiao-coin/getAllJfTasks',
       method: 'POST',
       agent: false,
