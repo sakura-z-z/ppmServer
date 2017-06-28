@@ -99,7 +99,7 @@ module.exports = {
             }
             if (item.time.month == month) {
               recordarr.push({
-                index: index + 1,
+                index: index,
                 award: item.award,
                 source: item.source
               });
