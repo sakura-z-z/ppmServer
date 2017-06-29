@@ -42,6 +42,7 @@ module.exports = {
       }).on('end', (chunk) => {
         clearTimeout(responseTimer);
         if (res.statusCode == 200) {
+            console.log(body);
           let resp = JSON.parse(body); 
           if (resp.isEnc == 'Y') {
             response.send(responseDesNormal(resp));
@@ -93,6 +94,7 @@ module.exports = {
       }).on('end', (chunk) => {
         clearTimeout(responseTimer);
         if (res.statusCode == 200) {
+            console.log(body);
           let resp = JSON.parse(body); 
           if (resp.isEnc == 'Y') {
             body = responseDesNormal(resp);
