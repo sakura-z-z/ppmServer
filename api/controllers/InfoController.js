@@ -7,6 +7,7 @@
 var http = require('http');
 var CryptoJS = require("crypto-js");
 var querystring = require('querystring');
+var GlobalVal = require('../services/GlobalVal.js');
 var key = '5Df8$&@S';
 var iv = CryptoJS.enc.Utf8.parse(key);
 var key = CryptoJS.enc.Utf8.parse(key);
@@ -21,9 +22,8 @@ module.exports = {
           versionName: request.body.versionName,
         });
     }
-
     var options = {
-      hostname: 'api.ppmiao.com',
+      hostname: 'api.test.ppmiao.com',
       path: '/ppmiao-coin/getVipHomepageBean',
       method: 'POST',
       agent: false,
@@ -81,7 +81,7 @@ module.exports = {
         });
     }
     var options = {
-      hostname: 'api.ppmiao.com',
+      hostname: 'api.test.ppmiao.com',
       path: '/ppmiao-coin/getUserMissionLog',
       method: 'POST',
       agent: false,
@@ -131,7 +131,7 @@ module.exports = {
         });
     }
     var options = {
-      hostname: 'api.ppmiao.com',
+      hostname: 'api.test.ppmiao.com',
       path: '/ppmiao-coin/getAllJfTasks',
       method: 'POST',
       agent: false,

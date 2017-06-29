@@ -47,7 +47,7 @@ module.exports.cors = {
   *                                                                          *
   ***************************************************************************/
 
-  origin: '*',
+  origin: 'https://image.ppmiao.com',
 
   /***************************************************************************
   *                                                                          *
@@ -73,6 +73,22 @@ module.exports.cors = {
   *                                                                          *
   ***************************************************************************/
 
-  headers: 'Content-Type'
+  headers: 'Content-Type',
+
+  /***************************************************************************
+  *                                                                          *
+  * Indicates how Sails should respond to requests from disallowed origins.
+  In normal mode (0), Sails processes all requests normally, simply setting
+  the appropriate CORS headers and leaving it to the client to determine how
+  to handle the response.
+  In high mode (1), Sails will send back a 403 response to requests from disallowed
+  origins, if the origin starts with http or https.
+  In very high mode (2), Sails will send back a 403 response to requests from disallowed
+  origins, regardless of the origin protocol. See Security Levels in the CORS concepts
+  documentation for more info.                                         *
+  *                                                                          *
+  ***************************************************************************/
+
+  securityLevel: 0
 
 };
