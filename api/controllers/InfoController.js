@@ -7,6 +7,7 @@
 var http = require('http');
 var CryptoJS = require("crypto-js");
 var querystring = require('querystring');
+var GlobalVal = require('../services/GlobalVal.js');
 var key = '5Df8$&@S';
 var iv = CryptoJS.enc.Utf8.parse(key);
 var key = CryptoJS.enc.Utf8.parse(key);
@@ -21,7 +22,6 @@ module.exports = {
           versionName: request.body.versionName,
         });
     }
-
     var options = {
       hostname: 'api.test.ppmiao.com',
       path: '/ppmiao-coin/getVipHomepageBean',

@@ -86,7 +86,6 @@ module.exports = {
       }).on('end', (chunk) => {
         clearTimeout(responseTimer);
         if (res.statusCode == 200) {
-          console.log(body);
           let arr = [];
           let recordarr = [];
           let resp = JSON.parse(body);
