@@ -70,7 +70,7 @@ module.exports.routes = {
   '/getExchangeList': 'ExchangeController.getExchangeList',
   '/claimExchange': 'ExchangeController.claimExchange',
   '/getWeeklyAward': 'ExchangeController.getWeeklyAward',
-  '/claimWeeklyAward': 'ExchangeController.claimWeeklyAward'
+  '/claimWeeklyAward': 'ExchangeController.claimWeeklyAward',
 
 
   /***************************************************************************
