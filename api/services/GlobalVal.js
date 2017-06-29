@@ -1,3 +1,3 @@
 module.exports = {
-    apiHost: 'api.test.ppmiao.com'
+    apiHost: 'api.ppmiao.com'
 };
