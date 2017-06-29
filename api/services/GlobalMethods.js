@@ -71,7 +71,7 @@ module.exports = {
         if (res.statusCode == 200) {
           let resp = JSON.parse(body); 
           if (resp.isEnc == 'Y') {
-            response.send(responseDes(resp));
+            response.send(this.responseDes(resp));
           } else {
             response.send(resp.resText);
           }
