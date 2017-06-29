@@ -1,3 +1,3 @@
-module.exports={
-    host: 'api.ppmiao.com'
+module.exports = {
+    apiHost: 'api.test.ppmiao.com'
 };
