@@ -79,7 +79,8 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/getBanklist': 'BindCardController.getBanklist'
+  '/getBanklist': 'BindCardController.getBanklist',
+  '/updateMainBankCard': 'BindCardController.updateMainBankCard'
 
 
 
