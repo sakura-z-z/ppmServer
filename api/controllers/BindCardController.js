@@ -56,7 +56,7 @@ module.exports = {
           console.log(body);
           let resp = JSON.parse(body); 
           if (resp.isEnc == 'Y') {
-            let send = GlobalMethods.responseDesNormal(resp);
+            let send = JSON.parse(GlobalMethods.responseDesNormal(resp));
             response.send(send);
           } else {
             response.send(resp);
@@ -110,7 +110,7 @@ module.exports = {
           console.log(body);
           let resp = JSON.parse(body); 
           if (resp.isEnc == 'Y') {
-              let send = GlobalMethods.responseDesNormal(resp);
+              let send = JSON.parse(GlobalMethods.responseDesNormal(resp));
               response.send(send);
           } else {
             response.send(resp);
