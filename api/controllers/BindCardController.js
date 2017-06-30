@@ -4,9 +4,9 @@
  * @description :: Server-side logic for managing bindcards
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
- var http = require('http');
- var CryptoJS = require("crypto-js");
- var querystring = require('querystring');
+var http = require('http');
+var CryptoJS = require("crypto-js");
+var querystring = require('querystring');
 module.exports = {
   // getBanklist: function(request, response, callback) {
   //   var data = querystring.stringify({
@@ -56,7 +56,8 @@ module.exports = {
           console.log(body);
           let resp = JSON.parse(body); 
           if (resp.isEnc == 'Y') {
-            response.send(GlobalMethods.responseDesNormal(resp));
+            let send = GlobalMethods.responseDesNormal(resp);
+            response.send(send);
           } else {
             response.send(resp);
           }
@@ -73,14 +74,14 @@ module.exports = {
     req.end();
   },
   updateMainBankCard: function(request, response, callback) {
-      if (request.body.bankId != undefined && request.body.token != undefined) {
-        var data = querystring.stringify({
-          token: request.body.token,
-          bankId: request.body.bankId
-        });
-      } else {
-        var data = querystring.stringify({});
-      }
+    if (request.body.bankId != undefined && request.body.token != undefined) {
+      var data = querystring.stringify({
+        token: request.body.token,
+        bankId: request.body.bankId
+      });
+    } else {
+      var data = querystring.stringify({});
+    }
 
     var options = {
       hostname: '114.55.85.42',
@@ -109,7 +110,8 @@ module.exports = {
           console.log(body);
           let resp = JSON.parse(body); 
           if (resp.isEnc == 'Y') {
-            response.send(responseDesNormal(resp));
+              let send = GlobalMethods.responseDesNormal(resp);
+              response.send(send);
           } else {
             response.send(resp);
           }
