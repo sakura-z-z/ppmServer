@@ -56,10 +56,10 @@ module.exports = {
           console.log(body);
           let resp = JSON.parse(body); 
           if (resp.isEnc == 'Y') {
-            let send = JSON.parse(GlobalMethods.responseDesNormal(resp));
+            let send = JSON.parse(GlobalMethods.responseDesNormal(resp).resText);
             response.send(send);
           } else {
-            response.send(resp);
+            response.send(resp.resText);
           }
         }
       });
@@ -110,10 +110,10 @@ module.exports = {
           console.log(body);
           let resp = JSON.parse(body); 
           if (resp.isEnc == 'Y') {
-              let send = JSON.parse(GlobalMethods.responseDesNormal(resp));
+              let send = JSON.parse(GlobalMethods.responseDesNormal(resp).resText);
               response.send(send);
           } else {
-            response.send(resp);
+            response.send(resp.resText);
           }
         }
       });
