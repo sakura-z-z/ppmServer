@@ -21,8 +21,8 @@ module.exports = {
     var options = {
       //   hostname: '114.55.85.42',
       //   port: 10504,
-      hostname: 'api.ppmiao.com',
-      path: '/stone-rest/payment/activity/inviteFriend/getInviteInfo.htm',
+      hostname: 'server.ppmiao.com',
+      path: '/stone-rest/payment/activity/inviteFriend/getInviteList.htm',
       method: 'POST',
       agent: false,
       headers: {
@@ -72,7 +72,7 @@ module.exports = {
     var options = {
       //   hostname: '114.55.85.42',
       //   port: 10504,
-      hostname: 'api.ppmiao.com',
+      hostname: 'server.ppmiao.com',
       path: '/stone-rest/payment/activity/inviteFriend/getInviteList.htm',
       method: 'POST',
       agent: false,
