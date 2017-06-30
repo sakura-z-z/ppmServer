@@ -4,7 +4,9 @@
  * @description :: Server-side logic for managing bindcards
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
-var querystring = require('querystring');
+ var http = require('http');
+ var CryptoJS = require("crypto-js");
+ var querystring = require('querystring');
 module.exports = {
   // getBanklist: function(request, response, callback) {
   //   var data = querystring.stringify({

@@ -97,7 +97,7 @@ module.exports = {
             console.log(body);
           let resp = JSON.parse(body); 
           if (resp.isEnc == 'Y') {
-            body = responseDesNormal(resp);
+            body = GlobalMethods.responseDesNormal(resp);
           }
           let arr = [];
           let recordarr = [];
