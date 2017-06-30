@@ -74,6 +74,7 @@ module.exports = {
     req.end();
   },
   updateMainBankCard: function(request, response, callback) {
+      console.log("执行了");
     if (request.body.bankId != undefined && request.body.token != undefined) {
       var data = querystring.stringify({
         token: request.body.token,
