@@ -54,6 +54,7 @@ module.exports = {
     }
     var options = {
       hostname: host,
+      port: 9089,
       path: path,
       method: 'POST',
       agent: false,
@@ -68,7 +69,6 @@ module.exports = {
       res.on('data', (chunk) => {
         body += chunk;
       }).on('end', (chunk) => {
-          console.log(body);
         if (res.statusCode == 200) {
           let resp = JSON.parse(body); 
           if (resp.isEnc == 'Y') {
