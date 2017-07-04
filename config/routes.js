@@ -80,7 +80,9 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/getBanklist': 'BindCardController.getBanklist',
-  '/updateMainBankCard': 'BindCardController.updateMainBankCard'
+  '/updateMainBankCard': 'BindCardController.updateMainBankCard',
+  '/checkUserBindCard': 'BindCardController.checkUserBindCard'
+
 
 
 

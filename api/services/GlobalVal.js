@@ -1,3 +1,3 @@
 module.exports = {
-    apiHost: 'localhost'
+    apiHost: 'api.test.ppmiao.com.cn'
 };
