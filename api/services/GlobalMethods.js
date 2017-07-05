@@ -77,7 +77,12 @@ module.exports = {
               if (typeof resp.resText == 'string'){
                   response.send(JSON.parse(resp.resText));
               } else {
-                  response.send(resp.resText);
+                  if(typeof resp.resText == 'string') {
+                      response.send(JSON.parse(resp.resText));
+                  }
+                  if(typeof resp.resText == 'object') {
+                      response.send(resp.resText);
+                  }
               }
           }
         }
