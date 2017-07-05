@@ -69,9 +69,9 @@ module.exports = {
         res.on('data', (chunk) => {
           body += chunk;
         }).on('end', (chunk) => {
-            console.log(typeof resp.resText);
             if (res.statusCode == 200) {
               let resp = JSON.parse(body); 
+              console.log(typeof resp.resText);
               if (resp.isEnc == 'Y') {
                 response.send(this.responseDes(resp));
               } else {
