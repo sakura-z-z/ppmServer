@@ -12,19 +12,19 @@ module.exports = {
     var data = querystring.stringify({
       token: GlobalMethods.tokenDes(request.body.token)
     });
-    GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/stone-rest/rest/user/getAllBindCardInfo.json', data);
+    GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/getAllBindCardInfo.json', data);
   },
   updateMainBankCard: function(request, response, callback) {
     var data = querystring.stringify({
       token: GlobalMethods.tokenDes(request.body.token),
       bankId: request.body.bankId
     });
-    GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/stone-rest/rest/user/updateMainBankCard.json', data);
+    GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/updateMainBankCard.json', data);
   },
   checkUserBindCard: function(request, response, callback) {
     var data = querystring.stringify({
       token: GlobalMethods.tokenDes(request.body.token)
     });
-    GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/stone-rest/rest/message/checkUserBindCard.json', data);
+    GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/message/checkUserBindCard.json', data);
   }
 };
