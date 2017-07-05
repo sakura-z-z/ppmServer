@@ -77,8 +77,11 @@ module.exports = {
               } else {
                 if (typeof resp.resText == 'string') {
                   response.send(JSON.parse(resp.resText));
+                  console.log(1);
+                  console.log(JSON.parse(resp.resText));
                 } else {
                   response.send(resp.resText);
+                   console.log(2);
                 }
               }
             }
