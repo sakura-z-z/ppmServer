@@ -54,7 +54,6 @@ module.exports = {
     }
     var options = {
       hostname: host,
-      port: GlobalVal.apiPort,
       path: path,
       method: 'POST',
       agent: false,
@@ -65,35 +64,31 @@ module.exports = {
     };
     let body = '';
     var req = http.request(options, (res) => {
-        res.setEncoding('utf8');
-        res.on('data', (chunk) => {
-          body += chunk;
-        }).on('end', (chunk) => {
-            if (res.statusCode == 200) {
-              let resp = JSON.parse(body); 
-              console.log(typeof resp.resText);
-              if (resp.isEnc == 'Y') {
-                response.send(this.responseDes(resp));
-              } else {
-                if (typeof resp.resText == 'string') {
-                  response.send(JSON.parse(resp.resText));
-                  console.log(1);
-                  console.log(JSON.parse(resp.resText));
-                } else {
-                  response.send(resp.resText);
-                   console.log(2);
-                }
-              }
+      res.setEncoding('utf8');
+      res.on('data', (chunk) => {
+        body += chunk;
+      }).on('end', (chunk) => {
+        if (res.statusCode == 200) {
+          let resp = JSON.parse(body); 
+          if (resp.isEnc == 'Y') {
+            response.send(this.responseDes(resp));
+          } else {
+            if (typeof resp.resText == 'string') {
+              response.send(JSON.parse(resp.resText));
+            } else {
+              response.send(resp.resText);
             }
-        });
+          }
+        }
+      });
     });
-  req.on('error', function(e) {
-    if (callback) {
-      callback(e, null);
-    }
-    console.log('problem with request: ' + e.message);
-  });
-  req.write(data);
-  req.end();
-}
+    req.on('error', function(e) {
+      if (callback) {
+        callback(e, null);
+      }
+      console.log('problem with request: ' + e.message);
+    });
+    req.write(data);
+    req.end();
+  }
 };
