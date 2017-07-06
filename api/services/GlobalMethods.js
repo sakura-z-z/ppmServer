@@ -24,24 +24,33 @@ module.exports = {
       padding: CryptoJS.pad.Pkcs7
     });
     ciphertext = CryptoJS.enc.Utf8.stringify(ciphertext);
-    if (ciphertext.resText && typeof ciphertext.resText == 'string') {
-      return JSON.parse(ciphertext.resText);
+    console.log(ciphertext);
+    console.log(typeof ciphertext);
+    if (ciphertext && typeof ciphertext == 'string') {
+      return JSON.parse(ciphertext);
     }
-    if (ciphertext.resText && typeof ciphertext.resText == '') {
-      return ciphertext.resText;
+    if (ciphertext && typeof ciphertext == 'object') {
+      return ciphertext;
     }
   },
-  responseReleaseToken: function(data){
-      console.log(data);
-      data = data.replace(/[\r\n]/g, "");
-      console.log(data);
-      var ciphertext = CryptoJS.DES.decrypt(data, key, {
-        iv: iv,
-        mode: CryptoJS.mode.CBC,
-        padding: CryptoJS.pad.Pkcs7
-      });
-      ciphertext = CryptoJS.enc.Utf8.stringify(ciphertext);
-        return ciphertext;
+  ReleaseToken: function(data) {
+    data = data.replace(/[\r\n]/g, "");
+    var ciphertext = CryptoJS.DES.decrypt(data, key, {
+      iv: iv,
+      mode: CryptoJS.mode.CBC,
+      padding: CryptoJS.pad.Pkcs7
+    });
+    ciphertext = CryptoJS.enc.Utf8.stringify(ciphertext);
+    return ciphertext;
+  },
+  ReleaseDesToken: function(data) {
+    var ciphertext = CryptoJS.TripleDES.encrypt(data, key, {
+      iv: iv,
+      mode: CryptoJS.mode.CBC,
+      padding: CryptoJS.pad.Pkcs7
+    });
+    return ciphertext.toString();
+    // return ciphertext;
   },
   responseDesNormal: function(body) {
     let data = body.resText;

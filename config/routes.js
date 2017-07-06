@@ -81,9 +81,18 @@ module.exports.routes = {
 
   '/getBanklist': 'BindCardController.getBanklist',
   '/updateMainBankCard': 'BindCardController.updateMainBankCard',
-  '/checkUserBindCard': 'BindCardController.checkUserBindCard'
+  '/checkUserBindCard': 'BindCardController.checkUserBindCard',
 
 
+
+  /***************************************************************************
+  *                                                                          *
+  * 公共方法                                                                    *
+  *                                                                          *
+  ***************************************************************************/
+
+  '/getDesToken': 'CommonController.getDesToken',
+  '/getPhone': 'CommonController.getPhone',
 
 
 
