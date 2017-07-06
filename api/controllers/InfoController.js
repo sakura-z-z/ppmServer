@@ -6,7 +6,9 @@
  */
 module.exports = {
   getHomeInfo: function(request, response, callback) {
-    GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-coin/getVipHomepageBean');
+      let body = "UxJ2OvFpmEZszHlgRhU3CmjMjBSxT1aWvn6FKL+L518=\n"
+    console.log(GlobalMethods.responseReleaseToken(body));
+    // GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-coin/getVipHomepageBean');
   },
   getIntegral: function(request, response, callback) {
     GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-coin/getUserMissionLog');

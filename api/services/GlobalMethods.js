@@ -23,7 +23,25 @@ module.exports = {
       mode: CryptoJS.mode.CBC,
       padding: CryptoJS.pad.Pkcs7
     });
-    return ciphertext = CryptoJS.enc.Utf8.stringify(ciphertext);
+    ciphertext = CryptoJS.enc.Utf8.stringify(ciphertext);
+    if (ciphertext.resText && typeof ciphertext.resText == 'string') {
+      return JSON.parse(ciphertext.resText);
+    }
+    if (ciphertext.resText && typeof ciphertext.resText == '') {
+      return ciphertext.resText;
+    }
+  },
+  responseReleaseToken: function(data){
+      console.log(data);
+      data = data.replace(/[\r\n]/g, "");
+      console.log(data);
+      var ciphertext = CryptoJS.DES.decrypt(data, key, {
+        iv: iv,
+        mode: CryptoJS.mode.CBC,
+        padding: CryptoJS.pad.Pkcs7
+      });
+      ciphertext = CryptoJS.enc.Utf8.stringify(ciphertext);
+        return ciphertext;
   },
   responseDesNormal: function(body) {
     let data = body.resText;
@@ -73,7 +91,11 @@ module.exports = {
           if (resp.isEnc == 'Y') {
             response.send(this.responseDes(resp));
           } else {
-            response.send(resp.resText);
+            if (typeof resp.resText == 'string') {
+              response.send(JSON.parse(resp.resText));
+            } else {
+              response.send(resp.resText);
+            }
           }
         }
       });
