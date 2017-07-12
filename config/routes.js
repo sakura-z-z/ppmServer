@@ -81,7 +81,17 @@ module.exports.routes = {
 
   '/getBanklist': 'BindCardController.getBanklist',
   '/updateMainBankCard': 'BindCardController.updateMainBankCard',
-  '/checkUserBindCard': 'BindCardController.checkUserBindCard'
+  '/checkUserBindCard': 'BindCardController.checkUserBindCard',
+
+
+  /***************************************************************************
+  *                                                                          *
+  * 周末钱包                                                                      *
+  *                                                                          *
+  ***************************************************************************/
+
+  '/checkWeekends': 'WeekendsController.checkWeekends',
+  '/claimWeekends': 'WeekendsController.claimWeekends'
 
 
 
