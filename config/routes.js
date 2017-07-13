@@ -81,7 +81,7 @@ module.exports.routes = {
 
   '/getBanklist': 'BindCardController.getBanklist',
   '/updateMainBankCard': 'BindCardController.updateMainBankCard',
-  '/checkUserBindCard': 'BindCardController.checkUserBindCard'
+  '/checkUserBindCard': 'BindCardController.checkUserBindCard',
 
 
 
@@ -89,7 +89,7 @@ module.exports.routes = {
 
 
 
-
+  '/userType':'DBController.userType'
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
