@@ -1,4 +1,4 @@
 module.exports = {
-    apiHost: 'api.test.ppmiao.com.cn',
+    apiHost: 'api.ppmiao.com',
     apiPort:8089
 };
