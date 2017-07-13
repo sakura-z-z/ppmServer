@@ -19,9 +19,9 @@ module.exports = {
     }
 
     var options = {
-      //   hostname: '114.55.85.42',
-      //   port: 10504,
-      hostname: 'api.ppmiao.com',
+      hostname: '114.55.85.42',
+      port: 10502,
+      //   hostname: 'api.ppmiao.com',
       path: '/stone-rest/payment/activity/inviteFriend/getInviteInfo.htm',
       method: 'POST',
       agent: false,
@@ -42,6 +42,7 @@ module.exports = {
       }).on('end', (chunk) => {
         clearTimeout(responseTimer);
         if (res.statusCode == 200) {
+            console.log(body);
           let resp = JSON.parse(body); 
           if (resp.isEnc == 'Y') {
             response.send(responseDesNormal(resp));
@@ -70,9 +71,9 @@ module.exports = {
     }
 
     var options = {
-      //   hostname: '114.55.85.42',
-      //   port: 10504,
-      hostname: 'api.ppmiao.com',
+      hostname: '114.55.85.42',
+      port: 10502,
+      //   hostname: 'api.ppmiao.com',
       path: '/stone-rest/payment/activity/inviteFriend/getInviteList.htm',
       method: 'POST',
       agent: false,
@@ -93,9 +94,10 @@ module.exports = {
       }).on('end', (chunk) => {
         clearTimeout(responseTimer);
         if (res.statusCode == 200) {
+            console.log(body);
           let resp = JSON.parse(body); 
           if (resp.isEnc == 'Y') {
-            body = responseDesNormal(resp);
+            body = GlobalMethods.responseDesNormal(resp);
           }
           let arr = [];
           let recordarr = [];

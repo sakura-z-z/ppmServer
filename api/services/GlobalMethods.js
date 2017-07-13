@@ -71,9 +71,13 @@ module.exports = {
         if (res.statusCode == 200) {
           let resp = JSON.parse(body); 
           if (resp.isEnc == 'Y') {
-            response.send(responseDes(resp));
+            response.send(this.responseDes(resp));
           } else {
-            response.send(resp.resText);
+            if (typeof resp.resText == 'string') {
+              response.send(JSON.parse(resp.resText));
+            } else {
+              response.send(resp.resText);
+            }
           }
         }
       });
