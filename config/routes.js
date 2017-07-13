@@ -84,6 +84,17 @@ module.exports.routes = {
   '/checkUserBindCard': 'BindCardController.checkUserBindCard',
 
 
+  /***************************************************************************
+  *                                                                          *
+  * 周末钱包                                                                      *
+  *                                                                          *
+  ***************************************************************************/
+
+  '/checkWeekends': 'WeekendsController.checkWeekends',
+  '/claimWeekends': 'WeekendsController.claimWeekends',
+
+
+
 
 
 
