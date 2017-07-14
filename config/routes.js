@@ -100,7 +100,8 @@ module.exports.routes = {
 
 
 
-  '/userType':'DBController.userType'
+  '/userType':'DBController.userType',
+  '/wxToken':'WxController.wxToken'
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
