@@ -23,5 +23,13 @@
 			 id: request.body.id
      });
      GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/message/claimWeekendRedCoupons.json', data);
+   },
+   getUserRaiseSalaryInvestAward: function(request, response, callback) {
+     var data = querystring.stringify({
+			 versionName: request.body.versionName,
+       token: GlobalMethods.tokenDes(request.body.token),
+			 id: request.body.id
+     });
+     GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/message/getUserRaiseSalaryInvestAward.json', data);
    }
  };
