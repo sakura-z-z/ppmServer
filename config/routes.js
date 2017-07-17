@@ -87,9 +87,15 @@ module.exports.routes = {
 
 
 
+  /***************************************************************************
+  *                                                                          *
+  * 用户风险评估                                                               *
+  *                                                                          *
+  ***************************************************************************/
 
-
-  '/userType':'DBController.userType'
+  '/userType':'DBController.userType',
+  '/updateUserType': 'DBController.updateUserType',
+  '/UserInfo': 'DBController.UserInfo'
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *

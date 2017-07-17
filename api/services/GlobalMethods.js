@@ -55,6 +55,7 @@ module.exports = {
     var options = {
       hostname: host,
       path: path,
+      port: 10504,
       method: 'POST',
       agent: false,
       headers: {
@@ -73,10 +74,18 @@ module.exports = {
           if (resp.isEnc == 'Y') {
             response.send(this.responseDes(resp));
           } else {
-            if (typeof resp.resText == 'string') {
-              response.send(JSON.parse(resp.resText));
+            if (resp.code == 0) {
+              if (typeof resp.resText == 'string') {
+                response.send(JSON.parse(resp.resText));
+              } else {
+                response.send(resp.resText);
+              }
             } else {
-              response.send(resp.resText);
+                if (typeof resp.resText == 'string') {
+                  response.send(JSON.parse(resp));
+                } else {
+                  response.send(resp);
+                }
             }
           }
         }
