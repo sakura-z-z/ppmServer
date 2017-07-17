@@ -24,8 +24,6 @@ module.exports = {
       padding: CryptoJS.pad.Pkcs7
     });
     ciphertext = CryptoJS.enc.Utf8.stringify(ciphertext);
-    console.log(ciphertext);
-    console.log(typeof ciphertext);
     if (ciphertext && typeof ciphertext == 'string') {
       return JSON.parse(ciphertext);
     }

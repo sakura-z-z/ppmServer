@@ -7,7 +7,7 @@
 
  module.exports = {
    getDesToken: function(request, response, callback) {
-       let body = "eyqHDoeDrIra8sRTOHhugud1AxGR9QqSrPhl22jdNnsaUr78NvaxzSQOsTt+WOrEzBVjf/Wztxwt\nabiRD+2nnPwWdDKv0JegQiUMJrDqkS2HbZekE3O7/IipJAAS9sipYpXsDkR/yq+1POTM08AzbUDb\n8nBxdPVjJznIH/gIeT4xBDB9JO1zbaOldwtmKIxW0q0/tNLniHjdmusyc/Ly8pg8psK+kbwmHkoy\nctMMTYHZwVwehs1hXNFNTkaOf+QUiTsUCi8mzOWkMJ6q44VsMFMtCiMWte7irGs+BQivKJFjZqor\nBFNYpcELzOgzhYMJfL6Uv1wmPoiertYwxxqstrAr0lFXB5lpZcXoL3yebRg6uON0yyf3JyYBVmqK\nmRku/IHsARl79wSyh8WeNUIOtS1eWK7PSk2mRQnm4ZiyyEYEcb/bEDSXbrUZvZdqsZgv/h6lXOmu\nzwJ9UQLlqHZ9Rv8fv96rfHFZK4xpf/thd52UVoQ7dhpQ43EDaKWkqjz1Rh7J0FnS7vhPBahbGWu+\nrPn4l5Wcql1UqMjRvQPRxRVVwAkLUJQOoSqQUHeRN5RbzFFeRbaZY/0lIY3HGsmVYibQAyW0H9RK\nu7pqJbjwD44=\n"
+       let body = "eyqHDoeDrIra8sRTOHhugud1AxGR9QqSu41v2mrJiU2iQcusDIgW49hD2+f352rlAJ+NkTCdurBY\nOEmqKfrxyvnzqy4o2fIZ9ckdJz3zGu1/agER4wihmlO20/1tQ5rnAi+Ee1hCN1oPLpyb+Tkl7mVd\nt0jjHkkRLAc89BIvFkKGm3xIlQL3bs7fNiJLVtBKEdII4dvBfpY8p+PgBIRrpG86pZe2QLrtOsA6\nPM8ykuOCMdknYMJXVADu1S76N2n00DtR30JY6bn6VMzTYawbl56OAbXz8k77p+yRLBd2fBNDfI88\nLYUZWoCW+qixx1cUZ1evGyEZwbzN7/rKFB27Zh59zLfVyNtpZoU+VgwBLc/8Jp/pSJH7Qbu3Y13R\nTnOWApDVFBbhqaOhD/0uNttTa/f+aEWHFSefqCXy+Yc8fU/YcckzCdXcDy8GVqG9rg3j+35EoQTg\nptFDXVfa0crND9F/+JWG9p29yN3LYOzBJKJtIBj1bp4l9GK14xDOtkalpEUa71nCwHITgQB+yDR2\njGNbtVE04YNe8hlXELnbJBjinShTB7sk6g==\n"
        resp = JSON.parse(GlobalMethods.ReleaseToken(body));
        let data = resp.result.token;
        console.log(GlobalMethods.ReleaseDesToken(data));
