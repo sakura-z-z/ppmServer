@@ -64,6 +64,7 @@ module.exports = {
       res.on('data', (chunk) => {
         body += chunk;
       }).on('end', (chunk) => {
+          console.log(body);
         if (res.statusCode == 200) {
           let resp = JSON.parse(body); 
           if (resp.isEnc == 'Y') {
@@ -139,6 +140,7 @@ module.exports = {
         body += chunk;
       }).on('end', (chunk) => {
         if (res.statusCode == 200) {
+            console.log(body);
           let resp = JSON.parse(body); 
           if (resp.isEnc == 'Y') {
             response.send(this.responseDes(resp));
