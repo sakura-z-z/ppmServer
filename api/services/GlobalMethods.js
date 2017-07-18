@@ -73,6 +73,7 @@ module.exports = {
           if (resp.isEnc == 'Y') {
             response.send(this.responseDes(resp));
           } else {
+              resp.resText = JSON.parse(resp.resText);
             if (resp.code == 0) {
               if (typeof resp.resText == 'string') {
                 response.send(JSON.parse(resp.resText));
