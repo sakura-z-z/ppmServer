@@ -94,6 +94,17 @@ module.exports.routes = {
   '/claimWeekends': 'WeekendsController.claimWeekends',
 
 
+  /***************************************************************************
+  *                                                                          *
+  * 升职加薪                                                                      *
+  *                                                                          *
+  ***************************************************************************/
+
+  '/checkRaiseSalaryInfo': 'UpvaluationController.checkRaiseSalaryInfo',
+  '/claimRaiseSalaryInterestCoupon': 'UpvaluationController.claimRaiseSalaryInterestCoupon',
+  '/getUserRaiseSalaryInvestAward': 'UpvaluationController.getUserRaiseSalaryInvestAward',
+
+
 
 
 
