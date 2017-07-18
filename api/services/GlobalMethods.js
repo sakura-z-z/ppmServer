@@ -55,7 +55,6 @@ module.exports = {
     var options = {
       hostname: host,
       path: path,
-      port: 10504,
       method: 'POST',
       agent: false,
       headers: {

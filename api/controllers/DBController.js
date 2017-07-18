@@ -35,20 +35,79 @@ module.exports = {
 
   },
   updateUserType: function(request, response, callback) {
-    let data = ''
-    if (request.body.versionName != null) {
-      data = querystring.stringify({
-        risk: request.body.risk,
-        versionName: request.body.versionName,
-        userId: request.body.userId,
+      let data = ''
+      if (request.body.versionName != null) {
+        data = querystring.stringify({
+          risk: request.body.risk,
+          versionName: request.body.versionName,
+          token: GlobalMethods.tokenDes(request.body.token)
+        });
+      } else {
+        data = querystring.stringify({
+          risk: request.body.risk,
+          token: request.body.token
+        });
+      }
+    var options = {
+      hostname: 'api.test.ppmiao.com',
+      path: '/user/updateUserRisk.json',
+      method: 'POST',
+      agent: false,
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Length': data.length,
+      }
+    };
+    let body = '';
+    var req = http.request(options, (res) => {
+      res.setEncoding('utf8');
+      res.on('data', (chunk) => {
+        body += chunk;
+      }).on('end', (chunk) => {
+        if (res.statusCode == 200) {
+          let resp = JSON.parse(body); 
+          if (resp.isEnc == 'Y') {
+            response.send(this.responseDes(resp));
+          } else {
+            if (resp.code == 0) {
+                resp.resText = JSON.parse(resp.resText);
+                resp.resText = {
+                    code:resp.resText.code,
+                    errorMsg: resp.resText.errorMsg,
+                    errorType: resp.resText.errorType,
+                    result: {
+                        risk: resp.resText.result.risk,
+                        riskAuth: resp.resText.result.riskAuth,
+                    },
+                    success: resp.resText.success
+                }
+                response.send(resp.resText);
+            } else {
+                resp.resText = JSON.parse(resp.resText);
+                resp.resText = {
+                    code:resp.resText.code,
+                    errorMsg: resp.resText.errorMsg,
+                    errorType: resp.resText.errorType,
+                    result: {
+                        risk: resp.resText.result.risk,
+                        riskAuth: resp.resText.result.riskAuth,
+                    },
+                    success: resp.resText.success
+                }
+                response.send(resp.resText);
+            }
+          }
+        }
       });
-    } else {
-      data = querystring.stringify({
-        risk: request.body.risk,
-        userId: request.body.userId,
-      });
-    }
-    GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/stone-rest/payment/activity/inviteFriend/updateUserRisk.htm', data);
+    });
+    req.on('error', function(e) {
+      if (callback) {
+        callback(e, null);
+      }
+      console.log('problem with request: ' + e.message);
+    });
+    req.write(data);
+    req.end();
   },
   UserInfo: function(request, response, callback) {
     let data = ''
@@ -66,7 +125,6 @@ module.exports = {
     var options = {
       hostname: 'api.test.ppmiao.com',
       path: '/user/userInfo.json',
-      //   port: 10504,
       method: 'POST',
       agent: false,
       headers: {
