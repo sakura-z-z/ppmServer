@@ -11,13 +11,14 @@
  module.exports = {
    checkRaiseSalaryInfo: function(request, response, callback) {
      var data = querystring.stringify({
+			 versionName: request.body.versionName,
        token: GlobalMethods.tokenDes(request.body.token)
      });
      GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/message/checkRaiseSalaryInfo.json', data);
    },
    claimRaiseSalaryInterestCoupon: function(request, response, callback) {
      var data = querystring.stringify({
-			//  versionName: request.body.versionName,
+			 versionName: request.body.versionName,
        token: GlobalMethods.tokenDes(request.body.token),
 			//  id: request.body.id
      });
@@ -25,6 +26,7 @@
    },
 	 getUserRaiseSalaryInvestAward: function(request, response, callback) {
      var data = querystring.stringify({
+			 versionName: request.body.versionName,
        token: GlobalMethods.tokenDes(request.body.token)
      });
      GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/message/getUserRaiseSalaryInvestAward.json', data);
