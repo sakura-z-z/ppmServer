@@ -79,6 +79,7 @@ module.exports = {
     }
     var options = {
       hostname: host,
+      port: GlobalVal.apiPort,
       path: path,
       method: 'POST',
       agent: false,
