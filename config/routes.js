@@ -102,7 +102,15 @@ module.exports.routes = {
 
   '/checkRaiseSalaryInfo': 'UpvaluationController.checkRaiseSalaryInfo',
   '/claimRaiseSalaryInterestCoupon': 'UpvaluationController.claimRaiseSalaryInterestCoupon',
-  '/getUserRaiseSalaryInvestAward': 'UpvaluationController.getUserRaiseSalaryInvestAward'
+  '/getUserRaiseSalaryInvestAward': 'UpvaluationController.getUserRaiseSalaryInvestAward',
+
+  /***************************************************************************
+  *                                                                          *
+  * 周末钱包2期                                                                      *
+  *                                                                          *
+  ***************************************************************************/
+
+  '/getInvestDoubleJfRecord': 'WeekdSecondController.getInvestDoubleJfRecord',
 
 
 
@@ -110,7 +118,8 @@ module.exports.routes = {
 
 
 
-
+  '/userType':'DBController.userType',
+  '/wxToken':'WxController.wxToken'
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *

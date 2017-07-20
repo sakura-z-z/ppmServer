@@ -23,7 +23,32 @@ module.exports = {
       mode: CryptoJS.mode.CBC,
       padding: CryptoJS.pad.Pkcs7
     });
-    return ciphertext = CryptoJS.enc.Utf8.stringify(ciphertext);
+    ciphertext = CryptoJS.enc.Utf8.stringify(ciphertext);
+    if (ciphertext && typeof ciphertext == 'string') {
+      return JSON.parse(ciphertext);
+    }
+    if (ciphertext && typeof ciphertext == 'object') {
+      return ciphertext;
+    }
+  },
+  ReleaseToken: function(data) {
+    data = data.replace(/[\r\n]/g, "");
+    var ciphertext = CryptoJS.DES.decrypt(data, key, {
+      iv: iv,
+      mode: CryptoJS.mode.CBC,
+      padding: CryptoJS.pad.Pkcs7
+    });
+    ciphertext = CryptoJS.enc.Utf8.stringify(ciphertext);
+    return ciphertext;
+  },
+  ReleaseDesToken: function(data) {
+    var ciphertext = CryptoJS.TripleDES.encrypt(data, key, {
+      iv: iv,
+      mode: CryptoJS.mode.CBC,
+      padding: CryptoJS.pad.Pkcs7
+    });
+    return ciphertext.toString();
+    // return ciphertext;
   },
   responseDesNormal: function(body) {
     let data = body.resText;
@@ -54,6 +79,7 @@ module.exports = {
     }
     var options = {
       hostname: host,
+      // port: 8089,
       path: path,
       method: 'POST',
       agent: false,
@@ -62,6 +88,7 @@ module.exports = {
         'Content-Length': data.length,
       }
     };
+    console.log(data);
     let body = '';
     var req = http.request(options, (res) => {
       res.setEncoding('utf8');
