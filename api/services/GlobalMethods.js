@@ -88,6 +88,7 @@ module.exports = {
         'Content-Length': data.length,
       }
     };
+    console.log(data);
     let body = '';
     var req = http.request(options, (res) => {
       res.setEncoding('utf8');

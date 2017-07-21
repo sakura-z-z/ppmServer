@@ -104,6 +104,13 @@ module.exports.routes = {
   '/claimRaiseSalaryInterestCoupon': 'UpvaluationController.claimRaiseSalaryInterestCoupon',
   '/getUserRaiseSalaryInvestAward': 'UpvaluationController.getUserRaiseSalaryInvestAward',
 
+  /***************************************************************************
+  *                                                                          *
+  * 周末钱包2期                                                                      *
+  *                                                                          *
+  ***************************************************************************/
+
+  '/getInvestDoubleJfRecord': 'WeekdSecondController.getInvestDoubleJfRecord',
 
 
 
