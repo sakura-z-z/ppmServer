@@ -159,17 +159,6 @@ module.exports = {
                 }
                 response.send(resp.resText);
             } else {
-                resp.resText = JSON.parse(resp.resText);
-                resp.resText = {
-                    code:resp.resText.code,
-                    errorMsg: resp.resText.errorMsg,
-                    errorType: resp.resText.errorType,
-                    result: {
-                        risk: resp.resText.result.risk,
-                        riskAuth: resp.resText.result.riskAuth,
-                    },
-                    success: resp.resText.success
-                }
                 response.send(resp.resText);
             }
           }
