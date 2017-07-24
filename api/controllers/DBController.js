@@ -70,7 +70,7 @@ module.exports = {
           if (resp.isEnc == 'Y') {
             response.send(this.responseDes(resp));
           } else {
-            if (resp.code == 0) {
+            if (resp.code == "0") {
                 resp.resText = JSON.parse(resp.resText);
                 resp.resText = {
                     code:resp.resText.code,
@@ -145,7 +145,7 @@ module.exports = {
           if (resp.isEnc == 'Y') {
             response.send(this.responseDes(resp));
           } else {
-            if (resp.code == 0) {
+            if (resp.code == "0") {
                 resp.resText = JSON.parse(resp.resText);
                 resp.resText = {
                     code:resp.resText.code,
