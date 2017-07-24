@@ -17,7 +17,7 @@
        console.log(GlobalMethods.ReleaseToken(body));
    },
    getToken: function(request, response, callback) {
-       let body = "VEtfMjAxNzA2MDgxNzM2MDVfNjYyOTRfMTM2Njk5"
+       let body = "VEtfMjAxNzA2MTYxNjI3MDBfNjYzMzRfMDUzMzE0"
        console.log(GlobalMethods.ReleaseDesToken(body));
    },
  };

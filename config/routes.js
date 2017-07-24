@@ -93,6 +93,7 @@ module.exports.routes = {
 
   '/getDesToken': 'CommonController.getDesToken',
   '/getPhone': 'CommonController.getPhone',
+  '/getToken':'CommonController.getToken',
 
 
 
