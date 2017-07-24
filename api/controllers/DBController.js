@@ -67,36 +67,11 @@ module.exports = {
           console.log(body);
         if (res.statusCode == 200) {
           let resp = JSON.parse(body); 
+          console.log(resp);
           if (resp.isEnc == 'Y') {
             response.send(this.responseDes(resp));
           } else {
-            if (resp.resText.code == "0") {
-                resp.resText = JSON.parse(resp.resText);
-                resp.resText = {
-                    code:resp.resText.code,
-                    errorMsg: resp.resText.errorMsg,
-                    errorType: resp.resText.errorType,
-                    result: {
-                        risk: resp.resText.result.risk,
-                        riskAuth: resp.resText.result.riskAuth,
-                    },
-                    success: resp.resText.success
-                }
-                response.send(resp.resText);
-            } else {
-                resp.resText = JSON.parse(resp.resText);
-                resp.resText = {
-                    code:resp.resText.code,
-                    errorMsg: resp.resText.errorMsg,
-                    errorType: resp.resText.errorType,
-                    result: {
-                        risk: resp.resText.result.risk,
-                        riskAuth: resp.resText.result.riskAuth,
-                    },
-                    success: resp.resText.success
-                }
-                response.send(resp.resText);
-            }
+              response.send(JSON.parse(resp.resText));
           }
         }
       });
@@ -145,8 +120,8 @@ module.exports = {
           if (resp.isEnc == 'Y') {
             response.send(this.responseDes(resp));
           } else {
+              resp.resText = JSON.parse(resp.resText); 
             if (resp.resText.code == "0") {
-                resp.resText = JSON.parse(resp.resText);
                 resp.resText = {
                     code:resp.resText.code,
                     errorMsg: resp.resText.errorMsg,
