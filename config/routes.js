@@ -58,7 +58,6 @@ module.exports.routes = {
   ***************************************************************************/
   '/getInviteList': 'ActController.getInviteList',
   '/getInviteInfo': 'ActController.getInviteInfo',
-  '/getoldInviteList': 'ActController.getoldInviteList',
 
 
   /***************************************************************************
