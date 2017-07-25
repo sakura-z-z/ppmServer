@@ -88,6 +88,7 @@ module.exports = {
       }
     };
     let body = '';
+    console.log(data);
     var req = http.request(options, (res) => {
       res.setEncoding('utf8');
       res.on('data', (chunk) => {
