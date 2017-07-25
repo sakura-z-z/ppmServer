@@ -61,7 +61,7 @@ module.exports = {
     body.resText = CryptoJS.enc.Utf8.stringify(ciphertext);
     return body;
   },
-  httpPost: function(request, response, callback, host, path, redata) {
+  httpPost: function(request, response, callback, host, path, redata, port) {
     let data = '';
     if (redata != undefined) {
       data = redata;
@@ -77,17 +77,32 @@ module.exports = {
         });
       }
     }
-    var options = {
-      hostname: host,
-      // port: 8089,
-      path: path,
-      method: 'POST',
-      agent: false,
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Content-Length': data.length,
-      }
-    };
+    console.log(port);
+    var options;
+    if (port == undefined) {
+      var options = {
+        hostname: host,
+        path: path,
+        method: 'POST',
+        agent: false,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Length': data.length,
+        }
+      };
+    } else {
+      var options = {
+        hostname: host,
+        port: port,
+        path: path,
+        method: 'POST',
+        agent: false,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Length': data.length,
+        }
+      };
+    }
     console.log(data);
     let body = '';
     var req = http.request(options, (res) => {
@@ -107,6 +122,68 @@ module.exports = {
               response.send(resp.resText);
             }
           }
+        }
+      });
+    });
+    req.on('error', function(e) {
+      if (callback) {
+        callback(e, null);
+      }
+      console.log('problem with request: ' + e.message);
+    });
+    req.write(data);
+    req.end();
+  },
+  httpPostPHP: function(request, response, callback, host, path, redata, port) {
+    let data = '';
+    if (redata != undefined) {
+      data = redata;
+    } else {
+      if (request.body.versionName != null) {
+        data = querystring.stringify({
+          token: this.tokenDes(request.body.token),
+          versionName: request.body.versionName
+        });
+      } else {
+        data = querystring.stringify({
+          token: this.tokenDes(request.body.token)
+        });
+      }
+    }
+    var options;
+    if (port == undefined) {
+      var options = {
+        hostname: host,
+        path: path,
+        method: 'POST',
+        agent: false,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Length': data.length,
+        }
+      };
+    } else {
+      var options = {
+        hostname: host,
+        port: port,
+        path: path,
+        method: 'POST',
+        agent: false,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Length': data.length,
+        }
+      };
+    }
+    console.log(data);
+    let body = '';
+    var req = http.request(options, (res) => {
+      res.setEncoding('utf8');
+      res.on('data', (chunk) => {
+        body += chunk;
+      }).on('end', (chunk) => {
+        if (res.statusCode == 200) {
+          response.send(body);
         }
       });
     });

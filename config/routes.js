@@ -106,17 +106,28 @@ module.exports.routes = {
 
   /***************************************************************************
   *                                                                          *
-  * 周末钱包2期                                                                      *
+  * 周末钱包2期                                                                *
   *                                                                          *
   ***************************************************************************/
 
   '/getInvestDoubleJfRecord': 'WeekdSecondController.getInvestDoubleJfRecord',
 
+  /***************************************************************************
+  *                                                                          *
+  * 心跳大翻牌                                                                 *
+  *                                                                          *
+  ***************************************************************************/
 
+  '/actInfo': 'HeartController.actInfo',
+  '/drawResult': 'HeartController.drawResult',
+  '/winningList': 'HeartController.winningList',
+  '/drawTimes': 'HeartController.drawTimes',
 
-
-
-
+  /***************************************************************************
+  *                                                                          *
+  * 公共方法                                                                   *
+  *                                                                          *
+  ***************************************************************************/
 
   '/userType':'DBController.userType',
   '/wxToken':'WxController.wxToken'
