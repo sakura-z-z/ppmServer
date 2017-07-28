@@ -8,7 +8,7 @@
 var http = require('http');
 var CryptoJS = require("crypto-js");
 var querystring = require('querystring');
-var actHost = '118.178.229.154';
+var actHost = 'https://www.ppmiao.com';
 var actId = 33;
 module.exports = {
   actInfo: function(request, response, callback) {
@@ -26,7 +26,7 @@ module.exports = {
         versionName: request.body.versionName
       });
     }
-    GlobalMethods.httpPostPHP(request, response, callback, actHost, '/index.php?c=lottery&a=get_lottery_info', data, 81);
+    GlobalMethods.httpPostPHP(request, response, callback, actHost, '/index.php?c=lottery&a=get_lottery_info', data);
   },
   drawResult: function(request, response, callback) {
     if (request.body.dev != undefined) {
@@ -42,7 +42,7 @@ module.exports = {
         versionName: request.body.versionName
       });
     }
-    GlobalMethods.httpPostPHP(request, response, callback, actHost, '/index.php?c=lottery&a=do_lottery', data, 81);
+    GlobalMethods.httpPostPHP(request, response, callback, actHost, '/index.php?c=lottery&a=do_lottery', data);
   },
   winningList: function(request, response, callback) {
     if (request.body.dev != undefined) {
@@ -58,9 +58,10 @@ module.exports = {
         lotteryId: actId,
         versionName: request.body.versionName,
         type: request.body.type,
+        count: request.body.count
       });
     }
-    GlobalMethods.httpPostPHP(request, response, callback, actHost, '/index.php?c=lottery&a=get_user_lottery_log', data, 81);
+    GlobalMethods.httpPostPHP(request, response, callback, actHost, '/index.php?c=lottery&a=get_user_lottery_log', data);
   },
   drawTimes: function(request, response, callback) {
     if (request.body.dev != undefined) {
@@ -76,6 +77,6 @@ module.exports = {
         versionName: request.body.versionName
       });
     }
-    GlobalMethods.httpPostPHP(request, response, callback, actHost, '/index.php?c=lottery&a=get_lottery_num', data, 81);
+    GlobalMethods.httpPostPHP(request, response, callback, actHost, '/index.php?c=lottery&a=get_lottery_num', data);
   }
 };
