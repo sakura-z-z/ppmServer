@@ -34,55 +34,6 @@ module.exports.routes = {
 
 
 
-  /***************************************************************************
-  *                                                                          *
-  * 会员中心                                                                   *
-  *                                                                          *
-  ***************************************************************************/
-  '/home': 'InfoController.getHomeInfo',
-  '/integral':'InfoController.getIntegral',
-  '/integralMession':'InfoController.getIntegralMession',
-  '/Privilege': 'PrivilegeController.getPrivilegeInfo',
-  '/setPrivilege': 'PrivilegeController.setPrivilegeInfo',
-  '/getPrivilegeRecord': 'PrivilegeController.getPrivilegeRecord',
-  '/getGrowUp': 'PrivilegeController.getGrowUp',
-  '/getShopInfo': 'ShopController.getShopInfo',
-  '/setShopInfo': 'ShopController.setShopInfo',
-  '/getShopRecord': 'ShopController.getShopRecord',
-  '/getPhoneRecord': 'ShopController.getPhoneRecord',
-
-  /***************************************************************************
-  *                                                                          *
-  * 好友邀请                                                                   *
-  *                                                                          *
-  ***************************************************************************/
-  '/getInviteList': 'ActController.getInviteList',
-  '/getInviteInfo': 'ActController.getInviteInfo',
-  '/getoldInviteList': 'ActController.getoldInviteList',
-
-
-  /***************************************************************************
-  *                                                                          *
-  * 会员中心积分兑换                                                            *
-  *                                                                          *
-  ***************************************************************************/
-  '/getUserVipInfo': 'ExchangeController.getUserVipInfo',
-  '/getExchangeList': 'ExchangeController.getExchangeList',
-  '/claimExchange': 'ExchangeController.claimExchange',
-  '/getWeeklyAward': 'ExchangeController.getWeeklyAward',
-  '/claimWeeklyAward': 'ExchangeController.claimWeeklyAward',
-
-
-  /***************************************************************************
-  *                                                                          *
-  * 绑卡                                                                      *
-  *                                                                          *
-  ***************************************************************************/
-
-  '/getBanklist': 'BindCardController.getBanklist',
-  '/updateMainBankCard': 'BindCardController.updateMainBankCard',
-  '/checkUserBindCard': 'BindCardController.checkUserBindCard',
-
 
   /***************************************************************************
   *                                                                          *
@@ -128,8 +79,6 @@ module.exports.routes = {
   * 公共方法                                                                   *
   *                                                                          *
   ***************************************************************************/
-
-  '/userType':'DBController.userType',
   '/wxToken':'WxController.wxToken'
   /***************************************************************************
   *                                                                          *
