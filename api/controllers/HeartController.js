@@ -12,7 +12,6 @@ var actHost = '118.178.229.154';
 var actId = 33;
 module.exports = {
   actInfo: function(request, response, callback) {
-      console.log(request.body.dev);
     if (request.body.dev != undefined) {
       var data = querystring.stringify({
         token: request.body.token,
