@@ -182,6 +182,7 @@ module.exports = {
       res.on('data', (chunk) => {
         body += chunk;
       }).on('end', (chunk) => {
+          console.log(body);
         if (res.statusCode == 200) {
           response.send(body);
         }

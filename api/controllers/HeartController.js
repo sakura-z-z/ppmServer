@@ -9,11 +9,11 @@ var http = require('http');
 var CryptoJS = require("crypto-js");
 var querystring = require('querystring');
 var actHost = 'https://www.ppmiao.com';
-var actId = 33;
+var actId = 17;
+var dev = undefined;
 module.exports = {
   actInfo: function(request, response, callback) {
-      console.log(request.body.dev);
-    if (request.body.dev != undefined) {
+    if (dev != undefined) {
       var data = querystring.stringify({
         token: request.body.token,
         lotteryId: actId,
@@ -29,7 +29,7 @@ module.exports = {
     GlobalMethods.httpPostPHP(request, response, callback, actHost, '/index.php?c=lottery&a=get_lottery_info', data);
   },
   drawResult: function(request, response, callback) {
-    if (request.body.dev != undefined) {
+    if (dev != undefined) {
       var data = querystring.stringify({
         token: request.body.token,
         lotteryId: actId,
@@ -45,7 +45,7 @@ module.exports = {
     GlobalMethods.httpPostPHP(request, response, callback, actHost, '/index.php?c=lottery&a=do_lottery', data);
   },
   winningList: function(request, response, callback) {
-    if (request.body.dev != undefined) {
+    if (dev != undefined) {
       var data = querystring.stringify({
         token: request.body.token,
         lotteryId: actId,
@@ -64,7 +64,7 @@ module.exports = {
     GlobalMethods.httpPostPHP(request, response, callback, actHost, '/index.php?c=lottery&a=get_user_lottery_log', data);
   },
   drawTimes: function(request, response, callback) {
-    if (request.body.dev != undefined) {
+    if (dev != undefined) {
       var data = querystring.stringify({
         token: request.body.token,
         lotteryId: actId,
