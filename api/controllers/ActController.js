@@ -147,18 +147,5 @@ module.exports = {
     });
     req.write(data);
     req.end();
-  },
-  getoldInviteList: function(request, response, callback) {
-    var mobile = request.url.substring(request.url.length - 11, request.url.length)
-    let body = '';
-    http.get('http://testing.ppmiao.com/hd/getInviteData.html?mobile=' + mobile, (res) => {
-      res.on('data', (data) => {
-        body += data;
-      }).on('end', (chunk) => {
-        if (res.statusCode == 200) {
-          response.send(body);
-        }
-      });
-    });
   }
 };
