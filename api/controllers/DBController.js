@@ -16,9 +16,9 @@ var connection = mysql.createConnection({
 });
 module.exports = {
   userType: function(request, response, callback) {
-    console.log(request.body.type);
+    // console.log(request.body.type);
     connection.connect();
-    var userAddSql = 'INSERT INTO node_use(id,name,age) VALUES(0,?,?)';
+    var userAddSql = 'INSERT INTO node_use(id,name,age) VALUES(7,?,?)';
     var userAddSql_Params = ['Wilson', 55];
     //增 add
     connection.query(userAddSql, userAddSql_Params, function(err, result) {
