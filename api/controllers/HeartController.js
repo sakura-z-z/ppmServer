@@ -8,7 +8,8 @@
 var http = require('http');
 var CryptoJS = require("crypto-js");
 var querystring = require('querystring');
-var actHost = 'https://www.ppmiao.com';
+// var actHost = 'http://www.ppmiao.com';
+var actHost = '121.40.211.34';
 var actId = 17;
 var dev = undefined;
 module.exports = {
@@ -26,7 +27,7 @@ module.exports = {
         versionName: request.body.versionName
       });
     }
-    GlobalMethods.httpPostPHP(request, response, callback, actHost, '/index.php?c=lottery&a=get_lottery_info', data);
+    GlobalMethods.httpPostPHP(request, response, callback, actHost, '/index.php?c=lottery&a=get_lottery_info', data, 80);
   },
   drawResult: function(request, response, callback) {
     if (dev != undefined) {
@@ -42,7 +43,7 @@ module.exports = {
         versionName: request.body.versionName
       });
     }
-    GlobalMethods.httpPostPHP(request, response, callback, actHost, '/index.php?c=lottery&a=do_lottery', data);
+    GlobalMethods.httpPostPHP(request, response, callback, actHost, '/index.php?c=lottery&a=do_lottery', data, 80);
   },
   winningList: function(request, response, callback) {
     if (dev != undefined) {
@@ -61,7 +62,7 @@ module.exports = {
         count: request.body.count
       });
     }
-    GlobalMethods.httpPostPHP(request, response, callback, actHost, '/index.php?c=lottery&a=get_user_lottery_log', data);
+    GlobalMethods.httpPostPHP(request, response, callback, actHost, '/index.php?c=lottery&a=get_user_lottery_log', data, 80);
   },
   drawTimes: function(request, response, callback) {
     if (dev != undefined) {
@@ -77,6 +78,6 @@ module.exports = {
         versionName: request.body.versionName
       });
     }
-    GlobalMethods.httpPostPHP(request, response, callback, actHost, '/index.php?c=lottery&a=get_lottery_num', data);
+    GlobalMethods.httpPostPHP(request, response, callback, actHost, '/index.php?c=lottery&a=get_lottery_num', data, 80);
   }
 };
