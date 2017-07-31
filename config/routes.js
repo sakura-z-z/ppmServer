@@ -34,44 +34,64 @@ module.exports.routes = {
 
 
 
-
   /***************************************************************************
   *                                                                          *
-  * 周末钱包                                                                      *
+  * 会员中心                                                                   *
   *                                                                          *
   ***************************************************************************/
-
-  '/checkWeekends': 'WeekendsController.checkWeekends',
-  '/claimWeekends': 'WeekendsController.claimWeekends',
-
+  '/home': 'InfoController.getHomeInfo',
+  '/integral':'InfoController.getIntegral',
+  '/integralMession':'InfoController.getIntegralMession',
+  '/Privilege': 'PrivilegeController.getPrivilegeInfo',
+  '/setPrivilege': 'PrivilegeController.setPrivilegeInfo',
+  '/getPrivilegeRecord': 'PrivilegeController.getPrivilegeRecord',
+  '/getGrowUp': 'PrivilegeController.getGrowUp',
+  '/getShopInfo': 'ShopController.getShopInfo',
+  '/setShopInfo': 'ShopController.setShopInfo',
+  '/getShopRecord': 'ShopController.getShopRecord',
+  '/getPhoneRecord': 'ShopController.getPhoneRecord',
 
   /***************************************************************************
   *                                                                          *
-  * 升职加薪                                                                      *
+  * 好友邀请                                                                   *
   *                                                                          *
   ***************************************************************************/
+  '/getInviteList': 'ActController.getInviteList',
+  '/getInviteInfo': 'ActController.getInviteInfo',
 
-  '/checkRaiseSalaryInfo': 'UpvaluationController.checkRaiseSalaryInfo',
-  '/claimRaiseSalaryInterestCoupon': 'UpvaluationController.claimRaiseSalaryInterestCoupon',
-  '/getUserRaiseSalaryInvestAward': 'UpvaluationController.getUserRaiseSalaryInvestAward',
 
   /***************************************************************************
   *                                                                          *
-  * 周末钱包2期                                                                *
+  * 会员中心积分兑换                                                            *
   *                                                                          *
   ***************************************************************************/
+  '/getUserVipInfo': 'ExchangeController.getUserVipInfo',
+  '/getExchangeList': 'ExchangeController.getExchangeList',
+  '/claimExchange': 'ExchangeController.claimExchange',
+  '/getWeeklyAward': 'ExchangeController.getWeeklyAward',
+  '/claimWeeklyAward': 'ExchangeController.claimWeeklyAward',
 
-  '/getInvestDoubleJfRecord': 'WeekdSecondController.getInvestDoubleJfRecord',
 
   /***************************************************************************
   *                                                                          *
-  * 心跳大翻牌                                                                 *
+  * 绑卡                                                                      *
   *                                                                          *
   ***************************************************************************/
 
   '/getBanklist': 'BindCardController.getBanklist',
   '/updateMainBankCard': 'BindCardController.updateMainBankCard',
   '/checkUserBindCard': 'BindCardController.checkUserBindCard',
+
+
+  /***************************************************************************
+  *                                                                          *
+  * 用户风险评估                                                               *
+  *                                                                          *
+  ***************************************************************************/
+
+  '/userType':'DBController.userType',
+  '/updateUserType': 'DBController.updateUserType',
+  '/UserInfo': 'DBController.UserInfo',
 
 
 
@@ -88,12 +108,8 @@ module.exports.routes = {
 
 
 
-  /***************************************************************************
-  *                                                                          *
-  * 公共方法                                                                   *
-  *                                                                          *
-  ***************************************************************************/
-  '/wxToken':'WxController.wxToken'
+
+
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
