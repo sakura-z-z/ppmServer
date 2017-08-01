@@ -84,21 +84,25 @@ module.exports.routes = {
   '/checkUserBindCard': 'BindCardController.checkUserBindCard',
 
 
+
   /***************************************************************************
   *                                                                          *
-  * 周末钱包                                                                      *
+  * 公共方法                                                                    *
   *                                                                          *
   ***************************************************************************/
 
-  '/checkWeekends': 'WeekendsController.checkWeekends',
-  '/claimWeekends': 'WeekendsController.claimWeekends'
+  '/getDesToken': 'CommonController.getDesToken',
+  '/getPhone': 'CommonController.getPhone',
+  '/encryptToken':'CommonController.encryptToken',
 
 
-
-
-
-
-
+  /***************************************************************************
+  *                                                                          *
+  * 连接数据库                                                                   *
+  *                                                                          *
+  ***************************************************************************/
+  '/linksql': 'LinkSqlController.linksql'
+  
 
   /***************************************************************************
   *                                                                          *
