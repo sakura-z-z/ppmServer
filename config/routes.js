@@ -81,6 +81,8 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/userType': 'MemberController.userType',
+  '/getLastTime': 'MemberController.getTime',
+  '/coinExchangeCash':'MemberController.coinExchangeCash',
 
   /***************************************************************************
   *                                                                          *

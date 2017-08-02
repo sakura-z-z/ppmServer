@@ -30,7 +30,6 @@ module.exports = {
         console.log('[query] - :' + err);
         return;
       }
-      var data = '';
       var result = rows[0]['sum(due_capital)'];
       result = [{str: rows[0]['sum(due_capital)']}];
       response.send(result);
@@ -42,5 +41,37 @@ module.exports = {
       }
       console.log('[connection end] succeed!');
     });
+},
+  getTime: function(request, response, callback) {
+      if (request.body.dev != undefined) {
+        var data = querystring.stringify({
+          token: request.body.token,
+          key:'coinExchangeCash',
+          versionName: request.body.versionName
+        });
+      } else {
+        var data = querystring.stringify({
+          token: GlobalMethods.tokenDes(request.body.token),
+          key:'coinExchangeCash',
+          versionName: request.body.versionName
+        });
+      }
+      GlobalMethods.httpPost(request, response, callback, 'api.test.ppmiao.com', '/user/getExchangeTimes.json', data);
   },
+  coinExchangeCash: function(request, response, callback) {
+      if (request.body.dev != undefined) {
+        var data = querystring.stringify({
+          token: request.body.token,
+          amount: request.body.amount,
+          versionName: request.body.versionName
+        });
+      } else {
+        var data = querystring.stringify({
+          token: GlobalMethods.tokenDes(request.body.token),
+          amount: request.body.amount,
+          versionName: request.body.versionName
+        });
+      }
+      GlobalMethods.httpPost(request, response, callback, 'api.test.ppmiao.com', '/user/coinExchangeCash.json', data);
+  }
 };
