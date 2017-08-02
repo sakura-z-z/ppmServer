@@ -6,23 +6,18 @@
  */
 var querystring = require('querystring');
 module.exports = {
-	tokenExpire :function(request, response, callback){
+	tokenExpire: function(request, response, callback) {
 		// console.log(GlobalMethods.getUser(request, response, callback));
 		response.send(GlobalMethods.getUser(request, response, callback));
 	},
 	getDueCapital: function(request, response, callback) {
-		// var dueCapital = 0;
-			console.log("-------------");
-			console.log(GlobalMethods.getUser(request, response, callback));
-			// console.log(GlobalMethods.getUser(request, response, callback)==false);
-			console.log("-------------");
-			// console.log(GlobalMethods.getUser(request, response, callback).token == undefined);
-		// if(GlobalMethods.getUser(request, response, callback).token==undefined){
+		if (GlobalMethods.getUser(request, response, callback) == false) {
+			console.log(1);
 			return false;
-		// }
+		}
 		var userId = GlobalMethods.getUser(request, response, callback).id;
-		console.log( GlobalMethods.getUser(request, response, callback));
-		var startTime = "'2017-07-29 00:00:00'";
+		userId = 66340;
+		var startTime = "'2017-07-02 00:00:00'";
 
 		var mysql = require("mysql"); //调用MySQL模块
 		var DATABASE = "ppmiao_test";
@@ -30,8 +25,7 @@ module.exports = {
 		var connection = mysql.createConnection({host: 'rm-uf6s86ucfa1mvy1m8o.mysql.rds.aliyuncs.com', user: 'pptang_123', password: 'E8b9J7TjPs0u4Nf', port: '3306'});
 		connection.connect();
 		connection.query('use ' + DATABASE);
-		// connection.query('select due_capital from ' + TABLE + ' where user_id='+userId, function(error, results, fields) {
-		connection.query("select sum(due_capital) from " + TABLE + " where user_id = 66425 and start_time > " + startTime, function(error, results, fields) {
+		connection.query("select sum(due_capital) from " + TABLE + " where user_id = " + userId + " and start_time > " + startTime, function(error, results, fields) {
 			if (error) {
 				throw error;
 			}

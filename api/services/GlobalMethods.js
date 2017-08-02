@@ -226,10 +226,12 @@ module.exports = {
 			if (results) {
 				if(!userInfo.salt == results[0].salt){
 					flag = {token: "false"};
+					console.log(flag);
 				}
 			}
 		});
 		connection.end();
+		console.log(flag);
 		return flag;
 	},
 	// link: function() {
