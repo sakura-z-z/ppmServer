@@ -34,8 +34,6 @@ module.exports = {
       var result = rows[0]['sum(due_capital)'];
       result = [{str: rows[0]['sum(due_capital)']}];
       response.send(result);
-      response.write(data);
-      response.end();
     });
     //关闭connection
     connection.end(function(err) {
