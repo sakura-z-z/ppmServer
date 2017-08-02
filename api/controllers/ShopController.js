@@ -20,7 +20,8 @@ module.exports = {
         userId: request.body.userId,
       });
     }
-    GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-coin/getStorePageInfo', data);
+    console.log(data);
+    // GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-coin/getStorePageInfo', data);
   },
   setShopInfo: function(request, response, callback) {
     let data = ''

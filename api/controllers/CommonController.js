@@ -17,7 +17,7 @@
        console.log(GlobalMethods.ReleaseToken(body));
    },
    encryptToken: function(request, response, callback) {
-       let body = "VEtfMjAxNzA2MjAxMjUwMDZfNjYzMzhfMjE3NTY3"
+       let body = "VEtfMjAxNzA2MjAxMjUwMDZfNjYzMzhfMDc5OTYy"
        console.log(GlobalMethods.ReleaseDesToken(body));
    }
  };

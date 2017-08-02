@@ -101,8 +101,9 @@ module.exports.routes = {
   * 连接数据库                                                                   *
   *                                                                          *
   ***************************************************************************/
-  '/linksql': 'LinkSqlController.linksql'
-  
+  '/tokenExpire': 'LinkSqlController.tokenExpire',
+  '/getDueCapital': 'LinkSqlController.getDueCapital'
+
 
   /***************************************************************************
   *                                                                          *
