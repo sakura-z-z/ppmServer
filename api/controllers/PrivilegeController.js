@@ -10,20 +10,23 @@ module.exports = {
     GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-coin/getUserMonthlyGift');
   },
   setPrivilegeInfo: function(request, response, callback) {
-    let data = ''
+    let data = '';
+    let version;
     if (request.body.versionName != null) {
-      data = querystring.stringify({
-        token: GlobalMethods.tokenDes(request.body.token),
-        versionName: request.body.versionName,
-        userId: request.body.userId,
-        monthlyId: request.body.monthlyId
-      });
+        version = request.body.versionName;
+        data = querystring.stringify({
+            token: GlobalMethods.tokenDes(request.body.token),
+            // versionName: request.body.versionName,
+            versionName: version,
+            userId: request.body.userId,
+            monthlyId: request.body.monthlyId
+        });
     } else {
-      data = querystring.stringify({
-        token: GlobalMethods.tokenDes(request.body.token),
-        userId: request.body.userId,
-        monthlyId: request.body.monthlyId
-      });
+        data = querystring.stringify({
+            token: GlobalMethods.tokenDes(request.body.token),
+            userId: request.body.userId,
+            monthlyId: request.body.monthlyId
+        });
     }
     GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-coin/claimUserMonthlyGift', data);
   },
@@ -31,13 +34,16 @@ module.exports = {
     GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-coin/getUserMonthlyClaimLog');
   },
   getGrowUp: function(request, response, callback) {
-    let data = ''
+    let data = '';
+    let version;
     if (request.body.versionName != null) {
-      data = querystring.stringify({
-        token: GlobalMethods.tokenDes(request.body.token),
-        versionName: request.body.versionName,
-        userId: request.body.userId,
-      });
+        version = request.body.versionName;
+        data = querystring.stringify({
+            token: GlobalMethods.tokenDes(request.body.token),
+            // versionName: request.body.versionName,
+            versionName: version,
+            userId: request.body.userId,
+        });
     } else {
       data = querystring.stringify({
         token: GlobalMethods.tokenDes(request.body.token),

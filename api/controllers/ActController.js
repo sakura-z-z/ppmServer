@@ -19,10 +19,10 @@ module.exports = {
     }
 
     var options = {
-      hostname: '114.55.85.42',
-      port: 10502,
-      //   hostname: 'api.ppmiao.com',
-      path: '/stone-rest/payment/activity/inviteFriend/getInviteInfo.htm',
+      //   hostname: '114.55.85.42',
+      //   port: 10504,
+      hostname: 'server.ppmiao.com',
+      path: '/stone-rest/payment/activity/inviteFriend/getInviteList.htm',
       method: 'POST',
       agent: false,
       headers: {
@@ -71,9 +71,9 @@ module.exports = {
     }
 
     var options = {
-      hostname: '114.55.85.42',
-      port: 10502,
-      //   hostname: 'api.ppmiao.com',
+      //   hostname: '114.55.85.42',
+      //   port: 10504,
+      hostname: 'server.ppmiao.com',
       path: '/stone-rest/payment/activity/inviteFriend/getInviteList.htm',
       method: 'POST',
       agent: false,
@@ -147,18 +147,5 @@ module.exports = {
     });
     req.write(data);
     req.end();
-  },
-  getoldInviteList: function(request, response, callback) {
-    var mobile = request.url.substring(request.url.length - 11, request.url.length)
-    let body = '';
-    http.get('http://testing.ppmiao.com/hd/getInviteData.html?mobile=' + mobile, (res) => {
-      res.on('data', (data) => {
-        body += data;
-      }).on('end', (chunk) => {
-        if (res.statusCode == 200) {
-          response.send(body);
-        }
-      });
-    });
   }
 };

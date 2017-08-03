@@ -58,7 +58,6 @@ module.exports.routes = {
   ***************************************************************************/
   '/getInviteList': 'ActController.getInviteList',
   '/getInviteInfo': 'ActController.getInviteInfo',
-  '/getoldInviteList': 'ActController.getoldInviteList',
 
 
   /***************************************************************************
@@ -86,14 +85,25 @@ module.exports.routes = {
 
   /***************************************************************************
   *                                                                          *
-  * 周末钱包                                                                      *
+  * 用户风险评估                                                               *
   *                                                                          *
   ***************************************************************************/
 
-  '/checkWeekends': 'WeekendsController.checkWeekends',
-  '/claimWeekends': 'WeekendsController.claimWeekends'
+  '/userType':'DBController.userType',
+  '/updateUserType': 'DBController.updateUserType',
+  '/UserInfo': 'DBController.UserInfo',
 
 
+
+  /***************************************************************************
+  *                                                                          *
+  * 公共方法                                                                    *
+  *                                                                          *
+  ***************************************************************************/
+
+  '/getDesToken': 'CommonController.getDesToken',
+  '/getPhone': 'CommonController.getPhone',
+  '/getToken':'CommonController.getToken',
 
 
 

@@ -7,13 +7,16 @@
 var querystring = require('querystring');
 module.exports = {
   getShopInfo: function(request, response, callback) {
-    let data = ''
+    let data = '';
+    let version;
     if (request.body.versionName != null) {
-      data = querystring.stringify({
-        token: GlobalMethods.tokenDes(request.body.token),
-        versionName: request.body.versionName,
-        userId: request.body.userId,
-      });
+        version = request.body.versionName;
+        data = querystring.stringify({
+            token: GlobalMethods.tokenDes(request.body.token),
+            // versionName: request.body.versionName,
+            versionName: version,
+            userId: request.body.userId,
+        });
     } else {
       data = querystring.stringify({
         token: GlobalMethods.tokenDes(request.body.token),
@@ -23,13 +26,16 @@ module.exports = {
     GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-coin/getStorePageInfo', data);
   },
   setShopInfo: function(request, response, callback) {
-    let data = ''
+    let data = '';
+    let version;
     if (request.body.versionName != null) {
-      data = querystring.stringify({
-        token: GlobalMethods.tokenDes(request.body.token),
-        versionName: request.body.versionName,
-        storeId: request.body.storeId,
-      });
+        version = request.body.versionName;
+        data = querystring.stringify({
+            token: GlobalMethods.tokenDes(request.body.token),
+            // versionName: request.body.versionName,
+            versionName: version,
+            storeId: request.body.storeId,
+        });
     } else {
       data = querystring.stringify({
         token: GlobalMethods.tokenDes(request.body.token),
@@ -39,13 +45,16 @@ module.exports = {
     GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-coin/exchangeCommodity', data);
   },
   getShopRecord: function(request, response, callback) {
-    let data = ''
+    let data = '';
+    let version;
     if (request.body.versionName != null) {
-      data = querystring.stringify({
-        token: GlobalMethods.tokenDes(request.body.token),
-        versionName: request.body.versionName,
-        userId: request.body.userId,
-      });
+        version = request.body.versionName;
+        data = querystring.stringify({
+            token: GlobalMethods.tokenDes(request.body.token),
+            // versionName: request.body.versionName,
+            versionName: version,
+            userId: request.body.userId,
+        });
     } else {
       data = querystring.stringify({
         token: GlobalMethods.tokenDes(request.body.token),
