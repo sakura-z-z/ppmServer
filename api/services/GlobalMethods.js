@@ -203,9 +203,9 @@ module.exports = {
 		});
 		let dataArr = data.split('=');
 		let token = this.utf8to16(this.base64decode(dataArr[1]));
-		if(token==''){
-			response.send({token: false})
-			return false;
+		if(token == ''){
+			flag = {token: "false",errorMsg: "您的登录状态已失效"};
+			return flag;
 		}
 		var tokenArr = token.split("_");
 		var userInfo = {
@@ -214,33 +214,27 @@ module.exports = {
 		}
 		var flag = userInfo;
 		var mysql = require("mysql"); //调用MySQL模块
-		var DATABASE = "ppmiao_test";
 		var TABLE = "s_user";
-		var connection = mysql.createConnection({host: 'rm-uf6s86ucfa1mvy1m8o.mysql.rds.aliyuncs.com', user: 'pptang_123', password: 'E8b9J7TjPs0u4Nf', port: '3306'});
+		var connection = mysql.createConnection({host: 'rm-uf6s86ucfa1mvy1m8o.mysql.rds.aliyuncs.com', user: 'pptang_123', password: 'E8b9J7TjPs0u4Nf', port: '3306', database: 'ppmiao_test'});
 		connection.connect();
-		connection.query('use ' + DATABASE);
 		connection.query('select salt from ' + TABLE +' where id=' + userInfo.id, function(error, results, fields) {
 			if (error) {
 				throw error;
 			}
 			if (results) {
 				if(!userInfo.salt == results[0].salt){
-					flag = {token: "false"};
-					console.log(flag);
+					flag = {token: "false",errorMsg: "您的登录状态已失效"};
 				}
 			}
 		});
 		connection.end();
-		console.log(flag);
 		return flag;
 	},
 	// link: function() {
 	// 	var mysql = require("mysql"); //调用MySQL模块
-	// 	var DATABASE = "ppmiao_test";
 	// 	var TABLE = "s_user";
-	// 	var connection = mysql.createConnection({host: 'rm-uf6s86ucfa1mvy1m8o.mysql.rds.aliyuncs.com', user: 'pptang_123', password: 'E8b9J7TjPs0u4Nf', port: '3306'});
+	// 	var connection = mysql.createConnection({host: 'rm-uf6s86ucfa1mvy1m8o.mysql.rds.aliyuncs.com', user: 'pptang_123', password: 'E8b9J7TjPs0u4Nf', port: '3306' ,database: 'ppmiao_test'});
 	// 	connection.connect();
-	// 	connection.query('use ' + DATABASE);
 	// 	connection.query('select salt from ' + TABLE, function(error, results, fields) {
 	// 		if (error) {
 	// 			throw error;
