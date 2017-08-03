@@ -205,18 +205,18 @@ module.exports = {
 		let flag = {};
 		let token = this.utf8to16(this.base64decode(dataArr[1]));
 		if(token == ''){
-			flag = {token: "false",errorMsg: "您的登录状态已失效"};
+			flag = {token: false,errorMsg: "您的登录状态已失效"};
 			return flag;
 		}
-		var tokenArr = token.split("_");
-		var userInfo = {
+		let tokenArr = token.split("_");
+		let userInfo = {
 			id: tokenArr[2],
 			salt: tokenArr[3]
 		}
 		flag = userInfo;
-		var mysql = require("mysql"); //调用MySQL模块
-		var TABLE = "s_user";
-		var connection = mysql.createConnection({host: 'rm-uf6s86ucfa1mvy1m8o.mysql.rds.aliyuncs.com', user: 'pptang_123', password: 'E8b9J7TjPs0u4Nf', port: '3306', database: 'ppmiao_test'});
+		const mysql = require("mysql"); //调用MySQL模块
+		const TABLE = "s_user";
+		let connection = mysql.createConnection({host: 'rm-uf6s86ucfa1mvy1m8o.mysql.rds.aliyuncs.com', user: 'pptang_123', password: 'E8b9J7TjPs0u4Nf', port: '3306', database: 'ppmiao_test'});
 		connection.connect();
 		connection.query('select salt from ' + TABLE +' where id=' + userInfo.id, function(error, results, fields) {
 			if (error) {
@@ -224,7 +224,7 @@ module.exports = {
 			}
 			if (results) {
 				if(!userInfo.salt == results[0].salt){
-					flag = {token: "false",errorMsg: "您的登录状态已失效"};
+					flag = {token: false,errorMsg: "您的登录状态已失效"};
 				}
 			}
 		});
