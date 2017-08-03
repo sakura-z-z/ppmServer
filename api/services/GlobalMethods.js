@@ -202,6 +202,7 @@ module.exports = {
 			token: this.tokenDes(request.body.token)
 		});
 		let dataArr = data.split('=');
+		let flag = {};
 		let token = this.utf8to16(this.base64decode(dataArr[1]));
 		if(token == ''){
 			flag = {token: "false",errorMsg: "您的登录状态已失效"};
@@ -212,7 +213,7 @@ module.exports = {
 			id: tokenArr[2],
 			salt: tokenArr[3]
 		}
-		var flag = userInfo;
+		flag = userInfo;
 		var mysql = require("mysql"); //调用MySQL模块
 		var TABLE = "s_user";
 		var connection = mysql.createConnection({host: 'rm-uf6s86ucfa1mvy1m8o.mysql.rds.aliyuncs.com', user: 'pptang_123', password: 'E8b9J7TjPs0u4Nf', port: '3306', database: 'ppmiao_test'});
