@@ -34,6 +34,45 @@ module.exports.routes = {
 
 
 
+<<<<<<< HEAD
+=======
+  /***************************************************************************
+  *                                                                          *
+  * 会员中心                                                                   *
+  *                                                                          *
+  ***************************************************************************/
+  '/home': 'InfoController.getHomeInfo',
+  '/integral':'InfoController.getIntegral',
+  '/integralMession':'InfoController.getIntegralMession',
+  '/Privilege': 'PrivilegeController.getPrivilegeInfo',
+  '/setPrivilege': 'PrivilegeController.setPrivilegeInfo',
+  '/getPrivilegeRecord': 'PrivilegeController.getPrivilegeRecord',
+  '/getGrowUp': 'PrivilegeController.getGrowUp',
+  '/getShopInfo': 'ShopController.getShopInfo',
+  '/setShopInfo': 'ShopController.setShopInfo',
+  '/getShopRecord': 'ShopController.getShopRecord',
+  '/getPhoneRecord': 'ShopController.getPhoneRecord',
+
+  /***************************************************************************
+  *                                                                          *
+  * 好友邀请                                                                   *
+  *                                                                          *
+  ***************************************************************************/
+  '/getInviteList': 'ActController.getInviteList',
+  '/getInviteInfo': 'ActController.getInviteInfo',
+
+
+  /***************************************************************************
+  *                                                                          *
+  * 会员中心积分兑换                                                            *
+  *                                                                          *
+  ***************************************************************************/
+  '/getUserVipInfo': 'ExchangeController.getUserVipInfo',
+  '/getExchangeList': 'ExchangeController.getExchangeList',
+  '/claimExchange': 'ExchangeController.claimExchange',
+  '/getWeeklyAward': 'ExchangeController.getWeeklyAward',
+  '/claimWeeklyAward': 'ExchangeController.claimWeeklyAward',
+>>>>>>> release
 
 
   /***************************************************************************
@@ -49,11 +88,37 @@ module.exports.routes = {
 
   /***************************************************************************
   *                                                                          *
+<<<<<<< HEAD
   * 连接数据库                                                                   *
   *                                                                          *
   ***************************************************************************/
   '/tokenExpire': 'LinkSqlController.tokenExpire',
   '/getDueCapital': 'LinkSqlController.getDueCapital'
+=======
+  * 用户风险评估                                                               *
+  *                                                                          *
+  ***************************************************************************/
+
+  '/userType':'DBController.userType',
+  '/updateUserType': 'DBController.updateUserType',
+  '/UserInfo': 'DBController.UserInfo',
+
+
+
+  /***************************************************************************
+  *                                                                          *
+  * 公共方法                                                                    *
+  *                                                                          *
+  ***************************************************************************/
+
+  '/getDesToken': 'CommonController.getDesToken',
+  '/getPhone': 'CommonController.getPhone',
+  '/getToken':'CommonController.getToken',
+
+
+
+
+>>>>>>> release
 
 
   /***************************************************************************
