@@ -46,32 +46,34 @@ module.exports = {
       if (request.body.dev != undefined) {
         var data = querystring.stringify({
           token: request.body.token,
-          key:'coinExchangeCash',
+          storeId: request.body.storeId,
           versionName: request.body.versionName
         });
       } else {
         var data = querystring.stringify({
           token: GlobalMethods.tokenDes(request.body.token),
-          key:'coinExchangeCash',
+          storeId: request.body.storeId,
           versionName: request.body.versionName
         });
       }
-      GlobalMethods.httpPost(request, response, callback, 'api.test.ppmiao.com', '/user/getExchangeTimes.json', data);
+      GlobalMethods.httpPost(request, response, callback, 'api.test.ppmiao.com', '/ppmiao-coin/getexchangeTimes', data);
   },
   coinExchangeCash: function(request, response, callback) {
       if (request.body.dev != undefined) {
         var data = querystring.stringify({
           token: request.body.token,
           amount: request.body.amount,
+          storeId: request.body.storeId,
           versionName: request.body.versionName
         });
       } else {
         var data = querystring.stringify({
           token: GlobalMethods.tokenDes(request.body.token),
           amount: request.body.amount,
+          storeId: request.body.storeId,
           versionName: request.body.versionName
         });
       }
-      GlobalMethods.httpPost(request, response, callback, 'api.test.ppmiao.com', '/user/coinExchangeCash.json', data);
+      GlobalMethods.httpPost(request, response, callback, 'api.test.ppmiao.com', '/ppmiao-coin/exchangeCash', data);
   }
 };
