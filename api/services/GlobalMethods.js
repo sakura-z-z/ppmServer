@@ -63,16 +63,13 @@ module.exports = {
   },
   httpPost: function(request, response, callback, host, path, redata, port) {
     let data = '';
-    let version;
     if (redata != undefined) {
       data = redata;
     } else {
       if (request.body.versionName != null) {
-          version = request.body.versionName;
           data = querystring.stringify({
               token: this.tokenDes(request.body.token),
-            //   versionName: request.body.versionName
-              versionName: version
+              versionName: request.body.versionName
           });
       } else {
         data = querystring.stringify({
@@ -80,7 +77,7 @@ module.exports = {
         });
       }
     }
-    console.log(port);
+    // console.log(port);
     var options;
     if (port == undefined) {
       var options = {

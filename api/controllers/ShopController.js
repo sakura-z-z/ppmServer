@@ -8,13 +8,11 @@ var querystring = require('querystring');
 module.exports = {
   getShopInfo: function(request, response, callback) {
     let data = '';
-    let version;
     if (request.body.versionName != null) {
         version = request.body.versionName;
         data = querystring.stringify({
             token: GlobalMethods.tokenDes(request.body.token),
-            // versionName: request.body.versionName,
-            versionName: version,
+            versionName: request.body.versionName,
             userId: request.body.userId,
         });
     } else {
@@ -27,13 +25,11 @@ module.exports = {
   },
   setShopInfo: function(request, response, callback) {
     let data = '';
-    let version;
     if (request.body.versionName != null) {
         version = request.body.versionName;
         data = querystring.stringify({
             token: GlobalMethods.tokenDes(request.body.token),
-            // versionName: request.body.versionName,
-            versionName: version,
+            versionName: request.body.versionName,
             storeId: request.body.storeId,
         });
     } else {
@@ -46,13 +42,11 @@ module.exports = {
   },
   getShopRecord: function(request, response, callback) {
     let data = '';
-    let version;
     if (request.body.versionName != null) {
         version = request.body.versionName;
         data = querystring.stringify({
             token: GlobalMethods.tokenDes(request.body.token),
-            // versionName: request.body.versionName,
-            versionName: version,
+            versionName: request.body.versionName,
             userId: request.body.userId,
         });
     } else {

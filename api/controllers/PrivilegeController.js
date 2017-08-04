@@ -11,13 +11,10 @@ module.exports = {
   },
   setPrivilegeInfo: function(request, response, callback) {
     let data = '';
-    let version;
     if (request.body.versionName != null) {
-        version = request.body.versionName;
         data = querystring.stringify({
             token: GlobalMethods.tokenDes(request.body.token),
-            // versionName: request.body.versionName,
-            versionName: version,
+            versionName: request.body.versionName,
             userId: request.body.userId,
             monthlyId: request.body.monthlyId
         });
@@ -35,13 +32,10 @@ module.exports = {
   },
   getGrowUp: function(request, response, callback) {
     let data = '';
-    let version;
     if (request.body.versionName != null) {
-        version = request.body.versionName;
         data = querystring.stringify({
             token: GlobalMethods.tokenDes(request.body.token),
-            // versionName: request.body.versionName,
-            versionName: version,
+            versionName: request.body.versionName,
             userId: request.body.userId,
         });
     } else {
