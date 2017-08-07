@@ -1,9 +1,11 @@
 var CryptoJS = require("crypto-js");
 var http = require('http');
 var querystring = require('querystring');
+const mysql = require("mysql"); //调用MySQL模块
 var key = '5Df8$&@S';
 var iv = CryptoJS.enc.Utf8.parse(key);
 var key = CryptoJS.enc.Utf8.parse(key);
+// var pool = require('../models/pool.js');
 module.exports = {
   tokenDes: function(token) {
     var decrypted = CryptoJS.TripleDES.decrypt(token, key, {
@@ -161,87 +163,97 @@ module.exports = {
     }
     return out;
   },
-  utf8to16: function(str) {
-    var out, i, len, c;
-    var char2, char3;
-    out = "";
-    len = str.length;
-    i = 0;
-    while (i < len) {
-      c = str.charCodeAt(i++);
-      switch (c >> 4) {
-        case 0:
-        case 1:
-        case 2:
-        case 3:
-        case 4:
-        case 5:
-        case 6:
-        case 7:
-          // 0xxxxxxx
-          out += str.charAt(i - 1);
-          break;
-        case 12:
-        case 13:
-          // 110x xxxx   10xx xxxx
-          char2 = str.charCodeAt(i++);
-          out += String.fromCharCode(((c & 0x1F) << 6) | (char2 & 0x3F));
-          break;
-        case 14:
-          // 1110 xxxx  10xx xxxx  10xx xxxx
-          char2 = str.charCodeAt(i++);
-          char3 = str.charCodeAt(i++);
-          out += String.fromCharCode(((c & 0x0F) << 12) | ((char2 & 0x3F) << 6) | ((char3 & 0x3F) << 0));
-          break;
-      }
-    }
-    return out;
-  },
-  getUser: function(request, response, callback) {
-    let data = querystring.stringify({
-      token: this.tokenDes(request.body.token)
-    });
-    let dataArr = data.split('=');
-    let token = this.utf8to16(this.base64decode(dataArr[1]));
+  getUser: function(request, response, callback, mocktoken) {
+    let token = this.base64decode(mocktoken);
+    let result = '';
     if (token == '') {
-      response.send({
-        token: false
-      })
-      return false;
+      result = {
+        code: false,
+        errorMsg: "您的登录状态有误，请重新登录"
+      };
+      return result;
     }
-    var tokenArr = token.split("_");
-    var userInfo = {
+    let tokenArr = token.split("_");
+    let userInfo = {
       id: tokenArr[2],
       salt: tokenArr[3]
     }
-    var flag = userInfo;
-    var mysql = require("mysql"); //调用MySQL模块
-    var DATABASE = "ppmiao_test";
-    var TABLE = "s_user";
-    var connection = mysql.createConnection({
+    const TABLE = "s_user";
+    //     pool.getConnection(function(err, connection) {
+    //     if (err){
+    //         /* handle error  */
+    //     }
+    //     connection.query({
+    //         sql: 'select salt from ' + TABLE + ' where id=' + userInfo.id
+    //     }, function(err, rows, fields) {
+    //         if (err){
+    //             /* handle error  */
+    //         }
+    //         connection.release();
+    //         callback(null, rows);
+    //     });
+    // });
+    let connection = mysql.createConnection({
       host: 'rm-uf6s86ucfa1mvy1m8o.mysql.rds.aliyuncs.com',
       user: 'pptang_123',
       password: 'E8b9J7TjPs0u4Nf',
-      port: '3306'
+      port: '3306',
+      database: 'ppmiao_test'
     });
     connection.connect();
-    connection.query('use ' + DATABASE);
+    // async.eachSeries(sqls, function(item, callback) {
+    //   // 遍历每条SQL并执行
+    //   connection.query(item, function(err, results) {
+    //     if (err) {
+    //       // 异常后调用callback并传入err
+    //       callback(err);
+    //     } else {
+    //       console.log(item + "执行成功");
+    //       if (userInfo.salt !== results[0].salt) {
+    //         result = {
+    //           code: false,
+    //           errorMsg: "您的登录状态已失效"
+    //         };
+    //         console.log(result);
+    //         // callback(result);
+    //       } else {
+    //         result = {
+    //           code: true,
+    //           errorMsg: "成功"
+    //         };
+    //         console.log(result);
+    //         // callback(result);
+    //       }
+    //     }
+    //   });
+    // }, function(err) {
+    //   // 所有SQL执行完成后回调
+    //   if (err) {
+    //     console.log(err);
+    //   } else {
+    //     console.log("SQL全部执行成功");
+    //   }
+    // });
     connection.query('select salt from ' + TABLE + ' where id=' + userInfo.id, function(error, results, fields) {
       if (error) {
-        throw error;
-      }
-      if (results) {
-        if (!userInfo.salt == results[0].salt) {
-          flag = {
-            token: "false"
+        throw (err);
+      } else {
+        console.log("result:" + results);
+        if (userInfo.salt !== results[0].salt) {
+          result = {
+            code: false,
+            errorMsg: "您的登录状态已失效"
           };
-          console.log(flag);
+          response.send(result);
+        } else {
+          result = {
+            code: true,
+            errorMsg: "成功"
+          };
+          response.send(result);
         }
       }
     });
     connection.end();
-    console.log(flag);
-    return flag;
-  },
-
+  }
 };
