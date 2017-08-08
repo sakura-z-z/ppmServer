@@ -47,8 +47,8 @@ module.exports.cors = {
   *                                                                          *
   ***************************************************************************/
 
-  // origin: 'https://image.ppmiao.com',
-    origin: '*',
+  // origin: 'https://image.ppmiao.com, http://image.test.ppmiao.com',
+  origin: '*',
 
   /***************************************************************************
   *                                                                          *
@@ -90,6 +90,6 @@ module.exports.cors = {
   *                                                                          *
   ***************************************************************************/
 
-  securityLevel: 0
+  securityLevel: 2
 
 };
