@@ -11,7 +11,8 @@ var mysql = require('mysql');
 var moment = require('moment');
 var connection = mysql.createConnection({
   // host: 'rm-uf6s86ucfa1mvy1m8o.mysql.rds.aliyuncs.com',
-   host: 'rm-uf6s86ucfa1mvy1m8.mysql.rds.aliyuncs.com',
+   // host: 'rm-uf6s86ucfa1mvy1m8.mysql.rds.aliyuncs.com',
+  host: GlobalVal.DBVal,
   user: 'pptang_123',
   password: 'E8b9J7TjPs0u4Nf',
   port: '3306',
@@ -42,7 +43,7 @@ module.exports = {
         return;
       }
     });
-    let sql = "select jf_val from s_user_vip_level where uid = "+ userInfo.id +";select due_capital,start_time from s_user_due_detail where user_id = "+ userInfo.id +" and due_capital > 100 and start_time between '2017-07-29 00:00:00' and start_time < '2017-08-04 23:59:59';"
+    let sql = "select jf_val from s_user_vip_level where uid = "+ userInfo.id +";select due_capital,start_time from s_user_due_detail where user_id = "+ userInfo.id +" and due_capital > 100 and start_time between '2017-08-08 00:00:00' and start_time < '2017-08-14 23:59:59';"
     connection.query(sql, function(err, rows, fields) {
       if (err) {
         console.log('[query] - :' + err);
@@ -109,7 +110,7 @@ module.exports = {
         versionName: request.body.versionName
       });
     }
-    GlobalMethods.httpPost(request, response, callback, 'api.test.ppmiao.com', '/ppmiao-coin/getexchangeTimes', data);
+    GlobalMethods.httpPost(request, response, callback, 'api.test.ppmiao.com.cn', '/ppmiao-coin/getexchangeTimes', data);
   },
   coinExchangeCash: function(request, response, callback) {
     if (request.body.dev != undefined) {
@@ -127,6 +128,6 @@ module.exports = {
         versionName: request.body.versionName
       });
     }
-    GlobalMethods.httpPost(request, response, callback, 'api.test.ppmiao.com', '/ppmiao-coin/exchangeCash', data);
+    GlobalMethods.httpPost(request, response, callback, 'api.test.ppmiao.com.cn', '/ppmiao-coin/exchangeCash', data);
   }
 };

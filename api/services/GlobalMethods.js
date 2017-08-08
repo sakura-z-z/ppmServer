@@ -274,6 +274,7 @@ module.exports = {
     let connection = mysql.createConnection({
     //   host: 'rm-uf6s86ucfa1mvy1m8o.mysql.rds.aliyuncs.com',
       host: 'rm-uf6s86ucfa1mvy1m8.mysql.rds.aliyuncs.com',
+      host: GlobalVal.DBVal,
       user: 'pptang_123',
       password: 'E8b9J7TjPs0u4Nf',
       port: '3306',
