@@ -252,7 +252,7 @@ module.exports = {
       return result;
     }
     let tokenArr = token.split("_");
-    let userInfo = {
+    var userInfo = {
       id: tokenArr[2],
       salt: tokenArr[3]
     }
