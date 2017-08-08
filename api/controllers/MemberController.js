@@ -42,7 +42,7 @@ module.exports = {
         return;
       }
     });
-    let sql = "select jf_val from s_user_vip_level where uid = "+ userInfo.id +";select due_capital,start_time from s_user_due_detail where user_id = "+ userInfo.id +" and due_capital > 100 and start_time between '2017-07-29 00:00:00' and start_time < '2017-08-04 23:59:59';"
+    let sql = "select jf_val from s_user_vip_level where uid = "+ userInfo.id +";select due_capital,start_time from s_user_due_detail where user_id = "+ userInfo.id +" and due_capital > 100 and start_time between '2017-08-08 00:00:00' and start_time < '2017-08-14 23:59:59';"
     connection.query(sql, function(err, rows, fields) {
       if (err) {
         console.log('[query] - :' + err);
