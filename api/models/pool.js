@@ -10,7 +10,7 @@ var pool = mysql.createPool({
   user: 'ppmiao_online',
   password: 'knfa04yF5',
   port: '3306',
-  // database: 'ppmiao_test',
+  database: 'ppmiao_online',
   multipleStatements: true
 });
 

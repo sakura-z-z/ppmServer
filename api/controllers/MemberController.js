@@ -27,7 +27,7 @@ module.exports = {
       id: tokenArr[2],
       salt: tokenArr[3]
     }
-    let sql = "use ppmiao_dev_2017;select jf_val from s_user_vip_level where uid = " + userInfo.id + ";select * from s_member_store_user where user_id = " + userInfo.id + " and store_id = 78;use ppmiao_test;select inv_succ,add_time from s_investment_detail where user_id = " + userInfo.id + " and inv_succ > 99 and add_time between '2017-08-11 00:00:00' and add_time < '2017-08-17 23:59:59';"
+    let sql = "use ppmiao_coin;select jf_val from s_user_vip_level where uid = " + userInfo.id + ";select * from s_member_store_user where user_id = " + userInfo.id + " and store_id = 78;use ppmiao_online;select inv_succ,add_time from s_investment_detail where user_id = " + userInfo.id + " and inv_succ > 99 and add_time between '2017-08-11 00:00:00' and add_time < '2017-08-17 23:59:59';"
     query(sql, function(err, rows, fields) {
       if (err) {
         console.log('[query] - :' + err);
