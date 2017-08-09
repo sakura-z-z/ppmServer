@@ -60,17 +60,14 @@ module.exports = {
         return;
       }
     });
-    let sql = "use ppmiao_dev_2017;select jf_val from s_user_vip_level where uid = " + userInfo.id + ";use ppmiao_test;select due_capital,start_time from s_user_due_detail where user_id = " + userInfo.id + " and due_capital > 99 and start_time between '2017-07-31 00:00:00' and start_time < '2017-08-06 23:59:59';"
+    let sql = "use ppmiao_dev_2017;select jf_val from s_user_vip_level where uid = " + userInfo.id + ";select * from s_member_store_user where user_id = " + userInfo.id + " and store_id = 78;use ppmiao_test;select inv_succ,add_time from s_investment_detail where user_id = " + userInfo.id + " and inv_succ > 99 and add_time between '2017-08-03 00:00:00' and add_time < '2017-08-09 23:59:59';"
     connection.query(sql, function(err, rows, fields) {
       if (err) {
         console.log('[query] - :' + err);
         return;
       }
       var result0 = [null];
-      console.log(rows[0]);
-      console.log('rows[0]');
-      console.log(rows[1]);
-      console.log(rows[3]);
+      console.log(rows);
       if (rows[1][0] != undefined) {
         result0 = [{
           jf: rows[1][0]['jf_val']
@@ -78,9 +75,9 @@ module.exports = {
       }
       let rowsResult = [];
       let result1 = null;
-      if (rows[3] != undefined) {
-        for (let i = 0; i < rows[3].length; i++) {
-          rowsResult.push(moment(rows[3][i]['start_time']).format('YYYYMMDD'));
+      if (rows[4] != undefined) {
+        for (let i = 0; i < rows[4].length; i++) {
+          rowsResult.push(moment(rows[4][i]['add_time']).format('YYYYMMDD'));
           result1 = [0, 0, 0, 0, 0, 0, 0];
         }
       }
@@ -107,7 +104,7 @@ module.exports = {
           result1[6] = 1
         }
       }
-      var rowsfinal = [result0[0], result1];
+      var rowsfinal = [result0[0], result1, rows[2]==''];
       response.send(rowsfinal);
     });
     //关闭connection
