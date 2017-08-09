@@ -9,35 +9,8 @@ var http = require('http');
 var querystring = require('querystring');
 var mysql = require('mysql');
 var moment = require('moment');
-var connection = mysql.createConnection({
-  // host: 'rm-uf6s86ucfa1mvy1m8o.mysql.rds.aliyuncs.com',
-  // host: 'rm-uf6s86ucfa1mvy1m8.mysql.rds.aliyuncs.com',
-  host: GlobalVal.DBVal,
-  user: 'pptang_123',
-  password: 'E8b9J7TjPs0u4Nf',
-  port: '3306',
-  database: 'ppmiao_test',
-  multipleStatements: true,
-  useConnectionPooling: true
-});
+var query = require('../models/pool');
 module.exports = {
-  userType2: function(request, response, callback) {
-      let mocktoken = ''
-      if (request.body.dev != undefined) {
-        mocktoken = request.body.token;
-      } else {
-        mocktoken = GlobalMethods.tokenDes(request.body.token);
-      }
-      let token = GlobalMethods.base64decode(mocktoken);
-      if (token == '') {
-        response.send('token解析失败');
-      }
-      let tokenArr = token.split("_");
-      let userInfo = {
-        id: tokenArr[2],
-        salt: tokenArr[3]
-      }
-  },
   userType: function(request, response, callback) {
     let mocktoken = ''
     if (request.body.dev != undefined) {
@@ -54,20 +27,13 @@ module.exports = {
       id: tokenArr[2],
       salt: tokenArr[3]
     }
-    connection.connect(function(err) {
-      if (err) {
-        console.log('[query] - :' + err);
-        return;
-      }
-    });
     let sql = "use ppmiao_dev_2017;select jf_val from s_user_vip_level where uid = " + userInfo.id + ";select * from s_member_store_user where user_id = " + userInfo.id + " and store_id = 78;use ppmiao_test;select inv_succ,add_time from s_investment_detail where user_id = " + userInfo.id + " and inv_succ > 99 and add_time between '2017-08-03 00:00:00' and add_time < '2017-08-09 23:59:59';"
-    connection.query(sql, function(err, rows, fields) {
+    query(sql, function(err, rows, fields) {
       if (err) {
         console.log('[query] - :' + err);
         return;
       }
       var result0 = [null];
-      console.log(rows);
       if (rows[1][0] != undefined) {
         result0 = [{
           jf: rows[1][0]['jf_val']
@@ -104,15 +70,9 @@ module.exports = {
           result1[6] = 1
         }
       }
-      var rowsfinal = [result0[0], result1, rows[2]==''];
+      var rowsfinal = [result0[0], result1, rows[2] == ''];
       response.send(rowsfinal);
     });
-    //关闭connection
-    // connection.end(function(err) {
-    //   if (err) {
-    //     return;
-    //   }
-    // });
   },
   getTime: function(request, response, callback) {
     if (request.body.dev != undefined) {

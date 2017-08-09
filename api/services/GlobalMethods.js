@@ -5,7 +5,7 @@ const mysql = require("mysql"); //调用MySQL模块
 var key = '5Df8$&@S';
 var iv = CryptoJS.enc.Utf8.parse(key);
 var key = CryptoJS.enc.Utf8.parse(key);
-// var pool = require('../models/pool.js');
+var query = require('../models/pool');
 module.exports = {
   tokenDes: function(token) {
     var decrypted = CryptoJS.TripleDES.decrypt(token, key, {
@@ -256,68 +256,13 @@ module.exports = {
       id: tokenArr[2],
       salt: tokenArr[3]
     }
+    console.log(userInfo);
     const TABLE = "s_user";
-    //     pool.getConnection(function(err, connection) {
-    //     if (err){
-    //         /* handle error  */
-    //     }
-    //     connection.query({
-    //         sql: 'select salt from ' + TABLE + ' where id=' + userInfo.id
-    //     }, function(err, rows, fields) {
-    //         if (err){
-    //             /* handle error  */
-    //         }
-    //         connection.release();
-    //         callback(null, rows);
-    //     });
-    // });
-    let connection = mysql.createConnection({
-    //   host: 'rm-uf6s86ucfa1mvy1m8o.mysql.rds.aliyuncs.com',
-      host: 'rm-uf6s86ucfa1mvy1m8.mysql.rds.aliyuncs.com',
-      host: GlobalVal.DBVal,
-      user: 'pptang_123',
-      password: 'E8b9J7TjPs0u4Nf',
-      port: '3306',
-      database: 'ppmiao_test'
-    });
-    connection.connect();
-    // async.eachSeries(sqls, function(item, callback) {
-    //   // 遍历每条SQL并执行
-    //   connection.query(item, function(err, results) {
-    //     if (err) {
-    //       // 异常后调用callback并传入err
-    //       callback(err);
-    //     } else {
-    //       console.log(item + "执行成功");
-    //       if (userInfo.salt !== results[0].salt) {
-    //         result = {
-    //           code: false,
-    //           errorMsg: "您的登录状态已失效"
-    //         };
-    //         console.log(result);
-    //         // callback(result);
-    //       } else {
-    //         result = {
-    //           code: true,
-    //           errorMsg: "成功"
-    //         };
-    //         console.log(result);
-    //         // callback(result);
-    //       }
-    //     }
-    //   });
-    // }, function(err) {
-    //   // 所有SQL执行完成后回调
-    //   if (err) {
-    //     console.log(err);
-    //   } else {
-    //     console.log("SQL全部执行成功");
-    //   }
-    // });
-    connection.query('select salt from ' + TABLE + ' where id=' + userInfo.id, function(error, results, fields) {
-      if (error) {
-        throw (error);
+    query('select salt from ' + TABLE + ' where id=' + userInfo.id, function(err, results, fields) {
+      if (err) {
+        throw (err);
       } else {
+          console.log(results);
         if (userInfo.salt !== results[0].salt) {
           result = {
             code: false,
@@ -333,6 +278,5 @@ module.exports = {
         }
       }
     });
-    connection.end();
   }
 };
