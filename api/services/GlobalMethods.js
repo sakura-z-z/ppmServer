@@ -258,24 +258,32 @@ module.exports = {
     }
     console.log(userInfo);
     const TABLE = "s_user";
-    query('select salt from ' + TABLE + ' where id=' + userInfo.id, function(err, results, fields) {
+    query('use ppmiao_test;select salt from s_user where id=' + userInfo.id, function(err, results, fields) {
       if (err) {
         throw (err);
       } else {
           console.log(results);
-        if (userInfo.salt !== results[0].salt) {
-          result = {
-            code: false,
-            errorMsg: "您的登录状态已失效"
-          };
-          response.send(result);
-        } else {
-          result = {
-            code: true,
-            errorMsg: "成功"
-          };
-          response.send(result);
-        }
+          if(result != '') {
+              if (userInfo.salt !== results[0].salt) {
+                result = {
+                  code: false,
+                  errorMsg: "您的登录状态已失效"
+                };
+                response.send(result);
+              } else {
+                result = {
+                  code: true,
+                  errorMsg: "成功"
+                };
+                response.send(result);
+              }
+          } else {
+              result = {
+                code: false,
+                errorMsg: "您的登录状态已失效"
+              };
+              response.send(result);
+          }
       }
     });
   }
