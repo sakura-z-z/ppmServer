@@ -11,17 +11,19 @@ var pool = mysql.createPool({
   password: 'knfa04yF5',
   port: '3306',
   database: 'ppmiao_online',
-  multipleStatements: true
+  multipleStatements: true,
+  connectionLimit:20,
+  queueLimit:20
 });
 
 var query = function(sql, options, callback) {
   pool.getConnection(function(err, conn) {
+      //释放连接
+      conn.release();
     if (err) {
       throw(err);
     } else {
       conn.query(sql, options, function(err, results, fields) {
-        //释放连接
-        conn.release();
         //事件驱动回调
         callback(err, results, fields);
       });
