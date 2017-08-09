@@ -34,7 +34,6 @@ module.exports.routes = {
 
 
 
-
   /***************************************************************************
   *                                                                          *
   * 周末钱包                                                                      *
@@ -76,10 +75,33 @@ module.exports.routes = {
 
   /***************************************************************************
   *                                                                          *
+  * 会员活动                                                                  *
+  *                                                                          *
+  ***************************************************************************/
+
+  '/userType': 'MemberController.userType',
+  '/getLastTime': 'MemberController.getTime',
+  '/coinExchangeCash':'MemberController.coinExchangeCash',
+
+
+
+
+  /***************************************************************************
+  *                                                                          *
+  * 连接数据库                                                                   *
+  *                                                                          *
+  ***************************************************************************/
+  '/tokenExpire': 'LinkSqlController.tokenExpire',
+
+  /***************************************************************************
+  *                                                                          *
   * 公共方法                                                                   *
   *                                                                          *
   ***************************************************************************/
-  '/wxToken':'WxController.wxToken'
+  '/wxToken':'WxController.wxToken',
+  '/getDesToken': 'CommonController.getDesToken',
+  '/getPhone': 'CommonController.getPhone',
+  '/encryptToken':'CommonController.encryptToken'
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
