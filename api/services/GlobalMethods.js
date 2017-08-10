@@ -266,8 +266,8 @@ module.exports = {
           console.log(results);
         if (userInfo.salt !== results[0].salt) {
           result = {
-            code: false,
-            errorMsg: "您的登录状态已失效"
+              code: true,
+              errorMsg: "成功"
           };
           response.send(result);
         } else {
