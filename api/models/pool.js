@@ -12,26 +12,31 @@ var pool = mysql.createPool({
   port: '3306',
   database: 'ppmiao_test',
   multipleStatements: true,
-  waitForConnections: false,
+  waitForConnections: true,
   queueLimit:10,
   connectionLimit:10,
   acquireTimeout:1000
 });
 
 var query = function(sql, options, callback) {
-  pool.getConnection(function(err, conn) {
-      //释放连接
-      conn.release();
-    if (err) {
-      throw(err);
-    } else {
-      conn.query(sql, options, function(err, results, fields) {
-        // //释放连接
-        // conn.release();
-        //事件驱动回调
-        callback(err, results, fields);
-      });
-    }
+  // pool.getConnection(function(err, conn) {
+  //   if (err) {
+  //     throw(err);
+  //   } else {
+  //     conn.query(sql, options, function(err, results, fields) {
+  //       //事件驱动回调
+  //       callback(err, results, fields);
+  //     });
+  //     //释放连接
+  //     conn.release();
+  //   }
+  // });
+  pool.query(sql, options ,function(err,rows){});
+  pool.getConnection(function(err, connection) {
+    connection.query(sql, options, function (error, results, fields) {
+      connection.release();
+      if (error) throw error;
+    });
   });
 };
 
