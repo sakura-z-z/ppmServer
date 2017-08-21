@@ -27,7 +27,7 @@ module.exports = {
       id: tokenArr[2],
       salt: tokenArr[3]
     }
-    let sql = "use ppmiao_dev_2017;select jf_val from s_user_vip_level where uid = " + userInfo.id + ";select * from s_member_store_user where user_id = " + userInfo.id + " and store_id = 78;use ppmiao_test;select inv_succ,add_time from s_investment_detail where user_id = " + userInfo.id + " and inv_succ > 99 and add_time between '2017-08-03 00:00:00' and add_time < '2017-08-09 23:59:59';"
+    let sql = "use ppmiao_coin;select jf_val from ppmiao_coins_user_vip_level where uid = " + userInfo.id + ";"
     query(sql, function(err, rows, fields) {
       if (err) {
         console.log('[query] - :' + err);
@@ -48,25 +48,25 @@ module.exports = {
         }
       }
       for (let i = 0; i < rowsResult.length; i++) {
-        if (rowsResult[i].indexOf('20170803') > -1) {
+        if (rowsResult[i].indexOf('20170811') > -1) {
           result1[0] = 1
         }
-        if (rowsResult[i].indexOf('20170804') > -1) {
+        if (rowsResult[i].indexOf('20170812') > -1) {
           result1[1] = 1
         }
-        if (rowsResult[i].indexOf('20170805') > -1) {
+        if (rowsResult[i].indexOf('20170813') > -1) {
           result1[2] = 1
         }
-        if (rowsResult[i].indexOf('20170806') > -1) {
+        if (rowsResult[i].indexOf('20170814') > -1) {
           result1[3] = 1
         }
-        if (rowsResult[i].indexOf('20170807') > -1) {
+        if (rowsResult[i].indexOf('20170815') > -1) {
           result1[4] = 1
         }
-        if (rowsResult[i].indexOf('20170808') > -1) {
+        if (rowsResult[i].indexOf('20170816') > -1) {
           result1[5] = 1
         }
-        if (rowsResult[i].indexOf('20170809') > -1) {
+        if (rowsResult[i].indexOf('20170817') > -1) {
           result1[6] = 1
         }
       }
@@ -88,7 +88,7 @@ module.exports = {
         versionName: request.body.versionName
       });
     }
-    GlobalMethods.httpPost(request, response, callback, 'api.test.ppmiao.com.cn', '/ppmiao-coin/getexchangeTimes', data);
+    GlobalMethods.httpPost(request, response, callback, 'api.ppmiao.com', '/ppmiao-coin/getexchangeTimes', data);
   },
   coinExchangeCash: function(request, response, callback) {
     if (request.body.dev != undefined) {
@@ -106,6 +106,6 @@ module.exports = {
         versionName: request.body.versionName
       });
     }
-    GlobalMethods.httpPost(request, response, callback, 'api.test.ppmiao.com.cn', '/ppmiao-coin/exchangeCash', data);
+    GlobalMethods.httpPost(request, response, callback, 'api.ppmiao.com', '/ppmiao-coin/exchangeCash', data);
   }
 };
