@@ -34,17 +34,56 @@ module.exports.routes = {
 
 
 
+  /***************************************************************************
+  *                                                                          *
+  * 周末钱包                                                                      *
+  *                                                                          *
+  ***************************************************************************/
+
+  '/checkWeekends': 'WeekendsController.checkWeekends',
+  '/claimWeekends': 'WeekendsController.claimWeekends',
 
 
   /***************************************************************************
   *                                                                          *
-  * 公共方法                                                                    *
+  * 升职加薪                                                                      *
   *                                                                          *
   ***************************************************************************/
 
-  '/getDesToken': 'CommonController.getDesToken',
-  '/getPhone': 'CommonController.getPhone',
-  '/encryptToken':'CommonController.encryptToken',
+  '/checkRaiseSalaryInfo': 'UpvaluationController.checkRaiseSalaryInfo',
+  '/claimRaiseSalaryInterestCoupon': 'UpvaluationController.claimRaiseSalaryInterestCoupon',
+  '/getUserRaiseSalaryInvestAward': 'UpvaluationController.getUserRaiseSalaryInvestAward',
+
+  /***************************************************************************
+  *                                                                          *
+  * 周末钱包2期                                                                *
+  *                                                                          *
+  ***************************************************************************/
+
+  '/getInvestDoubleJfRecord': 'WeekdSecondController.getInvestDoubleJfRecord',
+
+  /***************************************************************************
+  *                                                                          *
+  * 心跳大翻牌                                                                 *
+  *                                                                          *
+  ***************************************************************************/
+
+  '/actInfo': 'HeartController.actInfo',
+  '/drawResult': 'HeartController.drawResult',
+  '/winningList': 'HeartController.winningList',
+  '/drawTimes': 'HeartController.drawTimes',
+
+  /***************************************************************************
+  *                                                                          *
+  * 会员活动                                                                  *
+  *                                                                          *
+  ***************************************************************************/
+
+  '/userType': 'MemberController.userType',
+  '/getLastTime': 'MemberController.getTime',
+  '/coinExchangeCash':'MemberController.coinExchangeCash',
+
+
 
 
   /***************************************************************************
@@ -53,9 +92,16 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
   '/tokenExpire': 'LinkSqlController.tokenExpire',
-  '/getDueCapital': 'LinkSqlController.getDueCapital'
 
-
+  /***************************************************************************
+  *                                                                          *
+  * 公共方法                                                                   *
+  *                                                                          *
+  ***************************************************************************/
+  '/wxToken':'WxController.wxToken',
+  '/getDesToken': 'CommonController.getDesToken',
+  '/getPhone': 'CommonController.getPhone',
+  '/encryptToken':'CommonController.encryptToken'
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
