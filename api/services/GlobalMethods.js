@@ -256,7 +256,9 @@ module.exports = {
       id: tokenArr[2],
       salt: tokenArr[3]
     }
+    console.log("userInfo------");
     console.log(userInfo);
+    console.log("userInfo------");
     const TABLE = "s_user";
     query('use ppmiao_test;select salt from s_user where id=' + userInfo.id, function(err, results, fields) {
       if (err) {
@@ -264,6 +266,9 @@ module.exports = {
       } else {
           console.log(results);
           if(result != '') {
+              console.log("salt1------" + userInfo.salt);
+              console.log(results[0]);
+              console.log("salt2------" + results[0].salt);
               if (userInfo.salt !== results[0].salt) {
                 result = {
                   code: false,

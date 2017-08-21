@@ -92,6 +92,7 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
   '/tokenExpire': 'LinkSqlController.tokenExpire',
+  '/getDueCapital': 'LinkSqlController.getDueCapital',
 
   /***************************************************************************
   *                                                                          *

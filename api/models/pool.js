@@ -1,8 +1,8 @@
 var mysql = require('mysql');
 var pool = mysql.createPool({
-  // host: 'rm-uf6s86ucfa1mvy1m8o.mysql.rds.aliyuncs.com',
+  host: 'rm-uf6s86ucfa1mvy1m8o.mysql.rds.aliyuncs.com',
   // host: 'rm-uf6s86ucfa1mvy1m8.mysql.rds.aliyuncs.com',
-  host: 'rm-uf6cm0kpb0rm130szo.mysql.rds.aliyuncs.com',
+  // host: 'rm-uf6cm0kpb0rm130szo.mysql.rds.aliyuncs.com',
   user: 'pptang_123',
   password: 'E8b9J7TjPs0u4Nf',
   //正式
