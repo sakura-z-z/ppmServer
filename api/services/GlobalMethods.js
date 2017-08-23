@@ -140,7 +140,7 @@ module.exports = {
     if (redata != undefined) {
       data = redata;
     } else {
-      console.log('redate is undefined');
+    //   console.log('redate is undefined');
       if (request.body.versionName != null) {
         data = querystring.stringify({
         //   token: this.tokenDes(request.body.token),
@@ -177,9 +177,7 @@ module.exports = {
         }
       };
     }
-    console.log('-----------------data');
     console.log(data);
-    console.log('data----------');
     let body = '';
     var req = http.request(options, (res) => {
       res.setEncoding('utf8');
@@ -317,52 +315,61 @@ module.exports = {
     return out;
   },
   getUser: function(request, response, callback, mocktoken) {
-    let token = this.base64decode(mocktoken);
+    let token = mocktoken;
+    let tokenstr = this.base64decode(mocktoken);
     let result = '';
-    if (token == '') {
+    if (tokenstr == '') {
       result = {
         code: false,
         errorMsg: "您的登录状态有误，请重新登录"
       };
       return result;
     }
-    let tokenArr = token.split("_");
+    let tokenArr = tokenstr.split("_");
     var userInfo = {
       id: tokenArr[2],
       salt: tokenArr[3]
     }
-    console.log("userInfo------");
-    console.log(userInfo);
-    console.log("userInfo------");
-    const TABLE = "s_user";
+    // const TABLE = "s_user";
+
     query('use ppmiao_test;select salt from s_user where id=' + userInfo.id, function(err, results, fields) {
       if (err) {
         throw (err);
       } else {
-          console.log(results);
-          if(result != '') {
-              console.log("salt1------" + userInfo.salt);
-              console.log(results[0]);
-              console.log("salt2------" + results[0].salt);
-              if (userInfo.salt !== results[0].salt) {
-                result = {
-                  code: false,
-                  errorMsg: "您的登录状态已失效"
-                };
-                response.send(result);
+        //   console.log('-------------------results');
+        //   console.log(results);
+        //   console.log('----results------------------');
+        //   console.log(results[results.length-1][0].salt);
+        //   console.log('results------------------------');
+
+          if(results != '') {
+              let uSalt = userInfo.salt;
+              let rSalt = results[results.length-1][0].salt;
+              if (uSalt == rSalt) {
+                  result = {
+                    code: true,
+                    errorMsg: "成功"
+                  };
+                  console.log(result); //{ code: true, errorMsg: '成功' }
+                  // response.send(result);
+                  return result;
               } else {
-                result = {
-                  code: true,
-                  errorMsg: "成功"
-                };
-                response.send(result);
+                  result = {
+                    code: false,
+                    errorMsg: "您的登录状态已失效"
+                  };
+                  console.log(result); //{ code: false, errorMsg: '您的登录状态已失效' }
+                  // response.send(result);
+                  return result;
               }
           } else {
               result = {
                 code: false,
                 errorMsg: "您的登录状态已失效"
               };
-              response.send(result);
+              console.log(result); //{ code: false, errorMsg: '您的登录状态已失效' }
+            //   response.send(result);
+            return result;
           }
       }
     });

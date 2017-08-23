@@ -31,4 +31,12 @@ module.exports = {
 	getCurryTimes: function(request, response, callback) {
 		GlobalMethods.httpPostSimple(request, response, callback,'api.test.ppmiao.com', '/payment/activity/inviteFriend/getCurryTimes.htm');
 	},
+	queryInvcAmount: function(request, response, callback) {
+		var data = querystring.stringify({
+			token: GlobalMethods.tokenDes(request.body.token),
+			duration: request.body.duration,
+			beginDate: request.body.beginDate
+		});
+		GlobalMethods.httpPostSimple(request, response, callback,'api.test.ppmiao.com', '/user/queryInvcAmount.json', data);
+	},
 };

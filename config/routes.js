@@ -103,6 +103,7 @@ module.exports.routes = {
   '/checkActivity': 'ExchangeAwardController.checkActivity',
   '/getLotteryLogByLotteryAwardId': 'ExchangeAwardController.getLotteryLogByLotteryAwardId',
   '/getCurryTimes': 'ExchangeAwardController.getCurryTimes',
+  '/queryInvcAmount': 'ExchangeAwardController.queryInvcAmount',
 
   /***************************************************************************
   *                                                                          *
