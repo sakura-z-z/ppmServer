@@ -20,5 +20,10 @@ module.exports = {
   // models: {
   //   connection: 'someMongodbServer'
   // }
-
+    port: 2019,
+    DBhost: 'rm-uf6s86ucfa1mvy1m8o.mysql.rds.aliyuncs.com',
+    DBuser: 'pptang_123',
+    DBpassword: 'E8b9J7TjPs0u4Nf',
+    database_User: 'ppmiao_test',
+    database_Member: 'ppmiao_dev_2017',
 };

@@ -9,91 +9,70 @@ var http = require('http');
 var querystring = require('querystring');
 var mysql = require('mysql');
 var moment = require('moment');
-var connection = mysql.createConnection({
-  // host: 'rm-uf6s86ucfa1mvy1m8o.mysql.rds.aliyuncs.com',
-   host: 'rm-uf6s86ucfa1mvy1m8.mysql.rds.aliyuncs.com',
-  user: 'pptang_123',
-  password: 'E8b9J7TjPs0u4Nf',
-  port: '3306',
-  database: 'ppmiao_test',
-  multipleStatements: true,
-  useConnectionPooling: true
-});
+var query = require('../models/pool');
 module.exports = {
   userType: function(request, response, callback) {
-      let mocktoken = ''
-      if (request.body.dev != undefined) {
-          mocktoken = request.body.token;
-      } else {
-          mocktoken = GlobalMethods.tokenDes(request.body.token);
-      }
-      let token = GlobalMethods.base64decode(mocktoken);
-      if (token == '') {
-        response.send('token解析失败');
-      }
-      let tokenArr = token.split("_");
-      let userInfo = {
-        id: tokenArr[2],
-        salt: tokenArr[3]
-      }
-    connection.connect(function(err) {
+    let mocktoken = ''
+    if (request.body.dev != undefined) {
+      mocktoken = request.body.token;
+    } else {
+      mocktoken = GlobalMethods.tokenDes(request.body.token);
+    }
+    let token = GlobalMethods.base64decode(mocktoken);
+    if (token == '') {
+      response.send('token解析失败');
+    }
+    let tokenArr = token.split("_");
+    let userInfo = {
+      id: tokenArr[2],
+      salt: tokenArr[3]
+    }
+    let sql = "use ppmiao_coin;select jf_val from ppmiao_coins_user_vip_level where uid = " + userInfo.id + ";";
+    query(sql, function(err, rows, fields) {
       if (err) {
         console.log('[query] - :' + err);
         return;
       }
-    });
-    let sql = "select jf_val from s_user_vip_level where uid = "+ userInfo.id +";select due_capital,start_time from s_user_due_detail where user_id = "+ userInfo.id +" and due_capital > 100 and start_time between '2017-08-08 00:00:00' and start_time < '2017-08-14 23:59:59';"
-    connection.query(sql, function(err, rows, fields) {
-      if (err) {
-        console.log('[query] - :' + err);
-        return;
-      }
-      var result0 = [null]
-      if (rows[0][0] != undefined) {
-          result0 = [{
-            jf: rows[0][0]['jf_val']
-          }];
+      var result0 = [null];
+      if (rows[1][0] != undefined) {
+        result0 = [{
+          jf: rows[1][0]['jf_val']
+        }];
       }
       let rowsResult = [];
       let result1 = null;
-      if (rows[1] != undefined) {
-          for (let i = 0; i < rows[1].length; i++) {
-            rowsResult.push(moment(rows[1][i]['start_time']).format('YYYYMMDD'));
-            result1 = [0, 0, 0, 0, 0, 0, 0];
-          }
+      if (rows[4] != undefined) {
+        for (let i = 0; i < rows[4].length; i++) {
+          rowsResult.push(moment(rows[4][i]['add_time']).format('YYYYMMDD'));
+          result1 = [0, 0, 0, 0, 0, 0, 0];
+        }
       }
       for (let i = 0; i < rowsResult.length; i++) {
-        if (rowsResult[i].indexOf('20170729') > -1) {
+        if (rowsResult[i].indexOf('20170811') > -1) {
           result1[0] = 1
         }
-        if (rowsResult[i].indexOf('20170730') > -1) {
+        if (rowsResult[i].indexOf('20170812') > -1) {
           result1[1] = 1
         }
-        if (rowsResult[i].indexOf('20170731') > -1) {
+        if (rowsResult[i].indexOf('20170813') > -1) {
           result1[2] = 1
         }
-        if (rowsResult[i].indexOf('20170801') > -1) {
+        if (rowsResult[i].indexOf('20170814') > -1) {
           result1[3] = 1
         }
-        if (rowsResult[i].indexOf('20170802') > -1) {
+        if (rowsResult[i].indexOf('20170815') > -1) {
           result1[4] = 1
         }
-        if (rowsResult[i].indexOf('20170803') > -1) {
+        if (rowsResult[i].indexOf('20170816') > -1) {
           result1[5] = 1
         }
-        if (rowsResult[i].indexOf('20170804') > -1) {
+        if (rowsResult[i].indexOf('20170817') > -1) {
           result1[6] = 1
         }
       }
-      var rowsfinal = [result0[0],result1];
+      var rowsfinal = [result0[0], result1, rows[2] == ''];
       response.send(rowsfinal);
     });
-    //关闭connection
-    // connection.end(function(err) {
-    //   if (err) {
-    //     return;
-    //   }
-    // });
   },
   getTime: function(request, response, callback) {
     if (request.body.dev != undefined) {
@@ -109,7 +88,7 @@ module.exports = {
         versionName: request.body.versionName
       });
     }
-    GlobalMethods.httpPost(request, response, callback, 'api.test.ppmiao.com', '/ppmiao-coin/getexchangeTimes', data);
+    GlobalMethods.httpPost(request, response, callback, 'api.ppmiao.com', '/ppmiao-coin/getexchangeTimes', data);
   },
   coinExchangeCash: function(request, response, callback) {
     if (request.body.dev != undefined) {
@@ -127,6 +106,6 @@ module.exports = {
         versionName: request.body.versionName
       });
     }
-    GlobalMethods.httpPost(request, response, callback, 'api.test.ppmiao.com', '/ppmiao-coin/exchangeCash', data);
+    GlobalMethods.httpPost(request, response, callback, 'api.ppmiao.com', '/ppmiao-coin/exchangeCash', data);
   }
 };
