@@ -22,11 +22,11 @@ module.exports = {
     GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/payment/activity/inviteFriend/getLotteryLogByLotteryAwardId.htm', data);
   },
   getCurryTimes: function(request, response, callback) {
-      console.log(GlobalVal.apiHost);
-    GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/payment/activity/inviteFriend/getCurryTimes.htm');
+    var data = querystring.stringify({});
+    GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/payment/activity/inviteFriend/getCurryTimes.htm', data);
   },
   queryInvcAmount: function(request, response, callback) {
-      console.log(GlobalVal.apiHost);
+    console.log(GlobalVal.apiHost);
     var data = querystring.stringify({
       token: GlobalMethods.tokenDes(request.body.token),
       duration: request.body.duration,
