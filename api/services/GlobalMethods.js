@@ -135,6 +135,79 @@ module.exports = {
     req.write(data);
     req.end();
   },
+  httpPostSimple: function(request, response, callback, host, path, redata, port) {
+    let data = '';
+    if (redata != undefined) {
+      data = redata;
+    } else {
+    //   console.log('redate is undefined');
+      if (request.body.versionName != null) {
+        data = querystring.stringify({
+        //   token: this.tokenDes(request.body.token),
+          versionName: request.body.versionName
+        });
+      } else {
+        // data = querystring.stringify({
+        //   token: this.tokenDes(request.body.token)
+        // });
+      }
+    }
+    var options;
+    if (port == undefined) {
+      var options = {
+        hostname: host,
+        path: path,
+        method: 'POST',
+        agent: false,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Length': data.length,
+        }
+      };
+    } else {
+      var options = {
+        hostname: host,
+        port: port,
+        path: path,
+        method: 'POST',
+        agent: false,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Length': data.length,
+        }
+      };
+    }
+    console.log(data);
+    let body = '';
+    var req = http.request(options, (res) => {
+      res.setEncoding('utf8');
+      res.on('data', (chunk) => {
+        body += chunk;
+      }).on('end', (chunk) => {
+        console.log(body);
+        if (res.statusCode == 200) {
+          let resp = JSON.parse(body);
+          if (resp.isEnc == 'Y') {
+            response.send(this.responseDes(resp));
+          } else {
+            if (typeof resp.resText == 'string') {
+              response.send(JSON.parse(resp.resText));
+            } else {
+              response.send(resp.resText);
+            }
+          }
+        }
+      });
+    });
+    req.on('error', function(e) {
+      if (callback) {
+        callback(e, null);
+      }
+      console.log('problem with request: ' + e.message);
+    });
+    req.write(data);
+    req.end();
+  },
   httpPostPHP: function(request, response, callback, host, path, redata, port) {
     let data = '';
     if (redata != undefined) {
@@ -242,47 +315,61 @@ module.exports = {
     return out;
   },
   getUser: function(request, response, callback, mocktoken) {
-    let token = this.base64decode(mocktoken);
+    let token = mocktoken;
+    let tokenstr = this.base64decode(mocktoken);
     let result = '';
-    if (token == '') {
+    if (tokenstr == '') {
       result = {
         code: false,
         errorMsg: "您的登录状态有误，请重新登录"
       };
       return result;
     }
-    let tokenArr = token.split("_");
+    let tokenArr = tokenstr.split("_");
     var userInfo = {
       id: tokenArr[2],
       salt: tokenArr[3]
     }
-    console.log(userInfo);
-    const TABLE = "s_user";
+    // const TABLE = "s_user";
+
     query('use ppmiao_test;select salt from s_user where id=' + userInfo.id, function(err, results, fields) {
       if (err) {
         throw (err);
       } else {
-          console.log(results);
-          if(result != '') {
-              if (userInfo.salt !== results[0].salt) {
-                result = {
-                  code: false,
-                  errorMsg: "您的登录状态已失效"
-                };
-                response.send(result);
+        //   console.log('-------------------results');
+        //   console.log(results);
+        //   console.log('----results------------------');
+        //   console.log(results[results.length-1][0].salt);
+        //   console.log('results------------------------');
+
+          if(results != '') {
+              let uSalt = userInfo.salt;
+              let rSalt = results[results.length-1][0].salt;
+              if (uSalt == rSalt) {
+                  result = {
+                    code: true,
+                    errorMsg: "成功"
+                  };
+                  console.log(result); //{ code: true, errorMsg: '成功' }
+                  // response.send(result);
+                  return result;
               } else {
-                result = {
-                  code: true,
-                  errorMsg: "成功"
-                };
-                response.send(result);
+                  result = {
+                    code: false,
+                    errorMsg: "您的登录状态已失效"
+                  };
+                  console.log(result); //{ code: false, errorMsg: '您的登录状态已失效' }
+                  // response.send(result);
+                  return result;
               }
           } else {
               result = {
                 code: false,
                 errorMsg: "您的登录状态已失效"
               };
-              response.send(result);
+              console.log(result); //{ code: false, errorMsg: '您的登录状态已失效' }
+            //   response.send(result);
+            return result;
           }
       }
     });
