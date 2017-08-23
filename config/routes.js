@@ -34,44 +34,6 @@ module.exports.routes = {
 
 
 
-  /***************************************************************************
-  *                                                                          *
-  * 周末钱包                                                                      *
-  *                                                                          *
-  ***************************************************************************/
-
-  '/checkWeekends': 'WeekendsController.checkWeekends',
-  '/claimWeekends': 'WeekendsController.claimWeekends',
-
-
-  /***************************************************************************
-  *                                                                          *
-  * 升职加薪                                                                      *
-  *                                                                          *
-  ***************************************************************************/
-
-  '/checkRaiseSalaryInfo': 'UpvaluationController.checkRaiseSalaryInfo',
-  '/claimRaiseSalaryInterestCoupon': 'UpvaluationController.claimRaiseSalaryInterestCoupon',
-  '/getUserRaiseSalaryInvestAward': 'UpvaluationController.getUserRaiseSalaryInvestAward',
-
-  /***************************************************************************
-  *                                                                          *
-  * 周末钱包2期                                                                *
-  *                                                                          *
-  ***************************************************************************/
-
-  '/getInvestDoubleJfRecord': 'WeekdSecondController.getInvestDoubleJfRecord',
-
-  /***************************************************************************
-  *                                                                          *
-  * 心跳大翻牌                                                                 *
-  *                                                                          *
-  ***************************************************************************/
-
-  '/actInfo': 'HeartController.actInfo',
-  '/drawResult': 'HeartController.drawResult',
-  '/winningList': 'HeartController.winningList',
-  '/drawTimes': 'HeartController.drawTimes',
 
   /***************************************************************************
   *                                                                          *
@@ -92,6 +54,18 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
   '/tokenExpire': 'LinkSqlController.tokenExpire',
+  '/getDueCapital': 'LinkSqlController.getDueCapital',
+
+  /***************************************************************************
+  *                                                                          *
+  * 掘金大冒险                                                                   *
+  *                                                                          *
+  ***************************************************************************/
+  '/exchangeAward': 'ExchangeAwardController.exchangeAward',
+  '/checkActivity': 'ExchangeAwardController.checkActivity',
+  '/getLotteryLogByLotteryAwardId': 'ExchangeAwardController.getLotteryLogByLotteryAwardId',
+  '/getCurryTimes': 'ExchangeAwardController.getCurryTimes',
+  '/queryInvcAmount': 'ExchangeAwardController.queryInvcAmount',
 
   /***************************************************************************
   *                                                                          *

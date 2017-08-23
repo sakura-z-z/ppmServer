@@ -34,5 +34,11 @@ module.exports = {
   // log: {
   //   level: "silent"
   // }
-
+  //正式
+  DBhost: 'rm-2ze7q01622jxz4504.mysql.rds.aliyuncs.com',
+  DBuser: 'ppmiao_online',
+  DBpassword: 'knfa04yF5',
+  database_User: 'ppmiao_online',
+  database_Member: 'ppmiao_coin',
+  apiHost: 'api.ppmiao.cn',
 };

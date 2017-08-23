@@ -243,40 +243,56 @@ module.exports = {
     return out;
   },
   getUser: function(request, response, callback, mocktoken) {
-    let token = this.base64decode(mocktoken);
+    let token = mocktoken;
+    let tokenstr = this.base64decode(mocktoken);
     let result = '';
-    if (token == '') {
+    if (tokenstr == '') {
       result = {
         code: false,
         errorMsg: "您的登录状态有误，请重新登录"
       };
       return result;
     }
-    let tokenArr = token.split("_");
+    let tokenArr = tokenstr.split("_");
     var userInfo = {
       id: tokenArr[2],
       salt: tokenArr[3]
     }
-    console.log(userInfo);
-    const TABLE = "s_user";
-    query('select salt from ' + TABLE + ' where id=' + userInfo.id, function(err, results, fields) {
+    // const TABLE = "s_user";
+
+    query('use ppmiao_test;select salt from s_user where id=' + userInfo.id, function(err, results, fields) {
       if (err) {
         throw (err);
       } else {
-          console.log(results);
-        if (userInfo.salt !== results[0].salt) {
-          result = {
-              code: true,
-              errorMsg: "成功"
-          };
-          response.send(result);
-        } else {
-          result = {
-            code: true,
-            errorMsg: "成功"
-          };
-          response.send(result);
-        }
+          if(results != '') {
+              let uSalt = userInfo.salt;
+              let rSalt = results[results.length-1][0].salt;
+              if (uSalt == rSalt) {
+                  result = {
+                    code: true,
+                    errorMsg: "成功"
+                  };
+                  console.log(result); //{ code: true, errorMsg: '成功' }
+                  // response.send(result);
+                  return result;
+              } else {
+                  result = {
+                    code: false,
+                    errorMsg: "您的登录状态已失效"
+                  };
+                  console.log(result); //{ code: false, errorMsg: '您的登录状态已失效' }
+                  // response.send(result);
+                  return result;
+              }
+          } else {
+              result = {
+                code: false,
+                errorMsg: "您的登录状态已失效"
+              };
+              console.log(result); //{ code: false, errorMsg: '您的登录状态已失效' }
+            //   response.send(result);
+            return result;
+          }
       }
     });
   }
