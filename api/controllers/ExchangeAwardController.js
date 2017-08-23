@@ -23,7 +23,7 @@ module.exports = {
   },
   getCurryTimes: function(request, response, callback) {
       console.log(GlobalVal.apiHost);
-    GlobalMethods.httpPostSimple(request, response, callback, GlobalVal.apiHost, '/payment/activity/inviteFriend/getCurryTimes.htm');
+    GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/payment/activity/inviteFriend/getCurryTimes.htm');
   },
   queryInvcAmount: function(request, response, callback) {
       console.log(GlobalVal.apiHost);
