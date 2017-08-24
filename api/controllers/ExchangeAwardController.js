@@ -12,24 +12,24 @@ module.exports = {
 			expdate: request.body.expdate,
 			mobile: request.body.mobile
 		});
-		GlobalMethods.httpPostSimple(request, response, callback, 'api.test.ppmiao.com',
+		GlobalMethods.httpPostSimple(request, response, callback, GlobalVal.apiHost,
 		'/payment/activity/inviteFriend/exchangeAward.htm', data);
 	},
 	checkActivity: function(request, response, callback) {
 		var data = querystring.stringify({
 			keyName: request.body.keyName
 		});
-		GlobalMethods.httpPostSimple(request, response, callback,'api.test.ppmiao.com', '/payment/activity/inviteFriend/checkActivity.htm', data);
+		GlobalMethods.httpPostSimple(request, response, callback,GlobalVal.apiHost, '/payment/activity/inviteFriend/checkActivity.htm', data);
 	},
 	getLotteryLogByLotteryAwardId: function(request, response, callback) {
 		var data = querystring.stringify({
 			lotteryAwardId: request.body.lotteryAwardId,
 			mobile: request.body.mobile
 		});
-		GlobalMethods.httpPostSimple(request, response, callback,'api.test.ppmiao.com', '/payment/activity/inviteFriend/getLotteryLogByLotteryAwardId.htm', data);
+		GlobalMethods.httpPostSimple(request, response, callback,GlobalVal.apiHost, '/payment/activity/inviteFriend/getLotteryLogByLotteryAwardId.htm', data);
 	},
 	getCurryTimes: function(request, response, callback) {
-		GlobalMethods.httpPostSimple(request, response, callback,'api.test.ppmiao.com', '/payment/activity/inviteFriend/getCurryTimes.htm');
+		GlobalMethods.httpPostSimple(request, response, callback,GlobalVal.apiHost, '/payment/activity/inviteFriend/getCurryTimes.htm');
 	},
 	queryInvcAmount: function(request, response, callback) {
 		var data = querystring.stringify({
@@ -37,6 +37,6 @@ module.exports = {
 			duration: request.body.duration,
 			beginDate: request.body.beginDate
 		});
-		GlobalMethods.httpPostSimple(request, response, callback,'api.test.ppmiao.com', '/user/queryInvcAmount.json', data);
+		GlobalMethods.httpPostSimple(request, response, callback,GlobalVal.apiHost, '/user/queryInvcAmount.json', data);
 	},
 };

@@ -10,6 +10,8 @@ var querystring = require('querystring');
 var mysql = require('mysql');
 var moment = require('moment');
 var query = require('../models/pool');
+var production = require('../../config/env/production');
+var development = require('../../config/env/development');
 module.exports = {
   userType: function(request, response, callback) {
     let mocktoken = ''
@@ -27,7 +29,7 @@ module.exports = {
       id: tokenArr[2],
       salt: tokenArr[3]
     }
-    let sql = "use ppmiao_coin;select jf_val from ppmiao_coins_user_vip_level where uid = " + userInfo.id + ";"
+    let sql = "use ppmiao_coin;select jf_val from ppmiao_coins_user_vip_level where uid = " + userInfo.id + ";";
     query(sql, function(err, rows, fields) {
       if (err) {
         console.log('[query] - :' + err);
@@ -107,5 +109,48 @@ module.exports = {
       });
     }
     GlobalMethods.httpPost(request, response, callback, 'api.ppmiao.com', '/ppmiao-coin/exchangeCash', data);
+},
+  userInvition: function(request, response, callback) {
+    let mocktoken = ''
+    if (request.body.dev != undefined) {
+      mocktoken = request.body.token;
+    } else {
+      mocktoken = GlobalMethods.tokenDes(request.body.token);
+    }
+    let token = GlobalMethods.base64decode(mocktoken);
+    if (token == '') {
+      response.send('token解析失败');
+    }
+    let tokenArr = token.split("_");
+    let userInfo = {
+      id: tokenArr[2],
+      salt: tokenArr[3]
+    }
+    let userDB = ''
+    if (sails.config.environment === 'production') {
+         userDB = production.database_User;
+    }
+    if (sails.config.environment === 'development') {
+         userDB = development.database_User;
+    }
+    let startTime = "'2017-08-21 00:00:00'";
+    let endTime = "'2017-08-30 23:59:59'";
+    let sql1 = "select start_time,end_time from  "+ userDB +".s_lottery_base where key_name='magpie_festival';";
+    query(sql1, function(err, rows, fields) {
+        if (rows[0] != undefined){
+            startTime = moment(rows[0].start_time * 1000).format('YYYY-MM-DD HH:MM:SS');
+            endTime = moment(rows[0].end_time * 1000).format('YYYY-MM-DD HH:MM:SS');
+        }
+    });
+    let sql2 = "select sum(due_capital) from  "+ userDB +".s_user_due_detail where user_id = " + userInfo.id + " and start_time > " + startTime + " and end_time < " + endTime + ";";
+    console.log(sql2);
+    query(sql2, function(err, rows, fields) {
+        if ( rows[0]['sum(due_capital)'] !=null ){
+            response.send({result:rows[0]['sum(due_capital)']});
+        }
+        else {
+            response.send({result:'没有投资记录'});
+        }
+    });
   }
 };

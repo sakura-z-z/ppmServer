@@ -25,7 +25,7 @@ module.exports = {
    * Set the port in the production environment to 80                        *
    ***************************************************************************/
 
-  port: 2019,
+  port: 6666,
 
   /***************************************************************************
    * Set the log level in production environment to "silent"                 *
@@ -34,5 +34,10 @@ module.exports = {
   // log: {
   //   level: "silent"
   // }
-
+  //正式
+  DBhost: 'rdsx68knfa04yf50mj51.mysql.rds.aliyuncs.com',
+  DBuser: 'ppmiao_online',
+  DBpassword: 'knfa04yF5',
+  database_User: 'ppmiao_online',
+  database_Member: 'ppmiao_coin',
 };
