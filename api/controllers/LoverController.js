@@ -26,7 +26,7 @@ module.exports = {
         versionName: request.body.versionName
       });
     }
-    GlobalMethods.httpPostPHP(request, response, callback, actHost, '/index.php?c=lottery&a=get_lottery_info', data, 80);
+    GlobalMethods.httpPostPHP(request, response, callback, actHost, '/index.php?c=lottery&a=get_lottery_info', data);
   },
   drawResult: function(request, response, callback) {
     if (request.body.dev != undefined) {
@@ -42,7 +42,7 @@ module.exports = {
         versionName: request.body.versionName
       });
     }
-    GlobalMethods.httpPostPHP(request, response, callback, actHost, '/index.php?c=lottery&a=do_lottery', data, 80);
+    GlobalMethods.httpPostPHP(request, response, callback, actHost, '/index.php?c=lottery&a=do_lottery', data);
   },
   winningList: function(request, response, callback) {
     if (request.body.dev != undefined) {
@@ -61,7 +61,7 @@ module.exports = {
         count: request.body.count
       });
     }
-    GlobalMethods.httpPostPHP(request, response, callback, actHost, '/index.php?c=lottery&a=get_user_lottery_log', data, 80);
+    GlobalMethods.httpPostPHP(request, response, callback, actHost, '/index.php?c=lottery&a=get_user_lottery_log', data);
   },
   drawTimes: function(request, response, callback) {
     if (request.body.dev != undefined) {
@@ -77,6 +77,6 @@ module.exports = {
         versionName: request.body.versionName
       });
     }
-    GlobalMethods.httpPostPHP(request, response, callback, actHost, '/index.php?c=lottery&a=get_lottery_num', data, 80);
+    GlobalMethods.httpPostPHP(request, response, callback, actHost, '/index.php?c=lottery&a=get_lottery_num', data);
   }
 };
