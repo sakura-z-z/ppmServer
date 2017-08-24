@@ -142,14 +142,14 @@ module.exports = {
             endTime = moment(rows[0].end_time * 1000).format('YYYY-MM-DD HH:MM:SS');
         }
     });
-    let sql2 = "select sum(due_capital) from  "+ userDB +".s_user_due_detail where user_id = " + userInfo.id + " and start_time > " + startTime + " and end_time < " + endTime + ";";
+    let sql2 = "select sum(due_capital) from  "+ userDB +".s_user_due_detail where user_id = " + userInfo.id + " and start_time > " + startTime + ";";
     console.log(sql2);
     query(sql2, function(err, rows, fields) {
         if ( rows[0]['sum(due_capital)'] !=null ){
-            response.send({result:rows[0]['sum(due_capital)']});
+            response.send({result:rows[0]['sum(due_capital)'], code: 1});
         }
         else {
-            response.send({result:'没有投资记录'});
+            response.send({result: 0, errMsg: '没有投资记录', code: 0});
         }
     });
   }
