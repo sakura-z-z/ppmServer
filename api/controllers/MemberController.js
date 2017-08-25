@@ -120,6 +120,7 @@ module.exports = {
     let token = GlobalMethods.base64decode(mocktoken);
     if (token == '') {
       response.send('token解析失败');
+      return;
     }
     let tokenArr = token.split("_");
     let userInfo = {
@@ -133,23 +134,32 @@ module.exports = {
     if (sails.config.environment === 'development') {
          userDB = development.database_User;
     }
-    let startTime = "'2017-08-21 00:00:00'";
-    let endTime = "'2017-08-30 23:59:59'";
+    // let startTime = "'2017-08-21 00:00:00'";
+    // let endTime = "'2017-08-30 23:59:59'";
+    let startTime = "'2017-08-25 00:00:00'"; //---------
+    let endTime = "'2017-08-30 23:59:59'";  //---------
     let sql1 = "select start_time,end_time from  "+ userDB +".s_lottery_base where key_name='magpie_festival';";
     query(sql1, function(err, rows, fields) {
         if (rows[0] != undefined){
-            startTime = moment(rows[0].start_time * 1000).format('YYYY-MM-DD HH:MM:SS');
+            startTime = moment(rows[0].start_time * 1000).add(1 ,'days').format('YYYY-MM-DD HH:MM:SS');
             endTime = moment(rows[0].end_time * 1000).format('YYYY-MM-DD HH:MM:SS');
-        }
-    });
-    let sql2 = "select sum(due_capital) from  "+ userDB +".s_user_due_detail where user_id = " + userInfo.id + " and start_time > " + startTime + " and end_time < " + endTime + ";";
-    console.log(sql2);
-    query(sql2, function(err, rows, fields) {
-        if ( rows[0]['sum(due_capital)'] !=null ){
-            response.send({result:rows[0]['sum(due_capital)']});
-        }
-        else {
-            response.send({result:'没有投资记录'});
+            let sql2 = "select sum(due_capital) from  "+ userDB +".s_user_due_detail where user_id = " + userInfo.id + " and start_time > " + startTime + ";";
+            console.log(sql2);
+            query(sql2, function(err, rows, fields) {
+                console.log(rows);
+                if(rows != undefined){
+                    if ( rows[0]['sum(due_capital)'] != null ){
+                        response.send({result:rows[0]['sum(due_capital)'], code: 1});
+                    }
+                    else {
+                        response.send({result: 0, errMsg: '没有投资记录', code: 0});
+                    }
+                }
+                else {
+                    response.send({result: 0, errMsg: '没有投资记录', code: 0});
+                }
+
+            });
         }
     });
   }
