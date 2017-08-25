@@ -74,6 +74,7 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
   '/getAwards': 'ValentineController.getAwards',
+  '/getMagpieProjects': 'ValentineController.getMagpieProjects',
 
   /***************************************************************************
   *                                                                          *
