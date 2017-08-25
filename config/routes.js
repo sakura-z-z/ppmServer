@@ -32,6 +32,21 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
+  '/actInfo': 'LoverController.actInfo',
+  '/drawResult': 'LoverController.drawResult',
+  '/winningList': 'LoverController.winningList',
+  '/drawTimes': 'LoverController.drawTimes',
+
+  /***************************************************************************
+  *                                                                          *
+  * 七夕线下活动                                                               *
+  *                                                                          *
+  ***************************************************************************/
+
+  '/userType': 'MemberController.userType',
+  '/getLastTime': 'MemberController.getTime',
+  '/coinExchangeCash':'MemberController.coinExchangeCash',
+  '/userInvition': 'MemberController.userInvition',
 
 
 
