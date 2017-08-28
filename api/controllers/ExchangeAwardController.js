@@ -9,7 +9,7 @@ module.exports = {
   exchangeAward: function(request, response, callback) {
     var data = querystring.stringify({lotteryAwardId: request.body.lotteryAwardId, expdate: request.body.expdate, mobile: request.body.mobile});
     console.log(GlobalVal.apiHost);
-    GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-rest/payment/activity/inviteFriend/exchangeAward.htm', data);
+    GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/payment/activity/inviteFriend/exchangeAward.htm', data);
   },
   checkActivity: function(request, response, callback) {
     var data = querystring.stringify({keyName: request.body.keyName});
@@ -19,7 +19,7 @@ module.exports = {
   getLotteryLogByLotteryAwardId: function(request, response, callback) {
     var data = querystring.stringify({lotteryAwardId: request.body.lotteryAwardId, mobile: request.body.mobile});
     console.log(GlobalVal.apiHost);
-    GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-rest/payment/activity/inviteFriend/getLotteryLogByLotteryAwardId.htm', data);
+    GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/payment/activity/inviteFriend/getLotteryLogByLotteryAwardId.htm', data);
   },
   getCurryTimes: function(request, response, callback) {
     var data = querystring.stringify({});
