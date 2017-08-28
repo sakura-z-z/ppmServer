@@ -141,7 +141,7 @@ module.exports = {
     let sql1 = "select start_time,end_time from  "+ userDB +".s_lottery_base where key_name='magpie_festival';";
     query(sql1, function(err, rows, fields) {
         if (rows[0] != undefined){
-            startTime = moment(rows[0].start_time * 1000).format('YYYY-MM-DD HH:mm:ss').add(1 ,'days');
+            startTime = moment(rows[0].start_time * 1000).add(1 ,'days').format('YYYY-MM-DD HH:mm:ss');
             endTime = moment(rows[0].end_time * 1000).format('YYYY-MM-DD HH:MM:SS');
             let sql2 = "select sum(due_capital) from  "+ userDB +".s_user_due_detail where user_id = " + userInfo.id + " and start_time > '" + startTime + "';";
             console.log(sql2);
