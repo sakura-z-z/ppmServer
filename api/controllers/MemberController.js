@@ -143,7 +143,7 @@ module.exports = {
         if (rows[0] != undefined){
             startTime = moment(rows[0].start_time * 1000).add(1 ,'days').format('YYYY-MM-DD HH:mm:ss');
             endTime = moment(rows[0].end_time * 1000).format('YYYY-MM-DD HH:MM:SS');
-            let sql2 = "select sum(due_capital) from  "+ userDB +".s_user_due_detail where user_id = " + userInfo.id + " and start_time > '" + startTime + "';";
+            let sql2 = "select sum(due_capital) from  "+ userDB +".s_user_due_detail where user_id = " + userInfo.id + " and start_time > '" + startTime + "' and duration_day > 29;";
             console.log(sql2);
             query(sql2, function(err, rows, fields) {
                 console.log(rows);
