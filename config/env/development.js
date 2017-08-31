@@ -26,4 +26,5 @@ module.exports = {
     DBpassword: 'E8b9J7TjPs0u4Nf',
     database_User: 'ppmiao_test',
     database_Member: 'ppmiao_dev_2017',
+    apiHost: 'api.test.ppmiao.com',
 };

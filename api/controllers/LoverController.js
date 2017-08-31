@@ -8,9 +8,9 @@
 var http = require('http');
 var CryptoJS = require("crypto-js");
 var querystring = require('querystring');
-var actHost = 'testing.ppmiao.com';
+var actHost = 'cg.ppmiao.com';
 // var actHost = '121.40.211.34';
-var actId = 17;
+var actId = 24;
 module.exports = {
   actInfo: function(request, response, callback) {
   var data = querystring.stringify({

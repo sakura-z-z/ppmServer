@@ -1,6 +1,12 @@
+if (sails.config.environment === 'development') {
+    var apiHost='api.test.ppmiao.com';
+}
+if (sails.config.environment === 'production') {
+    var apiHost='api.ppmiao.cn';
+    // http://120.55.240.160:8089/ppmiao-rest/payment/activity/inviteFriend/checkActivity.htm
+}
 module.exports = {
-    apiHost: 'api.test.ppmiao.com',
-    // apiHost: '121.40.211.34',
+    apiHost: apiHost,
     apiPort: 8089,
     DBVal: 'rm-uf6cm0kpb0rm130szo.mysql.rds.aliyuncs.com'
 };
