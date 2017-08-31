@@ -7,7 +7,7 @@
 
  module.exports = {
    getDesToken: function(request, response, callback) {
-       let body = "eyqHDoeDrIra8sRTOHhugud1AxGR9QqSAbbws0Wq89qhSkzvfaVQIue14O96+fabqBU85DuIntXD\nidqZKJvYXORi8bt+E1EXgjtFl5CD3QTdX2VmF5NfB8ctS9EeRNiBPmwPE20a46uTmNI2jTQNbE7c\neSVlxc0ZW8XQa+SG4VRrghFrTMlMBp3k5x8p2MMKQsW7zeeY6+wB2CzA9dRpLevZNc+qfG2IvgZj\nKzCOUU2Sn82rXE6CFsRzIEAZf8GLrwWZJK+pWY4jPf079T8HMNLw8oBOi6uNDU64h+h+UM9Dkyj4\nxIXQItmsgZCv/+4in792IwJ/nJr+Qj2IC1SrOBieZ5ueTvLICxo06XhqgIv8cgUxK+HtrKwGyASE\nkiymDq1S+g7rUWWxGmI2b7jMjF/Bf9K1EPT07aM63b1hcDiNEpnkVfHe7qYXrPvlK3KDwUzwwvri\nXFYWcX137rzX7NSGi72yu5wkbWBy2leg/946IZrDe98tKMLJ1d+oM25cGKEwfi/VgMlYsmSYhnPB\njaofv8DXYh7rVXt1gaXxhBM=\n"
+       let body = "eyqHDoeDrIra8sRTOHhugud1AxGR9QqSHthd3b2V1VuPKL+BF+CDuus4DKBlkjfx6bXy/nN0ZeQu\n7nTSMeIhe7W5kp2jtXbYvdkWRHHO377j0pj+YIuCCXSf41tDN7yodC8HmpqXtiDnfOzFRnb5e9T5\nekJdmNOQkSm++qdYNYW9m4vo/CG11x29mN0AkWFND9WgBePD0lg+gy9jrY2hQJYp9QWchSp84r0x\n4zL2Tik0jo9urj4kurINGaDA9QKoFGRDgdN28lC7/xJQgGyKeeFXFTIHmr/mISivrS2R9kblFno0\nTrCBfWi7VstFZhridzVyBAKnIhQMR2mtv8aFXCLQA6tGslif98xwebDe0pXDr/VO2dv0GOeFZC/S\nE+37RswjF9Fv8zmZayhrNRUiJvsyKYxC+YNTcsPsH63nddmR1WoTvR9kwhobi++FqXIyR91NikN7\nWuNTcGlfbg+DcNpUaAk0hKK1MtsEnkI0eSPetCDoDdBhnNnuHmjYV1ATvDsvbqnSDggpSsgzLE3P\ng2HhKZ/JrmYrqkuYkcx7RkxhJ5GvmwiGxsn8NQLEjkYjiu9Oh4Q4PGS0H1uVeFg/SU8+Q0q8pxUI\nn4CFHREg9CiCRpwViKW5YTFkkLNWtqUYFZyuIBBTQQiMJmJ6nL8uNJBbEM4qfypx\n"
        resp = JSON.parse(GlobalMethods.ReleaseToken(body));
        let data = resp.result.token;
        console.log(GlobalMethods.ReleaseDesToken(data));
