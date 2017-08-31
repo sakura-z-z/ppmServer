@@ -11,13 +11,13 @@ module.exports = {
 			keyName: request.body.keyName,
 			mobile: request.body.mobile
 		});
-		GlobalMethods.httpPost(request, response, callback,GlobalVal.apiHost, '/ppmiao-rest/payment/activity/inviteFriend/checkUsedAndExchanged.htm', data,8089);
+		GlobalMethods.httpPost(request, response, callback,GlobalVal.apiHost, '/payment/activity/inviteFriend/checkUsedAndExchanged.htm', data);
 	},
 	exchangeWeekend3Award: function(request, response, callback) {
 		var data = querystring.stringify({
 			lotteryAwardId: request.body.lotteryAwardId,
 			mobile: request.body.mobile
 		});
-		GlobalMethods.httpPost(request, response, callback,GlobalVal.apiHost, '/ppmiao-rest/payment/activity/inviteFriend/exchangeWeekend3Award.htm', data,8089);
+		GlobalMethods.httpPost(request, response, callback,GlobalVal.apiHost, '/payment/activity/inviteFriend/exchangeWeekend3Award.htm', data);
 	},
 };
