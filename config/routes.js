@@ -91,6 +91,15 @@ module.exports.routes = {
   '/getAwards': 'ValentineController.getAwards',
   '/getMagpieProjects': 'ValentineController.getMagpieProjects',
 
+
+  /***************************************************************************
+  *                                                                          *
+  * 9月会员                                                                   *
+  *                                                                          *
+  ***************************************************************************/
+  '/userJFVal': 'CircleController.userJFVal',
+  '/setJFVal': 'CircleController.setJFVal',
+
   /***************************************************************************
   *                                                                          *
   * 公共方法                                                                   *
