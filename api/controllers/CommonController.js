@@ -11,13 +11,16 @@
        resp = JSON.parse(GlobalMethods.ReleaseToken(body));
        let data = resp.result.token;
        console.log(GlobalMethods.ReleaseDesToken(data));
+       response.send(GlobalMethods.ReleaseDesToken(data));
    },
    getPhone: function(request, response, callback) {
        let body = "eyqHDoeDrIra8sRTOHhugrMYs+9jbMm7+/OoVJmwhaVZ3BNEmmB/MfhGoeLNIaBnQAQn10BdNtSm\nxtuP8OiITODeDYFyAhEuJhr3H8V7zxQJdxA+aD+1Ag==\n"
        console.log(GlobalMethods.ReleaseToken(body));
    },
    encryptToken: function(request, response, callback) {
-       let body = "VEtfMjAxNzA3MjExNTA0MTFfNjY0NDdfMDM2OTE3"
+    //    request.body
+       let body = "VEtfMjAxNzA2MjcxNzAzMzZfNjYzNDFfNTUwMDc5"
        console.log(GlobalMethods.ReleaseDesToken(body));
+       response.send(GlobalMethods.ReleaseDesToken(body));
    }
  };
