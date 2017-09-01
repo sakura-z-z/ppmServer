@@ -18,9 +18,20 @@
        console.log(GlobalMethods.ReleaseToken(body));
    },
    encryptToken: function(request, response, callback) {
-    //    request.body
-       let body = "VEtfMjAxNzA2MjcxNzAzMzZfNjYzNDFfNTUwMDc5"
-       console.log(GlobalMethods.ReleaseDesToken(body));
-       response.send(GlobalMethods.ReleaseDesToken(body));
+
+    //    let body = "VEtfMjAxNzA2MjcxNzAzMzZfNjYzNDFfNTUwMDc5"
+        // let mocktoken = ''
+        // if (request.body.dev != undefined) {
+        //     mocktoken = request.body.token;
+        // } else {
+        //     mocktoken = GlobalMethods.tokenDes(request.body.token);
+        // }
+        // let token = GlobalMethods.base64decode(mocktoken);
+        //
+        
+        let body = "VEtfMjAxNzA2MjcxNzAzMzZfNjYzNDFfNTUwMDc5";
+
+        console.log(GlobalMethods.ReleaseDesToken(body));
+        response.send(GlobalMethods.ReleaseDesToken(body));
    }
  };
