@@ -7,23 +7,20 @@
 
  module.exports = {
    getDesToken: function(request, response, callback) {
-    //    let body = "eyqHDoeDrIra8sRTOHhugud1AxGR9QqSAbbws0Wq89qhSkzvfaVQIue14O96+fabqBU85DuIntXD\nidqZKJvYXORi8bt+E1EXgjtFl5CD3QTdX2VmF5NfB8ctS9EeRNiBPmwPE20a46uTmNI2jTQNbE7c\neSVlxc0ZW8XQa+SG4VRrghFrTMlMBp3k5x8p2MMKQsW7zeeY6+wB2CzA9dRpLevZNc+qfG2IvgZj\nKzCOUU2Sn82rXE6CFsRzIEAZf8GLrwWZJK+pWY4jPf079T8HMNLw8oBOi6uNDU64h+h+UM9Dkyj4\nxIXQItmsgZCv/+4in792IwJ/nJr+Qj2IC1SrOBieZ5ueTvLICxo06XhqgIv8cgUxK+HtrKwGyASE\nkiymDq1S+g7rUWWxGmI2b7jMjF/Bf9K1EPT07aM63b1hcDiNEpnkVfHe7qYXrPvlK3KDwUzwwvri\nXFYWcX137rzX7NSGi72yu5wkbWBy2leg/946IZrDe98tKMLJ1d+oM25cGKEwfi/VgMlYsmSYhnPB\njaofv8DXYh7rVXt1gaXxhBM=\n";
-
-       let istoken = request.body.istoken;
-       console.log(istoken);
-       let body = istoken;
-
-       resp = JSON.parse(GlobalMethods.ReleaseToken(body));
-       let data = resp.result.token;
-       console.log(GlobalMethods.ReleaseDesToken(data));
-       response.send(GlobalMethods.ReleaseDesToken(data));
+    //    let body = "eyqHDoeDrIra8sRTOHhugud1AxGR9QqSu41v2mrJiU2iQcusDIgW49hD2+f352rlAJ+NkTCdurBY\nOEmqKfrxyvnzqy4o2fIZNRo449+NnUgYdj27lsMN7R+qNQEqg3vq+2nj9e4dqqeAIQJRX/+I7M9A\nfRCXQQr1shXM3guL5kh4MInBVIpgRSAyzUyO38ehL3fi6PPzJDhQMxi5AqFbv2WBBT/gMmsCOdvR\n9DKvwBBFjS+Ao3BHUX36H1mmKoTeKHMTjLPt30WIqfbAAKTfNl2yrMEndEMIgLR2Fpq+zLEU2pOW\nuLoy5wmN8TNYyhU9aIrdC2hNGgebajLIuZta0D1XdyMGmdBOh0H48dMoeqMx9iIggsSEzbc5R7B0\nqlc0SZcr+e3Kmr46DPcnWoUapLu6fCvNd7qmX8tDtwkWXb7YuB+PrO7Dx0BW7wgYbBIIwStJKCR2\nI0Ynh8E3cwaUAJx37gRv9XJWJQHGBop0wZ61RaXY7N4hAMwxzY9ReMmrx0nNBSEjA3kTmMOA8mpa\nRyQaZCdwArUjXOd7ecYLE3+xbw5mxmkwAQ==\n";
+        let istoken = request.body.istoken;
+        let body = istoken;
+        resp = JSON.parse(GlobalMethods.ReleaseToken(body));
+        let data = resp.result.token;
+        console.log(GlobalMethods.ReleaseDesToken(data));
+        response.send(GlobalMethods.ReleaseDesToken(data));
    },
    getPhone: function(request, response, callback) {
-    //    let body = "eyqHDoeDrIra8sRTOHhugrMYs+9jbMm7+/OoVJmwhaVZ3BNEmmB/MfhGoeLNIaBnQAQn10BdNtSm\nxtuP8OiITODeDYFyAhEuJhr3H8V7zxQJdxA+aD+1Ag==\n"
-    let istoken = request.body.istoken;
-    let body = istoken;
-       console.log(GlobalMethods.ReleaseToken(body));
-       response.send(GlobalMethods.ReleaseDesToken(data));
+           let body = "eyqHDoeDrIra8sRTOHhugrMYs+9jbMm7+/OoVJmwhaVZ3BNEmmB/MfhGoeLNIaBnQAQn10BdNtSm\nxtuP8OiITODeDYFyAhEuJhr3H8V7zxQJdxA+aD+1Ag==\n"
+        // let istoken = request.body.istoken;
+        // let body = istoken;
+        console.log(GlobalMethods.ReleaseToken(body));
+        response.send(GlobalMethods.ReleaseDesToken(data));
    },
    encryptToken: function(request, response, callback) {
 
