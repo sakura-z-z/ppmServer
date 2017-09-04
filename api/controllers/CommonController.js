@@ -16,20 +16,17 @@
         response.send(GlobalMethods.ReleaseDesToken(data));
    },
    getPhone: function(request, response, callback) {
-           let body = "eyqHDoeDrIra8sRTOHhugrMYs+9jbMm7+/OoVJmwhaVZ3BNEmmB/MfhGoeLNIaBnQAQn10BdNtSm\nxtuP8OiITODeDYFyAhEuJhr3H8V7zxQJdxA+aD+1Ag==\n"
-        // let istoken = request.body.istoken;
-        // let body = istoken;
+        //    let body = "eyqHDoeDrIra8sRTOHhugrMYs+9jbMm7+/OoVJmwhaVZ3BNEmmB/MfhGoeLNIaBnQAQn10BdNtSm\nxtuP8OiITODeDYFyAhEuJhr3H8V7zxQJdxA+aD+1Ag==\n"
+        let istoken = request.body.istoken;
+        let body = istoken;
         console.log(GlobalMethods.ReleaseToken(body));
-        response.send(GlobalMethods.ReleaseDesToken(data));
+        response.send(GlobalMethods.ReleaseToken(body));
    },
    encryptToken: function(request, response, callback) {
-
+       // let body = "VEtfMjAxNzA2MjcxNzAzMzZfNjYzNDFfNTUwMDc5";
         let istoken = request.body.istoken;
-        // console.log(istoken);
         let body = istoken;
-        // let body = "VEtfMjAxNzA2MjcxNzAzMzZfNjYzNDFfNTUwMDc5";
-
-        // console.log(GlobalMethods.ReleaseDesToken(body));
+        console.log(GlobalMethods.ReleaseDesToken(body));
         response.send(GlobalMethods.ReleaseDesToken(body));
    }
  };
