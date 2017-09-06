@@ -73,6 +73,7 @@ module.exports.routes = {
   '/getDesToken': 'CommonController.getDesToken',
   '/getPhone': 'CommonController.getPhone',
   '/encryptToken':'CommonController.encryptToken',
+  '/connectRedis': 'CommonController.connectRedis',
   '/getAwards': 'ValentineController.getAwards',
   /***************************************************************************
   *                                                                          *
