@@ -72,7 +72,8 @@ module.exports.routes = {
   '/wxToken':'WxController.wxToken',
   '/getDesToken': 'CommonController.getDesToken',
   '/getPhone': 'CommonController.getPhone',
-  '/encryptToken':'CommonController.encryptToken'
+  '/encryptToken':'CommonController.encryptToken',
+  '/getAwards': 'ValentineController.getAwards',
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
