@@ -87,7 +87,7 @@ module.exports = {
     if (sails.config.environment === 'development') {
       userDB = development.database_User;
     }
-    let sql = "select COUNT(*) from  " + userDB + ".s_lottery_log where user_id = " + userInfo.id + " and lottery_id = 22;";
+    let sql = "select COUNT(*) from  " + userDB + ".s_lottery_log where user_id = " + userInfo.id + " and lottery_id = 28 and lottery_award_id = 143;";
     console.log(sql);
     query(sql, function(err, rows, fields) {
       if (err) {
