@@ -3,6 +3,8 @@ if (sails.config.environment === 'development') {
 }
 if (sails.config.environment === 'production') {
     var apiHost='api.ppmiao.cn';
+    // var apiHost='api.prepare.ppmiao.cn';
+
     // http://120.55.240.160:8089/ppmiao-rest/payment/activity/inviteFriend/checkActivity.htm
 }
 module.exports = {
