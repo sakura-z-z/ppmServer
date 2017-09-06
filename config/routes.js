@@ -91,6 +91,24 @@ module.exports.routes = {
   '/getAwards': 'ValentineController.getAwards',
   '/getMagpieProjects': 'ValentineController.getMagpieProjects',
 
+
+  /***************************************************************************
+  *                                                                          *
+  * 9月会员                                                                   *
+  *                                                                          *
+  ***************************************************************************/
+  '/userJFVal': 'CircleController.userJFVal',
+  '/setJFVal': 'CircleController.setJFVal',
+  '/isExchange': 'CircleController.isExchange',
+
+  /***************************************************************************
+  *                                                                          *
+  * 周末促投3                                                                   *
+  *                                                                          *
+  ***************************************************************************/
+  '/checkUsedAndExchanged': 'Weekend3Controller.checkUsedAndExchanged',
+  '/exchangeWeekend3Award': 'Weekend3Controller.exchangeWeekend3Award',
+
   /***************************************************************************
   *                                                                          *
   * 公共方法                                                                   *
