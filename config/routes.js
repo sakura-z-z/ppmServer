@@ -99,6 +99,7 @@ module.exports.routes = {
   ***************************************************************************/
   '/userJFVal': 'CircleController.userJFVal',
   '/setJFVal': 'CircleController.setJFVal',
+  '/isExchange': 'CircleController.isExchange',
 
   /***************************************************************************
   *                                                                          *
