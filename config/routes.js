@@ -32,34 +32,6 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/actInfo': 'LoverController.actInfo',
-  '/drawResult': 'LoverController.drawResult',
-  '/winningList': 'LoverController.winningList',
-  '/drawTimes': 'LoverController.drawTimes',
-
-  /***************************************************************************
-  *                                                                          *
-  * 七夕线下活动                                                               *
-  *                                                                          *
-  ***************************************************************************/
-
-  '/userType': 'MemberController.userType',
-  '/getLastTime': 'MemberController.getTime',
-  '/coinExchangeCash':'MemberController.coinExchangeCash',
-  '/userInvition': 'MemberController.userInvition',
-
-
-
-  /***************************************************************************
-  *                                                                          *
-  * 会员活动                                                                  *
-  *                                                                          *
-  ***************************************************************************/
-
-  '/userType': 'MemberController.userType',
-  '/getLastTime': 'MemberController.getTime',
-  '/coinExchangeCash':'MemberController.coinExchangeCash',
-  '/userInvition': 'MemberController.userInvition',
 
 
 
@@ -72,24 +44,7 @@ module.exports.routes = {
   '/tokenExpire': 'LinkSqlController.tokenExpire',
   '/getDueCapital': 'LinkSqlController.getDueCapital',
 
-  /***************************************************************************
-  *                                                                          *
-  * 掘金大冒险                                                                   *
-  *                                                                          *
-  ***************************************************************************/
-  '/exchangeAward': 'ExchangeAwardController.exchangeAward',
-  '/checkActivity': 'ExchangeAwardController.checkActivity',
-  '/getLotteryLogByLotteryAwardId': 'ExchangeAwardController.getLotteryLogByLotteryAwardId',
-  '/getCurryTimes': 'ExchangeAwardController.getCurryTimes',
-  '/queryInvcAmount': 'ExchangeAwardController.queryInvcAmount',
 
-  /***************************************************************************
-  *                                                                          *
-  * 浪漫七夕                                                                   *
-  *                                                                          *
-  ***************************************************************************/
-  '/getAwards': 'ValentineController.getAwards',
-  '/getMagpieProjects': 'ValentineController.getMagpieProjects',
 
 
   /***************************************************************************
