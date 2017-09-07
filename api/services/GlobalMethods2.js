@@ -42,14 +42,14 @@ module.exports = {
           // 当未传入key时会返回null
           console.log(reply);
           if (reply == token){
-              return callback(true);
+              callback(true);
           } else {
-              return callback(true);
+              callback(true);
           }
         });
     });
     client.on("error", function(error) {
-      return callback(error);
+      callback(error);
     });
   }
 };

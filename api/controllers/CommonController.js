@@ -43,6 +43,8 @@
          salt: tokenArr[3]
        };
        let key = 'ppmiao_uid_' + userInfo.id;
-       console.log(GlobalMethods2.connectRedis(key,mocktoken));
+       GlobalMethods2.connectRedis(key,mocktoken，function(result){
+           console.log(result);
+       });
    }
  };
