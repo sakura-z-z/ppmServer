@@ -28,8 +28,7 @@ module.exports = {
       console.log('ready');
     });
     client.on('connect', function() {
-      client.set('author', 'lcx', redis.print);
-      client.get('ppmiao_uid_66674', redis.print);
+      client.get('ppmiao_uid_66447', redis.print);
       console.log('connect');
     });
     client.on("error", function(error) {
