@@ -42,8 +42,10 @@ module.exports = {
           // 当未传入key时会返回null
           console.log(reply);
           if (reply == token){
+              console.log(1);
               return true;
           } else {
+              console.log(2);
               return false;
           }
         });
