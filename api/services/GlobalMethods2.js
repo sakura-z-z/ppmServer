@@ -17,7 +17,7 @@ var test = function () {
 //     client = redis.createClient(RDS_PORT,RDS_HOST,RDS_OPTS);
 
 module.exports = {
-  connectRedis: function(key,token) {
+  connectRedis: function(key,token,callback) {
       console.log(key);
       console.log(token);
     var redis = require('redis'),
@@ -42,16 +42,14 @@ module.exports = {
           // 当未传入key时会返回null
           console.log(reply);
           if (reply == token){
-              console.log(1);
-              return true;
+              return callback(true);
           } else {
-              console.log(2);
-              return false;
+              return callback(true);
           }
         });
     });
     client.on("error", function(error) {
-      console.log(error);
+      return callback(error);
     });
   }
 };
