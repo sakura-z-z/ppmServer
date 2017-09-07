@@ -27,6 +27,22 @@
         response.send(GlobalMethods.ReleaseDesToken(body));
    },
    connectRedis: function(request, response, callback) {
-       GlobalMethods2.connectRedis();
+       let mocktoken = '';
+       if (request.body.dev != undefined) {
+         mocktoken = request.body.token;
+       } else {
+         mocktoken = GlobalMethods.tokenDes(request.body.token);
+       }
+       let token = GlobalMethods.base64decode(mocktoken);
+       if (token == '') {
+         return;
+       }
+       let tokenArr = token.split("_");
+       let userInfo = {
+         id: tokenArr[2],
+         salt: tokenArr[3]
+       };
+       let key = 'ppmiao_uid_' + userInfo.id;
+       console.log(GlobalMethods2.connectRedis(key,mocktoken));
    }
  };
