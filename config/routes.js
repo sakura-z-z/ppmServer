@@ -74,6 +74,15 @@ module.exports.routes = {
 
   /***************************************************************************
   *                                                                          *
+  * 公用的活动接口                                                                   *
+  *                                                                          *
+  ***************************************************************************/
+  '/getLotteryLogByLotteryAwardId': 'PublicController.getLotteryLogByLotteryAwardId',
+  '/checkActivity': 'PublicController.checkActivity',
+  '/exchangeAward': 'PublicController.exchangeAward',
+
+  /***************************************************************************
+  *                                                                          *
   * 公共方法                                                                   *
   *                                                                          *
   ***************************************************************************/
