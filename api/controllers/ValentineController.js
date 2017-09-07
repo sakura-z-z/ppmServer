@@ -13,10 +13,4 @@ module.exports = {
 		});
 		GlobalMethods.httpPost(request, response, callback,GlobalVal.apiHost, '/payment/activity/inviteFriend/getAwards.htm', data);
 	},
-	getMagpieProjects: function(request, response, callback) {
-		var data = querystring.stringify({
-			title: request.body.title
-		});
-		GlobalMethods.httpPost(request, response, callback,GlobalVal.apiHost, '/payment/activity/inviteFriend/getMagpieProjects.htm', data);
-	},
 };
