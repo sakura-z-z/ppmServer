@@ -46,8 +46,8 @@
     //    GlobalMethods2.connectRedis(key, mocktoken, function(result){
     //        return result
     //    });
-       console.log( GlobalMethods2.connectRedis(key, mocktoken, function(result){
-            return result;
+       console.log(GlobalMethods2.connectRedis(key, mocktoken, function(result){
+            return 0;
         }));
    }
  };
