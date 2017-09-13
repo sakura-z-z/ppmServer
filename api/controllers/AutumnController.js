@@ -43,7 +43,7 @@ module.exports = {
           userDB = development.database_User;
         }
         let sqlTime = "select start_time,end_time from  " + userDB + ".s_lottery_base where key_name='autumn_day';";
-        let signName = '%%';
+        let signName = '%金秋%';
         let startTime = '2017-09-10 0:0:0.0';
         let endTime = '2017-09-13 23:59:59.0';
         query(sqlTime, function(err, rows, fields) {
