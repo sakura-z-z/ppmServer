@@ -44,7 +44,7 @@ module.exports = {
           if (reply == token){
               callback(true);
           } else {
-              callback(true);
+              callback(false);
           }
         });
     });
