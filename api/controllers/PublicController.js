@@ -22,4 +22,16 @@ module.exports = {
        console.log(GlobalVal.apiHost);
        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/payment/activity/inviteFriend/exchangeAward.htm', data);
      },
+     exchangePrize: function(request, response, callback) {
+       if (request.body.dev != undefined) {
+         var data = querystring.stringify({token: request.body.token, keyName: request.body.keyName, versionName: request.body.versionName});
+       } else {
+         var data = querystring.stringify({
+           token: GlobalMethods.tokenDes(request.body.token),
+           keyName: request.body.keyName,
+           versionName: request.body.versionName
+         });
+       }
+       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/activity/lottery.json', data);
+     },
 };

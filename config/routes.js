@@ -52,7 +52,12 @@ module.exports.routes = {
   ***************************************************************************/
   '/getinviteAwards': 'AutumnController.getinviteAwards',
 
-
+  /***************************************************************************
+  *                                                                          *
+  * 金秋活动                                                                  *
+  *                                                                          *
+  ***************************************************************************/
+  '/getUserInfoMT': 'Member10Controller.getUserInfoMT',
 
   /***************************************************************************
   *                                                                          *
@@ -87,6 +92,7 @@ module.exports.routes = {
   '/getLotteryLogByLotteryAwardId': 'PublicController.getLotteryLogByLotteryAwardId',
   '/checkActivity': 'PublicController.checkActivity',
   '/exchangeAward': 'PublicController.exchangeAward',
+  '/exchangePrize': 'PublicController.exchangePrize',
 
   /***************************************************************************
   *                                                                          *
