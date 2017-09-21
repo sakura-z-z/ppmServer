@@ -18,7 +18,7 @@ module.exports = {
        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/activity/checkActivty.json', data);
      },
 	 exchangeAward: function(request, response, callback) {
-       var data = querystring.stringify({lotteryAwardId: request.body.lotteryAwardId, expdate: request.body.expdate, mobile: request.body.mobile});
+       var data = querystring.stringify({lotteryAwardId: request.body.lotteryAwardId, expdate: request.body.expdate, mobile: request.body.mobile, times: request.body.times});
        console.log(GlobalVal.apiHost);
        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/payment/activity/inviteFriend/exchangeAward.htm', data);
      },
