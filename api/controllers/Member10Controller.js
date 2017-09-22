@@ -11,7 +11,7 @@ var moment = require('moment');
 var query = require('../models/pool');
 var production = require('../../config/env/production');
 var development = require('../../config/env/development');
-var projectName = "啦啦啦";
+var projectName = "财富";
 module.exports = {
   getUserInfoMT: function(request, response, callback) {
     let mocktoken = ''
@@ -50,9 +50,7 @@ module.exports = {
         console.log('[query] - :' + err);
         return;
       }
-      console.log(rows[0][0]['id']);
-      console.log(rows[1][0]['vip_level']);
-      console.log(rows[2][0] = undefined);
+      response.send({project_id: rows[0][0]['id'], vipLevel: rows[1][0]['vip_level'], isInvite: rows[2][0] == undefined});
     });
   }
 };
