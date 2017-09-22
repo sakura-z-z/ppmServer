@@ -53,6 +53,14 @@ module.exports.routes = {
   '/getinviteAwards': 'AutumnController.getinviteAwards',
 
 
+  /***************************************************************************
+  *                                                                          *
+  * 月月加薪                                                                  *
+  *                                                                          *
+  ***************************************************************************/
+  '/getMonthlyInterestConfig': 'SalaryController.getMonthlyInterestConfig',
+  '/getUserMonthlyProjectInvestLog': 'SalaryController.getUserMonthlyProjectInvestLog',
+
 
   /***************************************************************************
   *                                                                          *
