@@ -11,7 +11,7 @@ var moment = require('moment');
 var query = require('../models/pool');
 var production = require('../../config/env/production');
 var development = require('../../config/env/development');
-var projectName = "10月会员";
+var projectName = "VIP专属";
 module.exports = {
   getUserInfoMT: function(request, response, callback) {
     let mocktoken = ''
