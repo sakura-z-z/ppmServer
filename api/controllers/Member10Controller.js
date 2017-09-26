@@ -56,7 +56,7 @@ module.exports = {
       if(rows[0][0]['id'] != undefined && rows[1][0]['vip_level'] != undefined){
           response.send({project_id: rows[0][0]['id'], vipLevel: rows[1][0]['vip_level'], isInvite: rows[2][0] != undefined});
       }else {
-          response.send({project_id: 0, vipLevel: 0, isInvite: 0});
+          response.send({project_id: null, vipLevel: 0, isInvite: 0});
       }
     });
   }
