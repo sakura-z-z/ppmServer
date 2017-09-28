@@ -17,21 +17,33 @@ var test = function () {
 // client.on('ready', function(res) {
 //   console.log('ready');
 // });
-
+var production = require('../../config/env/production');
+var development = require('../../config/env/development');
 module.exports = {
   connectRedis: function(key,token,callback) {
       console.log(key);
       console.log(token);
-    var redis = require('redis'),
-      RDS_PORT = 6379, //端口号
-      RDS_HOST = 'r-uf678e1e6a9deeb4.redis.rds.aliyuncs.com', //服务器IP
-      RDS_PWD = 'Aa311512',
-      RDS_OPTS = {}, //设置项
-      client = redis.createClient(RDS_PORT, RDS_HOST, RDS_OPTS);
+      if (sails.config.environment === 'development') {
+          var redis = require('redis'),
+            RDS_PORT = 6379, //端口号
+            RDS_HOST = development.redisHost, //服务器IP
+            RDS_PWD = development.redisPassword,
+            RDS_OPTS = {}, //设置项
+            client = redis.createClient(RDS_PORT, RDS_HOST, RDS_OPTS);
+      }
+      if (sails.config.environment === 'production') {
+          var redis = require('redis'),
+            RDS_PORT = 6379, //端口号
+            RDS_HOST = production.redisHost, //服务器IP
+            RDS_PWD = production.redisPassword,
+            RDS_OPTS = {}, //设置项
+            client = redis.createClient(RDS_PORT, RDS_HOST, RDS_OPTS);
+      }
     client.auth(RDS_PWD, function() {
       console.log('通过认证');
     });
     client.on('connect', function() {
+        console.log('连接成功');
         client.get(key, function(err, reply) {
           // 当未传入key时会返回null
           if (reply == token){

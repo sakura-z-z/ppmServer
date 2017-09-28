@@ -41,4 +41,6 @@ module.exports = {
   database_User: 'ppmiao_online',
   database_Member: 'ppmiao_coin',
   apiHost: 'api.ppmiao.cn',
+  redisHost: 'r-bp16ebde2f508e54.redis.rds.aliyuncs.com',
+  redisPassword: 'Nstlc20435DFD0rtgdf43gsd34u489',
 };
