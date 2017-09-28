@@ -67,7 +67,7 @@ module.exports = {
                   projectTitle: item.projectTitle,
                   invSucc: item.invSucc,
                   interestCoupon: item.interestCoupon,
-                  time: moment.unix(item.addTime / 1000).format('MM-DD h:mm')
+                  time: moment.unix(item.addTime / 1000).format('MM-DD HH:mm')
                 });
               } else {
                 arr.push({time: month, record: recordarr});
@@ -78,7 +78,7 @@ module.exports = {
                   projectTitle: item.projectTitle,
                   invSucc: item.invSucc,
                   interestCoupon: item.interestCoupon,
-                  time: moment.unix(item.addTime / 1000).format('MM-DD h:mm')
+                  time: moment.unix(item.addTime / 1000).format('MM-DD HH:mm')
                 });
               }
               if (index == resp.result.length - 1) {
