@@ -61,6 +61,13 @@ module.exports.routes = {
   '/getMonthlyInterestConfig': 'SalaryController.getMonthlyInterestConfig',
   '/getUserMonthlyProjectInvestLog': 'SalaryController.getUserMonthlyProjectInvestLog',
 
+  /***************************************************************************
+  *                                                                          *
+  * 10yue                                                                  *
+  *                                                                          *
+  ***************************************************************************/
+  '/getUserInfoMT': 'Member10Controller.getUserInfoMT',
+
 
   /***************************************************************************
   *                                                                          *
@@ -89,12 +96,21 @@ module.exports.routes = {
 
   /***************************************************************************
   *                                                                          *
+  * 国庆节活动                                                                   *
+  *                                                                          *
+  ***************************************************************************/
+  '/calculateRedPackets': 'NationalDayController.calculateRedPackets',
+  '/getProductDetails': 'NationalDayController.getProductDetails',
+
+  /***************************************************************************
+  *                                                                          *
   * 公用的活动接口                                                                   *
   *                                                                          *
   ***************************************************************************/
   '/getLotteryLogByLotteryAwardId': 'PublicController.getLotteryLogByLotteryAwardId',
   '/checkActivity': 'PublicController.checkActivity',
   '/exchangeAward': 'PublicController.exchangeAward',
+  '/exchangePrize': 'PublicController.exchangePrize',
 
   /***************************************************************************
   *                                                                          *
