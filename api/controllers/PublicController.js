@@ -32,6 +32,7 @@ module.exports = {
            versionName: request.body.versionName
          });
        }
+       console.log(data);
        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/activity/lottery.json', data);
      },
 };
