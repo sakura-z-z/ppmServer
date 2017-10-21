@@ -42,7 +42,7 @@ module.exports = {
     let sql1 = "select * from " + userDB_user + ".s_project where is_delete = 0 and `status`=2 and title like '%" + projectName + "%' order by weight + custom_weight desc, start_time asc;";
     let sql2 = "select vip_level from "+ userDB_member +".s_user_vip_level where uid = "+ userInfo.id +";"
     let sql3 = "select q.title,p.due_capital,p.add_time from "+ userDB_user +".s_project q, "+ userDB_user +".s_user_due_detail p where p.project_id=q.id and p.user_id= " + userInfo.id + " and q.title like '%" + projectName +"%';"
-    let sql4 = "select * from ppmiao_test.s_user_due_detail where add_time > '2017-10-10 00:00:00.000000' and user_id= " + userInfo.id + ";";
+    let sql4 = "select * from " + userDB_user + ".s_user_due_detail where add_time > '2017-10-10 00:00:00.000000' and user_id= " + userInfo.id + ";";
     let sql5 = "select lottery_award_id from "+ userDB_user +".s_lottery_log p, "+ userDB_user + ".s_lottery_base s where  p.user_id= "+userInfo.id +" and s.id = p.lottery_id and s.key_name = 'october_vip'"
     console.log(sql1);
     console.log(sql2);
