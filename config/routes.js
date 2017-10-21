@@ -50,7 +50,11 @@ module.exports.routes = {
   * 金秋活动                                                                  *
   *                                                                          *
   ***************************************************************************/
+
   '/getinviteAwards': 'AutumnController.getinviteAwards',
+  
+  '/getInviteList': 'ActController.getInviteList',
+  '/getInviteInfo': 'ActController.getInviteInfo',
 
 
   /***************************************************************************
