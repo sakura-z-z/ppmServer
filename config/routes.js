@@ -52,7 +52,7 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/getinviteAwards': 'AutumnController.getinviteAwards',
-  
+
   '/getInviteList': 'ActController.getInviteList',
   '/getInviteInfo': 'ActController.getInviteInfo',
 
@@ -142,5 +142,53 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
+
+
+
+
+
+
+
+
+
+
+
+  /***************************************************************************
+  *                                                                          *
+  * ***** 微  信  端 *****                                                    *
+  *                                                                          *
+  ***************************************************************************/
+
+  //********   首页    *******
+
+    //轮播图
+    '/bannerList': 'WechatIndexController.bannerList'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 };
