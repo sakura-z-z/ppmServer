@@ -35,4 +35,9 @@ module.exports = {
        console.log(data);
        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/activity/lottery.json', data);
      },
+	 getCurryTimes: function(request, response, callback) {
+        var data = querystring.stringify({});
+        console.log(GlobalVal.apiHost);
+        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/payment/activity/inviteFriend/getCurryTimes.htm', data);
+      },
 };

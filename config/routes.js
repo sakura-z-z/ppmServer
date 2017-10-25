@@ -52,7 +52,7 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/getinviteAwards': 'AutumnController.getinviteAwards',
-  
+
   '/getInviteList': 'ActController.getInviteList',
   '/getInviteInfo': 'ActController.getInviteInfo',
 
@@ -77,6 +77,13 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
   '/getUserPovertyInvestLog': 'poordayController.getUserPovertyInvestLog',
+
+  /***************************************************************************
+  *                                                                          *
+  * 七夕                                                                 *
+  *                                                                          *
+  ***************************************************************************/
+  '/getAwards': 'ValentineController.getAwards',
 
 
   /***************************************************************************
@@ -121,6 +128,7 @@ module.exports.routes = {
   '/checkActivity': 'PublicController.checkActivity',
   '/exchangeAward': 'PublicController.exchangeAward',
   '/exchangePrize': 'PublicController.exchangePrize',
+  '/getCurryTimes': 'PublicController.getCurryTimes',
 
   /***************************************************************************
   *                                                                          *
@@ -132,7 +140,6 @@ module.exports.routes = {
   '/getPhone': 'CommonController.getPhone',
   '/encryptToken':'CommonController.encryptToken',
   '/connectRedis': 'CommonController.connectRedis',
-  '/getAwards': 'ValentineController.getAwards',
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
