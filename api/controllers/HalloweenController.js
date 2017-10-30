@@ -31,11 +31,11 @@ module.exports = {
 			salt: tokenArr[3]
 		};
 		let key = 'ppmiao_uid_' + userInfo.id;
-		//  GlobalMethods2.connectRedis(key, mocktoken, function(result) {
-		//    if (!result) {
-		//      response.send({code: "1", result: '您的登陆状态已失效'});
-		//      return;
-		//    } else {
+		 GlobalMethods2.connectRedis(key, mocktoken, function(result) {
+		   if (!result) {
+		     response.send({code: "1", result: '您的登陆状态已失效'});
+		     return;
+		   } else {
 		let userDB = '';
 		let userMB = '';
 		if (sails.config.environment === 'production') {
@@ -66,18 +66,18 @@ module.exports = {
 				let sql3 = 'SELECT count(*) FROM ' + userDB + '.s_user_due_detail s WHERE EXISTS (SELECT invited_user_id FROM s_user_invite_list suil WHERE suil.user_id = ' + userInfo.id + ' AND s.user_id = suil.invited_user_id) AND s.due_capital >= 5000 AND EXISTS ( SELECT * FROM s_lottery_base slb WHERE slb.key_name = "halloween" AND s.add_time BETWEEN FROM_UNIXTIME(slb.start_time) AND FROM_UNIXTIME(slb.end_time));';
 				let sql4 = 'SELECT count(*) FROM ' + userDB + '.s_user_due_detail s WHERE s.user_id = ' + userInfo.id + ' AND s.duration_day >= 60 AND s.due_capital >= 10000 AND s.due_capital < 100000 AND EXISTS ( SELECT * FROM s_lottery_base slb WHERE slb.key_name = "halloween" AND s.add_time BETWEEN FROM_UNIXTIME(slb.start_time) AND FROM_UNIXTIME(slb.end_time)) AND EXISTS ( SELECT * FROM s_project sp WHERE s.project_id = sp.id AND sp.new_preferential <> 1 );';
 				let sql5 = 'SELECT count(*) FROM ' + userDB + '.s_user_due_detail s WHERE s.user_id = ' + userInfo.id + ' AND s.duration_day >= 90 AND s.due_capital >= 100000 AND EXISTS ( SELECT * FROM s_lottery_base slb WHERE slb.key_name = "halloween" AND s.add_time BETWEEN FROM_UNIXTIME(slb.start_time) AND FROM_UNIXTIME(slb.end_time)) AND EXISTS ( SELECT * FROM s_project sp WHERE s.project_id = sp.id AND sp.new_preferential <> 1 );';
-				console.log(sql1);
-				console.log(sql2);
-				console.log(sql3);
-				console.log(sql4);
-				console.log(sql5);
+				// console.log(sql1);
+				// console.log(sql2);
+				// console.log(sql3);
+				// console.log(sql4);
+				// console.log(sql5);
 
 				query(sql1 + sql2 + sql3 + sql4 + sql5, function(err, rows, fields) {
 					if (err) {
 						console.log('[query] - :' + err);
 						return;
 					}
-					console.log(rows);
+					// console.log(rows);
 					if (rows[0][0] != '' && rows[1][0] != '' && rows[2][0] != '' && rows[3][0] != '' && rows[4][0] != '') {
 						var signCount = 0;
 						var todaySign = 0;
@@ -128,10 +128,10 @@ module.exports = {
 						});
 					}
 				});
-				//    } else {
-				//      response.send({code: "2", result: '服务端忙'});
-				//    }
-				//  });
+				   } else {
+				     response.send({code: "2", result: '服务端忙'});
+				   }
+				 });
 			}
 		});
 
