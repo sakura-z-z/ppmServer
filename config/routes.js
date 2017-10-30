@@ -111,6 +111,7 @@ module.exports.routes = {
   '/checkActivity2': 'TeacherActController.checkActivity2',
   '/getRanking': 'TeacherActController.getRanking',
 
+
   /***************************************************************************
   *                                                                          *
   * 国庆节活动                                                                   *
@@ -118,6 +119,13 @@ module.exports.routes = {
   ***************************************************************************/
   '/calculateRedPackets': 'NationalDayController.calculateRedPackets',
   '/getProductDetails': 'NationalDayController.getProductDetails',
+
+  /***************************************************************************
+  *                                                                          *
+  * 万圣节活动                                                                   *
+  *                                                                          *
+  ***************************************************************************/
+  '/getHalloween': 'HalloweenController.getHalloween',
 
   /***************************************************************************
   *                                                                          *
