@@ -61,16 +61,20 @@ module.exports = {
 				startTime = moment(rows[0].start_time * 1000).format('YYYY-MM-DD HH:mm:ss');
 				endTime = moment(rows[0].end_time * 1000).format('YYYY-MM-DD HH:mm:ss');
 				endTimeAfter = moment(rows[0].end_time * 1000+1000*60*60*24).format('YYYY-MM-DD HH:mm:ss');
-				let sql1 = 'select count(*) from (select * from ' + userMB + '.s_user_daily_sign p where p.uid=' + userInfo.id + ') p where EXISTS ( SELECT * FROM ' + userDB + '.s_lottery_base slb WHERE slb.key_name = "halloween" AND p.add_time BETWEEN FROM_UNIXTIME(slb.start_time) AND FROM_UNIXTIME(slb.end_time));';
+				// let sql1 = 'select count(*) from (select * from ' + userMB + '.s_user_daily_sign p where p.uid=' + userInfo.id + ') p where EXISTS ( SELECT * FROM ' + userDB + '.s_lottery_base slb WHERE slb.key_name = "halloween" AND p.add_time BETWEEN FROM_UNIXTIME(slb.start_time) AND FROM_UNIXTIME(slb.end_time));';
+
+				let sql1 = "SELECT count(*) FROM " + userDB + ".s_user_due_detail s WHERE s.user_id IN ( SELECT suil.invited_user_id FROM " + userDB + ".s_user_invite_list suil WHERE suil.user_id = "+ userInfo.id +" AND suil.type = 2 AND suil.add_time BETWEEN FROM_UNIXTIME(1509465600) AND FROM_UNIXTIME(1509638399)) AND s.due_capital >= 5000 AND EXISTS ( SELECT * FROM " +userDB+ ".s_lottery_base slb WHERE slb.key_name = 'halloween' AND s.add_time BETWEEN FROM_UNIXTIME(slb.start_time) AND FROM_UNIXTIME(slb.end_time));";
+
+
 				let sql2 = 'select count(*) from ' + userMB + '.s_user_daily_sign p where p.uid=' + userInfo.id + ' and p.add_time>=date_format(now(),"%y-%m-%d");';
 				let sql3 = 'SELECT count(*) FROM ' + userDB + '.s_user_due_detail s WHERE EXISTS (SELECT invited_user_id FROM s_user_invite_list suil WHERE suil.user_id = ' + userInfo.id + ' AND s.user_id = suil.invited_user_id) AND s.due_capital >= 5000 AND EXISTS ( SELECT * FROM s_lottery_base slb WHERE slb.key_name = "halloween" AND s.add_time BETWEEN FROM_UNIXTIME(slb.start_time) AND FROM_UNIXTIME(slb.end_time));';
 				let sql4 = 'SELECT count(*) FROM ' + userDB + '.s_user_due_detail s WHERE s.user_id = ' + userInfo.id + ' AND s.duration_day >= 60 AND s.due_capital >= 10000 AND s.due_capital < 100000 AND EXISTS ( SELECT * FROM s_lottery_base slb WHERE slb.key_name = "halloween" AND s.add_time BETWEEN FROM_UNIXTIME(slb.start_time) AND FROM_UNIXTIME(slb.end_time)) AND EXISTS ( SELECT * FROM s_project sp WHERE s.project_id = sp.id AND sp.new_preferential <> 1 );';
 				let sql5 = 'SELECT count(*) FROM ' + userDB + '.s_user_due_detail s WHERE s.user_id = ' + userInfo.id + ' AND s.duration_day >= 90 AND s.due_capital >= 100000 AND EXISTS ( SELECT * FROM s_lottery_base slb WHERE slb.key_name = "halloween" AND s.add_time BETWEEN FROM_UNIXTIME(slb.start_time) AND FROM_UNIXTIME(slb.end_time)) AND EXISTS ( SELECT * FROM s_project sp WHERE s.project_id = sp.id AND sp.new_preferential <> 1 );';
-				// console.log(sql1);
-				// console.log(sql2);
-				// console.log(sql3);
-				// console.log(sql4);
-				// console.log(sql5);
+				console.log(sql1);
+				console.log(sql2);
+				console.log(sql3);
+				console.log(sql4);
+				console.log(sql5);
 
 				query(sql1 + sql2 + sql3 + sql4 + sql5, function(err, rows, fields) {
 					if (err) {
