@@ -32,7 +32,7 @@
        id: tokenArr[2],
        salt: tokenArr[3]
      };
-     let userDB = ''
+     let userDB = '';
      if (sails.config.environment === 'production') {
        userDB_member = production.database_Member;
        userDB_user = production.database_User;
@@ -41,39 +41,53 @@
        userDB_member = development.database_Member;
        userDB_user = development.database_User;
      }
-     let sql1 = "select * from " + userDB_user + ".s_project where is_delete = 0 and `status`=2 and title like '%" + projectName + "%' order by weight + custom_weight desc, start_time asc;";
+     let sql1 = "select p.id,p.`status` from " + userDB_user + ".s_project p where p.title like '%" + projectName + "%' and p.add_time>subdate(curdate(),date_format(curdate(),'%w')-5) and p.add_time<=subdate(curdate(),date_format(curdate(),'%w')-6);"
      let sql2 = "select vip_level from "+ userDB_member +".s_user_vip_level where uid = "+ userInfo.id +";"
      let sql3 = "select q.title,p.due_capital,p.add_time from "+ userDB_user +".s_project q, "+ userDB_user +".s_user_due_detail p where p.project_id=q.id and p.user_id= " + userInfo.id + " and q.title like '%" + projectName +"%';"
      let sql4 = "select * from " + userDB_user + ".s_user_due_detail where add_time > '" + addTime + "' and user_id= " + userInfo.id + ";";
-     let sql5 = "select lottery_award_id from "+ userDB_user +".s_lottery_log p, "+ userDB_user + ".s_lottery_base s where  p.user_id= "+userInfo.id +" and s.id = p.lottery_id and s.key_name = '" + keyName + "';";
-     console.log(sql1);
-     console.log(sql2);
-     console.log(sql3);
-     console.log(sql4);
-     console.log(sql5);
-     query(sql1 + sql2 + sql3 +sql4+sql5, function(err, rows, fields) {
+    //  console.log(sql1);
+    //  console.log(sql2);
+    //  console.log(sql3);
+    //  console.log(sql4);
+     query(sql1 + sql2 + sql3 + sql4, function(err, rows, fields) {
+         console.log(rows);
        if (err) {
          console.log('[query] - :' + err);
          return;
        }
-       let awardid = 0;
-       if(rows[4][0] != undefined){
-           awardid = rows[4][0]['lottery_award_id'];
-       }else {
-           awardid = false;
-       }
+
        if(rows[0][0] != undefined && rows[1][0] != undefined){
-           response.send({project_id: rows[0][0]['id'], vipLevel: rows[1][0]['vip_level'],
-           VIPInvite: rows[2][0] != undefined, isInvite: rows[3][0] != undefined, isexchange: awardid});
+           response.send({
+               project_id: rows[0][0]['id'],
+               project_status:rows[0][0][`status`],
+               vipLevel: rows[1][0]['vip_level'],
+               VIPInvite: rows[2][0] != undefined,
+               isInvite: rows[3][0] != undefined
+           });
        }else if(rows[0][0] == undefined && rows[1][0] != undefined){
-           response.send({project_id: null, vipLevel: rows[1][0]['vip_level'],
-           VIPInvite: rows[2][0] != undefined, isInvite: rows[3][0] != undefined, isexchange: awardid});
+           response.send({
+               project_id: null,
+               project_status:null,
+               vipLevel: rows[1][0]['vip_level'],
+               VIPInvite: rows[2][0] != undefined,
+               isInvite: rows[3][0] != undefined
+           });
        }else if(rows[0][0] != undefined && rows[1][0] == undefined){
-           response.send({project_id: rows[0][0]['id'], vipLevel: 0,
-           VIPInvite: rows[2][0] != undefined, isInvite: rows[3][0] != undefined, isexchange: awardid});
+           response.send({
+               project_id: rows[0][0]['id'],
+               project_status:rows[0][0][`status`],
+               vipLevel: 0,
+               VIPInvite: rows[2][0] != undefined,
+               isInvite: rows[3][0] != undefined
+           });
        }else {
-           response.send({project_id: null, vipLevel: 0,
-           VIPInvite: 0, isInvite: 0, isexchange: 0});
+           response.send({
+               project_id: null,
+               project_status:null,
+               vipLevel: 0,
+               VIPInvite: 0,
+               isInvite: 0
+           });
        }
      });
    }
