@@ -41,7 +41,7 @@
        userDB_member = development.database_Member;
        userDB_user = development.database_User;
      }
-     let sql1 = "select p.id,p.`status` from " + userDB_user + ".s_project p where p.title like '%" + projectName + "%' and p.add_time>subdate(curdate(),date_format(curdate(),'%w')-5) and p.add_time<=subdate(curdate(),date_format(curdate(),'%w')-6);"
+     let sql1 = "select p.id,p.`status` from " + userDB_user + ".s_project p where p.title like '%" + projectName + "%' and p.start_time>subdate(curdate(),date_format(curdate(),'%w')-5) and p.start_time<=subdate(curdate(),date_format(curdate(),'%w')-6);"
      let sql2 = "select vip_level from "+ userDB_member +".s_user_vip_level where uid = "+ userInfo.id +";"
      let sql3 = "select q.title,p.due_capital,p.add_time from "+ userDB_user +".s_project q, "+ userDB_user +".s_user_due_detail p where p.project_id=q.id and p.user_id= " + userInfo.id + " and q.title like '%" + projectName +"%';"
      let sql4 = "select * from " + userDB_user + ".s_user_due_detail where add_time > '" + addTime + "' and user_id= " + userInfo.id + ";";
