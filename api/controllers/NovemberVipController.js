@@ -41,14 +41,17 @@
        userDB_member = development.database_Member;
        userDB_user = development.database_User;
      }
-     let sql1 = "select p.id,p.`status` from " + userDB_user + ".s_project p where p.title like '%" + projectName + "%' and p.start_time>subdate(curdate(),date_format(curdate(),'%w')-5) and p.start_time<=subdate(curdate(),date_format(curdate(),'%w')-6);"
+    //  let sql1 = "select p.id,p.`status` from " + userDB_user + ".s_project p where p.title like '%" + projectName + "%' and p.start_time>subdate(curdate(),date_format(curdate(),'%w')-5) and p.start_time<=subdate(curdate(),date_format(curdate(),'%w')-6);"
+
+     let sql1 = "SELECT p.id,p.`status` FROM " + userDB_user + ".s_project p WHERE p.title LIKE '%" + projectName + "%' AND p.start_time > SUBDATE(curdate(),case when date_format(curdate(),'%w') < 5 then date_format(curdate(),'%w') + 2 else date_format(curdate(),'%w') - 5 end) AND p.start_time <= SUBDATE(SUBDATE(curdate(),case when date_format(curdate(),'%w') < 5 then date_format(curdate(),'%w') + 2 else date_format(curdate(),'%w') - 5 end),-1);";
+
      let sql2 = "select vip_level from "+ userDB_member +".s_user_vip_level where uid = "+ userInfo.id +";"
-     let sql3 = "select q.title,p.due_capital,p.add_time from "+ userDB_user +".s_project q, "+ userDB_user +".s_user_due_detail p where p.project_id=q.id and p.user_id= " + userInfo.id + " and q.title like '%" + projectName +"%';"
+     let sql3 = "select q.title,p.due_capital,p.add_time from "+ userDB_user +".s_project q, "+ userDB_user +".s_user_due_detail p where p.project_id=q.id and p.user_id= " + userInfo.id + " and q.title like '%" + projectName +"%' and p.add_time > '2017-11-01 00:00:00.000000';"
      let sql4 = "select * from " + userDB_user + ".s_user_due_detail where add_time > '" + addTime + "' and user_id= " + userInfo.id + ";";
-    //  console.log(sql1);
-    //  console.log(sql2);
-    //  console.log(sql3);
-    //  console.log(sql4);
+     console.log(sql1);
+     console.log(sql2);
+     console.log(sql3);
+     console.log(sql4);
      query(sql1 + sql2 + sql3 + sql4, function(err, rows, fields) {
          console.log(rows);
        if (err) {
