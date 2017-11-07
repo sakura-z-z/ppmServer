@@ -162,14 +162,70 @@ module.exports.routes = {
   //********   首页    *******
 
     //轮播图
-    '/bannerList': 'WechatIndexController.bannerList'
+    '/bannerList': 'WechatIndexController.bannerList',
+    //首页推荐标+累计投资-盈利金额
+    '/queryRecommendProjectV4': 'WechatIndexController.queryRecommendProjectV4',
+    //首页启动数据
+    '/getAppStartupConfig': 'WechatIndexController.getAppStartupConfig',
+    //新手指引
+    '/getNewProjects': 'WechatIndexController.getNewProjects',
+    //发现页接口
+    '/getHistoryEvent': 'WechatIndexController.getHistoryEvent',
+
+
+
+  //********   理财产品页    *******
+
+
+    //理财 有效专区
+    '/queryInProgressProjectV8': 'WechatFinancesController.queryInProgressProjectV8',
+    //理财 失效专区
+    '/moreProject': 'WechatFinancesController.moreProject',
+    //理财详情页
+    '/detailV3': 'WechatFinancesController.detailV3',
+    //投资人数列表
+    '/projectInvestLog': 'WechatFinancesController.projectInvestLog',
+
+
+
+  //********    用户    *******
+    // 用户信息
+    '/userInfo': 'WechatUserController.userInfo',
+    //账户信息
+    '/userAccountAssets': 'WechatUserController.userAccountAssets',
+    //用户红点
+    '/redPointV2': 'WechatUserController.redPointV2',
+  //投资记录
+    //投资中
+    '/queryInvestDetailV2': 'WechatUserController.queryInvestDetailV2',
+    //投资结束
+    '/queryInvestFinishDetailV2': 'WechatUserController.queryInvestFinishDetailV2',
+    //投资详情
+    '/dueDetail': 'WechatUserController.dueDetail',
+
+  //我的券包
+    //券包红点
+    '/checkNewCoupon': 'WechatUserController.checkNewCoupon',
+    //红包券
+    '/getAllUserRedEnvelope': 'WechatUserController.getAllUserRedEnvelope',
+    //加息券
+    '/getAllUserInterestCoupon': 'WechatUserController.getAllUserInterestCoupon',
+    //现金券
+    '/getAllUserInviteCashCoupons': 'WechatUserController.getAllUserInviteCashCoupons',
+    // 使用现金券
+    '/CashCouponToWallet': 'WechatUserController.CashCouponToWallet',
 
 
 
 
 
-
-
+  //********   充值提现功能   ********
+    //提现的时候弹出的信息
+    '/preWithdrawal': 'WechatCapitalController.preWithdrawal',
+    //提现获取手机验证码
+    '/getTradeSmsCode': 'WechatCapitalController.getTradeSmsCode',
+    //确认提现
+    '/withdrawal': 'WechatCapitalController.withdrawal'
 
 
 
