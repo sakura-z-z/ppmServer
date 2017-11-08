@@ -41,6 +41,34 @@
        versionName: request.body.versionName
      });
         GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/message/getHistoryEvent.json',data);
+   },
+   //前后三天的积分信息
+   getUserDailySignValue: function(request,response,callback){
+       var data = querystring.stringify({
+           versionName: request.body.versionName,
+           token: request.body.token
+       });
+       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-coin/getUserDailySignValue.json',data);
+   },
+   //用户当月已签到的日期
+   getUserMonthlySignInfo: function(request,response,callback){
+       var data = querystring.stringify({
+           versionName: request.body.versionName,
+           userId: request.body.userId,
+           token: request.body.token,
+           year: request.body.year,
+           month: request.body.month,
+       });
+       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-coin/getUserMonthlySignInfo.json',data);
+   },
+   //前后三天的积分信息
+   dailySign: function(request,response,callback){
+       var data = querystring.stringify({
+           versionName: request.body.versionName,
+           userId: request.body.userId,
+           token: request.body.tokenzz
+       });
+       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-coin/dailySign.json',data);
    }
 
  };

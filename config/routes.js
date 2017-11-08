@@ -225,10 +225,17 @@ module.exports.routes = {
     //提现获取手机验证码
     '/getTradeSmsCode': 'WechatCapitalController.getTradeSmsCode',
     //确认提现
-    '/withdrawal': 'WechatCapitalController.withdrawal'
+    '/withdrawal': 'WechatCapitalController.withdrawal',
 
 
 
+  //********   签到页面   ********
+    //前后三天的积分信息
+    '/getUserDailySignValue': 'WechatIndexController.getUserDailySignValue',
+    //用户当月已签到的日期
+    '/getUserMonthlySignInfo': 'WechatIndexController.getUserMonthlySignInfo',
+    //
+    '/dailySign': 'WechatIndexController.dailySign',
 
 
 
