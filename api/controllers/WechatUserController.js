@@ -110,7 +110,18 @@
        cashCouponId:request.body.cashCouponId
      });
       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/project/CashCouponToWallet.json',data);
-  }
+  },
+  // 账户中心
+        // 我的银行卡
+    queryBindBankCard: function(request, response, callback) {
+       var data = querystring.stringify({
+         versionName: request.body.versionName,
+         token: request.body.token,
+         userId: request.body.userId
+       });
+        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/queryBindBankCard.json',data);
+    },
+
  };
 
 

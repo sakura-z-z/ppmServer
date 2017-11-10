@@ -215,6 +215,10 @@ module.exports.routes = {
     // 使用现金券
     '/CashCouponToWallet': 'WechatUserController.CashCouponToWallet',
 
+    // 账户中心
+        // 我的银行卡
+    '/queryBindBankCard': 'WechatUserController.queryBindBankCard',
+
 
 
 
