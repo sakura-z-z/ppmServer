@@ -90,13 +90,13 @@ module.exports = {
             });
             console.log(arr);
             response.send(arr);
-        } else {
-            if (typeof resp == 'string') {
-              response.send(JSON.parse(resp));
-            } else {
-              response.send(resp);
-            }
-        }
+          } else {
+              if (typeof resp == 'string') {
+                response.send(JSON.parse(resp));
+              } else {
+                response.send(resp);
+              }
+          }
         }
       });
     });
