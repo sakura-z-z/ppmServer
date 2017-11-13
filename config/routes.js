@@ -206,6 +206,9 @@ module.exports.routes = {
     '/userAccountAssets': 'WechatUserController.userAccountAssets',
     //用户红点
     '/redPointV2': 'WechatUserController.redPointV2',
+    // 我的消息
+    '/personalMessage': 'WechatUserController.personalMessage',
+
   //投资记录
     //投资中
     '/queryInvestDetailV2': 'WechatUserController.queryInvestDetailV2',

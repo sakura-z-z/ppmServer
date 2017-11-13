@@ -32,6 +32,15 @@
       });
        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/redPointV2.json',data);
    },
+        //我的消息
+    personalMessage: function(request, response, callback) {
+     var data = querystring.stringify({
+         versionName: request.body.versionName,
+         token: request.body.token,
+         userId: request.body.userId
+     });
+      GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/personalMessage.json',data);
+  },
 //投资记录
 
    //投资中
