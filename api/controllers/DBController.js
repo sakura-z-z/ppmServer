@@ -49,7 +49,8 @@ module.exports = {
 		});
 	  }
 	  var options = {
-		hostname: 'api.ppmiao.cn',
+		// hostname: 'api.ppmiao.cn',
+		hostname: GlobalVal.apiHost,
 		path: '/user/updateUserRisk.json',
 		method: 'POST',
 		agent: false,
@@ -99,7 +100,8 @@ module.exports = {
 		});
 	  }
 	  var options = {
-		hostname: 'api.ppmiao.cn',
+		// hostname: 'api.ppmiao.cn',
+		hostname: GlobalVal.apiHost,
 		path: '/user/userInfo.json',
 		method: 'POST',
 		agent: false,
