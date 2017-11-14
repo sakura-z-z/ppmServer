@@ -7,7 +7,7 @@
 
  module.exports = {
    //用户信息
- 	 userInfo: function(request, response, callback) {
+ 	 userInfos: function(request, response, callback) {
       var data = querystring.stringify({
         versionName: request.body.versionName,
         token: request.body.token,

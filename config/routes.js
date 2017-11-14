@@ -201,7 +201,7 @@ module.exports.routes = {
 
   //********    用户    *******
     // 用户信息
-    '/userInfo': 'WechatUserController.userInfo',
+    '/userInfos': 'WechatUserController.userInfos',
     //账户信息
     '/userAccountAssets': 'WechatUserController.userAccountAssets',
     //用户红点
