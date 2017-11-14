@@ -6,8 +6,25 @@
  var querystring = require('querystring');
 
  module.exports = {
+   //获取验证码
+   getSmsCode: function(request, response, callback) {
+      var data = querystring.stringify({
+        versionName: request.body.versionName,
+        mobile: request.body.mobile
+      });
+       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/getSmsCode.json',data);
+   },
+   //登录
+   login: function(request, response, callback) {
+      var data = querystring.stringify({
+        versionName: request.body.versionName,
+        mobile: request.body.mobile,
+        mobile_auth_code:request.body.mobile_auth_code
+      });
+       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/login.json',data);
+   },
    //用户信息
- 	 userInfo: function(request, response, callback) {
+ 	 userInfos: function(request, response, callback) {
       var data = querystring.stringify({
         versionName: request.body.versionName,
         token: request.body.token,

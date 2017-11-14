@@ -200,8 +200,12 @@ module.exports.routes = {
 
 
   //********    用户    *******
+    //获取验证码
+    '/getSmsCode': 'WechatUserController.getSmsCode',
+    //登录
+    '/login': 'WechatUserController.login',
     // 用户信息
-    '/userInfo': 'WechatUserController.userInfo',
+    '/userInfos': 'WechatUserController.userInfos',
     //账户信息
     '/userAccountAssets': 'WechatUserController.userAccountAssets',
     //用户红点
