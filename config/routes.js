@@ -151,6 +151,7 @@ module.exports.routes = {
   '/exchangeAward': 'PublicController.exchangeAward',
   '/exchangePrize': 'PublicController.exchangePrize',
   '/getCurryTimes': 'PublicController.getCurryTimes',
+  '/getPlatformData': 'PublicController.getPlatformData',
 
   /***************************************************************************
   *                                                                          *
