@@ -30,7 +30,8 @@
    //  新手指引
    getNewProjects: function(request, response, callback) {
      var data = querystring.stringify({
-       versionName: request.body.versionName
+       versionName: request.body.versionName,
+       token: request.body.token
      });
         GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/activity/getNewProjects.json',data);
    },
@@ -66,7 +67,7 @@
        var data = querystring.stringify({
            versionName: request.body.versionName,
            userId: request.body.userId,
-           token: request.body.tokenzz
+           token: request.body.token
        });
        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-coin/dailySign.json',data);
    }
