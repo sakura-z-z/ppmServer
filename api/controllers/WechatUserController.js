@@ -147,7 +147,15 @@
        });
         GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/queryBindBankCard.json',data);
     },
-
+        // 退出登录
+    logout: function(request, response, callback) {
+       var data = querystring.stringify({
+         versionName: request.body.versionName,
+         token: request.body.token,
+         userId: request.body.userId
+       });
+        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/logout.json',data);
+    },
  };
 
 
