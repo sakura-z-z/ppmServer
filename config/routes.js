@@ -140,6 +140,14 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
   '/getActivityInvestLog': 'SinglesDayController.getActivityInvestLog',
+  /***************************************************************************
+  *                                                                          *
+  * 感恩节活动                                                                   *
+  *                                                                          *
+  ***************************************************************************/
+  '/getRanking': 'ThanksgivingController.getRanking',
+  '/queryThanksGiving': 'ThanksgivingController.queryThanksGiving',
+  '/exchangeThanksAward': 'ThanksgivingController.exchangeThanksAward',
 
   /***************************************************************************
   *                                                                          *
