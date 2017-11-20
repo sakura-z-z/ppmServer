@@ -16,6 +16,16 @@
       });
        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/preWithdrawal.json',data);
    },
+  //  提现说明
+  getAppConstant: function(request, response, callback) {
+     var data = querystring.stringify({
+       versionName: request.body.versionName,
+       token: request.body.token,
+       userId: request.body.userId,
+       consKey: request.body.consKey
+     });
+      GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/message/getAppConstant.json',data);
+  },
    //提现获取手机验证码
   getTradeSmsCode: function(request, response, callback) {
      var data = querystring.stringify({

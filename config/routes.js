@@ -246,6 +246,8 @@ module.exports.routes = {
   //********   充值提现功能   ********
     //提现的时候弹出的信息
     '/preWithdrawal': 'WechatCapitalController.preWithdrawal',
+    //提现说明
+    '/getAppConstant': 'WechatCapitalController.getAppConstant',
     //提现获取手机验证码
     '/getTradeSmsCode': 'WechatCapitalController.getTradeSmsCode',
     //确认提现
