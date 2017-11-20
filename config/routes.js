@@ -146,6 +146,7 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
   '/getRanking': 'ThanksgivingController.getRanking',
+  '/getMyRank': 'ThanksgivingController.getMyRank',
   '/queryThanksGiving': 'ThanksgivingController.queryThanksGiving',
   '/exchangeThanksAward': 'ThanksgivingController.exchangeThanksAward',
 

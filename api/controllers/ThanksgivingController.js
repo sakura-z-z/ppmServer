@@ -8,7 +8,12 @@
 var querystring = require('querystring');
 module.exports = {
 	getRanking: function(request, response, callback) {
-       var data = querystring.stringify({ keyName: request.body.keyName, top: request.body.top, durationDay: request.body.durationDay});
+       var data = querystring.stringify({keyName: request.body.keyName, top: request.body.top, durationDay: request.body.durationDay});
+       console.log(GlobalVal.apiHost);
+       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/activity/getRanking.json', data);
+   },
+	getMyRank: function(request, response, callback) {
+       var data = querystring.stringify({ token: GlobalMethods.tokenDes(request.body.token),keyName: request.body.keyName, top: request.body.top, durationDay: request.body.durationDay});
        console.log(GlobalVal.apiHost);
        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/activity/getRanking.json', data);
    },
