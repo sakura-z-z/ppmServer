@@ -253,6 +253,10 @@ module.exports.routes = {
     //确认提现
     '/withdrawal': 'WechatCapitalController.withdrawal',
 
+    //充值页面数据
+    '/preRecharge': 'WechatCapitalController.preRecharge',
+    //立即充值
+    '/recharge': 'WechatCapitalController.recharge',
 
 
   //********   签到页面   ********
