@@ -147,6 +147,11 @@
        });
         GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/queryBindBankCard.json',data);
     },
+            //银行卡列表
+    getBankList:function(request, response, callback) {
+       var data = querystring.stringify({});
+        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/message/getBankList.json',data);
+    },
         // 退出登录
     logout: function(request, response, callback) {
        var data = querystring.stringify({
