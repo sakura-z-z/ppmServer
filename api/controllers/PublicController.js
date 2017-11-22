@@ -45,4 +45,15 @@ module.exports = {
        console.log(GlobalVal.apiHost);
        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/project/getPlatformData.json', data);
      },
+     getInviteStatistic: function(request, response, callback) {
+       var data = querystring.stringify({
+		   token: GlobalMethods.tokenDes(request.body.token),
+           activityKey: request.body.activityKey,
+           amtPerInvest: request.body.amtPerInvest,
+           newPreferential: request.body.newPreferential,
+
+	   });
+       console.log(GlobalVal.apiHost);
+       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/project/getInviteStatistic.json', data);
+     },
 };
