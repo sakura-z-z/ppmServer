@@ -165,6 +165,17 @@ module.exports.routes = {
 
   /***************************************************************************
   *                                                                          *
+  * 用户风险评估                                                               *
+  *                                                                          *
+  ***************************************************************************/
+
+  '/userType':'DBController.userType',
+  '/updateUserType': 'DBController.updateUserType',
+  '/UserInfo': 'DBController.UserInfo',
+
+
+  /***************************************************************************
+  *                                                                          *
   * 公共方法                                                                   *
   *                                                                          *
   ***************************************************************************/
@@ -182,5 +193,134 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
+
+
+
+
+
+
+
+
+
+
+
+  /***************************************************************************
+  *                                                                          *
+  * ***** 微  信  端 *****                                                    *
+  *                                                                          *
+  ***************************************************************************/
+
+  //********   首页    *******
+
+    //轮播图
+    '/bannerList': 'WechatIndexController.bannerList',
+    //首页推荐标+累计投资-盈利金额
+    '/queryRecommendProjectV4': 'WechatIndexController.queryRecommendProjectV4',
+    //首页启动数据
+    '/getAppStartupConfig': 'WechatIndexController.getAppStartupConfig',
+    //新手指引
+    '/getNewProjects': 'WechatIndexController.getNewProjects',
+    //发现页接口
+    '/getHistoryEvent': 'WechatIndexController.getHistoryEvent',
+
+
+
+  //********   理财产品页    *******
+
+
+    //理财 有效专区
+    '/queryInProgressProjectV8': 'WechatFinancesController.queryInProgressProjectV8',
+    //理财 失效专区
+    '/moreProject': 'WechatFinancesController.moreProject',
+    //理财详情页
+    '/detailV3': 'WechatFinancesController.detailV3',
+    //投资人数列表
+    '/projectInvestLog': 'WechatFinancesController.projectInvestLog',
+
+
+
+  //********    用户    *******
+    //获取验证码
+    '/getSmsCode': 'WechatUserController.getSmsCode',
+    //登录
+    '/login': 'WechatUserController.login',
+    // 用户信息
+    '/userInfos': 'WechatUserController.userInfos',
+    //账户信息
+    '/userAccountAssets': 'WechatUserController.userAccountAssets',
+    //用户红点
+    '/redPointV2': 'WechatUserController.redPointV2',
+    // 我的消息
+    '/personalMessage': 'WechatUserController.personalMessage',
+
+  //投资记录
+    //投资中
+    '/queryInvestDetailV2': 'WechatUserController.queryInvestDetailV2',
+    //投资结束
+    '/queryInvestFinishDetailV2': 'WechatUserController.queryInvestFinishDetailV2',
+    //投资详情
+    '/dueDetail': 'WechatUserController.dueDetail',
+
+  //我的券包
+    //券包红点
+    '/checkNewCoupon': 'WechatUserController.checkNewCoupon',
+    //红包券
+    '/getAllUserRedEnvelope': 'WechatUserController.getAllUserRedEnvelope',
+    //加息券
+    '/getAllUserInterestCoupon': 'WechatUserController.getAllUserInterestCoupon',
+    //现金券
+    '/getAllUserInviteCashCoupons': 'WechatUserController.getAllUserInviteCashCoupons',
+    // 使用现金券
+    '/CashCouponToWallet': 'WechatUserController.CashCouponToWallet',
+
+    // 账户中心
+        // 我的银行卡
+    '/queryBindBankCard': 'WechatUserController.queryBindBankCard',
+            //银行卡列表
+    '/getBankList': 'WechatUserController.getBankList',
+
+        // 退出登录
+    '/logout': 'WechatUserController.logout',
+
+
+
+
+
+  //********   充值提现功能   ********
+    //提现的时候弹出的信息
+    '/preWithdrawal': 'WechatCapitalController.preWithdrawal',
+    //提现说明
+    '/getAppConstant': 'WechatCapitalController.getAppConstant',
+    //提现获取手机验证码
+    '/getTradeSmsCode': 'WechatCapitalController.getTradeSmsCode',
+    //确认提现
+    '/withdrawal': 'WechatCapitalController.withdrawal',
+
+
+
+  //********   签到页面   ********
+    //前后三天的积分信息
+    '/getUserDailySignValue': 'WechatIndexController.getUserDailySignValue',
+    //用户当月已签到的日期
+    '/getUserMonthlySignInfo': 'WechatIndexController.getUserMonthlySignInfo',
+    //
+    '/dailySign': 'WechatIndexController.dailySign',
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 };
