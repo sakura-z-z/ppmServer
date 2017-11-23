@@ -171,7 +171,8 @@ module.exports.routes = {
   ***************************************************************************/
 
   //********   首页    *******
-
+    //微信信息
+    // '/getUserAccessTokenByCode': 'WechatIndexController.getUserAccessTokenByCode',
     //轮播图
     '/bannerList': 'WechatIndexController.bannerList',
     //首页推荐标+累计投资-盈利金额

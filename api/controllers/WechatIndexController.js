@@ -4,8 +4,16 @@
  */
 
  var querystring = require('querystring');
- // 轮播图
+
  module.exports = {
+  //  微信信息
+    // getUserAccessTokenByCode: function(request, response, callback) {
+    //    var data = querystring.stringify({
+    //      url: request.body.url
+    //    });
+    //     GlobalMethods.httpPost(request, response, callback, 'http://webchat2.test.ppmiao.com/wechat/', 'getUserAccessTokenByCode');
+    // },
+   // 轮播图
  	 bannerList: function(request, response, callback) {
       var data = querystring.stringify({
         position: request.body.position,
