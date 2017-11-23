@@ -51,9 +51,8 @@ module.exports = {
            activityKey: request.body.activityKey,
            amtPerInvest: request.body.amtPerInvest,
            newPreferential: request.body.newPreferential,
-
 	   });
        console.log(GlobalVal.apiHost);
-       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/project/getInviteStatistic.json', data);
+       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/activity/getInviteStatistic.json', data);
      },
 };
