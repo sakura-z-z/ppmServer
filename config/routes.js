@@ -78,6 +78,13 @@ module.exports.routes = {
   ***************************************************************************/
   '/getUserPovertyInvestLog': 'poordayController.getUserPovertyInvestLog',
 
+  /***************************************************************************
+  *                                                                          *
+  * 七夕                                                                 *
+  *                                                                          *
+  ***************************************************************************/
+  '/getAwards': 'ValentineController.getAwards',
+
 
   /***************************************************************************
   *                                                                          *
@@ -104,6 +111,7 @@ module.exports.routes = {
   '/checkActivity2': 'TeacherActController.checkActivity2',
   '/getRanking': 'TeacherActController.getRanking',
 
+
   /***************************************************************************
   *                                                                          *
   * 国庆节活动                                                                   *
@@ -114,6 +122,36 @@ module.exports.routes = {
 
   /***************************************************************************
   *                                                                          *
+  * 万圣节活动                                                                   *
+  *                                                                          *
+  ***************************************************************************/
+  '/getHalloween': 'HalloweenController.getHalloween',
+
+  /***************************************************************************
+  *                                                                          *
+  * 11月会员活动                                                                   *
+  *                                                                          *
+  ***************************************************************************/
+  '/getUserInfoVip': 'NovemberVipController.getUserInfoVip',
+
+  /***************************************************************************
+  *                                                                          *
+  * 双十一活动                                                                   *
+  *                                                                          *
+  ***************************************************************************/
+  '/getActivityInvestLog': 'SinglesDayController.getActivityInvestLog',
+  /***************************************************************************
+  *                                                                          *
+  * 感恩节活动                                                                   *
+  *                                                                          *
+  ***************************************************************************/
+  '/getRanking': 'ThanksgivingController.getRanking',
+  '/getMyRank': 'ThanksgivingController.getMyRank',
+  '/queryThanksGiving': 'ThanksgivingController.queryThanksGiving',
+  '/exchangeThanksAward': 'ThanksgivingController.exchangeThanksAward',
+
+  /***************************************************************************
+  *                                                                          *
   * 公用的活动接口                                                                   *
   *                                                                          *
   ***************************************************************************/
@@ -121,6 +159,8 @@ module.exports.routes = {
   '/checkActivity': 'PublicController.checkActivity',
   '/exchangeAward': 'PublicController.exchangeAward',
   '/exchangePrize': 'PublicController.exchangePrize',
+  '/getCurryTimes': 'PublicController.getCurryTimes',
+  '/getPlatformData': 'PublicController.getPlatformData',
 
   /***************************************************************************
   *                                                                          *
@@ -143,7 +183,6 @@ module.exports.routes = {
   '/getPhone': 'CommonController.getPhone',
   '/encryptToken':'CommonController.encryptToken',
   '/connectRedis': 'CommonController.connectRedis',
-  '/getAwards': 'ValentineController.getAwards',
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
