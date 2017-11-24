@@ -239,6 +239,8 @@ module.exports.routes = {
     '/queryBindBankCard': 'WechatUserController.queryBindBankCard',
             //银行卡列表
     '/getBankList': 'WechatUserController.getBankList',
+            //绑卡开户
+    '/bindCard': 'WechatUserController.bindCard',
 
         // 退出登录
     '/logout': 'WechatUserController.logout',
