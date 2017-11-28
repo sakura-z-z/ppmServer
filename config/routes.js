@@ -149,6 +149,12 @@ module.exports.routes = {
   '/getMyRank': 'ThanksgivingController.getMyRank',
   '/queryThanksGiving': 'ThanksgivingController.queryThanksGiving',
   '/exchangeThanksAward': 'ThanksgivingController.exchangeThanksAward',
+  /***************************************************************************
+  *                                                                          *
+  * 邀请好友活动（抱团‘友’钱赚）                                                 *
+  *                                                                          *
+  ***************************************************************************/
+  '/exchangeTeamInvest': 'InvitController.exchangeTeamInvest',
 
   /***************************************************************************
   *                                                                          *
