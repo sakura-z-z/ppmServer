@@ -168,6 +168,7 @@ module.exports.routes = {
   '/getCurryTimes': 'PublicController.getCurryTimes',
   '/getPlatformData': 'PublicController.getPlatformData',
   '/getInviteStatistic': 'PublicController.getInviteStatistic',
+  '/getAppStartupConfig': 'PublicController.getAppStartupConfig',
 
   /***************************************************************************
   *                                                                          *

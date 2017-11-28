@@ -56,4 +56,11 @@ module.exports = {
        console.log(GlobalVal.apiHost);
        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/activity/getInviteStatistic.json', data);
      },
+	 //app跳转路径
+	 getAppStartupConfig: function(request, response, callback) {
+	   var data = querystring.stringify({
+		 versionName: request.body.versionName
+	   });
+		  GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/message/getAppStartupConfig.json',data);
+	 },
 };
