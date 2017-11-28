@@ -11,7 +11,7 @@ module.exports = {
        var data = querystring.stringify({
 		   lotteryAwardId: request.body.lotteryAwardId,
 		   token: GlobalMethods.tokenDes(request.body.token),
-		   amout: request.body.amout});
+		   amount: request.body.amount});
        console.log(GlobalVal.apiHost);
        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/activity/exchangeTeamInvest.json', data);
      }

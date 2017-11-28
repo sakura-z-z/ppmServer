@@ -54,6 +54,6 @@ module.exports = {
 
 	   });
        console.log(GlobalVal.apiHost);
-       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/project/getInviteStatistic.json', data);
+       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/activity/getInviteStatistic.json', data);
      },
 };
