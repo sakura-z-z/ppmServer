@@ -151,6 +151,21 @@ module.exports.routes = {
   '/exchangeThanksAward': 'ThanksgivingController.exchangeThanksAward',
   /***************************************************************************
   *                                                                          *
+  * 12月会员活动                                                 *
+  *                                                                          *
+  ***************************************************************************/
+  '/queryDecMemberActivity': 'DecemberController.queryDecMemberActivity',
+  '/exchangeDecMemberActivity': 'DecemberController.exchangeDecMemberActivity',
+  '/getUserInfoVip12': 'DecemberController.getUserInfoVip12',
+  /***************************************************************************
+  *                                                                          *
+  * 年终福利加油站                                                 *
+  *                                                                          *
+  ***************************************************************************/
+  '/addGroup': 'YearEndController.addGroup',
+  '/getGroup': 'YearEndController.getGroup',
+  /***************************************************************************
+  *                                                                          *
   * 邀请好友活动（抱团‘友’钱赚）                                                 *
   *                                                                          *
   ***************************************************************************/
