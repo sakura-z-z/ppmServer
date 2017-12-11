@@ -245,6 +245,8 @@ module.exports.routes = {
     // '/getUserAccessTokenByCode': 'WechatIndexController.getUserAccessTokenByCode',
     //轮播图
     '/bannerList': 'WechatIndexController.bannerList',
+    //首页公告
+    '/getHomePageNotice': 'WechatIndexController.getHomePageNotice',
     //首页推荐标+累计投资-盈利金额
     '/queryRecommendProjectV4': 'WechatIndexController.queryRecommendProjectV4',
     //首页启动数据
