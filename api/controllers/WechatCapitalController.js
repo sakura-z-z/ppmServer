@@ -26,7 +26,7 @@
      });
       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/message/getAppConstant.json',data);
   },
-   //提现获取手机验证码
+   //提现获取手机验证码 充值页面获取手机验证码
   getTradeSmsCode: function(request, response, callback) {
      var data = querystring.stringify({
        versionName: request.body.versionName,
@@ -45,5 +45,25 @@
        amount: request.body.amount
      });
       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/withdrawal.json',data);
+  },
+  //充值页面数据
+  preRecharge: function(request, response, callback) {
+     var data = querystring.stringify({
+       versionName: request.body.versionName,
+       token: request.body.token,
+       userId: request.body.userId
+     });
+      GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/preRecharge.json',data);
+  },
+  // 立即充值
+  recharge: function(request, response, callback) {
+     var data = querystring.stringify({
+       versionName: request.body.versionName,
+       token: request.body.token,
+       userId: request.body.userId,
+       msgCode: request.body.msgCode,
+       amount: request.body.amount
+     });
+      GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/recharge.json',data);
   }
  }

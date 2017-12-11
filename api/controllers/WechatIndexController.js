@@ -4,14 +4,30 @@
  */
 
  var querystring = require('querystring');
- // 轮播图
+
  module.exports = {
+  //  微信信息
+    // getUserAccessTokenByCode: function(request, response, callback) {
+    //    var data = querystring.stringify({
+    //      url: request.body.url
+    //    });
+    //     GlobalMethods.httpPost(request, response, callback, 'http://webchat2.test.ppmiao.com/wechat/', 'getUserAccessTokenByCode');
+    // },
+   // 轮播图
  	 bannerList: function(request, response, callback) {
       var data = querystring.stringify({
         position: request.body.position,
         versionName: request.body.versionName
       });
        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/message/bannerList.json',data);
+   },
+
+    //首页公告
+   getHomePageNotice: function(request, response, callback) {
+     var data = querystring.stringify({
+       versionName: request.body.versionName
+     });
+        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/message/getHomePageNotice.json',data);
    },
     //首页推荐标+累计投资-盈利金额
    queryRecommendProjectV4: function(request, response, callback) {

@@ -151,6 +151,21 @@ module.exports.routes = {
   '/exchangeThanksAward': 'ThanksgivingController.exchangeThanksAward',
   /***************************************************************************
   *                                                                          *
+  * 12月会员活动                                                 *
+  *                                                                          *
+  ***************************************************************************/
+  '/queryDecMemberActivity': 'DecemberController.queryDecMemberActivity',
+  '/exchangeDecMemberActivity': 'DecemberController.exchangeDecMemberActivity',
+  '/getUserInfoVip12': 'DecemberController.getUserInfoVip12',
+  /***************************************************************************
+  *                                                                          *
+  * 年终福利加油站                                                 *
+  *                                                                          *
+  ***************************************************************************/
+  '/addGroup': 'YearEndController.addGroup',
+  '/getGroup': 'YearEndController.getGroup',
+  /***************************************************************************
+  *                                                                          *
   * 邀请好友活动（抱团‘友’钱赚）                                                 *
   *                                                                          *
   ***************************************************************************/
@@ -168,6 +183,7 @@ module.exports.routes = {
   '/getCurryTimes': 'PublicController.getCurryTimes',
   '/getPlatformData': 'PublicController.getPlatformData',
   '/getInviteStatistic': 'PublicController.getInviteStatistic',
+  '/getAppStartupConfig': 'PublicController.getAppStartupConfig',
 
   /***************************************************************************
   *                                                                          *
@@ -179,6 +195,14 @@ module.exports.routes = {
   '/updateUserType': 'DBController.updateUserType',
   '/UserInfo': 'DBController.UserInfo',
 
+
+  /***************************************************************************
+  *                                                                          *
+  * 12月榜单活动                                                               *
+  *                                                                          *
+  ***************************************************************************/
+
+  '/getRanking12':'endListController.getRanking12',
 
   /***************************************************************************
   *                                                                          *
@@ -217,9 +241,12 @@ module.exports.routes = {
   ***************************************************************************/
 
   //********   首页    *******
-
+    //微信信息
+    // '/getUserAccessTokenByCode': 'WechatIndexController.getUserAccessTokenByCode',
     //轮播图
     '/bannerList': 'WechatIndexController.bannerList',
+    //首页公告
+    '/getHomePageNotice': 'WechatIndexController.getHomePageNotice',
     //首页推荐标+累计投资-盈利金额
     '/queryRecommendProjectV4': 'WechatIndexController.queryRecommendProjectV4',
     //首页启动数据
@@ -284,6 +311,8 @@ module.exports.routes = {
     '/queryBindBankCard': 'WechatUserController.queryBindBankCard',
             //银行卡列表
     '/getBankList': 'WechatUserController.getBankList',
+            //绑卡开户
+    '/bindCard': 'WechatUserController.bindCard',
 
         // 退出登录
     '/logout': 'WechatUserController.logout',
@@ -302,6 +331,10 @@ module.exports.routes = {
     //确认提现
     '/withdrawal': 'WechatCapitalController.withdrawal',
 
+    //充值页面数据
+    '/preRecharge': 'WechatCapitalController.preRecharge',
+    //立即充值
+    '/recharge': 'WechatCapitalController.recharge',
 
 
   //********   签到页面   ********

@@ -152,6 +152,21 @@
        var data = querystring.stringify({});
         GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/message/getBankList.json',data);
     },
+          //绑卡开户
+    bindCard:function(request, response, callback) {
+      var data = querystring.stringify({
+        bankCardNo: request.body.bankCardNo,
+        bankCode: request.body.bankCode,
+        cardNo: request.body.cardNo,
+        mobile: request.body.mobile,
+        realName: request.body.realName,
+        token: request.body.token,
+        versionName: request.body.versionName,
+        userId: request.body.userId
+
+      });
+      GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/bindCard.json',data);
+    },
         // 退出登录
     logout: function(request, response, callback) {
        var data = querystring.stringify({
