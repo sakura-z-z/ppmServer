@@ -44,4 +44,22 @@ module.exports = {
        console.log(GlobalVal.apiHost);
        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/project/getPlatformData.json', data);
      },
+     getInviteStatistic: function(request, response, callback) {
+       var data = querystring.stringify({
+		   token: GlobalMethods.tokenDes(request.body.token),
+		   awardId: request.body.awardId,
+           activityKey: request.body.activityKey,
+           amtPerInvest: request.body.amtPerInvest,
+           newPreferential: request.body.newPreferential,
+	   });
+       console.log(GlobalVal.apiHost);
+       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/activity/getInviteStatistic.json', data);
+     },
+	 //app跳转路径
+	 getAppStartupConfig: function(request, response, callback) {
+	   var data = querystring.stringify({
+		 versionName: request.body.versionName
+	   });
+		  GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/message/getAppStartupConfig.json',data);
+	 },
 };

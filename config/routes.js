@@ -149,6 +149,27 @@ module.exports.routes = {
   '/getMyRank': 'ThanksgivingController.getMyRank',
   '/queryThanksGiving': 'ThanksgivingController.queryThanksGiving',
   '/exchangeThanksAward': 'ThanksgivingController.exchangeThanksAward',
+  /***************************************************************************
+  *                                                                          *
+  * 12月会员活动                                                 *
+  *                                                                          *
+  ***************************************************************************/
+  '/queryDecMemberActivity': 'DecemberController.queryDecMemberActivity',
+  '/exchangeDecMemberActivity': 'DecemberController.exchangeDecMemberActivity',
+  '/getUserInfoVip12': 'DecemberController.getUserInfoVip12',
+  /***************************************************************************
+  *                                                                          *
+  * 年终福利加油站                                                 *
+  *                                                                          *
+  ***************************************************************************/
+  '/addGroup': 'YearEndController.addGroup',
+  '/getGroup': 'YearEndController.getGroup',
+  /***************************************************************************
+  *                                                                          *
+  * 邀请好友活动（抱团‘友’钱赚）                                                 *
+  *                                                                          *
+  ***************************************************************************/
+  '/exchangeTeamInvest': 'InvitController.exchangeTeamInvest',
 
   /***************************************************************************
   *                                                                          *
@@ -161,6 +182,8 @@ module.exports.routes = {
   '/exchangePrize': 'PublicController.exchangePrize',
   '/getCurryTimes': 'PublicController.getCurryTimes',
   '/getPlatformData': 'PublicController.getPlatformData',
+  '/getInviteStatistic': 'PublicController.getInviteStatistic',
+  '/getAppStartupConfig': 'PublicController.getAppStartupConfig',
 
   /***************************************************************************
   *                                                                          *
@@ -219,6 +242,8 @@ module.exports.routes = {
     // '/getUserAccessTokenByCode': 'WechatIndexController.getUserAccessTokenByCode',
     //轮播图
     '/bannerList': 'WechatIndexController.bannerList',
+    //首页公告
+    '/getHomePageNotice': 'WechatIndexController.getHomePageNotice',
     //首页推荐标+累计投资-盈利金额
     '/queryRecommendProjectV4': 'WechatIndexController.queryRecommendProjectV4',
     //首页启动数据

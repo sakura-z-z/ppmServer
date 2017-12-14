@@ -21,6 +21,14 @@
       });
        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/message/bannerList.json',data);
    },
+
+    //首页公告
+   getHomePageNotice: function(request, response, callback) {
+     var data = querystring.stringify({
+       versionName: request.body.versionName
+     });
+        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/message/getHomePageNotice.json',data);
+   },
     //首页推荐标+累计投资-盈利金额
    queryRecommendProjectV4: function(request, response, callback) {
      var data = querystring.stringify({
