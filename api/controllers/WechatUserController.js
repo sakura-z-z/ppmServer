@@ -19,7 +19,11 @@
       var data = querystring.stringify({
         versionName: request.body.versionName,
         mobile: request.body.mobile,
-        mobile_auth_code:request.body.mobile_auth_code
+        mobile_auth_code:request.body.mobile_auth_code,
+        device_type:request.body.device_type,
+        channel:request.body.channel,
+        registration_id:request.body.registration_id,
+        device_serial_id:request.body.device_serial_id,
       });
        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/login.json',data);
    },
