@@ -171,6 +171,27 @@
       });
       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/bindCard.json',data);
     },
+          //绑卡确认
+    bindCardConfirm:function(request, response, callback) {
+      var data = querystring.stringify({
+        token: request.body.token,
+        realName:request.body.realName,
+        cardNo:request.body.cardNo,
+        bankCardNo:request.body.bankCardNo,
+        mobile:request.body.mobile,
+        bankCode:request.body.bankCode,
+        originOrderNo:request.body.originOrderNo,
+        msgCode:request.body.msgCode
+      });
+      GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/bindCardConfirm.json',data);
+    },
+        //解卡
+    unBindCard:function(request, response, callback) {
+      var data = querystring.stringify({
+        token: request.body.token
+      });
+      GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/unBindCard.json',data);
+    },
         // 退出登录
     logout: function(request, response, callback) {
        var data = querystring.stringify({

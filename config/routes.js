@@ -310,6 +310,10 @@ module.exports.routes = {
     '/getBankList': 'WechatUserController.getBankList',
             //绑卡开户
     '/bindCard': 'WechatUserController.bindCard',
+            //绑卡确认
+    '/bindCardConfirm': 'WechatUserController.bindCardConfirm',
+            //解卡
+    '/unBindCard': 'WechatUserController.unBindCard',
 
         // 退出登录
     '/logout': 'WechatUserController.logout',
