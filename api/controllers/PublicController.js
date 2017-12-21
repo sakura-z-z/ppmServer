@@ -62,4 +62,28 @@ module.exports = {
 	   });
 		  GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/message/getAppStartupConfig.json',data);
 	 },
+	 //抽奖接口
+	 lottery: function(request, response, callback) {
+	   var data = querystring.stringify({
+			token: GlobalMethods.tokenDes(request.body.token),
+			keyName: request.body.keyName
+	   });
+		  GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/lottery.json',data);
+	 },
+	 //抽奖日志查询接口
+	 getExchangeLog: function(request, response, callback) {
+	   var data = querystring.stringify({
+			token: GlobalMethods.tokenDes(request.body.token),
+			lotteryAwardId: request.body.lotteryAwardId
+	   });
+		  GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/getExchangeLog.json',data);
+	 },
+	 //活动区间内领取日志查询接口
+	 getExchangeLogByKeyName: function(request, response, callback) {
+	   var data = querystring.stringify({
+			token: GlobalMethods.tokenDes(request.body.token),
+			keyName: request.body.keyName
+	   });
+		  GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/getExchangeLogByKeyName.json',data);
+	 },
 };

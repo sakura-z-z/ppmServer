@@ -164,6 +164,14 @@ module.exports.routes = {
   ***************************************************************************/
   '/addGroup': 'YearEndController.addGroup',
   '/getGroup': 'YearEndController.getGroup',
+
+  /***************************************************************************
+  *                                                                          *
+  * 圣诞节活动                                                 *
+  *                                                                          *
+  ***************************************************************************/
+  '/getChristmasAward': 'ChristmasController.getChristmasAward',
+
   /***************************************************************************
   *                                                                          *
   * 邀请好友活动（抱团‘友’钱赚）                                                 *
@@ -184,6 +192,9 @@ module.exports.routes = {
   '/getPlatformData': 'PublicController.getPlatformData',
   '/getInviteStatistic': 'PublicController.getInviteStatistic',
   '/getAppStartupConfig': 'PublicController.getAppStartupConfig',
+  '/lottery': 'PublicController.lottery',
+  '/getExchangeLog': 'PublicController.getExchangeLog',
+  '/getExchangeLogByKeyName': 'PublicController.getExchangeLogByKeyName',
 
   /***************************************************************************
   *                                                                          *
