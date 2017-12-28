@@ -142,6 +142,12 @@ module.exports.routes = {
   '/getActivityInvestLog': 'SinglesDayController.getActivityInvestLog',
   /***************************************************************************
   *                                                                          *
+  *  元旦活动                                                                 *
+  *                                                                          *
+  ***************************************************************************/
+  '/getNewYearDayActivityAward': 'getNewYearController.getNewYearDayActivityAward',
+  /***************************************************************************
+  *                                                                          *
   * 感恩节活动                                                                   *
   *                                                                          *
   ***************************************************************************/
@@ -266,6 +272,10 @@ module.exports.routes = {
     '/detailV3': 'WechatFinancesController.detailV3',
     //投资人数列表
     '/projectInvestLog': 'WechatFinancesController.projectInvestLog',
+    //立即投资页面 数据
+    '/getCouponsForInvest': 'WechatFinancesController.getCouponsForInvest',
+    //立即投资
+    '/investV2': 'WechatFinancesController.investV2',
 
 
 

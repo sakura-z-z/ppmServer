@@ -29,7 +29,7 @@
       id: request.body.id
     });
    GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/project/detailV3.json',data);
- },
+  },
 
   //投资人数列表
   projectInvestLog: function(request, response, callback) {
@@ -39,36 +39,29 @@
       pageNo: request.body.pageNo
     });
    GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/projectInvestLog.json',data);
+   },
+   //投资页面数据
+   getCouponsForInvest: function(request, response, callback) {
+     var data = querystring.stringify({
+       versionName: request.body.versionName,
+       token: request.body.token,
+       deviceType: request.body.deviceType,
+       userId: request.body.userId
+     });
+    GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/getCouponsForInvest.json',data);
+  },
+   // 立即投资
+   investV2: function(request, response, callback) {
+     var data = querystring.stringify({
+       versionName: request.body.versionName,
+       token: request.body.token,
+       amount: request.body.amount,
+       realAmount: request.body.realAmount,
+       redpackets: request.body.redpackets,
+       interestCoupon: request.body.interestCoupon,
+       id: request.body.id,
+       userId: request.body.userId
+     });
+    GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/project/investV2.json',data);
   }
- }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// ****
+}

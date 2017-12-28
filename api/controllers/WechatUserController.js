@@ -179,7 +179,7 @@
          userId: request.body.userId
        });
         GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/logout.json',data);
-    },
+    }
  };
 
 
