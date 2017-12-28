@@ -201,6 +201,14 @@
        });
         GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/logout.json',data);
     },
+        //上传头像
+    uploadAvatar: function(request, response, callback) {
+       var data = querystring.stringify({
+         token: request.body.token,
+         file: request.body.file
+       });
+        GlobalMethods.httpPostForm(request, response, callback, GlobalVal.apiHost, '/user/uploadAvatar.json',data);
+    },
  };
 
 

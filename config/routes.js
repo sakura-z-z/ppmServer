@@ -328,6 +328,8 @@ module.exports.routes = {
 
         // 退出登录
     '/logout': 'WechatUserController.logout',
+        // 上传头像
+    '/uploadAvatar': 'WechatUserController.uploadAvatar',
 
 
 
