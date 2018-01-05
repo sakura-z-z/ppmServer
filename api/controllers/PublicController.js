@@ -86,4 +86,12 @@ module.exports = {
 	   });
 		  GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/getExchangeLogByKeyName.json',data);
 	 },
+	 isFirstOpen: function(request, response, callback) {
+	   var data = querystring.stringify({
+			token: GlobalMethods.tokenDes(request.body.token),
+			keyName: request.body.keyName,
+			times: request.body.times
+	   });
+		  GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/isFirstOpen.json',data);
+	 }
 };

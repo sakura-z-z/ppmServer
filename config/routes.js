@@ -201,6 +201,7 @@ module.exports.routes = {
   '/lottery': 'PublicController.lottery',
   '/getExchangeLog': 'PublicController.getExchangeLog',
   '/getExchangeLogByKeyName': 'PublicController.getExchangeLogByKeyName',
+  '/isFirstOpen': 'PublicController.isFirstOpen',
 
   /***************************************************************************
   *                                                                          *
