@@ -202,7 +202,12 @@ module.exports.routes = {
   '/getExchangeLog': 'PublicController.getExchangeLog',
   '/getExchangeLogByKeyName': 'PublicController.getExchangeLogByKeyName',
   '/isFirstOpen': 'PublicController.isFirstOpen',
-
+  //兑换现金券接口
+  '/exchangeGLCashAward': 'PublicController.exchangeGLCashAward',
+  //兑换实物奖励接口
+  '/ExChangeAward': 'PublicController.ExChangeAward',
+  //兑换奖品的地址接口
+  '/awardAddress': 'PublicController.awardAddress',
   /***************************************************************************
   *                                                                          *
   * 用户风险评估                                                               *
@@ -232,6 +237,9 @@ module.exports.routes = {
   '/getPhone': 'CommonController.getPhone',
   '/encryptToken':'CommonController.encryptToken',
   '/connectRedis': 'CommonController.connectRedis',
+
+
+
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *

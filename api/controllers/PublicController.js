@@ -18,8 +18,12 @@ module.exports = {
        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/activity/checkActivty.json', data);
      },
 	 exchangeAward: function(request, response, callback) {
-       var data = querystring.stringify({lotteryAwardId: request.body.lotteryAwardId, expdate: request.body.expdate, mobile: request.body.mobile, times: request.body.times});
-       console.log(GlobalVal.apiHost);
+       var data = querystring.stringify({
+				 lotteryAwardId: request.body.lotteryAwardId,
+				 expdate: request.body.expdate,
+				 mobile: request.body.mobile,
+				 times: request.body.times
+			 });
        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/payment/activity/inviteFriend/exchangeAward.htm', data);
      },
      exchangePrize: function(request, response, callback) {
@@ -93,5 +97,37 @@ module.exports = {
 			times: request.body.times
 	   });
 		  GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/isFirstOpen.json',data);
+	 },
+	 // 兑换奖励的接口
+	 ExChangeAward: function(request, response, callback) {
+	   var data = querystring.stringify({
+			token: GlobalMethods.tokenDes(request.body.token),
+			lotteryAwardId: request.body.lotteryAwardId,
+			expTime: request.body.expTime,
+			times: request.body.times,
+			value: request.body.value
+	   });
+		  GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/exchangeAward',data);
+	 },
+	 // 兑换现金券的接口
+	 exchangeGLCashAward: function(request, response, callback) {
+	   var data = querystring.stringify({
+			token: GlobalMethods.tokenDes(request.body.token),
+			times: request.body.times
+	   });
+		  GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/exchangeGLCashAward',data);
+	 },
+	 //兑换奖品的地址接口
+	 awardAddress: function(request, response, callback) {
+	   var data = querystring.stringify({
+			token: GlobalMethods.tokenDes(request.body.token),
+			mobile: request.body.mobile,
+			address: request.body.address,
+			awardLogIds: request.body.awardLogIds,
+			lotteryId: request.body.lotteryId,
+			actionIn: request.body.actionIn,
+			realName: request.body.realName
+	   });
+		  GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/awardAddress',data);
 	 }
 };
