@@ -99,7 +99,7 @@ module.exports = {
 		  GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/isFirstOpen.json',data);
 	 },
 	 // 兑换奖励的接口
-	 ExChangeAward: function(request, response, callback) {
+	 ExChangeAwards: function(request, response, callback) {
 	   var data = querystring.stringify({
 			token: GlobalMethods.tokenDes(request.body.token),
 			lotteryAwardId: request.body.lotteryAwardId,

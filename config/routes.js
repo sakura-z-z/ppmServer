@@ -205,7 +205,7 @@ module.exports.routes = {
   //兑换现金券接口
   '/exchangeGLCashAward': 'PublicController.exchangeGLCashAward',
   //兑换实物奖励接口
-  '/ExChangeAward': 'PublicController.ExChangeAward',
+  '/ExChangeAwards': 'PublicController.ExChangeAwards',
   //兑换奖品的地址接口
   '/awardAddress': 'PublicController.awardAddress',
   /***************************************************************************
