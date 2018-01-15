@@ -184,6 +184,7 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
   '/getPeakKingActivityAward': 'bigCustomerController.getPeakKingActivityAward',
+  '/lotteryStatusSetting': 'bigCustomerController.lotteryStatusSetting',
 
   /***************************************************************************
   *                                                                          *
