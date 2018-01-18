@@ -44,6 +44,21 @@
       });
        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/userAccountAssets.json',data);
    },
+      //总资产 收益记录
+ 	 allWaitInterestDetail: function(request, response, callback) {
+      var data = querystring.stringify({
+        versionName: request.body.versionName,
+        token: request.body.token
+      });
+       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/allWaitInterestDetail.json',data);
+   },
+ 	 allInterestDetail: function(request, response, callback) {
+      var data = querystring.stringify({
+        versionName: request.body.versionName,
+        token: request.body.token
+      });
+       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/allInterestDetail.json',data);
+   },
    //账户红点
    redPointV2: function(request, response, callback) {
       var data = querystring.stringify({

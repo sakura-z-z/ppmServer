@@ -129,5 +129,25 @@ module.exports = {
 			realName: request.body.realName
 	   });
 		  GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/awardAddress',data);
-	 }
+	 },
+	 //获取活动期间前几名投资人
+	 getRankingTop: function(request, response, callback) {
+		 var token0='';
+		 if(request.body.token==''){
+		 	token0='';
+		}else {
+			token0=GlobalMethods.tokenDes(request.body.token);
+		}
+		 var data = querystring.stringify({
+			 token: token0,
+			 keyName: request.body.keyName,
+			 top: request.body.top,
+			 durationDay: request.body.durationDay,
+			 newPreferentialIn: request.body.newPreferentialIn,
+			 paymentFlag: request.body.paymentFlag,
+		 });
+		 // console.log(GlobalVal.apiHost);
+		 GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/getRanking', data);
+	 },
+
 };

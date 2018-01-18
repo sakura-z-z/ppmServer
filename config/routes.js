@@ -216,6 +216,8 @@ module.exports.routes = {
   '/ExChangeAwards': 'PublicController.ExChangeAwards',
   //兑换奖品的地址接口
   '/awardAddress': 'PublicController.awardAddress',
+  //获取活动期间前几名投资人
+  '/getRankingTop': 'PublicController.getRankingTop',
   /***************************************************************************
   *                                                                          *
   * 用户风险评估                                                               *
@@ -323,6 +325,9 @@ module.exports.routes = {
     '/userInfos': 'WechatUserController.userInfos',
     //账户信息
     '/userAccountAssets': 'WechatUserController.userAccountAssets',
+        //总资产 收益记录
+    '/allWaitInterestDetail': 'WechatUserController.allWaitInterestDetail',
+    '/allInterestDetail': 'WechatUserController.allInterestDetail',
     //用户红点
     '/redPointV2': 'WechatUserController.redPointV2',
     // 我的消息
