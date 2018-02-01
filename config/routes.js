@@ -184,6 +184,13 @@ module.exports.routes = {
   ***************************************************************************/
   '/getIntegraM2': 'Member02Controller.getIntegraM2',
   '/exchangeIntegraM2': 'Member02Controller.exchangeIntegraM2',
+  /***************************************************************************
+  *                                                                          *
+  * 新年签活动 红运正当头 新春上上签                                              *
+  *                                                                          *
+  ***************************************************************************/
+  '/newYearDivinationActivity': 'NewYearController.newYearDivinationActivity',
+
 
   /***************************************************************************
   *                                                                          *
