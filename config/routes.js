@@ -421,6 +421,8 @@ module.exports.routes = {
   //********   签到页面   ********
     //前后三天的积分信息
     '/getUserDailySignValue': 'WechatIndexController.getUserDailySignValue',
+    //用户今日是否签到
+    '/checkUserSignStatus': 'WechatIndexController.checkUserSignStatus',
     //用户当月已签到的日期
     '/getUserMonthlySignInfo': 'WechatIndexController.getUserMonthlySignInfo',
     //

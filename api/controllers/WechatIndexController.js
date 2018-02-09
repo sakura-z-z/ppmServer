@@ -67,6 +67,14 @@
        });
        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-coin/getUserDailySignValue.json',data);
    },
+   //用户今日是否签到
+   checkUserSignStatus:function(request, response, callback) {
+      var data = querystring.stringify({
+        versionName: request.body.versionName,
+        token: request.body.token
+      });
+       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-coin/checkUserSignStatus.json',data);
+   },
    //用户当月已签到的日期
    getUserMonthlySignInfo: function(request,response,callback){
        var data = querystring.stringify({
