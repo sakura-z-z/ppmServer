@@ -10,5 +10,11 @@ module.exports = {
 				 rate: request.body.rate
        });
        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/newYearEveActivity', data);
+  },
+	newYearGoodBeginning: function(request, response, callback) {
+       var data = querystring.stringify({
+         token: GlobalMethods.tokenDes(request.body.token)
+       });
+       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/newYearGoodBeginning', data);
    }
 };

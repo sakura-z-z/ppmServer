@@ -264,6 +264,8 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/newYearEveActivity':'newYearEveActivityController.newYearEveActivity',
+  // 新年活动
+  '/newYearGoodBeginning':'newYearEveActivityController.newYearGoodBeginning',
 
   /***************************************************************************
   *                                                                          *
