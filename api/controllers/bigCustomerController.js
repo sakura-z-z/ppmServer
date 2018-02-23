@@ -16,7 +16,8 @@ module.exports = {
        var data = querystring.stringify({
          token: GlobalMethods.tokenDes(request.body.token),
          lotteryId: request.body.lotteryId,
-         action: request.body.action
+         action: request.body.action,
+				 liveTime: request.body.liveTime
        });
        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/lotteryStatusSetting', data);
    }

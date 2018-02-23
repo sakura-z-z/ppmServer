@@ -16,5 +16,5 @@ module.exports = {
          token: GlobalMethods.tokenDes(request.body.token)
        });
        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/newYearGoodBeginning', data);
-   }
+  }
 };
