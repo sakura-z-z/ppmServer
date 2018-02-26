@@ -54,6 +54,7 @@
    investV2: function(request, response, callback) {
      var data = querystring.stringify({
        versionName: request.body.versionName,
+       deviceType: request.body.deviceType,
        token: request.body.token,
        amount: request.body.amount,
        realAmount: request.body.realAmount,
