@@ -234,6 +234,13 @@
        });
         GlobalMethods.httpPostForm(request, response, callback, GlobalVal.apiHost, '/user/uploadAvatar.json',data);
     },
+    //common
+    getAppConstant: function(request, response, callback) {
+       var data = querystring.stringify({
+         consKey: request.body.consKey
+       });
+        GlobalMethods.httpPostForm(request, response, callback, GlobalVal.apiHost, 'message/getAppConstant.json',data);
+    },
  };
 
 

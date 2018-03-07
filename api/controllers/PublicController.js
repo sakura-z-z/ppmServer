@@ -74,6 +74,13 @@ module.exports = {
 	   });
 		  GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/lottery.json',data);
 	 },
+	 //获取积分
+	 getJFValue: function(request, response, callback) {
+	   var data = querystring.stringify({
+			token: GlobalMethods.tokenDes(request.body.token)
+	   });
+		  GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/getJFValue.json',data);
+	 },
 	 //抽奖日志查询接口
 	 getExchangeLog: function(request, response, callback) {
 	   var data = querystring.stringify({
