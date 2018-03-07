@@ -228,6 +228,7 @@ module.exports.routes = {
   '/getInviteStatistic': 'PublicController.getInviteStatistic',
   '/getAppStartupConfig': 'PublicController.getAppStartupConfig',
   '/lottery': 'PublicController.lottery',
+  '/getJFValue': 'PublicController.getJFValue',
   '/getExchangeLog': 'PublicController.getExchangeLog',
   '/getExchangeLogByKeyName': 'PublicController.getExchangeLogByKeyName',
   '/isFirstOpen': 'PublicController.isFirstOpen',
@@ -399,6 +400,8 @@ module.exports.routes = {
     '/logout': 'WechatUserController.logout',
         // 上传头像
     '/uploadAvatar': 'WechatUserController.uploadAvatar',
+        // common
+    '/getAppConstant': 'WechatUserController.getAppConstant',
 
 
 
