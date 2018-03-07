@@ -109,6 +109,16 @@
      });
       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/dueDetail.json',data);
   },
+  //交易明细
+  tradeDetail: function(request, response, callback) {
+     var data = querystring.stringify({
+       versionName: request.body.versionName,
+       token: request.body.token,
+       type: request.body.type,
+       pageNo: request.body.pageNo
+     });
+      GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/tradeDetail.json',data);
+  },
 //我的券包
   //券包红点
   checkNewCoupon: function(request, response, callback) {

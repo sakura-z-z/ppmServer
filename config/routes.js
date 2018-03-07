@@ -382,6 +382,8 @@ module.exports.routes = {
     '/queryInvestFinishDetailV2': 'WechatUserController.queryInvestFinishDetailV2',
     //投资详情
     '/dueDetail': 'WechatUserController.dueDetail',
+    //交易明细
+    '/tradeDetail': 'WechatUserController.tradeDetail',
 
   //我的券包
     //券包红点
