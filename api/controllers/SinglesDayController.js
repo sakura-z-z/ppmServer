@@ -13,6 +13,7 @@ module.exports = {
 				 token: GlobalMethods.tokenDes(request.body.token),
 				 isNew: request.body.isNew
 			 });
-       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/activity/getActivityInvestLog.json', data);
+       // GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/activity/getActivityInvestLog.json', data);
+       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/getActivityInvestLog', data);
      }
 };
