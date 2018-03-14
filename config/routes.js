@@ -221,6 +221,7 @@ module.exports.routes = {
   ***************************************************************************/
   '/getLotteryLogByLotteryAwardId': 'PublicController.getLotteryLogByLotteryAwardId',
   '/checkActivity': 'PublicController.checkActivity',
+  '/getCashCouponByKeyName': 'PublicController.getCashCouponByKeyName',
   '/exchangeAward': 'PublicController.exchangeAward',
   '/exchangePrize': 'PublicController.exchangePrize',
   '/getCurryTimes': 'PublicController.getCurryTimes',

@@ -11,12 +11,19 @@ module.exports = {
       var data = querystring.stringify({lotteryAwardId: request.body.lotteryAwardId, mobile: request.body.mobile});
       console.log(GlobalVal.apiHost);
       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/payment/activity/inviteFriend/getLotteryLogByLotteryAwardId.htm', data);
-    },
+  },
 	checkActivity: function(request, response, callback) {
        var data = querystring.stringify({keyName: request.body.keyName});
        console.log(GlobalVal.apiHost);
        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/activity/checkActivty.json', data);
-     },
+   },
+	getCashCouponByKeyName: function(request, response, callback) {
+       var data = querystring.stringify({
+				 token: GlobalMethods.tokenDes(request.body.token),
+				 keyName: request.body.keyName
+			 });
+       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/getCashCouponByKeyName', data);
+   },
 	 exchangeAward: function(request, response, callback) {
        var data = querystring.stringify({
 				 lotteryAwardId: request.body.lotteryAwardId,
