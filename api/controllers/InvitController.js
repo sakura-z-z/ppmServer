@@ -11,8 +11,14 @@ module.exports = {
        var data = querystring.stringify({
 		   lotteryAwardId: request.body.lotteryAwardId,
 		   token: GlobalMethods.tokenDes(request.body.token),
-		   amount: request.body.amount});
-       console.log(GlobalVal.apiHost);
-       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/activity/exchangeTeamInvest.json', data);
-     }
+		   amount: request.body.amount
+		 });
+     GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/activity/exchangeTeamInvest.json', data);
+  },
+	invitationUpdateActivity: function(request, response, callback) {
+    var data = querystring.stringify({
+		   token: GlobalMethods.tokenDes(request.body.token)
+		});
+    GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost,'/ppmiao-award/invitationUpdateActivity', data);
+  }
 };
