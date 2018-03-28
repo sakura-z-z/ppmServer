@@ -73,7 +73,8 @@
      var data = querystring.stringify({
          versionName: request.body.versionName,
          token: request.body.token,
-         userId: request.body.userId
+         userId: request.body.userId,
+         pageNo:request.body.pageNo
      });
       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/personalMessage.json',data);
   },
