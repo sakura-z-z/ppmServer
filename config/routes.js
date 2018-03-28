@@ -213,6 +213,7 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
   '/exchangeTeamInvest': 'InvitController.exchangeTeamInvest',
+  '/invitationUpdateActivity': 'InvitController.invitationUpdateActivity',
 
   /***************************************************************************
   *                                                                          *

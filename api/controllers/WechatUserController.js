@@ -191,8 +191,8 @@
         realName: request.body.realName,
         token: request.body.token,
         versionName: request.body.versionName,
-        userId: request.body.userId
-
+        userId: request.body.userId,
+        versionName: request.body.versionName
       });
       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/bindCard.json',data);
     },
@@ -206,14 +206,16 @@
         mobile:request.body.mobile,
         bankCode:request.body.bankCode,
         originOrderNo:request.body.originOrderNo,
-        msgCode:request.body.msgCode
+        msgCode:request.body.msgCode,
+        versionName: request.body.versionName
       });
       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/bindCardConfirm.json',data);
     },
         //解卡
     unBindCard:function(request, response, callback) {
       var data = querystring.stringify({
-        token: request.body.token
+        token: request.body.token,
+        versionName: request.body.versionName
       });
       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/unBindCard.json',data);
     },
