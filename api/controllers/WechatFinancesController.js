@@ -8,7 +8,8 @@
    // 理财 定期专区
    queryInProgressProjectV8: function(request, response, callback) {
      var data = querystring.stringify({
-       versionName: request.body.versionName
+       versionName: request.body.versionName,
+       zone: request.body.zone
      });
     GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/project/queryInProgressProjectV8.json',data);
    },
