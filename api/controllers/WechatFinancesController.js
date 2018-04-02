@@ -18,9 +18,17 @@
      var data = querystring.stringify({
        versionName: request.body.versionName,
        pageNo: request.body.pageNo,
-       status: request.body.status
+       status: request.body.status,
+       zone: request.body.zone
      });
     GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/project/moreProject.json',data);
+  },
+  // 理财页tab显隐
+  getLable: function(request, response, callback) {
+    var data = querystring.stringify({
+
+    });
+    GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/message/getLable.json',data);
   },
 
   //理财详情接口
