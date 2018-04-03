@@ -373,6 +373,8 @@ module.exports.routes = {
     '/queryInProgressProjectV8': 'WechatFinancesController.queryInProgressProjectV8',
     //理财 失效专区
     '/moreProject': 'WechatFinancesController.moreProject',
+    // 理财页tab显隐
+    '/getLable': 'WechatFinancesController.getLable',
     //理财详情页
     '/detailV3': 'WechatFinancesController.detailV3',
     //投资人数列表
