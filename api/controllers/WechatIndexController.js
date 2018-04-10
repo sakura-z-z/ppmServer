@@ -21,6 +21,13 @@
       });
        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/message/bannerList.json',data);
    },
+   // 获取导航图片
+ 	 getAdvIcon: function(request, response, callback) {
+      var data = querystring.stringify({
+        versionName: request.body.versionName
+      });
+       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/message/getAdvIcon.json',data);
+   },
 
     //首页公告
    getHomePageNotice: function(request, response, callback) {
@@ -55,7 +62,9 @@
    //发现页面的接口 这个放在最后一个
    getHistoryEvent: function(request, response, callback) {
      var data = querystring.stringify({
-       versionName: request.body.versionName
+       versionName: request.body.versionName,
+       status: request.body.status,
+       page: request.body.page
      });
         GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/message/getHistoryEvent.json',data);
    },
