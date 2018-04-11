@@ -369,6 +369,8 @@ module.exports.routes = {
     // '/getUserAccessTokenByCode': 'WechatIndexController.getUserAccessTokenByCode',
     //轮播图
     '/bannerList': 'WechatIndexController.bannerList',
+    //获取导航图片
+    '/getAdvIcon': 'WechatIndexController.getAdvIcon',
     //首页公告
     '/getHomePageNotice': 'WechatIndexController.getHomePageNotice',
     //首页推荐标+累计投资-盈利金额
@@ -490,11 +492,59 @@ module.exports.routes = {
     //
     '/dailySign': 'WechatIndexController.dailySign',
 
+    /***************************************************************************
+    *                                                                          *
+    * 会员中心                                                                   *
+    *                                                                          *
+    ***************************************************************************/
+    '/home': 'InfoController.getHomeInfo',
+    '/integral':'InfoController.getIntegral',
+    '/integralMession':'InfoController.getIntegralMession',
+    '/Privilege': 'PrivilegeController.getPrivilegeInfo',
+    '/setPrivilege': 'PrivilegeController.setPrivilegeInfo',
+    '/getPrivilegeRecord': 'PrivilegeController.getPrivilegeRecord',
+    '/getGrowUp': 'PrivilegeController.getGrowUp',
+    '/getShopInfo': 'ShopController.getShopInfo',
+    '/setShopInfo': 'ShopController.setShopInfo',
+    '/getShopRecord': 'ShopController.getShopRecord',
+    '/getPhoneRecord': 'ShopController.getPhoneRecord',
+
+    /***************************************************************************
+    *                                                                          *
+    * 好友邀请                                                                   *
+    *                                                                          *
+    ***************************************************************************/
+    '/getInviteList': 'ActController.getInviteList',
+    '/getInviteInfo': 'ActController.getInviteInfo',
+
+
+    /***************************************************************************
+    *                                                                          *
+    * 会员中心积分兑换                                                            *
+    *                                                                          *
+    ***************************************************************************/
+    '/getUserVipInfo': 'ExchangeController.getUserVipInfo',
+    '/getExchangeList': 'ExchangeController.getExchangeList',
+    '/claimExchange': 'ExchangeController.claimExchange',
+    '/getWeeklyAward': 'ExchangeController.getWeeklyAward',
+    '/claimWeeklyAward': 'ExchangeController.claimWeeklyAward',
+
+    '/autologin': 'ExchangeController.autologin',
+    '/autologinbg': 'ExchangeController.autologinbg',
+    '/queryForFrontItem': 'ExchangeController.queryForFrontItem',
+
+
+    /***************************************************************************
+    *                                                                          *
+    * 绑卡                                                                      *
+    *                                                                          *
+    ***************************************************************************/
 
 
 
 
-
+    '/updateMainBankCard': 'BindCardController.updateMainBankCard',
+    '/checkUserBindCard': 'BindCardController.checkUserBindCard'
 
 
 
