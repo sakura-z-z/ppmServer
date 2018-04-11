@@ -320,6 +320,13 @@ module.exports.routes = {
 
   '/AstrologyGiftActivity2018Info':'Act2018Controller.AstrologyGiftActivity2018Info',
   '/AstrologyGiftActivity2018Send':'Act2018Controller.AstrologyGiftActivity2018Send',
+  /***************************************************************************
+  *                                                                          *
+  * 春风拾礼“筝”金记(2018.4.16-2018.4.18)                                             *
+  *                                                                          *
+  ***************************************************************************/
+
+  '/flyKiteActivity2018':'Act2018Controller.flyKiteActivity2018',
 
   /***************************************************************************
   *                                                                          *

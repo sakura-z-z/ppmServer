@@ -28,5 +28,13 @@ module.exports = {
 			 token: GlobalMethods.tokenDes(request.body.token)
 		 });
 			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/AstrologyGiftActivity2018Send',data);
-	}
+	},
+	//春风拾礼“筝”金记(2018.4.16-2018.4.18)
+	flyKiteActivity2018: function(request, response, callback) {
+		 var data = querystring.stringify({
+			 token: GlobalMethods.tokenDes(request.body.token)
+		 });
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/flyKiteActivity2018',data);
+	},
+
 };
