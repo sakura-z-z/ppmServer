@@ -60,13 +60,13 @@
        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/allInterestDetail.json',data);
    },
    //账户红点
-   redPointV2: function(request, response, callback) {
+   redPointV3: function(request, response, callback) {
       var data = querystring.stringify({
         versionName: request.body.versionName,
         token: request.body.token,
         userId: request.body.userId
       });
-       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/redPointV2.json',data);
+       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/redPointV3.json',data);
    },
         //我的消息
     personalMessage: function(request, response, callback) {
@@ -86,6 +86,7 @@
         versionName: request.body.versionName,
         token: request.body.token,
         pageNo: request.body.pageNo,
+        newOrder: request.body.newOrder,
         userId: request.body.userId
       });
        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/queryInvestDetailV2.json',data);
@@ -96,7 +97,8 @@
        versionName: request.body.versionName,
        token: request.body.token,
        pageNo: request.body.pageNo,
-       userId: request.body.userId
+       userId: request.body.userId,
+       newOrder: request.body.newOrder
      });
       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/queryInvestFinishDetailV2.json',data);
   },
@@ -238,12 +240,20 @@
         GlobalMethods.httpPostForm(request, response, callback, GlobalVal.apiHost, '/user/uploadAvatar.json',data);
     },
     //common
-    getAppConstant: function(request, response, callback) {
+    // getAppConstant: function(request, response, callback) {
+    //    var data = querystring.stringify({
+    //      consKey: request.body.consKey
+    //    });
+    //     GlobalMethods.httpPostForm(request, response, callback, GlobalVal.apiHost, 'message/getAppConstant.json',data);
+    // },
+    //眼睛
+    resetVisualAssets: function(request, response, callback) {
        var data = querystring.stringify({
-         consKey: request.body.consKey
+         token: request.body.token,
+         actionIn: request.body.actionIn
        });
-        GlobalMethods.httpPostForm(request, response, callback, GlobalVal.apiHost, 'message/getAppConstant.json',data);
-    },
+        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/resetVisualAsset.json',data);
+    }
  };
 
 
