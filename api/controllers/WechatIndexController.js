@@ -36,6 +36,15 @@
      });
         GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/message/getHomePageNotice.json',data);
    },
+   //首页悬浮球
+   getPopupAndSuspend: function(request, response, callback) {
+     var data = querystring.stringify({
+       versionName: request.body.versionName,
+       pos: request.body.pos,
+       token: request.body.token
+     });
+        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/message/getPopupAndSuspend.json',data);
+   },
     //首页推荐标+累计投资-盈利金额
    queryRecommendProjectV4: function(request, response, callback) {
      var data = querystring.stringify({
@@ -74,7 +83,7 @@
            versionName: request.body.versionName,
            token: request.body.token
        });
-       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-coin/getUserDailySignValue.json',data);
+       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-coin/getUserDailySignValueV2.json',data);
    },
    //用户今日是否签到
    checkUserSignStatus:function(request, response, callback) {
@@ -93,7 +102,7 @@
            year: request.body.year,
            month: request.body.month,
        });
-       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-coin/getUserMonthlySignInfo.json',data);
+       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-coin/getUserMonthlySignInfoV2.json',data);
    },
    //前后三天的积分信息
    dailySign: function(request,response,callback){
@@ -102,7 +111,7 @@
            userId: request.body.userId,
            token: request.body.token
        });
-       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-coin/dailySign.json',data);
+       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-coin/dailySignV2.json',data);
    }
 
  };

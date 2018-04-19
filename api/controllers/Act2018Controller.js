@@ -36,5 +36,11 @@ module.exports = {
 		 });
 			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/flyKiteActivity2018',data);
 	},
-
+	//夺宝联盟探险记(2018.4.23-2018.4.25)
+	adventureAlliance2018: function(request, response, callback) {
+		 var data = querystring.stringify({
+			 token: GlobalMethods.tokenDes(request.body.token)
+		 });
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/adventureAlliance2018',data);
+	},
 };

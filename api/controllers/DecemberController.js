@@ -57,11 +57,11 @@ module.exports = {
         userDB_member = development.database_Member;
         userDB_user = development.database_User;
       }
-
+      // 查询当前在售的VIP专属标ID  （例：addTime=20180411100000 即：2018年4月11日上午10点整）
       let sql1 = "SELECT p.id,p.`status` FROM " + userDB_user + ".s_project p WHERE p.title LIKE '%" + projectName + "%' AND p.start_time > SUBDATE(curdate(),case when date_format(curdate(),'%w') < 5 then date_format(curdate(),'%w') + 2 else date_format(curdate(),'%w') - 5 end) AND p.start_time <= SUBDATE(SUBDATE(curdate(),case when date_format(curdate(),'%w') < 5 then date_format(curdate(),'%w') + 2 else date_format(curdate(),'%w') - 5 end),-1);";
-
+      // 查询用户当前VIP等级
       let sql2 = "select vip_level from "+ userDB_member +".s_user_vip_level where uid = "+ userInfo.id +";"
-      
+      // 查询用户当月是否投资了VIP专属标
       let sql3 = "select q.title,p.due_capital,p.add_time from "+ userDB_user +".s_project q, "+ userDB_user +".s_user_due_detail p where p.project_id=q.id and p.user_id= " + userInfo.id + " and q.title like '%" + projectName +"%' and p.add_time >  '" + addTime + "';"
       console.log(sql1);
       console.log(sql2);

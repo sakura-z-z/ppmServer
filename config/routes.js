@@ -327,7 +327,13 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/flyKiteActivity2018':'Act2018Controller.flyKiteActivity2018',
+  /***************************************************************************
+    *                                                                          *
+    * 夺宝联盟探险记(2018.4.23-2018.4.25)                                             *
+    *                                                                          *
+    ***************************************************************************/
 
+    '/adventureAlliance2018':'Act2018Controller.adventureAlliance2018',
   /***************************************************************************
   *                                                                          *
   * 公共方法                                                                   *
@@ -373,6 +379,8 @@ module.exports.routes = {
     '/getAdvIcon': 'WechatIndexController.getAdvIcon',
     //首页公告
     '/getHomePageNotice': 'WechatIndexController.getHomePageNotice',
+    //首页悬浮球
+    '/getPopupAndSuspend': 'WechatIndexController.getPopupAndSuspend',
     //首页推荐标+累计投资-盈利金额
     '/queryRecommendProjectV4': 'WechatIndexController.queryRecommendProjectV4',
     //首页启动数据
