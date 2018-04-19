@@ -425,7 +425,7 @@ module.exports.routes = {
     '/allWaitInterestDetail': 'WechatUserController.allWaitInterestDetail',
     '/allInterestDetail': 'WechatUserController.allInterestDetail',
     //用户红点
-    '/redPointV2': 'WechatUserController.redPointV2',
+    '/redPointV3': 'WechatUserController.redPointV3',
     // 我的消息
     '/personalMessage': 'WechatUserController.personalMessage',
 
@@ -468,7 +468,9 @@ module.exports.routes = {
         // 上传头像
     '/uploadAvatar': 'WechatUserController.uploadAvatar',
         // common
-    '/getAppConstant': 'WechatUserController.getAppConstant',
+    // '/getAppConstant': 'WechatUserController.getAppConstant',
+        // 眼睛
+    '/resetVisualAssets': 'WechatUserController.resetVisualAssets',
 
 
 
