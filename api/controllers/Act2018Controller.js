@@ -43,4 +43,11 @@ module.exports = {
 		 });
 			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/adventureAlliance2018',data);
 	},
+	//争做五一“薪”劳模(2018.4.30-2018.5.2)
+	laborDayActivity2018: function(request, response, callback) {
+		 var data = querystring.stringify({
+			 token: GlobalMethods.tokenDes(request.body.token)
+		 });
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/laborDayActivity2018',data);
+	},
 };
