@@ -50,4 +50,25 @@ module.exports = {
 		 });
 			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/laborDayActivity2018',data);
 	},
+	//五月会员活动(2018.5.10)
+	mayVipActivity2018Info: function(request, response, callback) {
+		 var data = querystring.stringify({
+			 token: GlobalMethods.tokenDes(request.body.token)
+		 });
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/mayVipActivity2018Info',data);
+	},
+	mayVipActivity2018Exchange: function(request, response, callback) {
+		 var data = querystring.stringify({
+			 token: GlobalMethods.tokenDes(request.body.token),
+			 amount: request.body.amount
+		 });
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/mayVipActivity2018Exchange',data);
+	},
+	//微笑日活动（钱包君升值记2018.5.7-2018.5.9）
+	smileActivity2018: function(request, response, callback) {
+		 var data = querystring.stringify({
+			 token: GlobalMethods.tokenDes(request.body.token)
+		 });
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/smileActivity2018',data);
+	},
 };
