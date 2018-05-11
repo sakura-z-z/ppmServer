@@ -118,7 +118,6 @@ module.exports = {
 	},
 	//战队展示
 	fortuneFestival2018TeamInfo: function(request, response, callback) {
-		console.log(1);
 		 var data = querystring.stringify({
 			 token: GlobalMethods.tokenDes(request.body.token)
 		 });
@@ -126,7 +125,6 @@ module.exports = {
 	},
 	// 兑换展示接口
 	fortuneFestival2018ExchangeInfo: function(request, response, callback) {
-		console.log(1);
 		 var data = querystring.stringify({
 			 token: GlobalMethods.tokenDes(request.body.token)
 		 });
