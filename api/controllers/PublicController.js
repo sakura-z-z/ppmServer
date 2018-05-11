@@ -163,5 +163,15 @@ module.exports = {
 		 // console.log(GlobalVal.apiHost);
 		 GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/getRanking', data);
 	 },
-
+	 // 兑奖V2接口 自定义兑奖接口 可整合现金券， 自定义红包、现金券、加息券金额 ， 自定义红包、加息券过期时间
+	 exchangeAwardV2:function(request, response, callback) {
+	   var data = querystring.stringify({
+			token: GlobalMethods.tokenDes(request.body.token),
+			expTime: request.body.expTime,
+			lotteryAwardId: request.body.lotteryAwardId,
+			times: request.body.times,
+			value: request.body.value
+	   });
+		  GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/exchangeAwardV2',data);
+	 },
 };

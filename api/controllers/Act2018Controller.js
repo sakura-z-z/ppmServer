@@ -71,4 +71,65 @@ module.exports = {
 		 });
 			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/smileActivity2018',data);
 	},
+	//复活红包（复活吧！新手红包 2018.5.12-2018.5.31）
+	noviceRedResurrection: function(request, response, callback) {
+		 var data = querystring.stringify({
+			 token: GlobalMethods.tokenDes(request.body.token)
+		 });
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/noviceRedResurrection2018',data);
+	},
+	noviceRedResurrection2018: function(request, response, callback) {
+		 var data = querystring.stringify({
+			 token: GlobalMethods.tokenDes(request.body.token),
+			 amount: request.body.amount
+		 });
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/noviceRedResurrection2018',data);
+	},
+	// 518财富节 （2018.5.14-2018.5.18）
+	// 战队展示接口
+	//查询活动是否在活动范围内
+	fortuneFestival2018ActivityTime: function(request, response, callback) {
+		 var data = querystring.stringify({});
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/fortuneFestival2018ActivityTime',data);
+	},
+	//队长邀请接口
+	fortuneFestival2018TeamInvite: function(request, response, callback) {
+		 var data = querystring.stringify({
+			 token: GlobalMethods.tokenDes(request.body.token),
+			 mobile: request.body.mobile
+		 });
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/fortuneFestival2018TeamInvite',data);
+	},
+	//被邀请人接受邀请接口
+	fortuneFestival2018TeamAccept: function(request, response, callback) {
+		 var data = querystring.stringify({
+			 token: GlobalMethods.tokenDes(request.body.token),
+			 teamId: request.body.teamId
+		 });
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/fortuneFestival2018TeamAccept',data);
+	},
+	//建立战队接口
+	fortuneFestival2018Teamfound: function(request, response, callback) {
+		 var data = querystring.stringify({
+			 token: GlobalMethods.tokenDes(request.body.token),
+			 teamName: request.body.teamName
+		 });
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/fortuneFestival2018Teamfound',data);
+	},
+	//战队展示
+	fortuneFestival2018TeamInfo: function(request, response, callback) {
+		console.log(1);
+		 var data = querystring.stringify({
+			 token: GlobalMethods.tokenDes(request.body.token)
+		 });
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/fortuneFestival2018TeamInfo',data);
+	},
+	// 兑换展示接口
+	fortuneFestival2018ExchangeInfo: function(request, response, callback) {
+		console.log(1);
+		 var data = querystring.stringify({
+			 token: GlobalMethods.tokenDes(request.body.token)
+		 });
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/fortuneFestival2018ExchangeInfo',data);
+	}
 };
