@@ -242,6 +242,10 @@ module.exports.routes = {
   '/awardAddress': 'PublicController.awardAddress',
   //获取活动期间前几名投资人
   '/getRankingTop': 'PublicController.getRankingTop',
+  // 兑奖V2接口 自定义兑奖接口 可整合现金券， 自定义红包、现金券、加息券金额 ， 自定义红包、加息券过期时间
+  '/exchangeAwardV2': 'PublicController.exchangeAwardV2',
+  // 批量发一个KeyName下的所有奖励
+  '/lotteryAllAward': 'PublicController.lotteryAllAward',
   /***************************************************************************
   *                                                                          *
   * 用户风险评估                                                               *
@@ -334,6 +338,57 @@ module.exports.routes = {
     ***************************************************************************/
 
     '/adventureAlliance2018':'Act2018Controller.adventureAlliance2018',
+  /***************************************************************************
+    *                                                                          *
+    * 争做五一“薪”劳模(2018.4.30-2018.5.2)                                             *
+    *                                                                          *
+    ***************************************************************************/
+
+    '/laborDayActivity2018':'Act2018Controller.laborDayActivity2018',
+  /***************************************************************************
+    *                                                                         *
+    * 五月会员活动(2018.5.10)                                                   *
+    *                                                                         *
+    ***************************************************************************/
+    '/mayVipActivity2018Info':'Act2018Controller.mayVipActivity2018Info',
+    '/mayVipActivity2018Exchange':'Act2018Controller.mayVipActivity2018Exchange',
+  /***************************************************************************
+    *                                                                         *
+    * 微笑日活动（钱包君升值记2018.5.7-2018.5.9）                                                   *
+    *                                                                         *
+    ***************************************************************************/
+    '/smileActivity2018':'Act2018Controller.smileActivity2018',
+  /***************************************************************************
+    *                                                                         *
+    * 复活红包（复活吧！新手红包 2018.5.12-2018.5.31）                                              *
+    *                                                                         *
+    ***************************************************************************/
+    '/noviceRedResurrection':'Act2018Controller.noviceRedResurrection',
+    '/noviceRedResurrection2018':'Act2018Controller.noviceRedResurrection2018',
+  /***************************************************************************
+    *                                                                         *
+    * 518财富节 （2018.5.14-2018.5.18）                                              *
+    *                                                                         *
+    ***************************************************************************/
+    // 战队操作接口
+  	//查询活动是否在活动范围内
+    '/fortuneFestival2018ActivityTime':'Act2018Controller.fortuneFestival2018ActivityTime',
+  	//队长邀请接口
+    '/fortuneFestival2018TeamInvite':'Act2018Controller.fortuneFestival2018TeamInvite',
+  	//被邀请人接受邀请接口
+    '/fortuneFestival2018TeamAccept':'Act2018Controller.fortuneFestival2018TeamAccept',
+  	//建立战队接口
+    '/fortuneFestival2018Teamfound':'Act2018Controller.fortuneFestival2018Teamfound',
+    // 战队展示接口
+    '/fortuneFestival2018TeamInfo':'Act2018Controller.fortuneFestival2018TeamInfo',
+    // 兑换展示接口
+    '/fortuneFestival2018ExchangeInfo':'Act2018Controller.fortuneFestival2018ExchangeInfo',
+  /***************************************************************************
+    *                                                                         *
+    * 小满活动展示 （花开夏至福利到 5月21日0:00:00-5月23日23:59:59）                                       *
+    *                                                                         *
+    ***************************************************************************/
+    '/grainFullActivity2018Info':'Act2018Controller.grainFullActivity2018Info',
   /***************************************************************************
   *                                                                          *
   * 公共方法                                                                   *
