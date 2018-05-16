@@ -244,6 +244,8 @@ module.exports.routes = {
   '/getRankingTop': 'PublicController.getRankingTop',
   // 兑奖V2接口 自定义兑奖接口 可整合现金券， 自定义红包、现金券、加息券金额 ， 自定义红包、加息券过期时间
   '/exchangeAwardV2': 'PublicController.exchangeAwardV2',
+  // 批量发一个KeyName下的所有奖励
+  '/lotteryAllAward': 'PublicController.lotteryAllAward',
   /***************************************************************************
   *                                                                          *
   * 用户风险评估                                                               *
@@ -381,6 +383,12 @@ module.exports.routes = {
     '/fortuneFestival2018TeamInfo':'Act2018Controller.fortuneFestival2018TeamInfo',
     // 兑换展示接口
     '/fortuneFestival2018ExchangeInfo':'Act2018Controller.fortuneFestival2018ExchangeInfo',
+  /***************************************************************************
+    *                                                                         *
+    * 小满活动展示 （花开夏至福利到 5月21日0:00:00-5月23日23:59:59）                                       *
+    *                                                                         *
+    ***************************************************************************/
+    '/grainFullActivity2018Info':'Act2018Controller.grainFullActivity2018Info',
   /***************************************************************************
   *                                                                          *
   * 公共方法                                                                   *

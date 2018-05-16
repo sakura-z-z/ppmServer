@@ -174,4 +174,14 @@ module.exports = {
 	   });
 		  GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/exchangeAwardV2',data);
 	 },
+	 // 批量发一个KeyName下的所有奖励 如果value = 0 红包 加息券 现金券 的amount为数据库值  否则 value 替换 amount
+	 lotteryAllAward:function(request, response, callback) {
+	   var data = querystring.stringify({
+			token: GlobalMethods.tokenDes(request.body.token),
+			keyName: request.body.keyName,
+			expTime: request.body.expTime,
+			value: request.body.value
+	   });
+		  GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/lotteryAllAward.json',data);
+	 },
 };

@@ -129,5 +129,12 @@ module.exports = {
 			 token: GlobalMethods.tokenDes(request.body.token)
 		 });
 			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/fortuneFestival2018ExchangeInfo',data);
+	},
+	// 小满活动展示 （花开夏至福利到 5月21日0:00:00-5月23日23:59:59）
+	grainFullActivity2018Info: function(request, response, callback) {
+		 var data = querystring.stringify({
+			 token: GlobalMethods.tokenDes(request.body.token)
+		 });
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/grainFullActivity2018Info',data);
 	}
 };
