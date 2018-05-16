@@ -73,5 +73,21 @@
        userId: request.body.userId
      });
     GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/project/investV2.json',data);
+  },
+   // 立即投资 银行存管版本
+   investV3: function(request, response, callback) {
+     var data = querystring.stringify({
+       versionName: request.body.versionName,
+       deviceType: request.body.deviceType,
+       token: request.body.token,
+       amount: request.body.amount,
+       realAmount: request.body.realAmount,
+       redpackets: request.body.redpackets,
+       interestCoupon: request.body.interestCoupon,
+       id: request.body.id,
+       source: request.body.source,
+       redirectUrl: request.body.redirectUrl
+     });
+    GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/project/investV3.json',data);
   }
 }

@@ -137,7 +137,9 @@
      var data = querystring.stringify({
        versionName: request.body.versionName,
        token: request.body.token,
-       userId: request.body.userId
+       userId: request.body.userId,
+       status: request.body.status,
+       pageNo: request.body.pageNo
      });
       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/getAllUserRedEnvelope.json',data);
   },
@@ -146,7 +148,9 @@
      var data = querystring.stringify({
        versionName: request.body.versionName,
        token: request.body.token,
-       userId: request.body.userId
+       userId: request.body.userId,
+       status: request.body.status,
+       pageNo: request.body.pageNo
      });
       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/getAllUserInterestCoupon.json',data);
   },
@@ -155,7 +159,9 @@
      var data = querystring.stringify({
        versionName: request.body.versionName,
        token: request.body.token,
-       userId: request.body.userId
+       userId: request.body.userId,
+       status: request.body.status,
+       pageNo: request.body.pageNo
      });
       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/getAllUserInviteCashCoupons.json',data);
   },

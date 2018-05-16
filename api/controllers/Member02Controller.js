@@ -11,7 +11,6 @@ module.exports = {
 		var data = querystring.stringify({
 			token: GlobalMethods.tokenDes(request.body.token)
 		});
-		console.log(GlobalVal.apiHostPHP);
 		GlobalMethods.httpPostPHP(request, response, callback, GlobalVal.apiHostPHP, '/Home/Activity/JfExchangeMoney/get_integration', data);
 	},
 	exchangeIntegraM2: function(request, response, callback) {
@@ -20,7 +19,6 @@ module.exports = {
 			amount: request.body.amount,
 			jf_val: request.body.jf_val
 		});
-		console.log(GlobalVal.apiHostPHP);
 		GlobalMethods.httpPostPHP(request, response, callback, GlobalVal.apiHostPHP, '/Home/Activity/JfExchangeMoney/exchange', data);
 	},
 };

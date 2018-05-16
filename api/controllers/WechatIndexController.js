@@ -34,7 +34,7 @@
      var data = querystring.stringify({
        versionName: request.body.versionName
      });
-        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/message/getHomePageNotice.json',data);
+      GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/message/getHomePageNotice.json',data);
    },
    //首页悬浮球
    getPopupAndSuspend: function(request, response, callback) {
@@ -48,7 +48,8 @@
     //首页推荐标+累计投资-盈利金额
    queryRecommendProjectV4: function(request, response, callback) {
      var data = querystring.stringify({
-       versionName: request.body.versionName
+       versionName: request.body.versionName,
+       token: request.body.token
      });
         GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/project/queryRecommendProjectV4.json',data);
    },

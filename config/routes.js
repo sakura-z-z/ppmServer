@@ -343,6 +343,7 @@ module.exports.routes = {
   '/getDesToken': 'CommonController.getDesToken',
   '/getPhone': 'CommonController.getPhone',
   '/encryptToken':'CommonController.encryptToken',
+  '/encryptMD5':'CommonController.encryptMD5',
   '/connectRedis': 'CommonController.connectRedis',
 
 
@@ -409,6 +410,8 @@ module.exports.routes = {
     '/getCouponsForInvest': 'WechatFinancesController.getCouponsForInvest',
     //立即投资
     '/investV2': 'WechatFinancesController.investV2',
+    //立即投资 银行存管
+    '/investV3': 'WechatFinancesController.investV3',
 
 
 
@@ -484,12 +487,20 @@ module.exports.routes = {
     //提现获取手机验证码
     '/getTradeSmsCode': 'WechatCapitalController.getTradeSmsCode',
     //确认提现
-    '/withdrawal': 'WechatCapitalController.withdrawal',
+    '/withdrawalV2': 'WechatCapitalController.withdrawalV2',
 
     //充值页面数据
     '/preRecharge': 'WechatCapitalController.preRecharge',
     //立即充值
-    '/recharge': 'WechatCapitalController.recharge',
+    '/rechargeV2': 'WechatCapitalController.rechargeV2',
+    //银行回调页面接口
+    '/deal': 'WechatCapitalController.deal',
+    //实名认证
+    '/authentication': 'WechatCapitalController.authentication',
+    //修改重置交易密码接口
+    '/setPassWord': 'WechatCapitalController.setPassWord',
+    //授权
+    '/authorization': 'WechatCapitalController.authorization',
 
 
   //********   签到页面   ********
@@ -554,7 +565,10 @@ module.exports.routes = {
 
 
     '/updateMainBankCard': 'BindCardController.updateMainBankCard',
-    '/checkUserBindCard': 'BindCardController.checkUserBindCard'
+    '/checkUserBindCard': 'BindCardController.checkUserBindCard',
+    // v2.9 绑卡 重新绑卡 解绑
+    '/bindCardV2': 'BindCardController.bindCardV2',
+    '/unBindCardV2': 'BindCardController.unBindCardV2'
 
 
 

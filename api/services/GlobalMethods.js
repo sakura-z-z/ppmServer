@@ -104,7 +104,6 @@ module.exports = {
         }
       };
     }
-    console.log(data);
     let body = '';
     console.log(data);
     var req = http.request(options, (res) => {

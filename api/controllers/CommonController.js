@@ -26,6 +26,21 @@
         console.log(GlobalMethods.ReleaseDesToken(body));
         response.send(GlobalMethods.ReleaseDesToken(body));
    },
+   encryptMD5: function(request, response, callback) {
+        let orderNo = request.body.orderNo;
+        let key = request.body.key;
+        var crypto = require('crypto');
+        var md5 = crypto.createHash('md5');
+        let istrue = md5.update(orderNo,'utf8').digest('hex');
+        if(istrue.toUpperCase() == key){
+          let body = 'true';
+          response.send(body);
+        }else{
+          let body = 'false';
+          response.send(body);
+        }
+
+   },
    connectRedis: function(request, response, callback) {
        let mocktoken = '';
        if (request.body.dev != undefined) {
