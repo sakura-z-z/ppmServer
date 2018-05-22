@@ -53,9 +53,6 @@ module.exports.routes = {
 
   '/getinviteAwards': 'AutumnController.getinviteAwards',
 
-  '/getInviteList': 'ActController.getInviteList',
-  '/getInviteInfo': 'ActController.getInviteInfo',
-
 
   /***************************************************************************
   *                                                                          *
@@ -244,8 +241,12 @@ module.exports.routes = {
   '/getRankingTop': 'PublicController.getRankingTop',
   // 兑奖V2接口 自定义兑奖接口 可整合现金券， 自定义红包、现金券、加息券金额 ， 自定义红包、加息券过期时间
   '/exchangeAwardV2': 'PublicController.exchangeAwardV2',
+  // 兑奖V3接口 自定义兑奖接口 可整合现金券， 自定义红包、现金券、加息券金额 ， 自定义红包、加息券过期时间
+  '/exchangeAwardV3': 'PublicController.exchangeAwardV3',
   // 批量发一个KeyName下的所有奖励
   '/lotteryAllAward': 'PublicController.lotteryAllAward',
+  // 通过KeyName获取用户当前活动的投资接口
+  '/getInvDetailByKeyName': 'PublicController.getInvDetailByKeyName',
   /***************************************************************************
   *                                                                          *
   * 用户风险评估                                                               *
@@ -389,6 +390,15 @@ module.exports.routes = {
     *                                                                         *
     ***************************************************************************/
     '/grainFullActivity2018Info':'Act2018Controller.grainFullActivity2018Info',
+  /***************************************************************************
+    *                                                                         *
+    * 短标活动 （月月加薪不停歇 5月23日0:00:00-5月31日23:59:59）                                       *
+    *                                                                         *
+    ***************************************************************************/
+    // 短标展示接口
+    '/shortLabelCustom2018Info':'Act2018Controller.shortLabelCustom2018Info',
+    // 短标定制发券接口
+    '/shortLabelCustom2018Send':'Act2018Controller.shortLabelCustom2018Send',
   /***************************************************************************
   *                                                                          *
   * 公共方法                                                                   *
