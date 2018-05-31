@@ -72,7 +72,7 @@
      });
      // console.log(request);
      // console.log(response);
-      GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHostTest, '/pretreatment/deal',data,GlobalVal.apiPortTest);
+      GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHostCallback, '/pretreatment/deal',data,GlobalVal.apiPortTest);
   },
   // 实名认证
   authentication: function(request, response, callback) {
@@ -101,5 +101,13 @@
        source: request.body.source
      });
     GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/authorization.json',data);
+  },
+  // 更改头像 获取头像
+  downloadPicFromWechat: function(request, response, callback) {
+     var data = querystring.stringify({
+       mediaId: request.body.mediaId
+     });
+    GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHostWechat, '/wechat/downloadPicFromWechat',data);
   }
+  // http://webchat2.test.ppmiao.com/wechat/downloadPicFromWechat
 }

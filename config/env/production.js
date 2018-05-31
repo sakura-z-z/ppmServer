@@ -42,7 +42,8 @@ module.exports = {
   database_Member: 'ppmiao_coin',
   apiHost: 'api.ppmiao.cn',
   apiHostPHP: 'api.ppmiao.net',
-  apiHostTest: '114.55.85.42',
+  apiHostCallback: 'callback.ppmiao.com',
+  apiHostWechat:'webchat2.test.ppmiao.com',
   redisHost: 'r-bp16ebde2f508e54.redis.rds.aliyuncs.com',
   redisPassword: 'Nstlc20435DFD0rtgdf43gsd34u489',
 };

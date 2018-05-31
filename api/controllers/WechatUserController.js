@@ -24,6 +24,7 @@
         channel:request.body.channel,
         registration_id:request.body.registration_id,
         device_serial_id:request.body.device_serial_id,
+        openId: request.body.openId
       });
        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/login.json',data);
    },

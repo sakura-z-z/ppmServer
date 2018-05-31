@@ -556,6 +556,8 @@ module.exports.routes = {
     '/setPassWord': 'WechatCapitalController.setPassWord',
     //授权
     '/authorization': 'WechatCapitalController.authorization',
+    //更改头像 获取头像
+    '/downloadPicFromWechat': 'WechatCapitalController.downloadPicFromWechat',
 
 
   //********   签到页面   ********
