@@ -72,7 +72,7 @@
      });
      // console.log(request);
      // console.log(response);
-      GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHostCallback, '/pretreatment/deal',data,GlobalVal.apiPortTest);
+      GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHostCallback, '/pretreatment/deal',data);
   },
   // 实名认证
   authentication: function(request, response, callback) {
