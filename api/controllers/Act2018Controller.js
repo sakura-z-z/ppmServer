@@ -136,5 +136,47 @@ module.exports = {
 			 token: GlobalMethods.tokenDes(request.body.token)
 		 });
 			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/grainFullActivity2018Info',data);
-	}
+	},
+	//短标活动 （月月加薪不停歇 5月23日0:00:00-5月31日23:59:59） 短标展示接口
+	shortLabelCustom2018Info: function(request, response, callback) {
+		 var data = querystring.stringify({
+			 token: GlobalMethods.tokenDes(request.body.token)
+		 });
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/shortLabelCustom2018Info',data);
+	},
+	//短标活动 （月月加薪不停歇 5月23日0:00:00-5月31日23:59:59） 短标定制发券接口
+	shortLabelCustom2018Send: function(request, response, callback) {
+		 var data = querystring.stringify({
+			 amount: request.body.amount,
+			 token: GlobalMethods.tokenDes(request.body.token)
+		 });
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/shortLabelCustom2018Send',data);
+	},
+	//月初活动  6月4日0:00:00-6月6日23:59:59
+	earlyJuneActivity2018Info: function(request, response, callback) {
+		 var data = querystring.stringify({
+			 token: GlobalMethods.tokenDes(request.body.token)
+		 });
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/earlyJuneActivity2018Info',data);
+	},
+	// 6月会员日活动
+	juneVipActivity2018: function(request, response, callback) {
+		 var data = querystring.stringify({
+			 lottery: request.body.lottery,
+			 token: GlobalMethods.tokenDes(request.body.token)
+		 });
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/juneVipActivity2018',data);
+	},
+	awardAddress: function(request, response, callback) {
+		 var data = querystring.stringify({
+			 actionIn: request.body.actionIn,
+			 address: request.body.address,
+			 awardLogIds: request.body.awardLogIds,
+			 lotteryId: request.body.lotteryId,
+			 mobile: request.body.mobile,
+			 realName: request.body.realName,
+			 token: GlobalMethods.tokenDes(request.body.token)
+		 });
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/awardAddress',data);
+	},
 };
