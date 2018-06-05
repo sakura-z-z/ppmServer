@@ -244,7 +244,7 @@
          token: request.body.token,
          file: request.body.file
        });
-        GlobalMethods.httpPostForm(request, response, callback, GlobalVal.apiHost, '/user/uploadAvatar.json',data);
+        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/uploadAvatar.json',data);
     },
     //common
     // getAppConstant: function(request, response, callback) {
