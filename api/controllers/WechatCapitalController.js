@@ -78,7 +78,6 @@
      var data = querystring.stringify({
        orderNo: request.body.orderNo
      });
-     console.log(1);
     GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHostCallback, '/pretreatment/deal',data);
   },
   // 实名认证
