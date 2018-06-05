@@ -106,6 +106,9 @@ module.exports = {
     }
     let body = '';
     console.log(data);
+    console.log(host);
+    console.log(port);
+    console.log(options);
     var req = http.request(options, (res) => {
       res.setEncoding('utf8');
       res.on('data', (chunk) => {
