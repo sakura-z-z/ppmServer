@@ -66,14 +66,14 @@
       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/rechargeV2.json',data);
   },
   // 银行回调页面接口
-  // deal: function(request, response, callback) {
-  //    var data = querystring.stringify({
-  //      orderNo: request.body.orderNo
-  //    });
-  //    // console.log(request);
-  //    // console.log(response);
-  //     GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHostCallback, '/pretreatment/deal',data);
-  // },
+  deal: function(request, response, callback) {
+     var data = querystring.stringify({
+       orderNo: request.body.orderNo
+     });
+     // console.log(request);
+     // console.log(response);
+      GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHostCallback, '/pretreatment/deal',data,GlobalVal.apiPort2);
+  },
   // 实名认证
   authentication: function(request, response, callback) {
      var data = querystring.stringify({

@@ -1,6 +1,7 @@
 if (sails.config.environment === 'development') {
     var apiHost='api.test.ppmiao.com';
     var apiHostPHP='api.dev.ppmiao.net';
+    var apiHostCallback='120.27.195.222';
     var apiHostWechat='webchat2.test.ppmiao.com';
     var apiPort1 = '8089';
     var apiPort2 = '8083';
@@ -8,6 +9,7 @@ if (sails.config.environment === 'development') {
 if (sails.config.environment === 'production') {
     var apiHost='api.ppmiao.cn';
     var apiHostPHP='api.ppmiao.net';
+    var apiHostCallback='120.27.195.222';
     var apiHostWechat='webchat2.test.ppmiao.com';
     var apiPort1 = '8089';
     var apiPort2 = '8089';
