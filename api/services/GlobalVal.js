@@ -21,6 +21,7 @@ module.exports = {
     apiHost: apiHost,
     apiHostPHP: apiHostPHP,
     apiHostWechat: apiHostWechat,
+    apiHostCallback: apiHostCallback,
     apiPort: apiPort1,
     apiPortTest:apiPort2,
     DBVal: 'rm-uf6cm0kpb0rm130szo.mysql.rds.aliyuncs.com'
