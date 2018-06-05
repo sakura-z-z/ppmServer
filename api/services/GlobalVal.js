@@ -18,7 +18,6 @@ if (sails.config.environment === 'production') {
 module.exports = {
     apiHost: apiHost,
     apiHostPHP: apiHostPHP,
-    apiHostCallback: apiHostCallback,
     apiHostWechat: apiHostWechat,
     apiPort: apiPort1,
     apiPortTest:apiPort2,
