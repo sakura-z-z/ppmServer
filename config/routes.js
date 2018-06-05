@@ -572,7 +572,7 @@ module.exports.routes = {
     //立即充值
     '/rechargeV2': 'WechatCapitalController.rechargeV2',
     //银行回调页面接口
-    '/deal': 'WechatCapitalController.deal',
+    // '/deal': 'WechatCapitalController.deal',
     //实名认证
     '/authentication': 'WechatCapitalController.authentication',
     //修改重置交易密码接口
