@@ -24,6 +24,7 @@
         channel:request.body.channel,
         registration_id:request.body.registration_id,
         device_serial_id:request.body.device_serial_id,
+        openId: request.body.openId
       });
        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/login.json',data);
    },
@@ -243,7 +244,7 @@
          token: request.body.token,
          file: request.body.file
        });
-        GlobalMethods.httpPostForm(request, response, callback, GlobalVal.apiHost, '/user/uploadAvatar.json',data);
+        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/uploadAvatar.json',data);
     },
     //common
     // getAppConstant: function(request, response, callback) {

@@ -603,13 +603,15 @@ module.exports.routes = {
     //立即充值
     '/rechargeV2': 'WechatCapitalController.rechargeV2',
     //银行回调页面接口
-    '/deal': 'WechatCapitalController.deal',
+    '/deals': 'WechatCapitalController.deals',
     //实名认证
     '/authentication': 'WechatCapitalController.authentication',
     //修改重置交易密码接口
     '/setPassWord': 'WechatCapitalController.setPassWord',
     //授权
     '/authorization': 'WechatCapitalController.authorization',
+    //更改头像 获取头像
+    '/downloadPicFromWechat': 'WechatCapitalController.downloadPicFromWechat',
 
 
   //********   签到页面   ********

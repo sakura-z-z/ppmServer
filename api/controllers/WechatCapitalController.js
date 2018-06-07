@@ -66,13 +66,19 @@
       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/rechargeV2.json',data);
   },
   // 银行回调页面接口
-  deal: function(request, response, callback) {
+  // deal: function(request, response, callback) {
+  //    var data = querystring.stringify({
+  //      orderNo: request.body.orderNo
+  //    });
+  //    // console.log(request);
+  //    // console.log(response);
+  //     GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHostCallback, '/pretreatment/deal',data);
+  // },
+  deals: function(request, response, callback) {
      var data = querystring.stringify({
        orderNo: request.body.orderNo
      });
-     // console.log(request);
-     // console.log(response);
-      GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHostTest, '/pretreatment/deal',data,GlobalVal.apiPortTest);
+    GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHostCallback, '/pretreatment/deal',data);
   },
   // 实名认证
   authentication: function(request, response, callback) {
@@ -101,5 +107,13 @@
        source: request.body.source
      });
     GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/authorization.json',data);
+  },
+  // 更改头像 获取头像
+  downloadPicFromWechat: function(request, response, callback) {
+     var data = querystring.stringify({
+       mediaId: request.body.mediaId
+     });
+    GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHostWechat, '/wechat/downloadPicFromWechat',data);
   }
+  // http://webchat2.test.ppmiao.com/wechat/downloadPicFromWechat
 }
