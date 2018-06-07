@@ -179,4 +179,117 @@ module.exports = {
 		 });
 			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/awardAddress',data);
 	},
+	// 球迷狂欢季( 6月13日0:00:00-7月14日23:59:59)
+	// 发送弹幕
+	worldCupActivity2018SendComment: function(request, response, callback) {
+		 var data = querystring.stringify({
+			 keyName: request.body.keyName,
+			 comment: request.body.comment,
+			 token: GlobalMethods.tokenDes(request.body.token)
+		 });
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/worldCupActivity2018SendComment',data);
+	},
+	// 弹幕列表
+	worldCupActivity2018CommentList: function(request, response, callback) {
+		 var data = querystring.stringify({
+			 keyName: request.body.keyName,
+			 size: request.body.size
+		 });
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/worldCupActivity2018CommentList',data);
+	},
+	// 赛程展示接口
+	worldCupActivity2018Info: function(request, response, callback) {
+		 var data = querystring.stringify({
+	 		token: GlobalMethods.tokenDes(request.body.token)
+		 });
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/worldCupActivity2018Info',data);
+	},
+	// 世界杯-赔率 / 预计奖励接口
+	worldCupActivity2018Detail: function(request, response, callback) {
+		 var data = querystring.stringify({
+	 		token: GlobalMethods.tokenDes(request.body.token),
+	 		scheduleId: request.body.scheduleId,
+	 		betting: request.body.betting,
+		 });
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/worldCupActivity2018Detail',data);
+	},
+	// 世界杯-首投/加注接口
+	worldCupActivity2018Betting: function(request, response, callback) {
+		 var data = querystring.stringify({
+	 		token: GlobalMethods.tokenDes(request.body.token),
+	 		betting: request.body.betting,
+	 		amount: request.body.amount,
+	 		scheduleId: request.body.scheduleId,
+		 });
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/worldCupActivity2018Betting',data);
+	},
+	// 世界杯-投注列表
+	worldCupActivity2018List: function(request, response, callback) {
+		 var data = querystring.stringify({
+	 		token: GlobalMethods.tokenDes(request.body.token)
+		 });
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/worldCupActivity2018List',data);
+	},
+	// 世界杯-猜中比赛数量
+	worldCupActivity2018CountWin: function(request, response, callback) {
+		 var data = querystring.stringify({
+	 		token: GlobalMethods.tokenDes(request.body.token)
+		 });
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/worldCupActivity2018CountWin',data);
+	},
+	// 管理员-赛程列表接口
+	worldCupActivity2018ScheduleList: function(request, response, callback) {
+		 var data = querystring.stringify({
+	 		keyName: request.body.keyName,
+	 		startTime: request.body.startTime,
+	 		endTime: request.body.endTime
+		 });
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/worldCupActivity2018ScheduleList',data);
+	},
+	// 管理员-添加比赛接口
+	worldCupActivity2018InsertMatch: function(request, response, callback) {
+		 var data = querystring.stringify({
+	 		keyName: request.body.keyName,
+	 		team1: request.body.team1,
+	 		team2: request.body.team2,
+	 		startTime: request.body.startTime,
+	 		matchType: request.body.matchType,
+	 		matchName: request.body.matchName
+		 });
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/worldCupActivity2018InsertMatch',data);
+	},
+	// 管理员-修改比赛接口
+	worldCupActivity2018EndOfMatch: function(request, response, callback) {
+		 var data = querystring.stringify({
+	 		scheduleId: request.body.scheduleId,
+	 		status: request.body.status,
+	 		team1: request.body.team1,
+	 		team2: request.body.team2,
+	 		startTime: request.body.startTime,
+	 		matchType: request.body.matchType,
+	 		matchName: request.body.matchName
+		 });
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/worldCupActivity2018EndOfMatch',data);
+	},
+	// 管理员-比赛奖励结算
+	worldCupActivity2018Settlement: function(request, response, callback) {
+		 var data = querystring.stringify({
+	 		scheduleId: request.body.scheduleId
+		 });
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/worldCupActivity2018Settlement',data);
+	},
+	// 管理员-国家列表
+	worldCupActivity2018CountryList: function(request, response, callback) {
+		 var data = querystring.stringify({
+	 		keyName: request.body.keyName
+		 });
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/worldCupActivity2018CountryList',data);
+	},
+	//管理员-根据Id查询比赛
+	worldCupActivity2018QueryByMatchId: function(request, response, callback) {
+		 var data = querystring.stringify({
+	 		scheduleId: request.body.scheduleId
+		 });
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/worldCupActivity2018QueryByMatchId',data);
+	},
 };
