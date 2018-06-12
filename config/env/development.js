@@ -28,7 +28,8 @@ module.exports = {
     database_Member: 'ppmiao_dev_2017',
     apiHost: 'api.test.ppmiao.com',
     apiHostPHP: 'api.dev.ppmiao.net',
-    apiHostTest:'114.55.85.42',
+    apiHostCallback:'callback.ppmiao.com',
+    apiHostWechat:'webchat2.test.ppmiao.com',
     redisHost: 'r-uf678e1e6a9deeb4.redis.rds.aliyuncs.com',
     redisPassword: 'Aa311512',
 };
