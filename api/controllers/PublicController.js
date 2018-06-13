@@ -159,6 +159,7 @@ module.exports = {
 			 durationDay: request.body.durationDay,
 			 newPreferentialIn: request.body.newPreferentialIn,
 			 paymentFlag: request.body.paymentFlag,
+			 liveTime: request.body.liveTime,
 		 });
 		 // console.log(GlobalVal.apiHost);
 		 GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/getRanking', data);
