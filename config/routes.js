@@ -239,6 +239,8 @@ module.exports.routes = {
   '/awardAddress': 'PublicController.awardAddress',
   //获取活动期间前几名投资人
   '/getRankingTop': 'PublicController.getRankingTop',
+  //获取活动期间前几名投资人（新）
+  '/getRankingTop2': 'PublicController.getRankingTop2',
   // 兑奖V2接口 自定义兑奖接口 可整合现金券， 自定义红包、现金券、加息券金额 ， 自定义红包、加息券过期时间
   '/exchangeAwardV2': 'PublicController.exchangeAwardV2',
   // 兑奖V3接口 自定义兑奖接口 可整合现金券， 自定义红包、现金券、加息券金额 ， 自定义红包、加息券过期时间
