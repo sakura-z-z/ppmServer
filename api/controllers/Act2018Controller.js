@@ -292,4 +292,21 @@ module.exports = {
 		 });
 			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/worldCupActivity2018QueryByMatchId',data);
 	},
+	// 六月末奖励发放接口
+	finalJune2018SendCoupon: function(request, response, callback) {
+		 var data = querystring.stringify({
+			 minAmount: request.body.minAmount,
+			 index: request.body.index,
+			 keyName: request.body.keyName,
+			 token: GlobalMethods.tokenDes(request.body.token)
+		 });
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/finalJune2018SendCoupon',data);
+	},
+	// 新邀友活动
+	getInviteInfo: function(request, response, callback) {
+		 var data = querystring.stringify({
+			 mobile: request.body.mobile,
+		 });
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/getInviteInfo',data);
+	},
 };

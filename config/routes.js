@@ -445,8 +445,16 @@ module.exports.routes = {
     '/worldCupActivity2018CountryList':'Act2018Controller.worldCupActivity2018CountryList',
     // 管理员-根据Id查询比赛
     '/worldCupActivity2018QueryByMatchId':'Act2018Controller.worldCupActivity2018QueryByMatchId',
+  //***************************************************************************
+  // 六月末活动（奖励发放接口）
+  '/finalJune2018SendCoupon':'Act2018Controller.finalJune2018SendCoupon',
+
+  // 新邀友活动
+  '/getInviteInfo':'Act2018Controller.getInviteInfo',
   /***************************************************************************
-  *                                                                          *
+
+  *
+                                                                       *
   * 公共方法                                                                   *
   *                                                                          *
   ***************************************************************************/
