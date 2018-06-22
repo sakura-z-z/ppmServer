@@ -249,6 +249,8 @@ module.exports.routes = {
   '/lotteryAllAward': 'PublicController.lotteryAllAward',
   // 通过KeyName获取用户当前活动的投资接口
   '/getInvDetailByKeyName': 'PublicController.getInvDetailByKeyName',
+  // 通过KeyName获取当前活动的主要信息 ( award==1的时候获取奖品数据,否则不获取奖品数据 )
+  '/getActivityDate': 'PublicController.getActivityDate',
   /***************************************************************************
   *                                                                          *
   * 用户风险评估                                                               *

@@ -226,4 +226,12 @@ module.exports = {
 	   });
 		  GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/getInvDetailByKeyName',data);
 	 },
+	 // 通过KeyName获取当前活动的主要信息 ( award==1的时候获取奖品数据,否则不获取奖品数据  isTime: 1活动未开始  2活动中  3活动已结束)
+	 getActivityDate:function(request, response, callback) {
+	   var data = querystring.stringify({
+			keyName: request.body.keyName,
+			award: request.body.award
+	   });
+		 GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/getActivityDate',data);
+	 },
 };
