@@ -293,15 +293,5 @@ module.exports = {
 	 		scheduleId: request.body.scheduleId
 		 });
 			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/worldCupActivity2018QueryByMatchId',data);
-	},
-	//6月月末活动发券接口
-	finalJune2018SendCoupon: function(request, response, callback) {
-		 var data = querystring.stringify({
-	 		token: GlobalMethods.tokenDes(request.body.token),
-	 		minAmount: request.body.minAmount,
-	 		index: request.body.index,
-	 		keyName: request.body.keyName
-		 });
-			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/finalJune2018SendCoupon',data);
-	},
+	}
 };

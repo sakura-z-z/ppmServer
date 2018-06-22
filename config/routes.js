@@ -443,12 +443,6 @@ module.exports.routes = {
     '/worldCupActivity2018CountryList':'Act2018Controller.worldCupActivity2018CountryList',
     // 管理员-根据Id查询比赛
     '/worldCupActivity2018QueryByMatchId':'Act2018Controller.worldCupActivity2018QueryByMatchId',
-  /***************************************************************************
-  *                                                                          *
-  * 6月月末活动发券接口                                                         *
-  *                                                                          *
-  ***************************************************************************/
-  '/finalJune2018SendCoupon':'Act2018Controller.finalJune2018SendCoupon',
 
 
 
