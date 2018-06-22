@@ -140,7 +140,8 @@ module.exports = {
 	//短标活动 （月月加薪不停歇 5月23日0:00:00-5月31日23:59:59） 短标展示接口
 	shortLabelCustom2018Info: function(request, response, callback) {
 		 var data = querystring.stringify({
-			 token: GlobalMethods.tokenDes(request.body.token)
+			 token: GlobalMethods.tokenDes(request.body.token),
+			 keyName: request.body.keyName
 		 });
 			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/shortLabelCustom2018Info',data);
 	},
@@ -148,7 +149,8 @@ module.exports = {
 	shortLabelCustom2018Send: function(request, response, callback) {
 		 var data = querystring.stringify({
 			 amount: request.body.amount,
-			 token: GlobalMethods.tokenDes(request.body.token)
+			 token: GlobalMethods.tokenDes(request.body.token),
+			 keyName: request.body.keyName
 		 });
 			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/shortLabelCustom2018Send',data);
 	},
@@ -291,5 +293,15 @@ module.exports = {
 	 		scheduleId: request.body.scheduleId
 		 });
 			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/worldCupActivity2018QueryByMatchId',data);
+	},
+	//6月月末活动发券接口
+	finalJune2018SendCoupon: function(request, response, callback) {
+		 var data = querystring.stringify({
+	 		token: GlobalMethods.tokenDes(request.body.token),
+	 		minAmount: request.body.minAmount,
+	 		index: request.body.index,
+	 		keyName: request.body.keyName
+		 });
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/finalJune2018SendCoupon',data);
 	},
 };

@@ -445,6 +445,16 @@ module.exports.routes = {
     '/worldCupActivity2018QueryByMatchId':'Act2018Controller.worldCupActivity2018QueryByMatchId',
   /***************************************************************************
   *                                                                          *
+  * 6月月末活动发券接口                                                         *
+  *                                                                          *
+  ***************************************************************************/
+  '/finalJune2018SendCoupon':'Act2018Controller.finalJune2018SendCoupon',
+
+
+
+
+  /***************************************************************************
+  *                                                                          *
   * 公共方法                                                                   *
   *                                                                          *
   ***************************************************************************/
@@ -648,6 +658,8 @@ module.exports.routes = {
     ***************************************************************************/
     '/getInviteList': 'ActController.getInviteList',
     '/getInviteInfo': 'ActController.getInviteInfo',
+    '/getInviteList2': 'ActController.getInviteList2',
+    '/getInviteInfo2': 'ActController.getInviteInfo2',
 
 
     /***************************************************************************
