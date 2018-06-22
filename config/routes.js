@@ -658,6 +658,8 @@ module.exports.routes = {
     ***************************************************************************/
     '/getInviteList': 'ActController.getInviteList',
     '/getInviteInfo': 'ActController.getInviteInfo',
+    '/getInviteList2': 'ActController.getInviteList2',
+    '/getInviteInfo2': 'ActController.getInviteInfo2',
 
 
     /***************************************************************************
