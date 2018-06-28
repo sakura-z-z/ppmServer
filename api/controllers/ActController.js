@@ -240,9 +240,14 @@ module.exports = {
             response.send(responseDesNormal(resp));
           }else {
             if (typeof resp.resText == 'string') {
-              result = JSON.parse(resp.resText).result;
+              resText = JSON.parse(resp.resText)
             } else {
-              result = resp.resText.result;
+              resText = resp.resText;
+            }
+            if(resText.code != 0){
+              response.send(responseDesNormal(resp));
+            }else {
+              result = resText.result;
             }
             let arr = [];
             let recordarr = [];
