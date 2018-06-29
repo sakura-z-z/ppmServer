@@ -260,6 +260,7 @@ module.exports.routes = {
   '/userType':'DBController.userType',
   '/updateUserType': 'DBController.updateUserType',
   '/UserInfo': 'DBController.UserInfo',
+  '/companyUserInfo': 'DBController.companyUserInfo',
 
 
   /***************************************************************************
