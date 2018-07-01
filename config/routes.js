@@ -239,6 +239,8 @@ module.exports.routes = {
   '/awardAddress': 'PublicController.awardAddress',
   //获取活动期间前几名投资人
   '/getRankingTop': 'PublicController.getRankingTop',
+  //获取活动期间前几名投资人（新）
+  '/getRankingTop2': 'PublicController.getRankingTop2',
   // 兑奖V2接口 自定义兑奖接口 可整合现金券， 自定义红包、现金券、加息券金额 ， 自定义红包、加息券过期时间
   '/exchangeAwardV2': 'PublicController.exchangeAwardV2',
   // 兑奖V3接口 自定义兑奖接口 可整合现金券， 自定义红包、现金券、加息券金额 ， 自定义红包、加息券过期时间
@@ -247,6 +249,8 @@ module.exports.routes = {
   '/lotteryAllAward': 'PublicController.lotteryAllAward',
   // 通过KeyName获取用户当前活动的投资接口
   '/getInvDetailByKeyName': 'PublicController.getInvDetailByKeyName',
+  // 通过KeyName获取当前活动的主要信息 ( award==1的时候获取奖品数据,否则不获取奖品数据 )
+  '/getActivityDate': 'PublicController.getActivityDate',
   /***************************************************************************
   *                                                                          *
   * 用户风险评估                                                               *
@@ -256,6 +260,7 @@ module.exports.routes = {
   '/userType':'DBController.userType',
   '/updateUserType': 'DBController.updateUserType',
   '/UserInfo': 'DBController.UserInfo',
+  '/companyUserInfo': 'DBController.companyUserInfo',
 
 
   /***************************************************************************
@@ -413,7 +418,46 @@ module.exports.routes = {
     '/juneVipActivity2018':'Act2018Controller.juneVipActivity2018',
     '/awardAddress':'Act2018Controller.awardAddress',
   /***************************************************************************
-  *                                                                          *
+    *                                                                         *
+    * 球迷狂欢季( 6月13日0:00:00-7月14日23:59:59)                                *
+    *                                                                         *
+    ***************************************************************************/
+    // 发送弹幕
+    '/worldCupActivity2018SendComment':'Act2018Controller.worldCupActivity2018SendComment',
+    // 弹幕列表
+    '/worldCupActivity2018CommentList':'Act2018Controller.worldCupActivity2018CommentList',
+    // 世界杯-赛程展示接口
+    '/worldCupActivity2018Info':'Act2018Controller.worldCupActivity2018Info',
+    // 世界杯-赔率 / 预计奖励接口
+    '/worldCupActivity2018Detail':'Act2018Controller.worldCupActivity2018Detail',
+    // 世界杯-首投/加注接口
+    '/worldCupActivity2018Betting':'Act2018Controller.worldCupActivity2018Betting',
+    // 世界杯-投注列表
+    '/worldCupActivity2018List':'Act2018Controller.worldCupActivity2018List',
+    // 世界杯-猜中比赛数量
+  	'/worldCupActivity2018CountWin':'Act2018Controller.worldCupActivity2018CountWin',
+    // 管理员-赛程列表接口
+    '/worldCupActivity2018ScheduleList':'Act2018Controller.worldCupActivity2018ScheduleList',
+    // 管理员-添加比赛接口
+    '/worldCupActivity2018InsertMatch':'Act2018Controller.worldCupActivity2018InsertMatch',
+    // 管理员-修改比赛接口
+    '/worldCupActivity2018EndOfMatch':'Act2018Controller.worldCupActivity2018EndOfMatch',
+    // 管理员-比赛奖励结算
+    '/worldCupActivity2018Settlement':'Act2018Controller.worldCupActivity2018Settlement',
+    // 管理员-国家列表
+    '/worldCupActivity2018CountryList':'Act2018Controller.worldCupActivity2018CountryList',
+    // 管理员-根据Id查询比赛
+    '/worldCupActivity2018QueryByMatchId':'Act2018Controller.worldCupActivity2018QueryByMatchId',
+  //***************************************************************************
+  // 六月末活动（奖励发放接口）
+  '/finalJune2018SendCoupon':'Act2018Controller.finalJune2018SendCoupon',
+
+  // 新邀友活动
+  '/getInviteInfo':'Act2018Controller.getInviteInfo',
+  /***************************************************************************
+
+  *
+                                                                       *
   * 公共方法                                                                   *
   *                                                                          *
   ***************************************************************************/
@@ -627,6 +671,8 @@ module.exports.routes = {
     ***************************************************************************/
     '/getInviteList': 'ActController.getInviteList',
     '/getInviteInfo': 'ActController.getInviteInfo',
+    '/getInviteList2': 'ActController.getInviteList2',
+    '/getInviteInfo2': 'ActController.getInviteInfo2',
 
 
     /***************************************************************************

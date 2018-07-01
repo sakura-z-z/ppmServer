@@ -158,11 +158,31 @@ module.exports = {
 			 top: request.body.top,
 			 durationDay: request.body.durationDay,
 			 newPreferentialIn: request.body.newPreferentialIn,
-			 paymentFlag: request.body.paymentFlag,
+			 paymentFlag: request.body.paymentFlag
 		 });
 		 // console.log(GlobalVal.apiHost);
 		 GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/getRanking', data);
 	 },
+	 //获取活动期间前几名投资人(新)
+	getRankingTop2: function(request, response, callback) {
+		var token0='';
+		if(request.body.token==''){
+		 token0='';
+	 }else {
+		 token0=GlobalMethods.tokenDes(request.body.token);
+	 }
+		var data = querystring.stringify({
+			token: token0,
+			keyName: request.body.keyName,
+			top: request.body.top,
+			durationDay: request.body.durationDay,
+			newPreferentialIn: request.body.newPreferentialIn,
+			paymentFlag: request.body.paymentFlag,
+			liveTime: request.body.liveTime
+		});
+		// console.log(GlobalVal.apiHost);
+		GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/getRankingV2', data);
+	},
 	 // 兑奖V2接口 自定义兑奖接口 可整合现金券， 自定义红包、现金券、加息券金额 ， 自定义红包、加息券过期时间
 	 exchangeAwardV2:function(request, response, callback) {
 	   var data = querystring.stringify({
@@ -205,5 +225,13 @@ module.exports = {
 			amount: request.body.amount
 	   });
 		  GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/getInvDetailByKeyName',data);
+	 },
+	 // 通过KeyName获取当前活动的主要信息 ( award==1的时候获取奖品数据,否则不获取奖品数据  isTime: 1活动未开始  2活动中  3活动已结束)
+	 getActivityDate:function(request, response, callback) {
+	   var data = querystring.stringify({
+			keyName: request.body.keyName,
+			award: request.body.award
+	   });
+		 GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/getActivityDate',data);
 	 },
 };

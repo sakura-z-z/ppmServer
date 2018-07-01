@@ -35,17 +35,27 @@ module.exports = {
 
 	},
 	updateUserType: function(request, response, callback) {
-	  let data = ''
+	  let data = '';
+	  let username0 = '';
+	  let username1 = '';
+    username0 = request.body.username;
+    if(username0==null||username0==''&&username0==undefined){
+      username1 = '';
+    }else {
+      username1 = username0;
+    }
 	  if (request.body.versionName != null) {
 		data = querystring.stringify({
 		  risk: request.body.risk,
 		  versionName: request.body.versionName,
-		  token: GlobalMethods.tokenDes(request.body.token)
+		  token: GlobalMethods.tokenDes(request.body.token),
+		  username: username1
 		});
 	  } else {
-		data = querystring.stringify({
+	    data = querystring.stringify({
 		  risk: request.body.risk,
-		  token: GlobalMethods.tokenDes(request.body.token)
+		  token: GlobalMethods.tokenDes(request.body.token),
+		  username: username1
 		});
 	  }
 	  var options = {
@@ -86,6 +96,7 @@ module.exports = {
 	  req.write(data);
 	  req.end();
 	},
+  // 获取普通用户风险评估等级接口
 	UserInfo: function(request, response, callback) {
 	  let data = ''
 	  if (request.body.versionName != null) {
@@ -168,5 +179,12 @@ module.exports = {
 	  });
 	  req.write(data);
 	  req.end();
+	},
+  // 获取融资方风险评估等级接口
+  companyUserInfo: function(request, response, callback) {
+		 var data = querystring.stringify({
+			 token: GlobalMethods.tokenDes(request.body.token)
+		 });
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/companyUserInfo.json',data);
 	},
 };

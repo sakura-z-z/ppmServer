@@ -107,7 +107,6 @@ module.exports = {
     let body = '';
     console.log(data);
     var req = http.request(options, (res) => {
-      console.log(2);
       res.setEncoding('utf8');
       res.on('data', (chunk) => {
         body += chunk;
