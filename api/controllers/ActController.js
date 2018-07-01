@@ -153,13 +153,13 @@ module.exports = {
     var data = querystring.stringify({
       mobile: request.body.mobile
     });
-    GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-coin/inviteFriendInfo',data);
+    GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/inviteFriendInfo',data);
   },
   getInviteList2: function(request, response, callback) {
     var data = querystring.stringify({
       mobile: request.body.mobile
     });
-    GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-coin/inviteFriendList',data);
+    GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/inviteFriendList',data);
   }
   // getInviteInfo2: function(request, response, callback) {
   //   if (request.body.mobile != undefined) {
