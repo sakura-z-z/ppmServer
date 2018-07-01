@@ -239,12 +239,33 @@
         GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/logout.json',data);
     },
         //上传头像
-    uploadAvatar: function(request, response, callback) {
+    // uploadAvatar: function(request, response, callback) {
+    //    var data = querystring.stringify({
+    //      token: request.body.token,
+    //      file: request.body.file
+    //    });
+    //    GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/uploadAvatar.json',data);
+    // },
+    // 微信的上传头像
+    wechatUploadAvatar: function(request, response, callback) {
        var data = querystring.stringify({
          token: request.body.token,
-         file: request.body.file
+         versionName: request.body.versionName,
+         picEnc: request.body.picEnc
        });
-        GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/uploadAvatar.json',data);
+       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/uploadAvatarByBase4.json',data);
+    },
+    // 微信的吐槽我们图片上传
+    reportSuggest: function(request, response, callback) {
+       var data = querystring.stringify({
+         token: request.body.token,
+         versionName: request.body.versionName,
+         deviceType: request.body.deviceType,
+         content: request.body.content,
+         contactWay: request.body.contactWay,
+         file:request.body.file
+       });
+       GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/user/reportSuggest.json',data);
     },
     //common
     // getAppConstant: function(request, response, callback) {

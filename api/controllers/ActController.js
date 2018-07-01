@@ -10,6 +10,7 @@ var querystring = require('querystring');
 var Moment = require('moment');
 module.exports = {
   getInviteInfo: function(request, response, callback) {
+    console.log(1);
     if (request.body.mobile != undefined) {
       var data = querystring.stringify({
         mobile: request.body.mobile
@@ -19,10 +20,10 @@ module.exports = {
     }
 
     var options = {
-      //   hostname: '114.55.85.42',
-      //   port: 10504,
-      hostname: 'server.ppmiao.com',
-      path: '/stone-rest/payment/activity/inviteFriend/getInviteList.htm',
+        hostname: '114.55.85.42',
+        port: 10504,
+      // hostname: 'server.ppmiao.com',
+      path: '/ppmiao-rest/payment/activity/inviteFriend/getInviteInfo.htm',
       method: 'POST',
       agent: false,
       headers: {
@@ -71,10 +72,10 @@ module.exports = {
     }
 
     var options = {
-      //   hostname: '114.55.85.42',
-      //   port: 10504,
-      hostname: 'server.ppmiao.com',
-      path: '/stone-rest/payment/activity/inviteFriend/getInviteList.htm',
+        hostname: '114.55.85.42',
+        port: 10504,
+      // hostname: 'server.ppmiao.com',
+      path: '/ppmiao-rest/payment/activity/inviteFriend/getInviteList.htm',
       method: 'POST',
       agent: false,
       headers: {

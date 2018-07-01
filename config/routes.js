@@ -547,7 +547,11 @@ module.exports.routes = {
         // 退出登录
     '/logout': 'WechatUserController.logout',
         // 上传头像
-    '/uploadAvatar': 'WechatUserController.uploadAvatar',
+    // '/uploadAvatar': 'WechatUserController.uploadAvatar',
+        // 微信上传头像
+    '/wechatUploadAvatar': 'WechatUserController.wechatUploadAvatar',
+        // 微信的吐槽我们图片上传
+    '/reportSuggest': 'WechatUserController.reportSuggest',
         // common
     // '/getAppConstant': 'WechatUserController.getAppConstant',
         // 眼睛
@@ -605,6 +609,12 @@ module.exports.routes = {
     '/setPrivilege': 'PrivilegeController.setPrivilegeInfo',
     '/getPrivilegeRecord': 'PrivilegeController.getPrivilegeRecord',
     '/getGrowUp': 'PrivilegeController.getGrowUp',
+    // 积分商城接口
+    '/getStoreHomePageBean': 'ShopController.getStoreHomePageBean',
+    '/getStoreList': 'ShopController.getStoreList',
+    '/getStoreFrontList': 'ShopController.getStoreFrontList',
+    '/getCommodityInfo': 'ShopController.getCommodityInfo',
+    '/exchangeCommodity': 'ShopController.exchangeCommodity',
     '/getShopInfo': 'ShopController.getShopInfo',
     '/setShopInfo': 'ShopController.setShopInfo',
     '/getShopRecord': 'ShopController.getShopRecord',

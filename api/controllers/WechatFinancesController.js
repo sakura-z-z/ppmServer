@@ -9,7 +9,8 @@
    queryInProgressProjectV8: function(request, response, callback) {
      var data = querystring.stringify({
        versionName: request.body.versionName,
-       zone: request.body.zone
+       zone: request.body.zone,
+       token: request.body.token
      });
     GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/project/queryInProgressProjectV8.json',data);
    },
@@ -18,6 +19,7 @@
      var data = querystring.stringify({
        versionName: request.body.versionName,
        pageNo: request.body.pageNo,
+       pageSize: request.body.pageSize,
        status: request.body.status,
        zone: request.body.zone
      });
@@ -35,7 +37,8 @@
   detailV3: function(request, response, callback) {
     var data = querystring.stringify({
       versionName: request.body.versionName,
-      id: request.body.id
+      id: request.body.id,
+      token: request.body.token
     });
    GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/project/detailV3.json',data);
   },
