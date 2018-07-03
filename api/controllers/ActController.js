@@ -160,61 +160,7 @@ module.exports = {
       mobile: request.body.mobile
     });
     GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/inviteFriendList',data);
-  },
-  getInviteInfo3: function(request, response, callback) {
-    if (request.body.mobile != undefined) {
-      var data = querystring.stringify({
-        mobile: request.body.mobile
-      });
-    } else {
-      var data = querystring.stringify({});
-    }
-
-    var options = {
-      host: GlobalVal.apiHost,
-      path: '/ppmiao-award/inviteFriendInfo',
-      method: 'POST',
-      agent: false,
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Content-Length': data.length,
-      }
-    };
-    let body = '';
-    var req = http.request(options, (res) => {
-      var responseTimer = setTimeout(function() {
-        res.destroy();
-        debug('......Response Timeout......');
-      }, 5000);
-      res.setEncoding('utf8');
-      res.on('data', (chunk) => {
-        body += chunk;
-      }).on('end', (chunk) => {
-        clearTimeout(responseTimer);
-        if (res.statusCode == 200) {
-            console.log(body);
-          let resp = JSON.parse(body); 
-          if (resp.isEnc == 'Y') {
-            response.send(responseDesNormal(resp));
-          } else {
-            if (typeof resp.resText == 'string') {
-              response.send(JSON.parse(resp.resText));
-            } else {
-              response.send(resp.resText);
-            }
-          }
-        }
-      });
-    });
-    req.on('error', function(e) {
-      if (callback) {
-        callback(e, null);
-      }
-      console.log('problem with request: ' + e.message);
-    });
-    req.write(data);
-    req.end();
-  },
+  }
   // getInviteList2: function(request, response, callback) {
   //   if (request.body.mobile != undefined) {
   //     var data = querystring.stringify({

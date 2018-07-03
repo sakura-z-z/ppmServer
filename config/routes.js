@@ -673,7 +673,6 @@ module.exports.routes = {
     '/getInviteInfo': 'ActController.getInviteInfo',
     '/getInviteList2': 'ActController.getInviteList2',
     '/getInviteInfo2': 'ActController.getInviteInfo2',
-    '/getInviteInfo3': 'ActController.getInviteInfo3',
 
 
     /***************************************************************************
