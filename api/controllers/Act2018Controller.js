@@ -311,4 +311,13 @@ module.exports = {
 		 });
 			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/getInviteInfo',data);
 	},
+	//玩转世界杯
+	worldCupWinner2018Guess: function(request, response, callback) {
+		 var data = querystring.stringify({
+			  teamId: request.body.teamId,
+				keyName: request.body.keyName,
+				token: GlobalMethods.tokenDes(request.body.token)
+		 });
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/worldCupWinner2018Guess',data);
+	}
 };

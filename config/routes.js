@@ -454,6 +454,8 @@ module.exports.routes = {
 
   // 新邀友活动
   '/getInviteInfo':'Act2018Controller.getInviteInfo',
+  // 玩转世界杯
+  '/worldCupWinner2018Guess':'Act2018Controller.worldCupWinner2018Guess',
   /***************************************************************************
 
   *
