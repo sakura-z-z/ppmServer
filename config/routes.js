@@ -656,6 +656,7 @@ module.exports.routes = {
     // 积分商城接口
     '/getStoreHomePageBean': 'ShopController.getStoreHomePageBean',
     '/getStoreList': 'ShopController.getStoreList',
+    '/saveUserAddress': 'ShopController.saveUserAddress',
     '/getStoreFrontList': 'ShopController.getStoreFrontList',
     '/getCommodityInfo': 'ShopController.getCommodityInfo',
     '/exchangeCommodity': 'ShopController.exchangeCommodity',

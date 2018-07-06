@@ -22,6 +22,20 @@ module.exports = {
     });
     GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-coin/store/getStoreList', data);
   },
+  // 积分商场 实物兑换的地址保存
+  saveUserAddress: function(request, response, callback) {
+    var data = querystring.stringify({
+      token: GlobalMethods.tokenDes(request.body.token),
+      province: request.body.province,
+      name: request.body.name,
+      mobile: request.body.mobile,
+      city: request.body.city,
+      area: request.body.area,
+      address: request.body.address,
+      remarks: request.body.remarks
+    });
+    GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-coin/store/saveUserAddress', data);
+  },
   // 会员中心 兑换好礼接口
   getStoreFrontList: function(request, response, callback) {
     var data = querystring.stringify({
