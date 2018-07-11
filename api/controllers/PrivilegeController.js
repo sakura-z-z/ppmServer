@@ -7,7 +7,12 @@
 var querystring = require('querystring');
 module.exports = {
   getPrivilegeInfo: function(request, response, callback) {
-    GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-coin/getUserMonthlyGift');
+    let data = '';
+    data = querystring.stringify({
+      token: GlobalMethods.tokenDes(request.body.token),
+      versionName: request.body.versionName
+    });
+    GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-coin/getUserMonthlyGift',data);
   },
   setPrivilegeInfo: function(request, response, callback) {
     let data = ''
@@ -28,7 +33,12 @@ module.exports = {
     GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-coin/claimUserMonthlyGift', data);
   },
   getPrivilegeRecord: function(request, response, callback) {
-    GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-coin/getUserMonthlyClaimLog');
+    let data = '';
+    data = querystring.stringify({
+      token: GlobalMethods.tokenDes(request.body.token),
+      versionName: request.body.versionName
+    });
+    GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-coin/getUserMonthlyClaimLog',data);
   },
   getGrowUp: function(request, response, callback) {
     let data = ''
