@@ -319,5 +319,23 @@ module.exports = {
 				token: GlobalMethods.tokenDes(request.body.token)
 		 });
 			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/worldCupWinner2018Guess',data);
-	}
+	},
+	// 夺宝赢壕礼 当日展示 活动接口
+	DBYHL2018: function(request, response, callback) {
+		 var data = querystring.stringify({
+			 amount: request.body.amount,
+			 token: GlobalMethods.tokenDes(request.body.token)
+	 		});
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/DBYHL2018',data);
+	},
+	// 夺宝赢壕礼 获奖名单 接口
+	DBYHLWiner2018: function(request, response, callback) {
+		 var data = querystring.stringify({});
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/DBYHLWiner2018',data);
+	},
+	// 喵粉节 夺宝赢壕礼 当日排行榜接口
+	DBYHLRank2018: function(request, response, callback) {
+		 var data = querystring.stringify({});
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/DBYHLRank2018',data);
+	},
 };

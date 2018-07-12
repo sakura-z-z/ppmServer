@@ -251,6 +251,9 @@ module.exports.routes = {
   '/getInvDetailByKeyName': 'PublicController.getInvDetailByKeyName',
   // 通过KeyName获取当前活动的主要信息 ( award==1的时候获取奖品数据,否则不获取奖品数据 )
   '/getActivityDate': 'PublicController.getActivityDate',
+
+ // 查询投资记录及 区分某些期限 返现奖励
+  '/getInvDetailByKeyNameV2': 'PublicController.getInvDetailByKeyNameV2',
   /***************************************************************************
   *                                                                          *
   * 用户风险评估                                                               *
@@ -456,6 +459,12 @@ module.exports.routes = {
   '/getInviteInfo':'Act2018Controller.getInviteInfo',
   // 玩转世界杯
   '/worldCupWinner2018Guess':'Act2018Controller.worldCupWinner2018Guess',
+	// 夺宝赢壕礼 当日展示 活动接口
+  '/DBYHL2018':'Act2018Controller.DBYHL2018',
+	// 夺宝赢壕礼 获奖名单 接口
+  '/DBYHLWiner2018':'Act2018Controller.DBYHLWiner2018',
+	// 喵粉节 夺宝赢壕礼 当日排行榜接口
+  '/DBYHLRank2018':'Act2018Controller.DBYHLRank2018',
   /***************************************************************************
 
   *

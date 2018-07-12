@@ -234,4 +234,18 @@ module.exports = {
 	   });
 		 GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/getActivityDate',data);
 	 },
+ 	// 查询投资记录及 区分某些期限 返现奖励
+ 	getInvDetailByKeyNameV2: function(request, response, callback) {
+ 		 var data = querystring.stringify({
+ 			 token: GlobalMethods.tokenDes(request.body.token),
+ 			 keyName: request.body.keyName,
+ 			 newPreferential: request.body.newPreferential,
+ 			 minduration1: request.body.minduration1,
+ 			 maxduration1: request.body.maxduration1,
+ 			 minduration2: request.body.minduration2,
+ 			 amount1: request.body.amount1,
+ 			 amount2: request.body.amount2
+ 	 		});
+ 			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/getInvDetailByKeyNameV2',data);
+ 	}
 };
