@@ -465,6 +465,13 @@ module.exports.routes = {
   '/DBYHLWiner2018':'Act2018Controller.DBYHLWiner2018',
 	// 喵粉节 夺宝赢壕礼 当日排行榜接口
   '/DBYHLRank2018':'Act2018Controller.DBYHLRank2018',
+  // 7月会员活动抽奖接口
+  // 展示接口
+  '/julyVip2018Info':'Act2018Controller.julyVip2018Info',
+  // 秒杀接口
+  '/julyVip2018SecondKill':'Act2018Controller.julyVip2018SecondKill',
+  // 抽奖接口
+  '/julyVip2018Lottery':'Act2018Controller.julyVip2018Lottery',
   /***************************************************************************
 
   *
