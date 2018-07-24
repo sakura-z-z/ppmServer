@@ -648,6 +648,7 @@ module.exports.routes = {
     ***************************************************************************/
     '/home': 'InfoController.getHomeInfo',
     '/integral':'InfoController.getIntegral',
+    '/getUserMissionLogV2':'InfoController.getUserMissionLogV2',
     '/integralMession':'InfoController.getIntegralMession',
     '/Privilege': 'PrivilegeController.getPrivilegeInfo',
     '/setPrivilege': 'PrivilegeController.setPrivilegeInfo',
