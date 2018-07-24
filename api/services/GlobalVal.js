@@ -7,8 +7,8 @@ if (sails.config.environment === 'development') {
     var apiPort2 = '8083';
 }
 if (sails.config.environment === 'production') {
-    var apiHost='api.prepare.ppmiao.cn';
-    // var apiHost='api.ppmiao.cn';
+    // var apiHost='api.prepare.ppmiao.cn';
+    var apiHost='api.ppmiao.cn';
     var apiHostPHP='api.ppmiao.net';
     var apiHostCallback='callback.ppmiao.com';
     var apiHostWechat='webchat2.test.ppmiao.com';
