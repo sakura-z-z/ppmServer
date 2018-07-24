@@ -311,4 +311,56 @@ module.exports = {
 		 });
 			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/getInviteInfo',data);
 	},
+	//玩转世界杯
+	worldCupWinner2018Guess: function(request, response, callback) {
+		 var data = querystring.stringify({
+			  teamId: request.body.teamId,
+				keyName: request.body.keyName,
+				token: GlobalMethods.tokenDes(request.body.token)
+		 });
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/worldCupWinner2018Guess',data);
+	},
+	// 夺宝赢壕礼 当日展示 活动接口
+	DBYHL2018: function(request, response, callback) {
+		 var data = querystring.stringify({
+			 amount: request.body.amount,
+			 token: GlobalMethods.tokenDes(request.body.token)
+	 		});
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/DBYHL2018',data);
+	},
+	// 夺宝赢壕礼 获奖名单 接口
+	DBYHLWiner2018: function(request, response, callback) {
+		 var data = querystring.stringify({});
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/DBYHLWiner2018',data);
+	},
+	// 喵粉节 夺宝赢壕礼 当日排行榜接口
+	DBYHLRank2018: function(request, response, callback) {
+		 var data = querystring.stringify({});
+			GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/DBYHLRank2018',data);
+	},
+	// 7月会员活动抽奖接口
+	// 展示接口
+	julyVip2018Info:function(request, response, callback){
+		var data = querystring.stringify({
+			token: GlobalMethods.tokenDes(request.body.token),
+			keyName: request.body.keyName
+		});
+		 GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/julyVip2018Info',data);
+	 },
+	// 秒杀接口
+	julyVip2018SecondKill:function(request, response, callback){
+		var data = querystring.stringify({
+			token: GlobalMethods.tokenDes(request.body.token),
+			keyName: request.body.keyName
+		});
+		 GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/julyVip2018SecondKill',data);
+	 },
+	// 抽奖接口
+	julyVip2018Lottery:function(request, response, callback){
+		var data = querystring.stringify({
+			token: GlobalMethods.tokenDes(request.body.token),
+			keyName: request.body.keyName
+		});
+		 GlobalMethods.httpPost(request, response, callback, GlobalVal.apiHost, '/ppmiao-award/julyVip2018Lottery',data);
+	 }
 };
